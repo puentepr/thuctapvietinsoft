@@ -75,12 +75,6 @@
       <DependentUpon>DataDaigram.dbml</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HPA.Component.Framework.Base\HPA.Component.Framework.Base.csproj">
-      <Project>{8dceeabd-18d6-46f3-9ea1-1ccb84b8fe9b}</Project>
-      <Name>HPA.Component.Framework.Base</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
