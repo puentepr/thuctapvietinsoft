@@ -110,6 +110,10 @@
       <Project>{79c1177e-083d-4a9c-a563-73c1741396b9}</Project>
       <Name>HPA.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HPA.Security\HPA.Security.csproj">
+      <Project>{d3a60864-36b6-48b9-a430-4bd89d972643}</Project>
+      <Name>HPA.Security</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HPA.Setting\HPA.Setting.csproj">
       <Project>{5dcdaebe-cfe8-4acb-b126-d627c4454049}</Project>
       <Name>HPA.Setting</Name>
