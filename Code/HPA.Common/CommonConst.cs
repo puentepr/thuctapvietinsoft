@@ -15,7 +15,7 @@ namespace HPA.Common
         public const string NO_RIGHT_TO_ACCESS = "NO_RIGHT_TO_ACCESS";
         public const string PARADISE_INI = "Paradise.ini";
         public const string LOGIN_FAILURE = "LOGIN_FAILURE";
-
+        public const string encryptkey = "acoi9a";
         
     }
 }
