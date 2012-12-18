@@ -38,25 +38,45 @@ namespace HPA.Common
         public static string ReadFile(string FILE_NAME)
         {
             string str = "";
-            FileStream buf = null;
+            //FileStream buf = null;
+            //try
+            //{
+            //    buf = new FileStream(String.Format("{0}\\{1}", HPA.Common.StaticVars.App_path, FILE_NAME), FileMode.Open);
+            //    int temp = buf.ReadByte();
+            //     while (temp != -1)
+            //    {
+            //        str += temp;
+            //        temp = buf.ReadByte();
+            //    }
+            //    // read successfully
+            //    buf.Close();
+            //    return str;
+            //}
+            //catch(IOException ioEx)
+            //{
+            //    buf.Close();
+            //    buf = null;
+            //    return string.Empty;
+            //}
             try
             {
-                buf = new FileStream(String.Format("{0}\\{1}", HPA.Common.StaticVars.App_path, FILE_NAME), FileMode.Open);
-                int temp = buf.ReadByte();
-                while (temp != -1)
+                using (StreamReader sr = new StreamReader(HPA.Common.StaticVars.App_path + FILE_NAME))
                 {
-                    str += temp;
-                    temp = buf.ReadByte();
+                    str = sr.ReadToEnd();
                 }
-                // read successfully
-                buf.Close();
                 return str;
             }
-            catch(IOException ioEx)
+            catch
             {
-                buf.Close();
-                buf = null;
                 return string.Empty;
+            }
+        }
+
+        public static void WriteFile(string str)
+        {
+            using (StreamWriter outfile = new StreamWriter(HPA.Common.StaticVars.App_path + HPA.Common.CommonConst.PARADISE_INI))
+            {
+                outfile.Write(str);
             }
         }
     }
