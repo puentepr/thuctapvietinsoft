@@ -26,7 +26,7 @@ namespace HPA
             }
             else
             {
-                HPA.Common.StaticVars.UserID = Loginid ;
+                HPA.Common.StaticVars.LoginID = Loginid ;
                 HPA.Common.StaticVars.UserName = txtName.Text;
                 this.Hide();
                 HPA_Main main = new HPA_Main();
