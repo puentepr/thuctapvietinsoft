@@ -49,6 +49,8 @@ namespace HPA
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
+            Control.ControlCollection ctrls = this.Controls;
+            HPA.Common.Methods.ChangeLanguage(ref ctrls);
             if (File.Exists((HPA.Properties.Settings.Default.BackGroundLogin))==true)
             {
                 this.BackgroundImage = System.Drawing.Image.FromFile(HPA.Properties.Settings.Default.BackGroundLogin);
