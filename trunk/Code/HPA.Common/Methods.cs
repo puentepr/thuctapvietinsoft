@@ -11,7 +11,7 @@ namespace HPA.Common
     {
         public static void ShowMessage(string MessID)
         {
-            System.Windows.Forms.MessageBox.Show(HPA.Common.CommonConst.CPN_STD_NAME, GetMessage(MessID));
+            System.Windows.Forms.MessageBox.Show( GetMessage(MessID),HPA.Common.CommonConst.CPN_STD_NAME);
         }
         public static void ShowMessage(string MessID,System.Windows.Forms.MessageBoxButtons MessageButtons,System.Windows.Forms.MessageBoxIcon MessageIcons)
         {
@@ -19,7 +19,7 @@ namespace HPA.Common
         }
         public static void ShowError(Exception ex)
         {
-            System.Windows.Forms.MessageBox.Show(HPA.Common.CommonConst.CPN_STD_NAME, ex.Message,System.Windows.Forms.MessageBoxButtons.OK,System.Windows.Forms.MessageBoxIcon.Error);
+            System.Windows.Forms.MessageBox.Show(ex.Message, HPA.Common.CommonConst.CPN_STD_NAME, System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             WriteFile(ex.ToString(), HPA.Common.CommonConst.ERROR_LOG_FILE);
         }
         public static void ChangeLanguage(ref System.Windows.Forms.Control.ControlCollection ctrs)
