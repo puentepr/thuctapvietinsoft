@@ -25,7 +25,7 @@ namespace HPA.Security
             }
             else
             { 
-                string pa = HPA.Common.en
+                string pa = HPA.Common
             }
         }
     }
