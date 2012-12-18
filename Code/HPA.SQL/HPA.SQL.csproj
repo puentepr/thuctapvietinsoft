@@ -53,6 +53,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="SP\Changepassword.cs" />
     <Compile Include="Sql.cs" />
     <Compile Include="SqlParamCache.cs" />
   </ItemGroup>

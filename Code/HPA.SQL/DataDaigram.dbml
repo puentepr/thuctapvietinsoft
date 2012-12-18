@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="phanmemtinhluon_P4" Class="DataDaigramDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=112.78.2.166,1455;Initial Catalog=phanmemtinhluon_P4;Persist Security Info=True;User ID=phanmemtinhluon_saP4" SettingsObjectName="HPA.SQL.Properties.Settings" SettingsPropertyName="phanmemtinhluon_P4ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblSC_Login" Member="tblSC_Logins">
+    <Type Name="tblSC_Login">
+      <Column Name="LoginID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LoginName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PassWord" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EmployeeID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AdminRight" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="LastChangedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DivisionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.SC_Login_CheckLogin" Method="SC_Login_CheckLogin">
     <Parameter Name="LoginName" Parameter="loginName" Type="System.String" DbType="VarChar(20)" />
     <Parameter Name="PassWord" Parameter="passWord" Type="System.String" DbType="VarChar(20)" />
