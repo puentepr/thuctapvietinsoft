@@ -42,5 +42,10 @@ namespace HPA
             if (!ab.IsDisposed)
                 ab.Show();
         }
+
+        private void HPA_Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
