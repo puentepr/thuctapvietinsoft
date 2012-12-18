@@ -47,5 +47,19 @@ namespace HPA
         {
             Application.Exit();
         }
+
+        private void HPA_Main_Load(object sender, EventArgs e)
+        {
+            FormLogin lg = new FormLogin();
+            lg.ShowDialog();
+            if (lg.ShowDialog() == DialogResult.OK)
+            {
+                statusStrip.Text = "Username" + HPA.Common.StaticVars.UserName;
+            }
+            else
+            {
+                Application.Exit();
+            }
+        }
     }
 }
