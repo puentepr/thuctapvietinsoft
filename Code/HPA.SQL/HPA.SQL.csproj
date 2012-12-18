@@ -45,8 +45,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataDaigram.dbml</DependentUpon>
     </Compile>
-    <Compile Include="EzSql.cs" />
-    <Compile Include="EzSqlException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -56,7 +54,6 @@
     <Compile Include="SP\Changepassword.cs" />
     <Compile Include="SP\Connect.cs" />
     <Compile Include="Sql.cs" />
-    <Compile Include="SqlParamCache.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
