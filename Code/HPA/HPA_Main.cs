@@ -61,5 +61,9 @@ namespace HPA
                 Application.Exit();
             }
         }
+        private void LoadMenu()
+        { 
+
+        }
     }
 }
