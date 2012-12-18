@@ -20,7 +20,91 @@ namespace HPA.Common
         public static void ShowError(Exception ex)
         {
             System.Windows.Forms.MessageBox.Show(HPA.Common.CommonConst.CPN_STD_NAME, ex.Message,System.Windows.Forms.MessageBoxButtons.OK,System.Windows.Forms.MessageBoxIcon.Error);
-            
+            WriteFile(ex.ToString(), HPA.Common.CommonConst.ERROR_LOG_FILE);
+        }
+        public static void ChangeLanguage(ref System.Windows.Forms.Control.ControlCollection ctrs)
+        {
+            const string LBL = "lbl";
+
+            foreach (System.Windows.Forms.Control ctr in ctrs)
+            {
+               
+                if (ctr is DevExpress.XtraGrid.GridControl)
+                {
+                    ((DevExpress.XtraGrid.GridControl)ctr).FormsUseDefaultLookAndFeel = false;
+                    ((DevExpress.XtraGrid.GridControl)ctr).LookAndFeel.UseDefaultLookAndFeel = false;
+                    ((DevExpress.XtraGrid.GridControl)ctr).LookAndFeel.SkinName = HPA.Common.CommonConst.SKIN_BLUE;
+                    DevExpress.XtraGrid.Views.Grid.GridView grv = (DevExpress.XtraGrid.Views.Grid.GridView)((DevExpress.XtraGrid.GridControl)ctr).MainView;
+                    grv.GroupPanelText = HPA.Common.Methods.GetMessage("GroupPanelText");
+                    foreach (DevExpress.XtraGrid.Columns.GridColumn grdCol in grv.Columns)
+                    {
+                        try
+                        {
+                           
+                            grdCol.Caption = HPA.Common.Methods.GetMessage(grdCol.Name);
+                        }
+
+                        catch
+                        {
+                            grdCol.Caption = String.Format("{0} {1}", grdCol.Name, HPA.Common.StaticVars.LanguageID);
+                        }
+                    }
+                    foreach (DevExpress.XtraEditors.Repository.RepositoryItem rpe in ((DevExpress.XtraGrid.GridControl)ctr).RepositoryItems)
+                    {
+                        if (rpe is DevExpress.XtraEditors.Repository.RepositoryItemDateEdit)
+                        {
+                            ((DevExpress.XtraEditors.Repository.RepositoryItemDateEdit)rpe).Mask.EditMask = HPA.Common.CommonConst.DATE_FORMAT_PATTEN;
+                            ((DevExpress.XtraEditors.Repository.RepositoryItemDateEdit)rpe).Mask.UseMaskAsDisplayFormat = true;
+                        }
+                    }
+                    continue;
+                }
+                // set color for datagridview control
+                if (ctr is System.Windows.Forms.DataGridView)
+                {
+                    ((System.Windows.Forms.DataGridView)ctr).AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+                    //regist common event
+                    ((System.Windows.Forms.DataGridView)ctr).RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(UIMessage_RowPostPaint);
+                    ((System.Windows.Forms.DataGridView)ctr).AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+                }
+
+                //else
+                //{
+                if ((ctr is System.Windows.Forms.Label) || (ctr is System.Windows.Forms.Button) || (ctr is System.Windows.Forms.CheckBox) || (ctr is System.Windows.Forms.RadioButton)
+                    || (ctr is DevExpress.XtraEditors.CheckEdit) || (ctr is System.Windows.Forms.GroupBox) || (ctr is DevExpress.XtraEditors.SimpleButton)
+                    || (ctr is System.Windows.Forms.GroupBox) || (ctr is DevExpress.XtraTab.XtraTabPage) || (ctr is System.Windows.Forms.TabPage)
+                    )
+                {
+                    try
+                    {
+                        if ((ctr is System.Windows.Forms.Label) && (!ctr.Name.Substring(0, 3).ToLower().Equals(LBL)))
+                            continue;
+                        if (!ctr.Text.Trim().Equals(string.Empty))
+                        {
+                            ctr.Text = HPA.Common.Methods.GetMessage(ctr.Name);
+                        }
+                    }
+                    catch
+                    {
+                        ctr.Text = String.Format("{0} {1}", ctr.Name, HPA.Common.StaticVars.LanguageID);
+                    }
+                }
+
+                if (ctr.Controls.Count > 0)
+                {
+                    System.Windows.Forms.Control.ControlCollection con = ctr.Controls;
+                    ChangeLanguage (ref con);
+                }
+                //}
+            }
+        }
+        static void UIMessage_RowPostPaint(object sender, System.Windows.Forms.DataGridViewRowPostPaintEventArgs e)
+        {
+            System.Windows.Forms.DataGridView grd = ((System.Windows.Forms.DataGridView)sender);
+            using (System.Drawing.SolidBrush b = new System.Drawing.SolidBrush(grd.RowHeadersDefaultCellStyle.ForeColor))
+            {
+                e.Graphics.DrawString((e.RowIndex + 1).ToString(System.Globalization.CultureInfo.CurrentUICulture), e.InheritedRowStyle.Font, b, e.RowBounds.Location.X + 8, e.RowBounds.Location.Y + 4);
+            }
         }
         public static string GetMessage(string MessID)
         {
@@ -38,26 +122,7 @@ namespace HPA.Common
         public static string ReadFile(string FILE_NAME)
         {
             string str = "";
-            //FileStream buf = null;
-            //try
-            //{
-            //    buf = new FileStream(String.Format("{0}\\{1}", HPA.Common.StaticVars.App_path, FILE_NAME), FileMode.Open);
-            //    int temp = buf.ReadByte();
-            //     while (temp != -1)
-            //    {
-            //        str += temp;
-            //        temp = buf.ReadByte();
-            //    }
-            //    // read successfully
-            //    buf.Close();
-            //    return str;
-            //}
-            //catch(IOException ioEx)
-            //{
-            //    buf.Close();
-            //    buf = null;
-            //    return string.Empty;
-            //}
+            
             try
             {
                 using (StreamReader sr = new StreamReader(HPA.Common.StaticVars.App_path + FILE_NAME))
@@ -81,6 +146,15 @@ namespace HPA.Common
                 outfile.Close();
             }
             
+        }
+        public static void WriteFile(string str,string fileName)
+        {
+            using (StreamWriter outfile = new StreamWriter(HPA.Common.StaticVars.App_path + fileName))
+            {
+                outfile.Write(str);
+                outfile.Close();
+            }
+
         }
     }
 }

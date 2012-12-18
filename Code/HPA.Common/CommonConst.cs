@@ -14,6 +14,8 @@ namespace HPA.Common
         public const string encryptkey = "acoi9a";
         public const string SEMICOLON_CHAR = ";";
         public const string CPN_STD_NAME = "Vietinsoft";
+        public const string DATE_FORMAT_PATTEN = "dd/MM/yyyy";
+        public const string SKIN_BLUE = "Blue";
 
         public const string LEAVE_CODE = "LeaveCode";
         public const string LEAVE_STATUS = "LeaveStatus";
