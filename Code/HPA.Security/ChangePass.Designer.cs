@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtPass = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtPass1 = new System.Windows.Forms.TextBox();
+            this.txtMKcu = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPass2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // txtPass
+            // txtPass1
             // 
-            this.txtPass.Location = new System.Drawing.Point(111, 49);
-            this.txtPass.Name = "txtPass";
-            this.txtPass.PasswordChar = '*';
-            this.txtPass.Size = new System.Drawing.Size(172, 20);
-            this.txtPass.TabIndex = 8;
+            this.txtPass1.Location = new System.Drawing.Point(111, 49);
+            this.txtPass1.Name = "txtPass1";
+            this.txtPass1.PasswordChar = '*';
+            this.txtPass1.Size = new System.Drawing.Size(172, 20);
+            this.txtPass1.TabIndex = 8;
             // 
-            // txtName
+            // txtMKcu
             // 
-            this.txtName.Location = new System.Drawing.Point(111, 17);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(172, 20);
-            this.txtName.TabIndex = 7;
+            this.txtMKcu.Location = new System.Drawing.Point(111, 17);
+            this.txtMKcu.Name = "txtMKcu";
+            this.txtMKcu.Size = new System.Drawing.Size(172, 20);
+            this.txtMKcu.TabIndex = 7;
             // 
             // label2
             // 
@@ -73,13 +73,13 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Mật khẩu cũ";
             // 
-            // textBox1
+            // txtPass2
             // 
-            this.textBox1.Location = new System.Drawing.Point(110, 82);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(172, 20);
-            this.textBox1.TabIndex = 10;
+            this.txtPass2.Location = new System.Drawing.Point(110, 82);
+            this.txtPass2.Name = "txtPass2";
+            this.txtPass2.PasswordChar = '*';
+            this.txtPass2.Size = new System.Drawing.Size(172, 20);
+            this.txtPass2.TabIndex = 10;
             // 
             // label3
             // 
@@ -99,6 +99,7 @@
             this.button1.TabIndex = 11;
             this.button1.Text = "Đổi mật khẩu";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -113,13 +114,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(296, 166);
+            this.ClientSize = new System.Drawing.Size(296, 156);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPass2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtPass);
-            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtPass1);
+            this.Controls.Add(this.txtMKcu);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ChangePass";
@@ -131,11 +132,11 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtPass;
-        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtPass1;
+        private System.Windows.Forms.TextBox txtMKcu;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPass2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
