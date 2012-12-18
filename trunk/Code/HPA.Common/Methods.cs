@@ -70,7 +70,7 @@ namespace HPA.Common
 
                 //else
                 //{
-                if ((ctr is System.Windows.Forms.Label) || (ctr is System.Windows.Forms.Button) || (ctr is System.Windows.Forms.CheckBox) || (ctr is System.Windows.Forms.RadioButton)
+                if ((ctr is DevExpress.XtraEditors.LabelControl) || (ctr is System.Windows.Forms.Label) || (ctr is System.Windows.Forms.Button) || (ctr is System.Windows.Forms.CheckBox) || (ctr is System.Windows.Forms.RadioButton)
                     || (ctr is DevExpress.XtraEditors.CheckEdit) || (ctr is System.Windows.Forms.GroupBox) || (ctr is DevExpress.XtraEditors.SimpleButton)
                     || (ctr is System.Windows.Forms.GroupBox) || (ctr is DevExpress.XtraTab.XtraTabPage) || (ctr is System.Windows.Forms.TabPage)
                     )
