@@ -16,5 +16,13 @@ namespace HPA.Security
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (txtPass1 != txtPass2)
+            { 
+                HPA.Common.Methods.ShowMessage(HPA.Common.Methods.GetMessage())
+            }
+        }
     }
 }
