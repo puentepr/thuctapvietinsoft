@@ -133,7 +133,7 @@
             // lblConncSetDesc
             // 
             this.lblConncSetDesc.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConncSetDesc.Location = new System.Drawing.Point(25, 24);
+            this.lblConncSetDesc.Location = new System.Drawing.Point(22, 24);
             this.lblConncSetDesc.Name = "lblConncSetDesc";
             this.lblConncSetDesc.Size = new System.Drawing.Size(64, 13);
             this.lblConncSetDesc.TabIndex = 11;
