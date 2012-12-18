@@ -41,7 +41,7 @@ namespace HPA.Common
             FileStream buf = null;
             try
             {
-                buf = new FileStream(HPA.Common.StaticVars.App_path + '\\' + FILE_NAME, FileMode.Open);
+                buf = new FileStream(String.Format("{0}\\{1}", HPA.Common.StaticVars.App_path, FILE_NAME), FileMode.Open);
                 int temp = buf.ReadByte();
                 while (temp != -1)
                 {
@@ -56,7 +56,7 @@ namespace HPA.Common
             {
                 buf.Close();
                 buf = null;
-                return null;
+                return string.Empty;
             }
         }
     }
