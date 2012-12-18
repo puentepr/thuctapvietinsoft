@@ -46,7 +46,10 @@ namespace HPA
             lg.ShowDialog();
             if (HPA.Common.StaticVars.UserName!=null)
             {
-                toolStripStatusLabel.Text= "Username: " + HPA.Common.StaticVars.UserName;
+                toolStripStatusLabel.Text= string.Format("Login ID: {0}  |  Login Name: {1}  |",HPA.Common.StaticVars.LoginID, HPA.Common.StaticVars.UserName);
+                ToolStripStatusLabel svrInfo = new ToolStripStatusLabel(string.Format("Server: {0}   |   Database: {1}", HPA.Common.StaticVars.ServerName,HPA.Common.StaticVars.DatabaseName));
+                statusStrip.Items.Add(svrInfo);
+                //statusStrip
             }
             else
             {
