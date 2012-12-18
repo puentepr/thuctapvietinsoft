@@ -28,19 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtPass1 = new System.Windows.Forms.TextBox();
             this.txtMKcu = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNewPassword = new System.Windows.Forms.Label();
+            this.lblOldPassword = new System.Windows.Forms.Label();
             this.txtPass2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.lblConfirmPassword = new System.Windows.Forms.Label();
+            this.btnFWSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtPass1
             // 
-            this.txtPass1.Location = new System.Drawing.Point(111, 49);
+            this.txtPass1.Location = new System.Drawing.Point(140, 49);
             this.txtPass1.Name = "txtPass1";
             this.txtPass1.PasswordChar = '*';
             this.txtPass1.Size = new System.Drawing.Size(172, 20);
@@ -48,83 +51,88 @@
             // 
             // txtMKcu
             // 
-            this.txtMKcu.Location = new System.Drawing.Point(111, 17);
+            this.txtMKcu.Location = new System.Drawing.Point(140, 17);
             this.txtMKcu.Name = "txtMKcu";
             this.txtMKcu.Size = new System.Drawing.Size(172, 20);
             this.txtMKcu.TabIndex = 7;
             // 
-            // label2
+            // lblNewPassword
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(23, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Mật khẩu mới";
+            this.lblNewPassword.AutoSize = true;
+            this.lblNewPassword.BackColor = System.Drawing.Color.Transparent;
+            this.lblNewPassword.Location = new System.Drawing.Point(7, 49);
+            this.lblNewPassword.Name = "lblNewPassword";
+            this.lblNewPassword.Size = new System.Drawing.Size(71, 13);
+            this.lblNewPassword.TabIndex = 6;
+            this.lblNewPassword.Text = "Mật khẩu mới";
             // 
-            // label1
+            // lblOldPassword
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(23, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Mật khẩu cũ";
+            this.lblOldPassword.AutoSize = true;
+            this.lblOldPassword.BackColor = System.Drawing.Color.Transparent;
+            this.lblOldPassword.Location = new System.Drawing.Point(7, 17);
+            this.lblOldPassword.Name = "lblOldPassword";
+            this.lblOldPassword.Size = new System.Drawing.Size(67, 13);
+            this.lblOldPassword.TabIndex = 5;
+            this.lblOldPassword.Text = "Mật khẩu cũ";
             // 
             // txtPass2
             // 
-            this.txtPass2.Location = new System.Drawing.Point(110, 82);
+            this.txtPass2.Location = new System.Drawing.Point(139, 82);
             this.txtPass2.Name = "txtPass2";
             this.txtPass2.PasswordChar = '*';
             this.txtPass2.Size = new System.Drawing.Size(172, 20);
             this.txtPass2.TabIndex = 10;
             // 
-            // label3
+            // lblConfirmPassword
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(22, 82);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Mật khẩu mới";
+            this.lblConfirmPassword.AutoSize = true;
+            this.lblConfirmPassword.BackColor = System.Drawing.Color.Transparent;
+            this.lblConfirmPassword.Location = new System.Drawing.Point(6, 82);
+            this.lblConfirmPassword.Name = "lblConfirmPassword";
+            this.lblConfirmPassword.Size = new System.Drawing.Size(119, 13);
+            this.lblConfirmPassword.TabIndex = 9;
+            this.lblConfirmPassword.Text = "Xác nhận mật khẩu mới";
             // 
-            // button1
+            // btnFWSave
             // 
-            this.button1.Location = new System.Drawing.Point(113, 122);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Đổi mật khẩu";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnFWSave.Location = new System.Drawing.Point(140, 122);
+            this.btnFWSave.Name = "btnFWSave";
+            this.btnFWSave.Size = new System.Drawing.Size(88, 23);
+            this.btnFWSave.TabIndex = 11;
+            this.btnFWSave.Text = "Đổi mật khẩu";
+            this.btnFWSave.UseVisualStyleBackColor = true;
+            this.btnFWSave.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnCancel
             // 
-            this.button2.Location = new System.Drawing.Point(207, 122);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Hủy";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancel.Location = new System.Drawing.Point(234, 122);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 12;
+            this.btnCancel.Text = "Hủy";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // ChangePass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(296, 156);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(319, 156);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnFWSave);
             this.Controls.Add(this.txtPass2);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblConfirmPassword);
             this.Controls.Add(this.txtPass1);
             this.Controls.Add(this.txtMKcu);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblNewPassword);
+            this.Controls.Add(this.lblOldPassword);
             this.Name = "ChangePass";
             this.Text = "ChangePass";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,11 +142,12 @@
 
         private System.Windows.Forms.TextBox txtPass1;
         private System.Windows.Forms.TextBox txtMKcu;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNewPassword;
+        private System.Windows.Forms.Label lblOldPassword;
         private System.Windows.Forms.TextBox txtPass2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lblConfirmPassword;
+        private System.Windows.Forms.Button btnFWSave;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
