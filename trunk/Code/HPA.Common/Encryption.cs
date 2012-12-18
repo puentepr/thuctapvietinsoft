@@ -8,9 +8,9 @@ using System.Security.Cryptography;
 
 namespace HPA.Common
 {
-    class Encryption
+    public class Encryption
     {
-        public string EncryptText(string toEncrypt, bool useHashing)
+        public static string EncryptText(string toEncrypt, bool useHashing)
         {
             byte[] keyArray;
             byte[] toEncryptArray = UTF8Encoding.UTF8.GetBytes(toEncrypt);
