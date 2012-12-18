@@ -137,5 +137,6 @@ namespace HPA.Common
         public const string F4_KEY = "F4";
         public const string PASS_WRONG = "PASS_WRONG";
         public const string EDIT_VALUE = "EditValue";
+        public const string PASSNOTMACH = "PASSNOTMACH";
     }
 }
