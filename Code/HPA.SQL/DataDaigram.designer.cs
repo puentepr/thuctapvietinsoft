@@ -33,6 +33,9 @@ namespace HPA.SQL
     partial void InserttblSC_Login(tblSC_Login instance);
     partial void UpdatetblSC_Login(tblSC_Login instance);
     partial void DeletetblSC_Login(tblSC_Login instance);
+    partial void InsertMEN_Menu(MEN_Menu instance);
+    partial void UpdateMEN_Menu(MEN_Menu instance);
+    partial void DeleteMEN_Menu(MEN_Menu instance);
     #endregion
 		
 		public DataDaigramDataContext() : 
@@ -70,6 +73,14 @@ namespace HPA.SQL
 			get
 			{
 				return this.GetTable<tblSC_Login>();
+			}
+		}
+		
+		public System.Data.Linq.Table<MEN_Menu> MEN_Menus
+		{
+			get
+			{
+				return this.GetTable<MEN_Menu>();
 			}
 		}
 		
@@ -301,6 +312,308 @@ namespace HPA.SQL
 					this._DivisionID = value;
 					this.SendPropertyChanged("DivisionID");
 					this.OnDivisionIDChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MEN_Menu")]
+	public partial class MEN_Menu : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MenuID;
+		
+		private string _ClassName;
+		
+		private System.Nullable<int> _Priority;
+		
+		private System.Nullable<bool> _IsModal;
+		
+		private string _ParentMenuID;
+		
+		private string _LinkMenuID;
+		
+		private System.Nullable<bool> _IsCollapsed;
+		
+		private string _AssemblyName;
+		
+		private string _ShortcutKeys;
+		
+		private System.Nullable<bool> _IsVisible;
+		
+		private System.Nullable<bool> _SupperAdmin;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMenuIDChanging(string value);
+    partial void OnMenuIDChanged();
+    partial void OnClassNameChanging(string value);
+    partial void OnClassNameChanged();
+    partial void OnPriorityChanging(System.Nullable<int> value);
+    partial void OnPriorityChanged();
+    partial void OnIsModalChanging(System.Nullable<bool> value);
+    partial void OnIsModalChanged();
+    partial void OnParentMenuIDChanging(string value);
+    partial void OnParentMenuIDChanged();
+    partial void OnLinkMenuIDChanging(string value);
+    partial void OnLinkMenuIDChanged();
+    partial void OnIsCollapsedChanging(System.Nullable<bool> value);
+    partial void OnIsCollapsedChanged();
+    partial void OnAssemblyNameChanging(string value);
+    partial void OnAssemblyNameChanged();
+    partial void OnShortcutKeysChanging(string value);
+    partial void OnShortcutKeysChanged();
+    partial void OnIsVisibleChanging(System.Nullable<bool> value);
+    partial void OnIsVisibleChanged();
+    partial void OnSupperAdminChanging(System.Nullable<bool> value);
+    partial void OnSupperAdminChanged();
+    #endregion
+		
+		public MEN_Menu()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MenuID", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MenuID
+		{
+			get
+			{
+				return this._MenuID;
+			}
+			set
+			{
+				if ((this._MenuID != value))
+				{
+					this.OnMenuIDChanging(value);
+					this.SendPropertyChanging();
+					this._MenuID = value;
+					this.SendPropertyChanged("MenuID");
+					this.OnMenuIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClassName", DbType="NVarChar(50)")]
+		public string ClassName
+		{
+			get
+			{
+				return this._ClassName;
+			}
+			set
+			{
+				if ((this._ClassName != value))
+				{
+					this.OnClassNameChanging(value);
+					this.SendPropertyChanging();
+					this._ClassName = value;
+					this.SendPropertyChanged("ClassName");
+					this.OnClassNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Priority", DbType="Int")]
+		public System.Nullable<int> Priority
+		{
+			get
+			{
+				return this._Priority;
+			}
+			set
+			{
+				if ((this._Priority != value))
+				{
+					this.OnPriorityChanging(value);
+					this.SendPropertyChanging();
+					this._Priority = value;
+					this.SendPropertyChanged("Priority");
+					this.OnPriorityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsModal", DbType="Bit")]
+		public System.Nullable<bool> IsModal
+		{
+			get
+			{
+				return this._IsModal;
+			}
+			set
+			{
+				if ((this._IsModal != value))
+				{
+					this.OnIsModalChanging(value);
+					this.SendPropertyChanging();
+					this._IsModal = value;
+					this.SendPropertyChanged("IsModal");
+					this.OnIsModalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentMenuID", DbType="VarChar(20)")]
+		public string ParentMenuID
+		{
+			get
+			{
+				return this._ParentMenuID;
+			}
+			set
+			{
+				if ((this._ParentMenuID != value))
+				{
+					this.OnParentMenuIDChanging(value);
+					this.SendPropertyChanging();
+					this._ParentMenuID = value;
+					this.SendPropertyChanged("ParentMenuID");
+					this.OnParentMenuIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LinkMenuID", DbType="VarChar(20)")]
+		public string LinkMenuID
+		{
+			get
+			{
+				return this._LinkMenuID;
+			}
+			set
+			{
+				if ((this._LinkMenuID != value))
+				{
+					this.OnLinkMenuIDChanging(value);
+					this.SendPropertyChanging();
+					this._LinkMenuID = value;
+					this.SendPropertyChanged("LinkMenuID");
+					this.OnLinkMenuIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsCollapsed", DbType="Bit")]
+		public System.Nullable<bool> IsCollapsed
+		{
+			get
+			{
+				return this._IsCollapsed;
+			}
+			set
+			{
+				if ((this._IsCollapsed != value))
+				{
+					this.OnIsCollapsedChanging(value);
+					this.SendPropertyChanging();
+					this._IsCollapsed = value;
+					this.SendPropertyChanged("IsCollapsed");
+					this.OnIsCollapsedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssemblyName", DbType="NVarChar(50)")]
+		public string AssemblyName
+		{
+			get
+			{
+				return this._AssemblyName;
+			}
+			set
+			{
+				if ((this._AssemblyName != value))
+				{
+					this.OnAssemblyNameChanging(value);
+					this.SendPropertyChanging();
+					this._AssemblyName = value;
+					this.SendPropertyChanged("AssemblyName");
+					this.OnAssemblyNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShortcutKeys", DbType="VarChar(20)")]
+		public string ShortcutKeys
+		{
+			get
+			{
+				return this._ShortcutKeys;
+			}
+			set
+			{
+				if ((this._ShortcutKeys != value))
+				{
+					this.OnShortcutKeysChanging(value);
+					this.SendPropertyChanging();
+					this._ShortcutKeys = value;
+					this.SendPropertyChanged("ShortcutKeys");
+					this.OnShortcutKeysChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsVisible", DbType="Bit")]
+		public System.Nullable<bool> IsVisible
+		{
+			get
+			{
+				return this._IsVisible;
+			}
+			set
+			{
+				if ((this._IsVisible != value))
+				{
+					this.OnIsVisibleChanging(value);
+					this.SendPropertyChanging();
+					this._IsVisible = value;
+					this.SendPropertyChanged("IsVisible");
+					this.OnIsVisibleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupperAdmin", DbType="Bit")]
+		public System.Nullable<bool> SupperAdmin
+		{
+			get
+			{
+				return this._SupperAdmin;
+			}
+			set
+			{
+				if ((this._SupperAdmin != value))
+				{
+					this.OnSupperAdminChanging(value);
+					this.SendPropertyChanging();
+					this._SupperAdmin = value;
+					this.SendPropertyChanged("SupperAdmin");
+					this.OnSupperAdminChanged();
 				}
 			}
 		}
