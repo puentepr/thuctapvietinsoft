@@ -13,11 +13,14 @@ namespace HPA.CommonForm
     {
         bool kt = false;
         int Y, X;
-       
+        public EzSqlCollection.EzSql2 DBEngine = null;
         public BaseForm()
         {
             InitializeComponent();
+            DBEngine = new EzSqlCollection.EzSql2(HPA.Common.StaticVars.ServerName, HPA.Common.StaticVars.DatabaseName, HPA.Common.StaticVars.UserID_sql, HPA.Common.StaticVars.Password);
+            DBEngine.open();
         }
+        
 
         
 
@@ -40,6 +43,11 @@ namespace HPA.CommonForm
                 this.Top += e.Y - Y;
                 this.Left += e.X - X;
             }
+        }
+
+        private void BaseForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DBEngine.close();
         }
     }
 }
