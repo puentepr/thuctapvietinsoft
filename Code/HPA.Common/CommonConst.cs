@@ -13,7 +13,9 @@ namespace HPA.Common
         public const string SAVE_DATA_QUES = "SAVE_DATA_QUES";
         public const string SAVEDSUCCESSFULLY = "SAVEDSUCCESSFULLY";
         public const string NO_RIGHT_TO_ACCESS = "NO_RIGHT_TO_ACCESS";
+        public const string PARADISE_INI = "Paradise.ini";
         public const string LOGIN_FAILURE = "LOGIN_FAILURE";
+
         
     }
 }
