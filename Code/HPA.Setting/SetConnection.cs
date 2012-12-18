@@ -63,5 +63,11 @@ namespace HPA.Setting
         private string SEMICOLON_CHAR = HPA.Common.CommonConst.SEMICOLON_CHAR;
         private bool isNewConnection = false;
 
+        private void SetConnection_Load(object sender, EventArgs e)
+        {
+            Control.ControlCollection ctrls = this.Controls;
+            HPA.Common.Methods.ChangeLanguage(ref ctrls);
+        }
+
     }
 }
