@@ -17,9 +17,9 @@ namespace HPA.Common
             if (useHashing)
             {
                 MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
-                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes("acoi9a"));
+                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(HPA.Common.CommonConst.encryptkey));
             }
-            else keyArray = UTF8Encoding.UTF8.GetBytes("acoi9a");
+            else keyArray = UTF8Encoding.UTF8.GetBytes(HPA.Common.CommonConst.encryptkey);
             TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
             tdes.Key = keyArray;
             tdes.Mode = CipherMode.ECB;
@@ -36,9 +36,9 @@ namespace HPA.Common
             if (useHashing)
             {
                 MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
-                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes("acoi9a"));
+                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(HPA.Common.CommonConst.encryptkey));
             }
-            else keyArray = UTF8Encoding.UTF8.GetBytes("acoi9a");
+            else keyArray = UTF8Encoding.UTF8.GetBytes(HPA.Common.CommonConst.encryptkey);
             TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
             tdes.Key = keyArray;
             tdes.Mode = CipherMode.ECB;
