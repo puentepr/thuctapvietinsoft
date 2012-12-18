@@ -46,33 +46,33 @@
             // 
             this.lblServerName.Location = new System.Drawing.Point(35, 73);
             this.lblServerName.Name = "lblServerName";
-            this.lblServerName.Size = new System.Drawing.Size(63, 13);
+            this.lblServerName.Size = new System.Drawing.Size(69, 13);
             this.lblServerName.TabIndex = 0;
-            this.lblServerName.Text = "labelControl1";
+            this.lblServerName.Text = "lblServerName";
             // 
             // lblDatabaseName
             // 
             this.lblDatabaseName.Location = new System.Drawing.Point(35, 98);
             this.lblDatabaseName.Name = "lblDatabaseName";
-            this.lblDatabaseName.Size = new System.Drawing.Size(63, 13);
+            this.lblDatabaseName.Size = new System.Drawing.Size(83, 13);
             this.lblDatabaseName.TabIndex = 1;
-            this.lblDatabaseName.Text = "labelControl1";
+            this.lblDatabaseName.Text = "lblDatabaseName";
             // 
             // lblUserName
             // 
             this.lblUserName.Location = new System.Drawing.Point(35, 122);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(63, 13);
+            this.lblUserName.Size = new System.Drawing.Size(59, 13);
             this.lblUserName.TabIndex = 2;
-            this.lblUserName.Text = "labelControl1";
+            this.lblUserName.Text = "lblUserName";
             // 
             // lblPassword
             // 
             this.lblPassword.Location = new System.Drawing.Point(35, 146);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(63, 13);
+            this.lblPassword.Size = new System.Drawing.Size(56, 13);
             this.lblPassword.TabIndex = 3;
-            this.lblPassword.Text = "labelControl1";
+            this.lblPassword.Text = "lblPassword";
             // 
             // txtServerName
             // 
@@ -99,6 +99,7 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(132, 143);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(150, 21);
             this.txtPassword.TabIndex = 7;
             // 
