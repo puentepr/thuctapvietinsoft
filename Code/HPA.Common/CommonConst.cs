@@ -135,6 +135,7 @@ namespace HPA.Common
         public const string SAVE_DATA_FIRST = "SAVE_DATA_FIRST";
         public const string TAB_KEY = "TAB";
         public const string F4_KEY = "F4";
+        public const string PASS_WRONG = "PASS_WRONG";
         public const string EDIT_VALUE = "EditValue";
     }
 }
