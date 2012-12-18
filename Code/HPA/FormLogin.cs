@@ -37,7 +37,8 @@ namespace HPA
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Dangnhap(txtName.Text, txtPass.Text);
+            string pa = HPA.Common.Encryption.EncryptText(txtPass.Text,true);
+            Dangnhap(txtName.Text, pa);
         }
 
         private void button2_Click(object sender, EventArgs e)
