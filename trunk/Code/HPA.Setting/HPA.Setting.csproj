@@ -60,6 +60,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HPA.CommonForm\HPA.CommonForm.csproj">
+      <Project>{7d01b764-c616-4d35-b635-84c63e1fb7c7}</Project>
+      <Name>HPA.CommonForm</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HPA.Common\HPA.Common.csproj">
       <Project>{79c1177e-083d-4a9c-a563-73c1741396b9}</Project>
       <Name>HPA.Common</Name>
