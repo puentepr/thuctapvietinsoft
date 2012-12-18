@@ -110,17 +110,10 @@
       <Project>{79c1177e-083d-4a9c-a563-73c1741396b9}</Project>
       <Name>HPA.Common</Name>
     </ProjectReference>
-<<<<<<< .mine
-    <ProjectReference Include="..\HPA.Component.Framework.Base\HPA.Component.Framework.Base.csproj">
-      <Project>{8dceeabd-18d6-46f3-9ea1-1ccb84b8fe9b}</Project>
-      <Name>HPA.Component.Framework.Base</Name>
-    </ProjectReference>
-=======
     <ProjectReference Include="..\HPA.Security\HPA.Security.csproj">
       <Project>{d3a60864-36b6-48b9-a430-4bd89d972643}</Project>
       <Name>HPA.Security</Name>
     </ProjectReference>
->>>>>>> .r67
     <ProjectReference Include="..\HPA.Setting\HPA.Setting.csproj">
       <Project>{5dcdaebe-cfe8-4acb-b126-d627c4454049}</Project>
       <Name>HPA.Setting</Name>
@@ -128,6 +121,10 @@
     <ProjectReference Include="..\HPA.SQL\HPA.SQL.csproj">
       <Project>{40dfa349-9330-45b0-9618-b91482cd7047}</Project>
       <Name>HPA.SQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HPA.Update\HPA.Update.csproj">
+      <Project>{06736d85-91de-45fe-88da-f7c348f7d9fc}</Project>
+      <Name>HPA.Update</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
