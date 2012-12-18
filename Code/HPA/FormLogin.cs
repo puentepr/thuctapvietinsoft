@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace HPA
 {
@@ -46,8 +47,15 @@ namespace HPA
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            this.BackgroundImage = System.Drawing.Image.FromFile(HPA.Properties.Settings.Default.BackGroundLogin);
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            if (File.Exists((HPA.Properties.Settings.Default.BackGroundLogin))==true)
+            {
+                this.BackgroundImage = System.Drawing.Image.FromFile(HPA.Properties.Settings.Default.BackGroundLogin);
+                this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            }
+            else
+            {
+                this.BackgroundImage = null;
+            }
         }
     }
 }
