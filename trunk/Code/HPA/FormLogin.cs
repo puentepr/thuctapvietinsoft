@@ -11,8 +11,11 @@ using System.IO;
 
 namespace HPA
 {
+    
     public partial class FormLogin : Form
     {
+        //bool kt = false;
+        //int Y, X;
         HPA.SQL.DataDaigramDataContext dt = new SQL.DataDaigramDataContext();
         public FormLogin()
         {
@@ -29,9 +32,7 @@ namespace HPA
             {
                 HPA.Common.StaticVars.LoginID = Loginid ;
                 HPA.Common.StaticVars.UserName = txtName.Text;
-                this.Hide();
-                HPA_Main main = new HPA_Main();
-                main.Show();
+                this.Close();
             }
         }
 
@@ -58,5 +59,22 @@ namespace HPA
                 this.BackgroundImage = null;
             }
         }
+
+        //private void FormLogin_MouseDown(object sender, MouseEventArgs e)
+        //{
+        //    kt = true;
+        //    Y = e.Y;
+        //    X = e.X;
+        //}
+
+        //private void FormLogin_MouseMove(object sender, MouseEventArgs e)
+        //{
+
+        //}
+
+        //private void FormLogin_MouseUp(object sender, MouseEventArgs e)
+        //{
+        //    kt = false;
+        //}
     }
 }
