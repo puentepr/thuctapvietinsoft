@@ -20,8 +20,12 @@ namespace HPA.Security
         private void button1_Click(object sender, EventArgs e)
         {
             if (txtPass1 != txtPass2)
+            {
+                HPA.Common.Methods.ShowMessage(HPA.Common.Methods.GetMessage(HPA.Common.CommonConst.PASSNOTMATCH));
+            }
+            else
             { 
-                HPA.Common.Methods.ShowMessage(HPA.Common.Methods.GetMessage())
+                string pa = HPA.Common.en
             }
         }
     }
