@@ -47,17 +47,16 @@ namespace HPA.Setting
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            StaticVars.ConnectionString = txtServerName.Text.Trim() + SEMICOLON_CHAR +
-                                           txtDatabaseName.Text.Trim() + SEMICOLON_CHAR +
-                                            txtUserName.Text.Trim() + SEMICOLON_CHAR +
-                                             txtPassword.Text.Trim();
+            StaticVars.ConnectionString = "Server = " + txtServerName.Text.Trim() + SEMICOLON_CHAR +
+                                           "Database = " + txtDatabaseName.Text.Trim() + SEMICOLON_CHAR +
+                                            "UID = " + txtUserName.Text.Trim() + SEMICOLON_CHAR +
+                                             "PWD = " + txtPassword.Text.Trim();
             Methods.WriteFile(Encryption.EncryptText(StaticVars.ConnectionString,true));
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            //Application.Restart();
-            MessageBox.Show(HPA.Common.StaticVars.ConnectionString);
+            Application.Restart();
         }
 
         private string strServer, strDatabase, strUser, strPassword;
