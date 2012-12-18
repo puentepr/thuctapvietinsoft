@@ -158,7 +158,6 @@
             this.Controls.Add(this.lblServerName);
             this.Name = "SetConnection";
             this.Text = "Set Connection";
-            this.Load += new System.EventHandler(this.SetConnection_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

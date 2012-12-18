@@ -19,28 +19,29 @@ namespace HPA.Setting
             InitializeComponent();
         }
 
-        private void SetConnection_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnTestConnection_Click(object sender, EventArgs e)
         {
             strServer = txtServerName.Text.Trim();
             strDatabase = txtDatabaseName.Text.Trim();
             strUser = txtUserName.Text.Trim();
             strPassword = txtPassword.Text.Trim();
-
-            try
+            if (strServer == "" || strDatabase == "" || strUser == "")
             {
-                EzSqlCollection.EzSql2 ezsql2 = new EzSqlCollection.EzSql2(strServer, strDatabase, strUser, strPassword);
-                ezsql2.open();
-                ezsql2.close();
-                MessageBox.Show(this, "Test Connection string successfully!", "Paradise", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thiếu thông tin");
             }
-            catch(Exception ex)
+            else
             {
-                MessageBox.Show(this, "Test Connection string failed!", "Paradise", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    EzSqlCollection.EzSql2 ezsql2 = new EzSqlCollection.EzSql2(strServer, strDatabase, strUser, strPassword);
+                    ezsql2.open();
+                    ezsql2.close();
+                    MessageBox.Show(this, "Test Connection string successfully!", "Paradise", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, "Test Connection string failed!", "Paradise", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -55,8 +56,8 @@ namespace HPA.Setting
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            if (isNewConnection)
-                Application.Restart();
+            //Application.Restart();
+            MessageBox.Show(HPA.Common.StaticVars.ConnectionString);
         }
 
         private string strServer, strDatabase, strUser, strPassword;
