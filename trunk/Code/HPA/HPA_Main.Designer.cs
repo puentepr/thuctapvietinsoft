@@ -126,6 +126,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "HPA_Main";
             this.Text = "HPA_Main";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HPA_Main_FormClosed);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
