@@ -11,8 +11,8 @@ namespace HPA.CommonForm
 {
     public partial class BaseForm : DevExpress.XtraEditors.XtraForm
     {
-        bool kt = false;
-        int Y, X;
+        //bool kt = false;
+        //int Y, X;
         private string _fullClassName;
 
         public string FullClassName
@@ -40,25 +40,25 @@ namespace HPA.CommonForm
                 return true;
         }
 
-        private void BaseForm_MouseDown(object sender, MouseEventArgs e)
-        {
-            kt = true;
-            Y = e.Y;
-            X = e.X;
-        }
+        //private void BaseForm_MouseDown(object sender, MouseEventArgs e)
+        //{
+        //    kt = true;
+        //    Y = e.Y;
+        //    X = e.X;
+        //}
 
-        private void BaseForm_MouseUp(object sender, MouseEventArgs e)
-        {
-            kt = false;
-        }
+        //private void BaseForm_MouseUp(object sender, MouseEventArgs e)
+        //{
+        //    kt = false;
+        //}
 
-        private void BaseForm_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (kt)
-            {
-                this.Top += e.Y - Y;
-                this.Left += e.X - X;
-            }
-        }
+        //private void BaseForm_MouseMove(object sender, MouseEventArgs e)
+        //{
+        //    if (kt)
+        //    {
+        //        this.Top += e.Y - Y;
+        //        this.Left += e.X - X;
+        //    }
+        //}
     }
 }

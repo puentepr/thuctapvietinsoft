@@ -37,9 +37,9 @@
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Name = "BaseForm";
             this.Text = "BaseForm";
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BaseForm_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BaseForm_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BaseForm_MouseUp);
+            //this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BaseForm_MouseDown);
+            //this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BaseForm_MouseMove);
+            //this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BaseForm_MouseUp);
             this.ResumeLayout(false);
 
         }

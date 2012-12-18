@@ -37,10 +37,9 @@ namespace HPA
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            About ab = new About();
-            ab.FullClassName = string.Format("{0}.About", ab.AccessibleName);
-            if (!ab.IsDisposed)
-                ab.Show();
+            
+            //if (!ab.IsDisposed)
+            //    ab.Show();
         }
 
         private void HPA_Main_FormClosed(object sender, FormClosedEventArgs e)
