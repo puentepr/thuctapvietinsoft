@@ -106,6 +106,14 @@ namespace HPA.Common
                 e.Graphics.DrawString((e.RowIndex + 1).ToString(System.Globalization.CultureInfo.CurrentUICulture), e.InheritedRowStyle.Font, b, e.RowBounds.Location.X + 8, e.RowBounds.Location.Y + 4);
             }
         }
+        public static bool HasAccessRight(string fullCalssName)
+        {
+            HPA.SQL.DataDaigramDataContext sqlcon = new SQL.DataDaigramDataContext();
+            if (sqlcon.SC_USEROBJECTRIGHT_GET(fullCalssName, HPA.Common.StaticVars.LoginID) <= 0)
+                return false;
+            else
+                return true;
+        }
         public static string GetMessage(string MessID)
         {
             string retVal = string.Empty;
