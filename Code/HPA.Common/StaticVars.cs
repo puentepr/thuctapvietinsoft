@@ -8,8 +8,12 @@ namespace HPA.Common
 {
    public class StaticVars
     {
-        public static int UserID;
+        public static int LoginID;
         public static string UserName;
+        public static string UserID_sql;
+        public static string ServerName;
+        public static string Password;
+        public static string DatabaseName;
         public static string ConnectionString;
         public static string LanguageID=string.Empty;
     }
