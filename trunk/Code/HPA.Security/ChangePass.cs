@@ -24,8 +24,11 @@ namespace HPA.Security
                 HPA.Common.Methods.ShowMessage(HPA.Common.Methods.GetMessage(HPA.Common.CommonConst.PASSNOTMATCH));
             }
             else
-            { 
-                string pa = HPA.Common
+            {
+                string pa = HPA.Common.Encryption.EncryptText(txtPass1.Text, true);
+                HPA.SQL.SP.Changepassword cp = new SQL.SP.Changepassword();
+                cp.Changepass(pa);
+                HPA.Common.Methods.ShowMessage(HPA.Common.Methods.GetMessage(HPA.Common.CommonConst.PASS_CHANGED_SUCCESSFULL));
             }
         }
     }
