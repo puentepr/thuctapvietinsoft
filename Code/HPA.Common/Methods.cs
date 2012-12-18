@@ -10,7 +10,16 @@ namespace HPA.Common
     {
         public static void ShowMessage(string MessID)
         {
-            System.Windows.Forms.MessageBox.Show(GetMessage(MessID));
+            System.Windows.Forms.MessageBox.Show(HPA.Common.CommonConst.CPN_STD_NAME, GetMessage(MessID));
+        }
+        public static void ShowMessage(string MessID,System.Windows.Forms.MessageBoxButtons MessageButtons,System.Windows.Forms.MessageBoxIcon MessageIcons)
+        {
+            System.Windows.Forms.MessageBox.Show(HPA.Common.CommonConst.CPN_STD_NAME, GetMessage(MessID), MessageButtons, MessageIcons);
+        }
+        public static void ShowError(Exception ex)
+        {
+            System.Windows.Forms.MessageBox.Show(HPA.Common.CommonConst.CPN_STD_NAME, ex.Message,System.Windows.Forms.MessageBoxButtons.OK,System.Windows.Forms.MessageBoxIcon.Error);
+            
         }
         public static string GetMessage(string MessID)
         {
