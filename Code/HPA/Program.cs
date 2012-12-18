@@ -34,6 +34,8 @@ namespace HPA
                         {
                             SqlConnection sqlConn = new SqlConnection(HPA.Common.StaticVars.ConnectionString);
                             sqlConn.Open();
+                            HPA.Common.StaticVars.DatabaseName = sqlConn.Database;
+                            HPA.Common.StaticVars.ServerName = sqlConn.DataSource;
                             sqlConn.Close();
                             HPA.SQL.SP.Connect.SetConnect(HPA.Common.StaticVars.ConnectionString);
                             Application.Run(new HPA_Main());

@@ -12,7 +12,7 @@ using System.IO;
 namespace HPA
 {
     
-    public partial class FormLogin : Form
+    public partial class FormLogin : HPA.CommonForm.BaseForm
     {
         //bool kt = false;
         //int Y, X;
