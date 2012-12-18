@@ -52,9 +52,9 @@ namespace HPA
         {
             FormLogin lg = new FormLogin();
             lg.ShowDialog();
-            if (lg.ShowDialog() == DialogResult.OK)
+            if (HPA.Common.StaticVars.UserName!=null)
             {
-                statusStrip.Text = "Username" + HPA.Common.StaticVars.UserName;
+                toolStripStatusLabel.Text= "Username: " + HPA.Common.StaticVars.UserName;
             }
             else
             {
