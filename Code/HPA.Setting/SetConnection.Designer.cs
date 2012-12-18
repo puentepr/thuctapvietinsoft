@@ -109,6 +109,7 @@
             this.btnTestConnection.Size = new System.Drawing.Size(108, 27);
             this.btnTestConnection.TabIndex = 8;
             this.btnTestConnection.Text = "simpleButton1";
+            this.btnTestConnection.Click += new System.EventHandler(this.btnTestConnection_Click);
             // 
             // btnSave
             // 
@@ -117,6 +118,7 @@
             this.btnSave.Size = new System.Drawing.Size(108, 27);
             this.btnSave.TabIndex = 9;
             this.btnSave.Text = "simpleButton1";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
@@ -125,6 +127,7 @@
             this.btnClose.Size = new System.Drawing.Size(108, 27);
             this.btnClose.TabIndex = 10;
             this.btnClose.Text = "simpleButton1";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lblConnectionText
             // 
