@@ -35,13 +35,6 @@ namespace HPA
             Application.Exit();
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-            //if (!ab.IsDisposed)
-            //    ab.Show();
-        }
-
         private void HPA_Main_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();

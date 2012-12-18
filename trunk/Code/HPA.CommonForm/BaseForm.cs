@@ -11,54 +11,35 @@ namespace HPA.CommonForm
 {
     public partial class BaseForm : DevExpress.XtraEditors.XtraForm
     {
-        //bool kt = false;
-        //int Y, X;
-        private string _fullClassName;
-
-        public string FullClassName
-        {
-            get { return _fullClassName; }
-            set { _fullClassName = value; }
-        }
+        bool kt = false;
+        int Y, X;
+       
         public BaseForm()
         {
-            if (!HasAccessRight())
-            {
-                HPA.Common.Methods.ShowMessage(HPA.Common.CommonConst.NO_RIGHT_TO_ACCESS);
-                this.Dispose();
-                this.Close();
-            }
             InitializeComponent();
         }
 
-        private bool HasAccessRight()
+        
+
+        private void BaseForm_MouseDown(object sender, MouseEventArgs e)
         {
-            HPA.SQL.DataDaigramDataContext sqlcon = new SQL.DataDaigramDataContext();
-            if (sqlcon.SC_USEROBJECTRIGHT_GET(FullClassName, HPA.Common.StaticVars.LoginID) <= 0)
-                return false;
-            else
-                return true;
+            kt = true;
+            Y = e.Y;
+            X = e.X;
         }
 
-        //private void BaseForm_MouseDown(object sender, MouseEventArgs e)
-        //{
-        //    kt = true;
-        //    Y = e.Y;
-        //    X = e.X;
-        //}
+        private void BaseForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            kt = false;
+        }
 
-        //private void BaseForm_MouseUp(object sender, MouseEventArgs e)
-        //{
-        //    kt = false;
-        //}
-
-        //private void BaseForm_MouseMove(object sender, MouseEventArgs e)
-        //{
-        //    if (kt)
-        //    {
-        //        this.Top += e.Y - Y;
-        //        this.Left += e.X - X;
-        //    }
-        //}
+        private void BaseForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (kt)
+            {
+                this.Top += e.Y - Y;
+                this.Left += e.X - X;
+            }
+        }
     }
 }
