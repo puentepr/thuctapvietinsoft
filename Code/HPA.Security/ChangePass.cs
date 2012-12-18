@@ -19,7 +19,7 @@ namespace HPA.Security
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            if (txt)
         }
     }
 }
