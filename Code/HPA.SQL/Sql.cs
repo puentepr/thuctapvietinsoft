@@ -8,7 +8,6 @@ using System.Xml;
 
 namespace EzSqlCollection
 {
-
     public class EzSql2// : HPA.Component.Framework.Base.IDatabaseEngine
 	{
 		#region Version 1 support.

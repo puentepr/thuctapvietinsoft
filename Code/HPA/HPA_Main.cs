@@ -20,10 +20,12 @@ namespace HPA
 
         private void CloseAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (Form childForm in MdiChildren)
-            {
-                childForm.Close();
-            }
+            //foreach (Form childForm in MdiChildren)
+            //{
+            //    childForm.Close();
+            //}
+            HPA.Setting.DynamicForm df = new Setting.DynamicForm();
+            df.Show();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

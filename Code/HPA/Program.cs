@@ -34,6 +34,8 @@ namespace HPA
                         {
                             SqlConnection sqlConn = new SqlConnection(HPA.Common.StaticVars.ConnectionString);
                             sqlConn.Open();
+                            HPA.Common.StaticVars.UserID_sql = HPA.Common.StaticVars.ConnectionString.Split(HPA.Common.CommonConst.SEMICOLON_CHAR.ToCharArray())[2].Split('=')[1].Trim();
+                            HPA.Common.StaticVars.Password = HPA.Common.StaticVars.ConnectionString.Split(HPA.Common.CommonConst.SEMICOLON_CHAR.ToCharArray())[3].Split('=')[1].Trim();
                             HPA.Common.StaticVars.DatabaseName = sqlConn.Database;
                             HPA.Common.StaticVars.ServerName = sqlConn.DataSource;
                             sqlConn.Close();
