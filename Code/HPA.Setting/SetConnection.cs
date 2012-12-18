@@ -38,12 +38,11 @@ namespace HPA.Setting
                     ezsql2.close();
                     MessageBox.Show(this, "Test Connection string successfully!", "Paradise", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (Exception ex)
+                catch
                 {
                     MessageBox.Show(this, "Test Connection string failed!", "Paradise", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            isNewConnection = false;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -68,6 +67,7 @@ namespace HPA.Setting
             {
                 MessageBox.Show(this, "Connection setting can not saved. Please re-install Paradise if you can.", "Paradise", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            isNewConnection = false;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
