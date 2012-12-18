@@ -99,8 +99,10 @@ namespace HPA.Setting
 
         private void SetConnection_Load(object sender, EventArgs e)
         {
+            txtServerName.Focus();
             Control.ControlCollection ctrls = this.Controls;
             HPA.Common.Methods.ChangeLanguage(ref ctrls);
+            
         }
 
     }
