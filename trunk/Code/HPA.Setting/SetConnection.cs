@@ -43,6 +43,7 @@ namespace HPA.Setting
                     MessageBox.Show(this, "Test Connection string failed!", "Paradise", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            isNewConnection = false;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -51,17 +52,50 @@ namespace HPA.Setting
                                            "Database = " + txtDatabaseName.Text.Trim() + SEMICOLON_CHAR +
                                             "UID = " + txtUserName.Text.Trim() + SEMICOLON_CHAR +
                                              "PWD = " + txtPassword.Text.Trim();
-            Methods.WriteFile(Encryption.EncryptText(StaticVars.ConnectionString,true));
+
+            try
+            {
+                EzSqlCollection.EzSql2 ezsql2 = new EzSqlCollection.EzSql2(txtServerName.Text.Trim(),
+                                                                            txtDatabaseName.Text.Trim(),
+                                                                            txtUserName.Text.Trim(),
+                                                                            txtPassword.Text.Trim());
+                ezsql2.open();
+                ezsql2.close();
+                Methods.WriteFile(Encryption.EncryptText(StaticVars.ConnectionString, true));
+                MessageBox.Show(this, "Connection setting has saved successfully. Changes will be applied for the next log on.", "Paradise", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show(this, "Connection setting can not saved. Please re-install Paradise if you can.", "Paradise", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Restart();
+            if (!isNewConnection)
+            {
+                try
+                {
+                    EzSqlCollection.EzSql2 ezsql2 = new EzSqlCollection.EzSql2(txtServerName.Text.Trim(),
+                                                                                txtDatabaseName.Text.Trim(),
+                                                                                txtUserName.Text.Trim(),
+                                                                                txtPassword.Text.Trim());
+                    ezsql2.open();
+                    ezsql2.close();
+                    Application.Restart();
+                }
+                catch
+                {
+                    MessageBox.Show(this, "Connection setting is not available.", "Paradise", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+                Application.Exit();
         }
 
         private string strServer, strDatabase, strUser, strPassword;
         private string SEMICOLON_CHAR = HPA.Common.CommonConst.SEMICOLON_CHAR;
-        private bool isNewConnection = false;
+        private bool isNewConnection = true;
 
         private void SetConnection_Load(object sender, EventArgs e)
         {

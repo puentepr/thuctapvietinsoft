@@ -40,72 +40,86 @@
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.lblConncSetDesc = new DevExpress.XtraEditors.LabelControl();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblServerName
             // 
-            this.lblServerName.Location = new System.Drawing.Point(45, 73);
+            this.lblServerName.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblServerName.Location = new System.Drawing.Point(18, 29);
             this.lblServerName.Name = "lblServerName";
-            this.lblServerName.Size = new System.Drawing.Size(69, 13);
+            this.lblServerName.Size = new System.Drawing.Size(77, 14);
             this.lblServerName.TabIndex = 0;
             this.lblServerName.Text = "lblServerName";
             // 
             // lblDatabaseName
             // 
-            this.lblDatabaseName.Location = new System.Drawing.Point(45, 98);
+            this.lblDatabaseName.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDatabaseName.Location = new System.Drawing.Point(18, 54);
             this.lblDatabaseName.Name = "lblDatabaseName";
-            this.lblDatabaseName.Size = new System.Drawing.Size(83, 13);
+            this.lblDatabaseName.Size = new System.Drawing.Size(92, 14);
             this.lblDatabaseName.TabIndex = 1;
             this.lblDatabaseName.Text = "lblDatabaseName";
             // 
             // lblUserName
             // 
-            this.lblUserName.Location = new System.Drawing.Point(45, 122);
+            this.lblUserName.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserName.Location = new System.Drawing.Point(18, 78);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(59, 13);
+            this.lblUserName.Size = new System.Drawing.Size(67, 14);
             this.lblUserName.TabIndex = 2;
             this.lblUserName.Text = "lblUserName";
             // 
             // lblPassword
             // 
-            this.lblPassword.Location = new System.Drawing.Point(45, 146);
+            this.lblPassword.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Location = new System.Drawing.Point(18, 102);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(56, 13);
+            this.lblPassword.Size = new System.Drawing.Size(64, 14);
             this.lblPassword.TabIndex = 3;
             this.lblPassword.Text = "lblPassword";
             // 
             // txtServerName
             // 
-            this.txtServerName.Location = new System.Drawing.Point(142, 70);
+            this.txtServerName.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtServerName.Location = new System.Drawing.Point(115, 26);
             this.txtServerName.Name = "txtServerName";
-            this.txtServerName.Size = new System.Drawing.Size(150, 21);
+            this.txtServerName.Size = new System.Drawing.Size(150, 22);
             this.txtServerName.TabIndex = 4;
             // 
             // txtDatabaseName
             // 
-            this.txtDatabaseName.Location = new System.Drawing.Point(142, 95);
+            this.txtDatabaseName.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDatabaseName.Location = new System.Drawing.Point(115, 51);
             this.txtDatabaseName.Name = "txtDatabaseName";
-            this.txtDatabaseName.Size = new System.Drawing.Size(150, 21);
+            this.txtDatabaseName.Size = new System.Drawing.Size(150, 22);
             this.txtDatabaseName.TabIndex = 5;
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(142, 119);
+            this.txtUserName.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserName.Location = new System.Drawing.Point(115, 75);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(150, 21);
+            this.txtUserName.Size = new System.Drawing.Size(150, 22);
             this.txtUserName.TabIndex = 6;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(142, 143);
+            this.txtPassword.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(115, 99);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(150, 21);
+            this.txtPassword.Size = new System.Drawing.Size(150, 22);
             this.txtPassword.TabIndex = 7;
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(184, 171);
+            this.btnTest.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTest.Appearance.Options.UseFont = true;
+            this.btnTest.Location = new System.Drawing.Point(157, 134);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(108, 27);
             this.btnTest.TabIndex = 8;
@@ -114,18 +128,18 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(45, 214);
+            this.btnSave.Location = new System.Drawing.Point(16, 15);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(108, 27);
+            this.btnSave.Size = new System.Drawing.Size(56, 27);
             this.btnSave.TabIndex = 9;
             this.btnSave.Text = "simpleButton1";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(184, 214);
+            this.btnClose.Location = new System.Drawing.Point(212, 15);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(108, 27);
+            this.btnClose.Size = new System.Drawing.Size(55, 27);
             this.btnClose.TabIndex = 10;
             this.btnClose.Text = "simpleButton1";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -133,32 +147,55 @@
             // lblConncSetDesc
             // 
             this.lblConncSetDesc.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConncSetDesc.Location = new System.Drawing.Point(22, 24);
+            this.lblConncSetDesc.Location = new System.Drawing.Point(20, 24);
             this.lblConncSetDesc.Name = "lblConncSetDesc";
             this.lblConncSetDesc.Size = new System.Drawing.Size(64, 13);
             this.lblConncSetDesc.TabIndex = 11;
             this.lblConncSetDesc.Text = "labelControl1";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnClose);
+            this.groupBox1.Controls.Add(this.btnSave);
+            this.groupBox1.Location = new System.Drawing.Point(34, 224);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(276, 49);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblServerName);
+            this.groupBox2.Controls.Add(this.lblDatabaseName);
+            this.groupBox2.Controls.Add(this.lblUserName);
+            this.groupBox2.Controls.Add(this.btnTest);
+            this.groupBox2.Controls.Add(this.lblPassword);
+            this.groupBox2.Controls.Add(this.txtPassword);
+            this.groupBox2.Controls.Add(this.txtServerName);
+            this.groupBox2.Controls.Add(this.txtUserName);
+            this.groupBox2.Controls.Add(this.txtDatabaseName);
+            this.groupBox2.Location = new System.Drawing.Point(34, 51);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(276, 175);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            // 
             // SetConnection
             // 
+            this.Appearance.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(336, 259);
+            this.ClientSize = new System.Drawing.Size(350, 289);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblConncSetDesc);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnTest);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtUserName);
-            this.Controls.Add(this.txtDatabaseName);
-            this.Controls.Add(this.txtServerName);
-            this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.lblUserName);
-            this.Controls.Add(this.lblDatabaseName);
-            this.Controls.Add(this.lblServerName);
             this.Name = "SetConnection";
             this.Text = "Set Connection";
             this.Load += new System.EventHandler(this.SetConnection_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,6 +215,8 @@
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton btnClose;
         private DevExpress.XtraEditors.LabelControl lblConncSetDesc;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
 
     }
 }
