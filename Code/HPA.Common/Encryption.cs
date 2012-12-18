@@ -10,7 +10,7 @@ namespace HPA.Common
 {
     class Encryption
     {
-        public static string EncryptText(string toEncrypt, bool useHashing)
+        public string EncryptText(string toEncrypt, bool useHashing)
         {
             byte[] keyArray;
             byte[] toEncryptArray = UTF8Encoding.UTF8.GetBytes(toEncrypt);
