@@ -16,7 +16,7 @@ namespace HPA
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HPA_Main());
+            Application.Run(new FormLogin());
         }
     }
 }
