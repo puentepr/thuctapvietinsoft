@@ -32,7 +32,7 @@ namespace HPA.CommonForm
         private bool HasAccessRight()
         {
             HPA.SQL.DataDaigramDataContext sqlcon = new SQL.DataDaigramDataContext();
-            if (sqlcon.SC_USEROBJECTRIGHT_GET(FullClassName, HPA.Common.StaticVars.UserID) <= 0)
+            if (sqlcon.SC_USEROBJECTRIGHT_GET(FullClassName, HPA.Common.StaticVars.LoginID) <= 0)
                 return false;
             else
                 return true;
