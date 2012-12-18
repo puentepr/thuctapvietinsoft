@@ -13,6 +13,7 @@ namespace HPA.Common
         public const string LOGIN_FAILURE = "LOGIN_FAILURE";
         public const string encryptkey = "acoi9a";
         public const string SEMICOLON_CHAR = ";";
+        public const string CPN_STD_NAME = "Vietinsoft";
 
         public const string LEAVE_CODE = "LeaveCode";
         public const string LEAVE_STATUS = "LeaveStatus";
@@ -40,6 +41,7 @@ namespace HPA.Common
         public const string POWEROFF_SUCCESSFULLY = "POWEROFF_SUCCESSFULLY";
         public const string UPDATE_FILE_INVALID = "UPDATE_FILE_INVALID";
         public const string LOAD_DATA_FIRST = "LOAD_DATA_FIRST";
+        public const string ERROR_LOG_FILE = "Error_log.txt";
         public const string IMPORTDATA_ERROR = "IMPORTDATA_ERROR";
         public const string IMPORTDATA_SUCCESS = "IMPORTDATA_SUCCESS";
         public const string DATA_PROCESSED_SUCCESSFULLY = "DATA_PROCESSED_SUCCESSFULLY";
