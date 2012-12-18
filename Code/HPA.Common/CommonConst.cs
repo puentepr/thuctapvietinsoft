@@ -16,6 +16,6 @@ namespace HPA.Common
         public const string PARADISE_INI = "Paradise.ini";
         public const string LOGIN_FAILURE = "LOGIN_FAILURE";
         public const string encryptkey = "acoi9a";
-        public const string SEPERATE_CHAR = ";";
+        public const string SEMICOLON_CHAR = ";";
     }
 }
