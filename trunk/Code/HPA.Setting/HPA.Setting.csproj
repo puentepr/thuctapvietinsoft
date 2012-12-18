@@ -59,6 +59,12 @@
       <DependentUpon>SetConnection.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HPA.SQL\HPA.SQL.csproj">
+      <Project>{40dfa349-9330-45b0-9618-b91482cd7047}</Project>
+      <Name>HPA.SQL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
