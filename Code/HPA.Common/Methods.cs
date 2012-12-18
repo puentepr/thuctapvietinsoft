@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,31 @@ namespace HPA.Common
                 retVal = string.Format("{0} {1}", MessID, HPA.Common.StaticVars.LanguageID);
 
             return retVal;
+        }
+
+        public static string ReadFile(string FILE_NAME)
+        {
+            string str = "";
+            FileStream buf = null;
+            try
+            {
+                buf = new FileStream(HPA.Common.StaticVars.App_path + '\\' + FILE_NAME, FileMode.Open);
+                int temp = buf.ReadByte();
+                while (temp != -1)
+                {
+                    str += temp;
+                    temp = buf.ReadByte();
+                }
+                // read successfully
+                buf.Close();
+                return str;
+            }
+            catch(IOException ioEx)
+            {
+                buf.Close();
+                buf = null;
+                return null;
+            }
         }
     }
 }
