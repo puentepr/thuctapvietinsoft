@@ -27,7 +27,7 @@ namespace HPA.Setting
             strPassword = txtPassword.Text.Trim();
             if (strServer == "" || strDatabase == "" || strUser == "")
             {
-                MessageBox.Show("Thiếu thông tin");
+                MessageBox.Show(this, "Test Connection string failed!", "Paradise", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
