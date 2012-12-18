@@ -35,6 +35,7 @@ namespace HPA
                             SqlConnection sqlConn = new SqlConnection(HPA.Common.StaticVars.ConnectionString);
                             sqlConn.Open();
                             sqlConn.Close();
+                            HPA.SQL.SP.Connect.SetConnect(HPA.Common.StaticVars.ConnectionString);
                             Application.Run(new HPA_Main());
                         }
                         catch
