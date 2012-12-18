@@ -63,6 +63,7 @@ namespace HPA.Common
                 using (StreamReader sr = new StreamReader(HPA.Common.StaticVars.App_path + FILE_NAME))
                 {
                     str = sr.ReadToEnd();
+                    sr.Close();
                 }
                 return str;
             }
@@ -77,7 +78,9 @@ namespace HPA.Common
             using (StreamWriter outfile = new StreamWriter(HPA.Common.StaticVars.App_path + HPA.Common.CommonConst.PARADISE_INI))
             {
                 outfile.Write(str);
+                outfile.Close();
             }
+            
         }
     }
 }
