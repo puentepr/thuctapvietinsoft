@@ -47,10 +47,7 @@ namespace HPA.Setting
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            StaticVars.ConnectionString = "Server = " + txtServerName.Text.Trim() + SEMICOLON_CHAR +
-                                           "Database = " + txtDatabaseName.Text.Trim() + SEMICOLON_CHAR +
-                                            "UID = " + txtUserName.Text.Trim() + SEMICOLON_CHAR +
-                                             "PWD = " + txtPassword.Text.Trim();
+            StaticVars.ConnectionString = String.Format("Server = {0}{1}Database = {2}{1}UID = {3}{1}PWD = {4}", txtServerName.Text.Trim(), SEMICOLON_CHAR, txtDatabaseName.Text.Trim(), txtUserName.Text.Trim(), txtPassword.Text.Trim());
 
             try
             {
