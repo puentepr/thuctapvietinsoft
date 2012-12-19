@@ -70,7 +70,6 @@
     <EmbeddedResource Include="DynamicForm.resx">
       <DependentUpon>DynamicForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="SetConnection.resx">
       <DependentUpon>SetConnection.cs</DependentUpon>
     </EmbeddedResource>
