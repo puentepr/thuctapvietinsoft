@@ -13,7 +13,7 @@ namespace HPA.Setting
     public partial class FormCautrucCongty : Form
     {
         HPA.SQL.DataDaigramDataContext dt = new SQL.DataDaigramDataContext();
-        public delegate void passdata(int id,int cap,int loai);
+        public delegate void passdata(int t);
         public FormCautrucCongty()
         {
             InitializeComponent();
@@ -77,6 +77,10 @@ namespace HPA.Setting
             {
                 int k = int.Parse(treeView1.SelectedNode.Name);
                 this.Close();
+                FormDivision dv = new FormDivision();
+                passdata pa = new passdata(dv.Fundata);
+                pa(k);
+                dv.Show();
             }
             else if (e.ClickedItem.Text == "Delete Division")
             {
