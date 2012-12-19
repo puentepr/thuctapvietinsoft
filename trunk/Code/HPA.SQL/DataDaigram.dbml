@@ -50,6 +50,64 @@
       <Column Name="Content" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.tblDepartment" Member="tblDepartments">
+    <Type Name="tblDepartment">
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DivisionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentCode" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Foreigner" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JapaneseName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="VietnameseName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblDivision" Member="tblDivisions">
+    <Type Name="tblDivision">
+      <Column Name="DivisionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DivisionCode" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="DivisionName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BranchID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblCompany" Member="tblCompanies">
+    <Type Name="tblCompany">
+      <Column Name="CompanyID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CompanyFullName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompanyFullNameEN" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ComAcronymName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DirectorName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="FaxNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="BankAccount" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AddressEN" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TaxRegNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TaxRegDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Logo" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblGroup" Member="tblGroups">
+    <Type Name="tblGroup">
+      <Column Name="GroupID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SectionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GroupCode" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="GroupName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="JapaneseName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="VietnameseName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Foreigner" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSection" Member="tblSections">
+    <Type Name="tblSection">
+      <Column Name="SectionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SectionCode" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="SectionName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="JapaneseName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="VietnameseName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Foreigner" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.SC_Login_CheckLogin" Method="SC_Login_CheckLogin">
     <Parameter Name="LoginName" Parameter="loginName" Type="System.String" DbType="VarChar(20)" />
     <Parameter Name="PassWord" Parameter="passWord" Type="System.String" DbType="VarChar(20)" />
@@ -66,8 +124,9 @@
     <Parameter Name="p_LoginID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.sp_Menu_Load" Method="sp_Menu_Load">
+  <Function Name="dbo.sp_Menu_Load" Method="sp_Menu_Load" IsComposable="true">
     <Parameter Name="LanguageID" Parameter="languageID" Type="System.String" DbType="Char(2)" />
     <Parameter Name="LoginID" Parameter="loginID" Type="System.Int32" DbType="Int" />
+    <Return Type="object" />
   </Function>
 </Database>
