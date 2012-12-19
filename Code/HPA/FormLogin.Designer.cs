@@ -66,7 +66,7 @@
             // 
             this.txtName.Location = new System.Drawing.Point(100, 162);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(172, 20);
+            this.txtName.Size = new System.Drawing.Size(172, 21);
             this.txtName.TabIndex = 3;
             // 
             // txtPass
@@ -74,7 +74,7 @@
             this.txtPass.Location = new System.Drawing.Point(100, 194);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
-            this.txtPass.Size = new System.Drawing.Size(172, 20);
+            this.txtPass.Size = new System.Drawing.Size(172, 21);
             this.txtPass.TabIndex = 4;
             // 
             // btnLogin
@@ -126,9 +126,12 @@
             // FormLogin
             // 
             this.AcceptButton = this.btnLogin;
+            this.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.Appearance.Options.UseForeColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImageStore = global::HPA.Properties.Resources.Anh;
             this.ClientSize = new System.Drawing.Size(488, 292);
             this.Controls.Add(this.lblApplicationName);
             this.Controls.Add(this.lblCompanyName2);
@@ -138,7 +141,6 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUserName);
-            this.ForeColor = System.Drawing.Color.Blue;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
