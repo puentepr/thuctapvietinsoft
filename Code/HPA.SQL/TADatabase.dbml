@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="phanmemtinhluon_P4" Class="TADatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=112.78.2.166,1455;Initial Catalog=phanmemtinhluon_P4;Persist Security Info=True;User ID=phanmemtinhluon_saP4" SettingsObjectName="HPA.SQL.Properties.Settings" SettingsPropertyName="phanmemtinhluon_P4ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblHasTA" Member="tblHasTAs">
+    <Type Name="tblHasTA">
+      <Column Name="EmployeeID" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AttDate" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Period" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShiftID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="AttStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AttEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Approve" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TimeStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TimeReason" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ContructionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NoTAReasonCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblWSchedule" Member="tblWSchedules">
+    <Type Name="tblWSchedule">
+      <Column Name="EmployeeID" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ScheduleDate" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShiftID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HolidayStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LeaveStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Approved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="phanmemtinhluon_P4" Class="HRDatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=112.78.2.166,1455;Initial Catalog=phanmemtinhluon_P4;Persist Security Info=True;User ID=phanmemtinhluon_saP4" SettingsObjectName="HPA.SQL.Properties.Settings" SettingsPropertyName="phanmemtinhluon_P4ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblEmployee" Member="tblEmployees">
+    <Type Name="tblEmployee">
+      <Column Name="EmployeeID" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkingPlaceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AreaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BranchID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DivisionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SectionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PositionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Photo" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="Nationality" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sex" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Address1" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Address2" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="BusinessPhone" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Extension" Type="System.String" DbType="VarChar(18)" CanBeNull="true" />
+      <Column Name="MobilePhone" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="FaxNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="HomePhone" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="HomeFax" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ID_Number" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ID_Issue_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ID_Issue_Place" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ID_ProvinceID" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="Marital" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Birthday" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FalseDay" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BirthPlace" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NativeCountry" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HireDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EmployeeStatusID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="TerminateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WorkingStatusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PaymentID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="BankID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AccountNo" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="BasicInfoNotes" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Religion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PassportNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PassportIssueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PassportExpiredDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PassportPlace" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Transport" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="CallName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OfficeID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CountryID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HomeEmail" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="HomeNotes" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Official" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LBNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ContractNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ContractStartDay" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ContractEndDay" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LabourName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="IsWorker" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AccPoint" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="IsDeclaredSI" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SignedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TerminateReasonID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProbationEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AccOwner" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="CardNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PaymentMethod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PhotoImage" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WorkPermitNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="WorkPermit_IssueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WorkPermit_ExpireDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TemporaryPhone" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="IsOTInSalary" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TaxRegNo" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Ethnic" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Product" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DistrictID" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="ProvinceID" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="Ward" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tmpDistrictID" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="tmpProvinceID" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="tmpWard" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EducationalBase" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ResidentAdd" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="RateID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LevelID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsNonTaxable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LineManagerID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="AreaSupID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="IDForBankTransfer" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="EmployeeTypeID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Approved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FacilityCountry" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FacilityTown" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FullTime" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="WorkingTimePercent" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="WHPerWeek" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="NewCostCenter" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OldCostCenter" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductionLine" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TaxRegDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TaxRegPlace" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLabourContract" Member="tblLabourContracts">
+    <Type Name="tblLabourContract">
+      <Column Name="ContractID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ContractNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ContractCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="LBNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LabourName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ContractStartDay" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ContractEndDay" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LBIssueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LBIssuePlace" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Duration" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="IsFirstSign" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ChuyenMonID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SalaryCode" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="WorkingTime" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsProbation" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LabourAssignTaskID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="isSigned" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="isLowSalary" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DocID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CommitmentKind" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="PrintAppendixDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
