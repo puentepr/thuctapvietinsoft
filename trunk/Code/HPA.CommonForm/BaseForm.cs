@@ -17,6 +17,8 @@ namespace HPA.CommonForm
         public BaseForm()
         {
             InitializeComponent();
+            if (HPA.Common.StaticVars.ServerName == null)
+                return;
             DBEngine = new EzSqlCollection.EzSql2(HPA.Common.StaticVars.ServerName, HPA.Common.StaticVars.DatabaseName, HPA.Common.StaticVars.UserID_sql, HPA.Common.StaticVars.Password);
             DBEngine.open();
         }
