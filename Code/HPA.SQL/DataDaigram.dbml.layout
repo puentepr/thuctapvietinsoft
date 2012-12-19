@@ -1,9 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<<<<<<< .mine
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12, 21.375" name="DataDaigram">
-=======
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 13.5, 12" name="DataDaigram">
->>>>>>> .r124
   <DataContextMoniker Name="/DataDaigramDataContext" />
   <nestedChildShapes>
     <classShape Id="570eda21-fcad-4245-9107-62df48dd62e3" absoluteBounds="5, 2.625, 2, 2.3478011067708335">
@@ -36,91 +32,36 @@
         <elementListCompartment Id="1523ccea-95df-41da-86a4-71aa10ca27b1" absoluteBounds="5.265, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="39bd4843-a1e8-4583-8bf8-e55727c46b85" absoluteBounds="6.875, 8.5, 2, 3.3093082682291666">
-      <DataClassMoniker Name="/DataDaigramDataContext/tblCompany" />
-      <nestedChildShapes>
-        <elementListCompartment Id="f6ea5a4e-08aa-45c5-bbc3-aa0da9247cd3" absoluteBounds="6.89, 8.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="c83e9668-03be-479d-bceb-1680c66361de" absoluteBounds="11.125, 0.875, 2, 2.1554996744791666">
+    <classShape Id="3a618c3e-f63a-4961-a8d2-9525601fa8ce" absoluteBounds="3.375, 5.75, 2, 2.1554996744791666">
       <DataClassMoniker Name="/DataDaigramDataContext/tblDepartment" />
       <nestedChildShapes>
-        <elementListCompartment Id="0a3250bc-969a-48d6-8bfe-9af6a0585c1e" absoluteBounds="11.14, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="e58c2dbe-5b40-4a57-8f76-af9ace111cf3" absoluteBounds="3.39, 6.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-<<<<<<< .mine
     <classShape Id="17101910-80a8-41f8-8106-7dfe7e0e24fd" absoluteBounds="5.75, 5.25, 2, 1.5785953776041666">
-=======
-    <classShape Id="ac35b3fc-56ae-48cd-9ff8-7965644589eb" absoluteBounds="8.375, 1.25, 2, 1.5785953776041666">
->>>>>>> .r124
       <DataClassMoniker Name="/DataDaigramDataContext/tblDivision" />
       <nestedChildShapes>
-<<<<<<< .mine
         <elementListCompartment Id="7aaf1c75-0f3f-4743-9821-376c68d49a20" absoluteBounds="5.765, 5.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-=======
-        <elementListCompartment Id="217634dc-f67d-4768-9210-b45adcb096c8" absoluteBounds="8.39, 1.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
->>>>>>> .r124
       </nestedChildShapes>
     </classShape>
-<<<<<<< .mine
     <classShape Id="39bd4843-a1e8-4583-8bf8-e55727c46b85" absoluteBounds="4, 8, 2, 3.3093082682291666">
       <DataClassMoniker Name="/DataDaigramDataContext/tblCompany" />
-=======
-    <associationConnector edgePoints="[(10.375 : 2.03929768880208); (11.125 : 2.03929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DataDaigramDataContext/tblDivision/tblDivision_tblDepartment" />
-      <nodes>
-        <classShapeMoniker Id="ac35b3fc-56ae-48cd-9ff8-7965644589eb" />
-        <classShapeMoniker Id="c83e9668-03be-479d-bceb-1680c66361de" />
-      </nodes>
-    </associationConnector>
-    <classShape Id="08ff61c6-6ba9-4716-9ce1-73f6829be2fd" absoluteBounds="11.25, 4.875, 2, 2.1554996744791666">
-      <DataClassMoniker Name="/DataDaigramDataContext/tblSection" />
->>>>>>> .r124
       <nestedChildShapes>
-<<<<<<< .mine
         <elementListCompartment Id="f6ea5a4e-08aa-45c5-bbc3-aa0da9247cd3" absoluteBounds="4.015, 8.46, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-=======
-        <elementListCompartment Id="94124725-99a6-4981-b609-80a0ce960534" absoluteBounds="11.265, 5.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
->>>>>>> .r124
       </nestedChildShapes>
     </classShape>
-<<<<<<< .mine
     <classShape Id="8b509328-d558-4f16-9fbf-e38bf21ad9f8" absoluteBounds="1, 6.375, 2, 2.1554996744791666">
-=======
-    <associationConnector edgePoints="[(12.34375 : 3.03049967447917); (12.34375 : 4.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DataDaigramDataContext/tblDepartment/tblDepartment_tblSection" />
-      <nodes>
-        <classShapeMoniker Id="c83e9668-03be-479d-bceb-1680c66361de" />
-        <classShapeMoniker Id="08ff61c6-6ba9-4716-9ce1-73f6829be2fd" />
-      </nodes>
-    </associationConnector>
-    <classShape Id="ad51e68c-b9c8-449c-9fab-a16161d4a0e0" absoluteBounds="7.375, 3.25, 2, 2.1554996744791666">
->>>>>>> .r124
       <DataClassMoniker Name="/DataDaigramDataContext/tblGroup" />
       <nestedChildShapes>
-<<<<<<< .mine
         <elementListCompartment Id="c74945b5-0498-457e-9850-b8cea0091d1d" absoluteBounds="1.0149999999999997, 6.8350000000000009, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-=======
-        <elementListCompartment Id="7c7dd667-05a3-4144-ba52-7535a8e8ae78" absoluteBounds="7.3900000000000006, 3.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
->>>>>>> .r124
       </nestedChildShapes>
     </classShape>
-<<<<<<< .mine
     <classShape Id="f1a62c52-d879-4c2e-96df-25c98cf73548" absoluteBounds="1.5, 8.875, 2, 2.1554996744791666">
       <DataClassMoniker Name="/DataDaigramDataContext/tblSection" />
       <nestedChildShapes>
         <elementListCompartment Id="e1f1d1b3-2190-42cf-8de5-b06fe2d961f7" absoluteBounds="1.5149999999999997, 9.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-=======
-    <associationConnector edgePoints="[(11.25 : 5.14024983723958); (9.375 : 5.14024983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DataDaigramDataContext/tblSection/tblSection_tblGroup" />
-      <nodes>
-        <classShapeMoniker Id="08ff61c6-6ba9-4716-9ce1-73f6829be2fd" />
-        <classShapeMoniker Id="ad51e68c-b9c8-449c-9fab-a16161d4a0e0" />
-      </nodes>
-    </associationConnector>
->>>>>>> .r124
     <classShape Id="cf3566eb-b558-414e-8d5c-859c7070498c" absoluteBounds="9.75, 0.5, 2, 20.616437174479167">
       <DataClassMoniker Name="/DataDaigramDataContext/tblEmployee" />
       <nestedChildShapes>
