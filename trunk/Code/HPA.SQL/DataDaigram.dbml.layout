@@ -80,5 +80,11 @@
         <elementListCompartment Id="899c555d-fe5d-4fc5-be81-a943aa68ec7a" absoluteBounds="6.64, 7.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="2583ba5a-82d0-43fc-9f27-9bad1f125a98" absoluteBounds="6.625, 8.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/DataDaigramDataContext/tblWSchedule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dffc35ba-a09b-43e3-ae08-df7a266e875c" absoluteBounds="6.64, 9.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>
