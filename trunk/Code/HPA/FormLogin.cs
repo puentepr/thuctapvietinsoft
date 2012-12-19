@@ -14,8 +14,6 @@ namespace HPA
     
     public partial class FormLogin : HPA.CommonForm.BaseForm
     {
-        //bool kt = false;
-        //int Y, X;
         HPA.SQL.DataDaigramDataContext dt = new SQL.DataDaigramDataContext();
         public FormLogin()
         {
@@ -61,22 +59,5 @@ namespace HPA
                 this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             }
         }
-
-        //private void FormLogin_MouseDown(object sender, MouseEventArgs e)
-        //{
-        //    kt = true;
-        //    Y = e.Y;
-        //    X = e.X;
-        //}
-
-        //private void FormLogin_MouseMove(object sender, MouseEventArgs e)
-        //{
-
-        //}
-
-        //private void FormLogin_MouseUp(object sender, MouseEventArgs e)
-        //{
-        //    kt = false;
-        //}
     }
 }

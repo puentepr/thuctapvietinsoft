@@ -54,15 +54,21 @@
     <Compile Include="DynamicForm.Designer.cs">
       <DependentUpon>DynamicForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCautrucCongty.cs" />
+    <Compile Include="FormCautrucCongty.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormCautrucCongty.Designer.cs">
       <DependentUpon>FormCautrucCongty.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDivision.cs" />
+    <Compile Include="FormDivision.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormDivision.Designer.cs">
       <DependentUpon>FormDivision.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormTemp.cs" />
+    <Compile Include="FormTemp.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormTemp.Designer.cs">
       <DependentUpon>FormTemp.cs</DependentUpon>
     </Compile>
