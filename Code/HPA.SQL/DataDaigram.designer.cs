@@ -66,6 +66,9 @@ namespace HPA.SQL
     partial void InserttblLabourContract(tblLabourContract instance);
     partial void UpdatetblLabourContract(tblLabourContract instance);
     partial void DeletetblLabourContract(tblLabourContract instance);
+    partial void InserttblWSchedule(tblWSchedule instance);
+    partial void UpdatetblWSchedule(tblWSchedule instance);
+    partial void DeletetblWSchedule(tblWSchedule instance);
     #endregion
 		
 		public DataDaigramDataContext() : 
@@ -199,6 +202,14 @@ namespace HPA.SQL
 			get
 			{
 				return this.GetTable<tblSC_DepartmentView>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblWSchedule> tblWSchedules
+		{
+			get
+			{
+				return this.GetTable<tblWSchedule>();
 			}
 		}
 		
@@ -5385,6 +5396,188 @@ namespace HPA.SQL
 				{
 					this._ViewInfo = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblWSchedule")]
+	public partial class tblWSchedule : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _EmployeeID;
+		
+		private System.DateTime _ScheduleDate;
+		
+		private int _ShiftID;
+		
+		private int _HolidayStatus;
+		
+		private System.Nullable<int> _LeaveStatus;
+		
+		private System.Nullable<bool> _Approved;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEmployeeIDChanging(string value);
+    partial void OnEmployeeIDChanged();
+    partial void OnScheduleDateChanging(System.DateTime value);
+    partial void OnScheduleDateChanged();
+    partial void OnShiftIDChanging(int value);
+    partial void OnShiftIDChanged();
+    partial void OnHolidayStatusChanging(int value);
+    partial void OnHolidayStatusChanged();
+    partial void OnLeaveStatusChanging(System.Nullable<int> value);
+    partial void OnLeaveStatusChanged();
+    partial void OnApprovedChanging(System.Nullable<bool> value);
+    partial void OnApprovedChanged();
+    #endregion
+		
+		public tblWSchedule()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					this.OnEmployeeIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScheduleDate", DbType="DateTime NOT NULL", IsPrimaryKey=true)]
+		public System.DateTime ScheduleDate
+		{
+			get
+			{
+				return this._ScheduleDate;
+			}
+			set
+			{
+				if ((this._ScheduleDate != value))
+				{
+					this.OnScheduleDateChanging(value);
+					this.SendPropertyChanging();
+					this._ScheduleDate = value;
+					this.SendPropertyChanged("ScheduleDate");
+					this.OnScheduleDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShiftID", DbType="Int NOT NULL")]
+		public int ShiftID
+		{
+			get
+			{
+				return this._ShiftID;
+			}
+			set
+			{
+				if ((this._ShiftID != value))
+				{
+					this.OnShiftIDChanging(value);
+					this.SendPropertyChanging();
+					this._ShiftID = value;
+					this.SendPropertyChanged("ShiftID");
+					this.OnShiftIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HolidayStatus", DbType="Int NOT NULL")]
+		public int HolidayStatus
+		{
+			get
+			{
+				return this._HolidayStatus;
+			}
+			set
+			{
+				if ((this._HolidayStatus != value))
+				{
+					this.OnHolidayStatusChanging(value);
+					this.SendPropertyChanging();
+					this._HolidayStatus = value;
+					this.SendPropertyChanged("HolidayStatus");
+					this.OnHolidayStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LeaveStatus", DbType="Int")]
+		public System.Nullable<int> LeaveStatus
+		{
+			get
+			{
+				return this._LeaveStatus;
+			}
+			set
+			{
+				if ((this._LeaveStatus != value))
+				{
+					this.OnLeaveStatusChanging(value);
+					this.SendPropertyChanging();
+					this._LeaveStatus = value;
+					this.SendPropertyChanged("LeaveStatus");
+					this.OnLeaveStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Approved", DbType="Bit")]
+		public System.Nullable<bool> Approved
+		{
+			get
+			{
+				return this._Approved;
+			}
+			set
+			{
+				if ((this._Approved != value))
+				{
+					this.OnApprovedChanging(value);
+					this.SendPropertyChanging();
+					this._Approved = value;
+					this.SendPropertyChanged("Approved");
+					this.OnApprovedChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

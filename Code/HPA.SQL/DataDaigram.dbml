@@ -248,6 +248,16 @@
       <Column Name="ViewInfo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.tblWSchedule" Member="tblWSchedules">
+    <Type Name="tblWSchedule">
+      <Column Name="EmployeeID" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ScheduleDate" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShiftID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HolidayStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LeaveStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Approved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.SC_Login_CheckLogin" Method="SC_Login_CheckLogin">
     <Parameter Name="LoginName" Parameter="loginName" Type="System.String" DbType="VarChar(20)" />
     <Parameter Name="PassWord" Parameter="passWord" Type="System.String" DbType="VarChar(20)" />
