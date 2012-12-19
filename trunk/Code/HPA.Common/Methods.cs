@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace HPA.Common
 {
@@ -163,6 +164,15 @@ namespace HPA.Common
                 outfile.Close();
             }
 
+        }
+        public static bool Kiemtrchuoi(string s, Regex r)
+        {
+            bool b = r.IsMatch(s);
+            if (b)
+            {
+                return true;
+            }
+            else return false;
         }
     }
 }
