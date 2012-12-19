@@ -30,6 +30,8 @@ namespace HPA
             }
             else
             {
+                HPA.Properties.Settings.Default.Username = txtName.Text;
+                HPA.Properties.Settings.Default.Save();
                 HPA.Common.StaticVars.LoginID = Loginid ;
                 HPA.Common.StaticVars.LanguageID = "VN";
                 HPA.Common.StaticVars.UserName = txtName.Text;
@@ -50,6 +52,7 @@ namespace HPA
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
+            txtName.Text = HPA.Properties.Settings.Default.Username;
             Control.ControlCollection ctrls = this.Controls;
             HPA.Common.Methods.ChangeLanguage(ref ctrls);
             if (File.Exists((HPA.Properties.Settings.Default.BackGroundLogin))==true)
