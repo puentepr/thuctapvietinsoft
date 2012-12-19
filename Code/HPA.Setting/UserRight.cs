@@ -41,10 +41,20 @@ namespace HPA.Setting
 
         private void LoadLoginInfo()
         {
-            var _EmployeeList = from a in dtData.SC_LoginInfor("90003",3)
-                                where a.EmployeeID == txtEmployeeID.Text.Trim()
-                                select new { a.FullName };
-            gridControl1.DataSource = _EmployeeList;
+            // tìm nhân viên có EmployeeID nhập vào
+            var _EmployeeList = from a in dtData.tblEmployees
+                                from b in dtData.tblDepartments
+                                where ((a.DepartmentID == b.DepartmentID) && a.EmployeeID == txtEmployeeID.Text.Trim())
+                                select new { a.FullName, b.DepartmentName };
+            
+            // đưa EmployeeID vào các textbox
+            foreach (var temp in _EmployeeList)
+            {
+                txtFullName.Text = temp.FullName;
+                txtDepartment.Text = temp.DepartmentName;
+            }
+            
+            //gridControl1.DataSource = _EmployeeList;
         }
 
         HPA.SQL.DataDaigramDataContext dtData = new SQL.DataDaigramDataContext();
