@@ -64,6 +64,8 @@
             this.btnFWSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnFWDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnFWAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grbUserInfo.SuspendLayout();
             this.grbDepartment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ckbAllDepartment.Properties)).BeginInit();
@@ -78,6 +80,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvModule)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckbAllModule.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // grbUserInfo
@@ -408,11 +412,27 @@
             this.btnFWAdd.TabIndex = 0;
             this.btnFWAdd.Text = "simpleButton1";
             // 
+            // gridControl1
+            // 
+            this.gridControl1.Location = new System.Drawing.Point(525, 12);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(264, 133);
+            this.gridControl1.TabIndex = 5;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            // 
             // UserRight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 627);
+            this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grbModule);
             this.Controls.Add(this.grbSection);
@@ -436,6 +456,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvModule)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckbAllModule.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -478,5 +500,7 @@
         private DevExpress.XtraEditors.SimpleButton btnFWSave;
         private DevExpress.XtraEditors.SimpleButton btnFWDelete;
         private DevExpress.XtraEditors.SimpleButton btnFWAdd;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }
