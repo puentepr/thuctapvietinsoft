@@ -72,11 +72,11 @@
     <Compile Include="FormTemp.Designer.cs">
       <DependentUpon>FormTemp.cs</DependentUpon>
     </Compile>
-    <Compile Include="FromEditCT.cs">
+    <Compile Include="FormEditCT.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FromEditCT.Designer.cs">
-      <DependentUpon>FromEditCT.cs</DependentUpon>
+    <Compile Include="FormEditCT.Designer.cs">
+      <DependentUpon>FormEditCT.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -110,8 +110,8 @@
     <EmbeddedResource Include="FormTemp.resx">
       <DependentUpon>FormTemp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FromEditCT.resx">
-      <DependentUpon>FromEditCT.cs</DependentUpon>
+    <EmbeddedResource Include="FormEditCT.resx">
+      <DependentUpon>FormEditCT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SetConnection.resx">
       <DependentUpon>SetConnection.cs</DependentUpon>
