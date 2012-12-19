@@ -99,7 +99,6 @@ namespace HPA.Setting
             txtServerName.Focus();
             Control.ControlCollection ctrls = this.Controls;
             HPA.Common.Methods.ChangeLanguage(ref ctrls);
-            
         }
 
     }
