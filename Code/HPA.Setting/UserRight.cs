@@ -27,10 +27,7 @@ namespace HPA.Setting
 
         private void txtEmployeeID_Leave(object sender, EventArgs e)
         {
-            if (txtEmployeeID.Text != "")
-            {
-                LoadLoginInfo();
-            }
+            LoadLoginInfo();
         }
 
         private void txtEmployeeID_KeyUp(object sender, KeyEventArgs e)
@@ -40,27 +37,14 @@ namespace HPA.Setting
                 
             }
         }
-        
 
-        private bool LoadLoginInfo()
+
+        private void LoadLoginInfo()
         {
-            try
-            {
-                var _EmployeeList = from a in dtData.SC_LoginInfor(txtEmployeeID.Text.Trim(), HPA.Common.StaticVars.LoginID)
-                                    where a.EmployeeID == txtEmployeeID.Text.Trim()
-                                    select new { a.FullName, a.DepartmentName };
-                foreach (var temp in _EmployeeList)
-                {
-                    txtFullName.Text = temp.FullName;
-                    txtDepartment.Text = temp.DepartmentName;
-                }
-                return true;
-            }
-            catch
-            {
-                MessageBox.Show("Không tìm thấy");
-                return false;
-            }
+            var _EmployeeList = from a in dtData.SC_LoginInfor("90003",3)
+                                where a.EmployeeID == txtEmployeeID.Text.Trim()
+                                select new { a.FullName };
+            gridControl1.DataSource = _EmployeeList;
         }
 
         HPA.SQL.DataDaigramDataContext dtData = new SQL.DataDaigramDataContext();
