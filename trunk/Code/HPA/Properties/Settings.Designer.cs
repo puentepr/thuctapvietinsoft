@@ -25,7 +25,7 @@ namespace HPA.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Anh.jpg")]
+        [global::System.Configuration.DefaultSettingValueAttribute("@\\..\\Anh.jpg")]
         public string BackGroundLogin {
             get {
                 return ((string)(this["BackGroundLogin"]));
