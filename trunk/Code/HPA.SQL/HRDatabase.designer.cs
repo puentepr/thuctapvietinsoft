@@ -36,6 +36,9 @@ namespace HPA.SQL
     partial void InserttblLabourContract(tblLabourContract instance);
     partial void UpdatetblLabourContract(tblLabourContract instance);
     partial void DeletetblLabourContract(tblLabourContract instance);
+    partial void InserttblDepartment(tblDepartment instance);
+    partial void UpdatetblDepartment(tblDepartment instance);
+    partial void DeletetblDepartment(tblDepartment instance);
     #endregion
 		
 		public HRDatabaseDataContext() : 
@@ -81,6 +84,22 @@ namespace HPA.SQL
 			get
 			{
 				return this.GetTable<tblLabourContract>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblDepartment> tblDepartments
+		{
+			get
+			{
+				return this.GetTable<tblDepartment>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblSC_DepartmentView> tblSC_DepartmentViews
+		{
+			get
+			{
+				return this.GetTable<tblSC_DepartmentView>();
 			}
 		}
 		
@@ -3164,6 +3183,275 @@ namespace HPA.SQL
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblDepartment")]
+	public partial class tblDepartment : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _DepartmentID;
+		
+		private int _DivisionID;
+		
+		private string _DepartmentCode;
+		
+		private string _DepartmentName;
+		
+		private System.Nullable<int> _Foreigner;
+		
+		private string _JapaneseName;
+		
+		private string _VietnameseName;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnDepartmentIDChanging(int value);
+    partial void OnDepartmentIDChanged();
+    partial void OnDivisionIDChanging(int value);
+    partial void OnDivisionIDChanged();
+    partial void OnDepartmentCodeChanging(string value);
+    partial void OnDepartmentCodeChanged();
+    partial void OnDepartmentNameChanging(string value);
+    partial void OnDepartmentNameChanged();
+    partial void OnForeignerChanging(System.Nullable<int> value);
+    partial void OnForeignerChanged();
+    partial void OnJapaneseNameChanging(string value);
+    partial void OnJapaneseNameChanged();
+    partial void OnVietnameseNameChanging(string value);
+    partial void OnVietnameseNameChanged();
+    #endregion
+		
+		public tblDepartment()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int DepartmentID
+		{
+			get
+			{
+				return this._DepartmentID;
+			}
+			set
+			{
+				if ((this._DepartmentID != value))
+				{
+					this.OnDepartmentIDChanging(value);
+					this.SendPropertyChanging();
+					this._DepartmentID = value;
+					this.SendPropertyChanged("DepartmentID");
+					this.OnDepartmentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DivisionID", DbType="Int NOT NULL")]
+		public int DivisionID
+		{
+			get
+			{
+				return this._DivisionID;
+			}
+			set
+			{
+				if ((this._DivisionID != value))
+				{
+					this.OnDivisionIDChanging(value);
+					this.SendPropertyChanging();
+					this._DivisionID = value;
+					this.SendPropertyChanged("DivisionID");
+					this.OnDivisionIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentCode", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string DepartmentCode
+		{
+			get
+			{
+				return this._DepartmentCode;
+			}
+			set
+			{
+				if ((this._DepartmentCode != value))
+				{
+					this.OnDepartmentCodeChanging(value);
+					this.SendPropertyChanging();
+					this._DepartmentCode = value;
+					this.SendPropertyChanged("DepartmentCode");
+					this.OnDepartmentCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentName", DbType="NVarChar(200)")]
+		public string DepartmentName
+		{
+			get
+			{
+				return this._DepartmentName;
+			}
+			set
+			{
+				if ((this._DepartmentName != value))
+				{
+					this.OnDepartmentNameChanging(value);
+					this.SendPropertyChanging();
+					this._DepartmentName = value;
+					this.SendPropertyChanged("DepartmentName");
+					this.OnDepartmentNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Foreigner", DbType="Int")]
+		public System.Nullable<int> Foreigner
+		{
+			get
+			{
+				return this._Foreigner;
+			}
+			set
+			{
+				if ((this._Foreigner != value))
+				{
+					this.OnForeignerChanging(value);
+					this.SendPropertyChanging();
+					this._Foreigner = value;
+					this.SendPropertyChanged("Foreigner");
+					this.OnForeignerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JapaneseName", DbType="NVarChar(200)")]
+		public string JapaneseName
+		{
+			get
+			{
+				return this._JapaneseName;
+			}
+			set
+			{
+				if ((this._JapaneseName != value))
+				{
+					this.OnJapaneseNameChanging(value);
+					this.SendPropertyChanging();
+					this._JapaneseName = value;
+					this.SendPropertyChanged("JapaneseName");
+					this.OnJapaneseNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VietnameseName", DbType="NVarChar(200)")]
+		public string VietnameseName
+		{
+			get
+			{
+				return this._VietnameseName;
+			}
+			set
+			{
+				if ((this._VietnameseName != value))
+				{
+					this.OnVietnameseNameChanging(value);
+					this.SendPropertyChanging();
+					this._VietnameseName = value;
+					this.SendPropertyChanged("VietnameseName");
+					this.OnVietnameseNameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblSC_DepartmentView")]
+	public partial class tblSC_DepartmentView
+	{
+		
+		private int _LoginID;
+		
+		private int _DepartmentID;
+		
+		private System.Nullable<bool> _ViewInfo;
+		
+		public tblSC_DepartmentView()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoginID", DbType="Int NOT NULL")]
+		public int LoginID
+		{
+			get
+			{
+				return this._LoginID;
+			}
+			set
+			{
+				if ((this._LoginID != value))
+				{
+					this._LoginID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentID", DbType="Int NOT NULL")]
+		public int DepartmentID
+		{
+			get
+			{
+				return this._DepartmentID;
+			}
+			set
+			{
+				if ((this._DepartmentID != value))
+				{
+					this._DepartmentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ViewInfo", DbType="Bit")]
+		public System.Nullable<bool> ViewInfo
+		{
+			get
+			{
+				return this._ViewInfo;
+			}
+			set
+			{
+				if ((this._ViewInfo != value))
+				{
+					this._ViewInfo = value;
+				}
 			}
 		}
 	}
