@@ -14,12 +14,6 @@
         <elementListCompartment Id="fec55548-6519-4f32-8c2c-70efc90c7308" absoluteBounds="2.7649999999999997, 1.835, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="4e3a9478-48e7-4587-b0e4-6b7c0ee44407" absoluteBounds="2.25, 6.75, 2, 2.1554996744791666">
-      <DataClassMoniker Name="/HRDatabaseDataContext/tblDepartment" />
-      <nestedChildShapes>
-        <elementListCompartment Id="46f803cf-3fc7-4330-a8b3-253649e3edab" absoluteBounds="2.265, 7.2100000000000009, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="d9dae95f-f844-426e-a84c-4c77be89117f" absoluteBounds="4.375, 6.875, 2, 1.3862939453125">
       <DataClassMoniker Name="/HRDatabaseDataContext/tblSC_DepartmentView" />
       <nestedChildShapes>

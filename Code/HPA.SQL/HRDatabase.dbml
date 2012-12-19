@@ -133,17 +133,6 @@
       <Column Name="PrintAppendixDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tblDepartment" Member="tblDepartments">
-    <Type Name="tblDepartment">
-      <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="DivisionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DepartmentCode" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Foreigner" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="JapaneseName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="VietnameseName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tblSC_DepartmentView" Member="tblSC_DepartmentViews">
     <Type Name="tblSC_DepartmentView">
       <Column Name="LoginID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
