@@ -133,4 +133,18 @@
       <Column Name="PrintAppendixDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
+  <Function Name="dbo.SC_LoginInfor" Method="SC_LoginInfor">
+    <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="loginID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SC_LoginInforResult">
+      <Column Name="LoginID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LoginName" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="AdminRight" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
