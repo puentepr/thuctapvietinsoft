@@ -60,10 +60,6 @@ namespace HPA
                 this.BackgroundImage = System.Drawing.Image.FromFile(HPA.Properties.Settings.Default.BackGroundLogin);
                 this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             }
-            else
-            {
-                this.BackgroundImage = null;
-            }
         }
 
         //private void FormLogin_MouseDown(object sender, MouseEventArgs e)
