@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="TADatabase">
+  <DataContextMoniker Name="/TADatabaseDataContext" />
+  <nestedChildShapes>
+    <classShape Id="f68aff15-2497-4a78-9f01-14fbf96e9378" absoluteBounds="6.25, 2, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/TADatabaseDataContext/tblHasTA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ea92f44d-f376-45ab-ba77-b61a6031bbdd" absoluteBounds="6.2650000000000006, 2.46, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="698bab25-2d70-4be0-9673-05df251791ca" absoluteBounds="3.25, 1.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/TADatabaseDataContext/tblWSchedule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7c935c63-bdec-4207-beb0-dc182f2eaf40" absoluteBounds="3.2649999999999997, 2.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
