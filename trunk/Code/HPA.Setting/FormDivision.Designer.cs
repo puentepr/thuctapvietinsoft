@@ -33,9 +33,9 @@
             this.txtBrachID = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtCode = new System.Windows.Forms.TextBox();
-            this.lblID = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblCode = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnBack
@@ -79,32 +79,32 @@
             this.txtCode.Size = new System.Drawing.Size(233, 20);
             this.txtCode.TabIndex = 15;
             // 
-            // lblID
+            // label3
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(12, 76);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(52, 13);
-            this.lblID.TabIndex = 12;
-            this.lblID.Text = "BranchID";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 76);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "BranchID";
             // 
-            // lblName
+            // label2
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(12, 47);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(35, 13);
-            this.lblName.TabIndex = 13;
-            this.lblName.Text = "Name";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Name";
             // 
-            // lblCode
+            // label1
             // 
-            this.lblCode.AutoSize = true;
-            this.lblCode.Location = new System.Drawing.Point(12, 23);
-            this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(32, 13);
-            this.lblCode.TabIndex = 14;
-            this.lblCode.Text = "Code";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Code";
             // 
             // FormDivision
             // 
@@ -114,9 +114,9 @@
             this.Controls.Add(this.txtBrachID);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtCode);
-            this.Controls.Add(this.lblID);
-            this.Controls.Add(this.lblName);
-            this.Controls.Add(this.lblCode);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSave);
             this.Name = "FormDivision";
@@ -134,8 +134,8 @@
         private System.Windows.Forms.TextBox txtBrachID;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtCode;
-        private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label lblCode;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -9,9 +9,8 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HPA.Setting</RootNamespace>
     <AssemblyName>HPA.Setting</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,17 +66,15 @@
     <Compile Include="FormDivision.Designer.cs">
       <DependentUpon>FormDivision.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEditCT.cs" />
+    <Compile Include="FormEditCT.Designer.cs">
+      <DependentUpon>FormEditCT.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTemp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormTemp.Designer.cs">
       <DependentUpon>FormTemp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormEditCT.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormEditCT.Designer.cs">
-      <DependentUpon>FormEditCT.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -108,11 +105,11 @@
     <EmbeddedResource Include="FormDivision.resx">
       <DependentUpon>FormDivision.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormTemp.resx">
-      <DependentUpon>FormTemp.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormEditCT.resx">
       <DependentUpon>FormEditCT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTemp.resx">
+      <DependentUpon>FormTemp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SetConnection.resx">
       <DependentUpon>SetConnection.cs</DependentUpon>
