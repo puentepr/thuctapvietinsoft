@@ -61,7 +61,7 @@
             this.lblDatabaseName.Location = new System.Drawing.Point(18, 54);
             this.lblDatabaseName.Name = "lblDatabaseName";
             this.lblDatabaseName.Size = new System.Drawing.Size(92, 14);
-            this.lblDatabaseName.TabIndex = 1;
+            this.lblDatabaseName.TabIndex = 2;
             this.lblDatabaseName.Text = "lblDatabaseName";
             // 
             // lblUserName
@@ -70,7 +70,7 @@
             this.lblUserName.Location = new System.Drawing.Point(18, 78);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(67, 14);
-            this.lblUserName.TabIndex = 2;
+            this.lblUserName.TabIndex = 4;
             this.lblUserName.Text = "lblUserName";
             // 
             // lblPassword
@@ -79,7 +79,7 @@
             this.lblPassword.Location = new System.Drawing.Point(18, 102);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(64, 14);
-            this.lblPassword.TabIndex = 3;
+            this.lblPassword.TabIndex = 6;
             this.lblPassword.Text = "lblPassword";
             // 
             // txtServerName
@@ -88,7 +88,7 @@
             this.txtServerName.Location = new System.Drawing.Point(115, 26);
             this.txtServerName.Name = "txtServerName";
             this.txtServerName.Size = new System.Drawing.Size(150, 22);
-            this.txtServerName.TabIndex = 4;
+            this.txtServerName.TabIndex = 1;
             // 
             // txtDatabaseName
             // 
@@ -96,7 +96,7 @@
             this.txtDatabaseName.Location = new System.Drawing.Point(115, 51);
             this.txtDatabaseName.Name = "txtDatabaseName";
             this.txtDatabaseName.Size = new System.Drawing.Size(150, 22);
-            this.txtDatabaseName.TabIndex = 5;
+            this.txtDatabaseName.TabIndex = 2;
             // 
             // txtUserName
             // 
@@ -104,7 +104,7 @@
             this.txtUserName.Location = new System.Drawing.Point(115, 75);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(150, 22);
-            this.txtUserName.TabIndex = 6;
+            this.txtUserName.TabIndex = 3;
             // 
             // txtPassword
             // 
@@ -113,7 +113,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(150, 22);
-            this.txtPassword.TabIndex = 7;
+            this.txtPassword.TabIndex = 4;
             // 
             // btnTest
             // 
@@ -122,7 +122,7 @@
             this.btnTest.Location = new System.Drawing.Point(157, 134);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(108, 27);
-            this.btnTest.TabIndex = 8;
+            this.btnTest.TabIndex = 5;
             this.btnTest.Text = "simpleButton1";
             this.btnTest.Click += new System.EventHandler(this.btnTestConnection_Click);
             // 
@@ -131,7 +131,7 @@
             this.btnSave.Location = new System.Drawing.Point(16, 15);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(56, 27);
-            this.btnSave.TabIndex = 9;
+            this.btnSave.TabIndex = 6;
             this.btnSave.Text = "simpleButton1";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -140,7 +140,7 @@
             this.btnClose.Location = new System.Drawing.Point(212, 15);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(55, 27);
-            this.btnClose.TabIndex = 10;
+            this.btnClose.TabIndex = 7;
             this.btnClose.Text = "simpleButton1";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -182,15 +182,19 @@
             // 
             // SetConnection
             // 
-            this.Appearance.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.Appearance.BackColor = System.Drawing.SystemColors.Menu;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(350, 289);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblConncSetDesc);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "SetConnection";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Set Connection";
             this.Load += new System.EventHandler(this.SetConnection_Load);
             this.groupBox1.ResumeLayout(false);
