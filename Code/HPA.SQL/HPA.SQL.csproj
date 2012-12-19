@@ -45,11 +45,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataDaigram.dbml</DependentUpon>
     </Compile>
-    <Compile Include="HRDatabase.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HRDatabase.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -59,11 +54,6 @@
     <Compile Include="SP\Changepassword.cs" />
     <Compile Include="SP\Connect.cs" />
     <Compile Include="Sql.cs" />
-    <Compile Include="TADatabase.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TADatabase.dbml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -72,19 +62,9 @@
       <LastGenOutput>DataDaigram.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="HRDatabase.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>HRDatabase.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="TADatabase.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>TADatabase.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -93,16 +73,6 @@
   <ItemGroup>
     <None Include="DataDaigram.dbml.layout">
       <DependentUpon>DataDaigram.dbml</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="HRDatabase.dbml.layout">
-      <DependentUpon>HRDatabase.dbml</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="TADatabase.dbml.layout">
-      <DependentUpon>TADatabase.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
