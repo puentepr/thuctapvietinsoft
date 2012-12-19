@@ -65,6 +65,12 @@
     <Compile Include="SetConnection.Designer.cs">
       <DependentUpon>SetConnection.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserRight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserRight.Designer.cs">
+      <DependentUpon>UserRight.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DynamicForm.resx">
@@ -72,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SetConnection.resx">
       <DependentUpon>SetConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserRight.resx">
+      <DependentUpon>UserRight.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
