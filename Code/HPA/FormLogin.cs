@@ -31,6 +31,7 @@ namespace HPA
             else
             {
                 HPA.Common.StaticVars.LoginID = Loginid ;
+                HPA.Common.StaticVars.LanguageID = "VN";
                 HPA.Common.StaticVars.UserName = txtName.Text;
                 this.Close();
             }

@@ -2,10 +2,34 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataDaigram">
   <DataContextMoniker Name="/DataDaigramDataContext" />
   <nestedChildShapes>
-    <classShape Id="570eda21-fcad-4245-9107-62df48dd62e3" absoluteBounds="4.375, 2.5, 2, 2.3478011067708335">
+    <classShape Id="570eda21-fcad-4245-9107-62df48dd62e3" absoluteBounds="5, 2.625, 2, 2.3478011067708335">
       <DataClassMoniker Name="/DataDaigramDataContext/tblSC_Login" />
       <nestedChildShapes>
-        <elementListCompartment Id="af3ca6a0-e081-4b2c-8862-4636dbcd91c7" absoluteBounds="4.39, 2.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="af3ca6a0-e081-4b2c-8862-4636dbcd91c7" absoluteBounds="5.015, 3.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1962f6a7-3548-4154-8c20-e1fdade0a90f" absoluteBounds="0.75, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DataDaigramDataContext/tblSC_Object" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1e28b0a4-c8ee-43a6-96a1-7d05c481fa86" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="57cb19d2-fa91-489c-8790-3fefa8dc6fca" absoluteBounds="0.75, 3.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/DataDaigramDataContext/tblSC_Right" />
+      <nestedChildShapes>
+        <elementListCompartment Id="638b24d2-d47e-4ba6-bc1a-0a4912d5acbb" absoluteBounds="0.765, 4.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="943507df-3c6b-467f-85d6-6ae45cba00b8" absoluteBounds="2.875, 0.625, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/DataDaigramDataContext/MEN_Menu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0acd3793-66e8-43ad-ae65-af65b7c37320" absoluteBounds="2.89, 1.085, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8b4f742e-853d-4f43-b2be-8dfb857509d8" absoluteBounds="5.25, 0.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DataDaigramDataContext/tblMD_Message" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1523ccea-95df-41da-86a4-71aa10ca27b1" absoluteBounds="5.265, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
