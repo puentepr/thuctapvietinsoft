@@ -420,6 +420,7 @@
             this.Controls.Add(this.grbUserInfo);
             this.Name = "UserRight";
             this.Text = "UserRight";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.UserRight_Load);
             this.grbUserInfo.ResumeLayout(false);
             this.grbUserInfo.PerformLayout();
