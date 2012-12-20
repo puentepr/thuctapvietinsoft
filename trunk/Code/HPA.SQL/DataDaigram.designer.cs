@@ -254,6 +254,12 @@ namespace HPA.SQL
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeID, loginID);
 			return ((ISingleResult<sp_hr_get_fullnameResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SC_DeptSectView_List")]
+		public void SC_DeptSectView_List([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LoginID", DbType="Int")] System.Nullable<int> loginID)
+		{
+			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), loginID);
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblSC_Login")]
