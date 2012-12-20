@@ -119,9 +119,9 @@
             this.lblApplicationName.ForeColor = System.Drawing.Color.Maroon;
             this.lblApplicationName.Location = new System.Drawing.Point(140, 49);
             this.lblApplicationName.Name = "lblApplicationName";
-            this.lblApplicationName.Size = new System.Drawing.Size(348, 16);
+            this.lblApplicationName.Size = new System.Drawing.Size(37, 16);
             this.lblApplicationName.TabIndex = 9;
-            this.lblApplicationName.Text = "Lô F3 - ĐS6 - KCN Lê Minh Xuân - H. Bình Chánh - TP.HCM";
+            this.lblApplicationName.Text = "===-\\";
             // 
             // FormLogin
             // 
