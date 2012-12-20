@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Data.Linq;
 using System.Linq;
+using System.Data.SqlClient;
 
 namespace HPA.Setting
 {
@@ -53,10 +54,20 @@ namespace HPA.Setting
                 txtFullName.Text = temp.FullName;
                 txtDepartment.Text = temp.DepartmentName;
             }
-            
-            //gridControl1.DataSource = _EmployeeList;
+
+            DataTable dt = null;
+            EzSqlCollection.EzSql2 ex = new EzSqlCollection.EzSql2();
+            DataSet ds = ex.execReturnDataSet("SC_DeptSectView_List", null);
+            dt = ds.Tables[0];
+            grdDepartment.DataSource = dt;
+
         }
 
         HPA.SQL.DataDaigramDataContext dtData = new SQL.DataDaigramDataContext();
+
+        private void OnAdd()
+        {
+
+        }
     }
 }
