@@ -104,36 +104,44 @@ namespace HPA.Setting
             //DP
 
         }
-
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        private void Loaddata()
         {
-            cap = treeView1.SelectedNode.Tag.ToString();
-            id = treeView1.SelectedNode.Name.ToString();
             if (cap == "0")
             {
                 dtgrCautruc.DataSource = dt.tblDivisions.Select(n => n);
             }
             if (cap == "1")
             {
-                dtgrCautruc.DataSource = from p in dt.tblDepartments where p.DivisionID.ToString()==id select p;
+                dtgrCautruc.DataSource = from p in dt.tblDepartments where p.DivisionID.ToString() == id select p;
+                dtgrCautruc.Columns[dtgrCautruc.ColumnCount - 1].Visible = false;
             }
             else if (cap == "2")
             {
                 dtgrCautruc.DataSource = from p in dt.tblSections where p.DepartmentID.ToString() == id select p;
-                
+                dtgrCautruc.Columns[dtgrCautruc.ColumnCount - 1].Visible = false;
+
             }
             else if (cap == "3")
             {
-                dtgrCautruc.DataSource = from p in dt.tblGroups where p.SectionID.ToString() == id select p; ;
-                
+                dtgrCautruc.DataSource = from p in dt.tblGroups where p.SectionID.ToString() == id select p;
+                dtgrCautruc.Columns[dtgrCautruc.ColumnCount - 1].Visible = false;
+
             }
             else if (cap == "4")
             {
-                dtgrCautruc.DataSource = from p in dt.tblGroups where p.GroupID.ToString() == id select p; ;
-                
+                dtgrCautruc.DataSource = from p in dt.tblGroups where p.GroupID.ToString() == id select p;
+                dtgrCautruc.Columns[dtgrCautruc.ColumnCount - 1].Visible = false;
+
             }
-            dtgrCautruc.Columns[dtgrCautruc.ColumnCount-1].Visible = false;
-            dtgrCautruc.Columns[0].Visible = false;
+            //dtgrCautruc.Columns[0].Visible = false;
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            cap = treeView1.SelectedNode.Tag.ToString();
+            id = treeView1.SelectedNode.Name.ToString();
+            Loaddata();
+            
             //contextMenuStrip1.Items.Clear();
             //if (treeView1.SelectedNode.Tag.ToString() == "0")
             //{
@@ -169,14 +177,14 @@ namespace HPA.Setting
             //}
         }
 
-        private void dtgrCautruc_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        
+        private void dtgrCautruc_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+
             int hang = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[0].Value.ToString());
             if (cap == "0")
             {
-
-                
-                if (dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1] == null)
+                if (dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString() == "")
                 {
                     MessageBox.Show("Code không được trống", "Lỗi");
                 }
@@ -208,12 +216,11 @@ namespace HPA.Setting
             //Neu la dp
             else if (cap == "1")
             {
-                
-                if (dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2] == null)
+                if (dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString() == "")
                 {
                     MessageBox.Show("Code không được trống", "Lỗi");
                 }
-                else if (hang==0)
+                else if (hang == 0)
                 {
                     if (dt.tblDepartments.Where(u => u.DepartmentCode == dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString()).Count() > 0)
                     {
@@ -247,13 +254,11 @@ namespace HPA.Setting
             //Neu la sc
             else if (cap == "2")
             {
-                
-                
-                if (dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2] == null)
+                if (dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString() == "")
                 {
                     MessageBox.Show("Code không được trống", "Lỗi");
                 }
-                else if (hang==0)
+                else if (hang == 0)
                 {
                     if (dt.tblSections.Where(u => u.SectionCode == dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString()).Count() > 0)
                     {
@@ -271,7 +276,7 @@ namespace HPA.Setting
                         dt.tblSections.InsertOnSubmit(update);
                         dt.SubmitChanges();
                     }
-                    
+
                 }
                 else
                 {
@@ -287,14 +292,13 @@ namespace HPA.Setting
                 }
             }
             //Neu la Gr
-            else if (cap == "3"||cap=="4")
+            else if (cap == "3" || cap == "4")
             {
-                
-                if (dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2] == null)
+                if (dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString() == "")
                 {
                     MessageBox.Show("Code không được trống", "Lỗi");
                 }
-                else if (hang==0)
+                else if (hang == 0)
                 {
                     if (dt.tblGroups.Where(u => u.GroupCode == dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString()).Count() > 0)
                     {
@@ -327,5 +331,8 @@ namespace HPA.Setting
                 }
             }
         }
+        
+        
+
     }
 }
