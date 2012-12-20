@@ -55,24 +55,24 @@ namespace HPA.Setting
                 txtDepartment.Text = temp.DepartmentName;
             }
 
+            
+
             if (txtFullName.Text == "")
             {
                 txtEmployeeID.Focus();
                 MessageBox.Show("EmployeeNotExists","Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            EzSqlCollection.EzSql2 ez = new EzSqlCollection.EzSql2();
-            dtLoginInfo = ez.execReturnDataTable("SC_LoginInfor",txtEmployeeID.Text,Common.StaticVars.LoginID=3);
-            gridControl1.DataSource = dtLoginInfo;
-            
-            
+            var a = from b in dtData.tblSC_DepartmentViews
+                    from c in dtData.tblDepartments
+                    where (b.LoginID == Common.StaticVars.LoginID && b.DepartmentID == c.DepartmentID)
+                    select new {c.DepartmentCode,c.DepartmentName,b.ViewInfo};
+
+            grdDepartment.DataSource = a;
 
         }
 
         HPA.SQL.DataDaigramDataContext dtData = new SQL.DataDaigramDataContext();
-
-        DataTable dtLoginInfo = null;
-        DataTable dtDepartListView = null;
 
         private void OnAdd()
         {
