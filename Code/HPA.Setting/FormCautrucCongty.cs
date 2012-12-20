@@ -13,7 +13,6 @@ namespace HPA.Setting
     public partial class FormCautrucCongty : Form
     {
         HPA.SQL.DataDaigramDataContext dt = new SQL.DataDaigramDataContext();
-        //public delegate void passdata(int id,int cap);
         public delegate void passdata(string id, string cap);
         public FormCautrucCongty()
         {
@@ -68,16 +67,19 @@ namespace HPA.Setting
         private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
-            if (e.ClickedItem.Text == "Add Division")
+            if (e.ClickedItem.Text == HPA.Common.CommonConst.ADD_DIVISION)
             {
+                string id = "-1";
+                string cap = "1";
                 this.Close();
-                FormDivision dv = new FormDivision();
-                dv.Show();
+                FormEditCT fed = new FormEditCT();
+                passdata pa = new passdata(fed.fundata);
+                pa(id, cap);
+                fed.Show();
+                this.Close();
             }
             else if (e.ClickedItem.Text == "Edit Division")
             {
-                //int id = int.Parse(treeView1.SelectedNode.Name);
-                //int cap = int.Parse(treeView1.Tag.ToString());
                 string id = treeView1.SelectedNode.Name;
                 string cap = treeView1.SelectedNode.Tag.ToString();
                 this.Close();
@@ -98,6 +100,8 @@ namespace HPA.Setting
                     CapnhatTree();
                 }
             }
+            //DP
+
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -106,7 +110,7 @@ namespace HPA.Setting
             if (treeView1.SelectedNode.Tag.ToString() == "0")
             {
                 
-                contextMenuStrip1.Items.Add("Add Division");
+                contextMenuStrip1.Items.Add(HPA.Common.CommonConst.ADD_DIVISION);
             }
             else if (treeView1.SelectedNode.Tag.ToString() == "1")
             {

@@ -111,6 +111,10 @@ namespace HPA.Setting
                     MessageBox.Show("ID phải là số", "Lỗi");
 
                 }
+                else if (dt.tblDivisions.Where(u => u.DivisionCode == dataGridView1.Rows[0].Cells[1].Value.ToString()).Count() > 0)
+                {
+                    MessageBox.Show("Code đã tồn tại", "Lỗi");
+                }
                 else if (id == "-1")
                 {
                     HPA.SQL.tblDivision update = new SQL.tblDivision();
@@ -119,6 +123,7 @@ namespace HPA.Setting
                     update.BranchID = int.Parse(dataGridView1.Rows[0].Cells[3].Value.ToString());
                     dt.tblDivisions.InsertOnSubmit(update);
                     dt.SubmitChanges();
+                    MessageBox.Show("Thêm dữ liệu mới thành công", "Thông báo");
                     NewRows(4);
                 }
                 else
@@ -128,7 +133,7 @@ namespace HPA.Setting
                     update.DivisionName = dataGridView1.Rows[0].Cells[2].Value.ToString();
                     update.BranchID = int.Parse(dataGridView1.Rows[0].Cells[3].Value.ToString());
                     dt.SubmitChanges();
-                    NewRows(4);
+                    MessageBox.Show("Cập nhật dữ liệu thành công", "Thông báo");
                 }
             }
             //Neu la dp
@@ -139,6 +144,10 @@ namespace HPA.Setting
                 {
                     MessageBox.Show("ID phải là số", "Lỗi");
 
+                }
+                else if (dt.tblDepartments.Where(u => u.DepartmentCode == dataGridView1.Rows[0].Cells[2].Value.ToString()).Count() > 0)
+                {
+                    MessageBox.Show("Code đã tồn tại", "Lỗi");
                 }
                 else if (id == "-1")
                 {
@@ -151,6 +160,7 @@ namespace HPA.Setting
                     update.VietnameseName = dataGridView1.Rows[0].Cells[6].Value.ToString();
                     dt.tblDepartments.InsertOnSubmit(update);
                     dt.SubmitChanges();
+                    MessageBox.Show("Thêm dữ liệu mới thành công", "Thông báo");
                     NewRows(7);
                 }
                 else
@@ -163,7 +173,7 @@ namespace HPA.Setting
                     update.JapaneseName = dataGridView1.Rows[0].Cells[5].Value.ToString();
                     update.VietnameseName = dataGridView1.Rows[0].Cells[6].Value.ToString();
                     dt.SubmitChanges();
-                    NewRows(7);
+                    MessageBox.Show("Cập nhật dữ liệu thành công", "Thông báo");
                 }
             }
             //Neu la sc
@@ -174,6 +184,10 @@ namespace HPA.Setting
                 {
                     MessageBox.Show("ID phải là số", "Lỗi");
 
+                }
+                else if (dt.tblSections.Where(u => u.SectionCode == dataGridView1.Rows[0].Cells[2].Value.ToString()).Count() > 0)
+                {
+                    MessageBox.Show("Code đã tồn tại", "Lỗi");
                 }
                 else if (id == "-1")
                 {
@@ -186,6 +200,7 @@ namespace HPA.Setting
                     update.Foreigner = int.Parse(dataGridView1.Rows[0].Cells[6].Value.ToString());
                     dt.tblSections.InsertOnSubmit(update);
                     dt.SubmitChanges();
+                    MessageBox.Show("Thêm dữ liệu mới thành công", "Thông báo");
                     NewRows(7);
                 }
                 else
@@ -199,7 +214,7 @@ namespace HPA.Setting
                     update.Foreigner = int.Parse(dataGridView1.Rows[0].Cells[6].Value.ToString());
                     dt.tblSections.InsertOnSubmit(update);
                     dt.SubmitChanges();
-                    NewRows(7);
+                    MessageBox.Show("Cập nhật dữ liệu thành công", "Thông báo");
                 }
             }
             //Neu la Gr
@@ -210,6 +225,10 @@ namespace HPA.Setting
                 {
                     MessageBox.Show("ID phải là số", "Lỗi");
 
+                }
+                else if (dt.tblGroups.Where(u => u.GroupCode == dataGridView1.Rows[0].Cells[2].Value.ToString()).Count() > 0)
+                {
+                    MessageBox.Show("Code đã tồn tại", "Lỗi");
                 }
                 else if (id == "-1")
                 {
@@ -222,6 +241,7 @@ namespace HPA.Setting
                     update.Foreigner = int.Parse(dataGridView1.Rows[0].Cells[6].Value.ToString());
                     dt.tblGroups.InsertOnSubmit(update);
                     dt.SubmitChanges();
+                    MessageBox.Show("Thêm dữ liệu mới thành công", "Thông báo");
                     NewRows(7);
                 }
                 else
@@ -235,7 +255,7 @@ namespace HPA.Setting
                     update.Foreigner = int.Parse(dataGridView1.Rows[0].Cells[6].Value.ToString());
                     dt.tblGroups.InsertOnSubmit(update);
                     dt.SubmitChanges();
-                    NewRows(7);
+                    MessageBox.Show("Cập nhật dữ liệu thành công", "Thông báo");
                 }
             }
         }
