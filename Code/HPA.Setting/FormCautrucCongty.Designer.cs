@@ -55,7 +55,7 @@
             this.ClientSize = new System.Drawing.Size(699, 394);
             this.Controls.Add(this.treeView1);
             this.Name = "FormCautrucCongty";
-            this.Text = "FormCautrucCongty";
+            this.Text = "Cấu trúc công ty";
             this.Load += new System.EventHandler(this.FormCautrucCongty_Load);
             this.ResumeLayout(false);
 
