@@ -263,7 +263,7 @@ namespace HPA.Setting
                 }
                 else
                 {
-                    var update = dt.tblSections.Single(u => u.DepartmentID.ToString() == hang);
+                    var update = dt.tblSections.Single(u => u.DepartmentID == hang);
                     update.DepartmentID = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString());
                     update.SectionCode = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString();
                     update.SectionName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[3].Value.ToString();
