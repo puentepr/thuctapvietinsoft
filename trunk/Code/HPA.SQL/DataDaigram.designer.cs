@@ -255,10 +255,10 @@ namespace HPA.SQL
 			return ((ISingleResult<sp_hr_get_fullnameResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SC_DeptSectView_List")]
-		public void SC_DeptSectView_List([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LoginID", DbType="Int")] System.Nullable<int> loginID)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SC_DeptSectView_List", IsComposable=true)]
+		public object SC_DeptSectView_List([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LoginID", DbType="Int")] System.Nullable<int> loginID)
 		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), loginID);
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), loginID).ReturnValue));
 		}
 	}
 	
