@@ -30,50 +30,50 @@
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemFrame tileItemFrame4 = new DevExpress.XtraEditors.TileItemFrame();
-            DevExpress.XtraEditors.TileItemElement tileItemElement8 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemFrame tileItemFrame5 = new DevExpress.XtraEditors.TileItemFrame();
-            DevExpress.XtraEditors.TileItemElement tileItemElement9 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement10 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemFrame tileItemFrame6 = new DevExpress.XtraEditors.TileItemFrame();
-            DevExpress.XtraEditors.TileItemElement tileItemElement11 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemFrame tileItemFrame1 = new DevExpress.XtraEditors.TileItemFrame();
             DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemFrame tileItemFrame2 = new DevExpress.XtraEditors.TileItemFrame();
+            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemFrame tileItemFrame3 = new DevExpress.XtraEditors.TileItemFrame();
+            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.metroUIView1 = new DevExpress.XtraBars.Docking2010.Views.MetroUI.MetroUIView(this.components);
-            this.document1 = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Document(this.components);
-            this.document1Tile = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Tile(this.components);
             this.tileContainer1 = new DevExpress.XtraBars.Docking2010.Views.MetroUI.TileContainer(this.components);
-            this.document2 = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Document(this.components);
-            this.document2Tile = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Tile(this.components);
-            this.document3 = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Document(this.components);
-            this.document3Tile = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Tile(this.components);
-            this.document4 = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Document(this.components);
-            this.document4Tile = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Tile(this.components);
-            this.document5 = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Document(this.components);
-            this.document5Tile = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Tile(this.components);
-            this.document6 = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Document(this.components);
-            this.document6Tile = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Tile(this.components);
             this.pageGroup1 = new DevExpress.XtraBars.Docking2010.Views.MetroUI.PageGroup(this.components);
+            this.document1 = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Document(this.components);
+            this.document2 = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Document(this.components);
+            this.document3 = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Document(this.components);
+            this.document4 = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Document(this.components);
+            this.document1Tile = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Tile(this.components);
+            this.document2Tile = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Tile(this.components);
+            this.document3Tile = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Tile(this.components);
+            this.document4Tile = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Tile(this.components);
+            this.document5Tile = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Tile(this.components);
             this.page1 = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Page(this.components);
+            this.document5 = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Document(this.components);
+            this.document6Tile = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Tile(this.components);
             this.page2 = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Page(this.components);
+            this.document6 = new DevExpress.XtraBars.Docking2010.Views.MetroUI.Document(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroUIView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document1Tile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileContainer1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document2Tile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document3Tile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document4Tile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document5Tile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document6Tile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pageGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document1Tile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document2Tile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document3Tile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document4Tile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document5Tile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.page1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document6Tile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.page2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document6)).BeginInit();
             this.SuspendLayout();
             // 
             // documentManager1
@@ -106,10 +106,45 @@
             this.document6Tile});
             this.metroUIView1.QueryControl += new DevExpress.XtraBars.Docking2010.Views.QueryControlEventHandler(this.metroUIView1_QueryControl);
             // 
+            // tileContainer1
+            // 
+            this.tileContainer1.ActivationTarget = this.pageGroup1;
+            this.tileContainer1.Items.AddRange(new DevExpress.XtraBars.Docking2010.Views.MetroUI.BaseTile[] {
+            this.document1Tile,
+            this.document2Tile,
+            this.document3Tile,
+            this.document4Tile,
+            this.document5Tile,
+            this.document6Tile});
+            // 
+            // pageGroup1
+            // 
+            this.pageGroup1.Items.AddRange(new DevExpress.XtraBars.Docking2010.Views.MetroUI.Document[] {
+            this.document1,
+            this.document2,
+            this.document3,
+            this.document4});
+            this.pageGroup1.Parent = this.tileContainer1;
+            // 
             // document1
             // 
             this.document1.Caption = "document1";
             this.document1.ControlName = "document1";
+            // 
+            // document2
+            // 
+            this.document2.Caption = "document2";
+            this.document2.ControlName = "document2";
+            // 
+            // document3
+            // 
+            this.document3.Caption = "document3";
+            this.document3.ControlName = "document3";
+            // 
+            // document4
+            // 
+            this.document4.Caption = "document4";
+            this.document4.ControlName = "document4";
             // 
             // document1Tile
             // 
@@ -122,42 +157,26 @@
             tileItemElement1.Text = "element1";
             tileItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomCenter;
             this.document1Tile.Elements.Add(tileItemElement1);
-            tileItemElement8.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileItemElement8.Text = "element1";
-            tileItemElement8.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomCenter;
-            tileItemFrame4.Elements.Add(tileItemElement8);
-            tileItemElement9.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileItemElement9.Text = "element1";
-            tileItemElement9.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomCenter;
-            tileItemElement10.Text = "element2";
-            tileItemFrame5.Elements.Add(tileItemElement9);
-            tileItemFrame5.Elements.Add(tileItemElement10);
-            tileItemElement11.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileItemElement11.Text = "element1";
-            tileItemElement11.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomCenter;
-            tileItemFrame6.Elements.Add(tileItemElement11);
-            this.document1Tile.Frames.Add(tileItemFrame4);
-            this.document1Tile.Frames.Add(tileItemFrame5);
-            this.document1Tile.Frames.Add(tileItemFrame6);
+            tileItemElement2.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileItemElement2.Text = "element1";
+            tileItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomCenter;
+            tileItemFrame1.Elements.Add(tileItemElement2);
+            tileItemElement3.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileItemElement3.Text = "element1";
+            tileItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomCenter;
+            tileItemElement4.Text = "element2";
+            tileItemFrame2.Elements.Add(tileItemElement3);
+            tileItemFrame2.Elements.Add(tileItemElement4);
+            tileItemElement5.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileItemElement5.Text = "element1";
+            tileItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomCenter;
+            tileItemFrame3.Elements.Add(tileItemElement5);
+            this.document1Tile.Frames.Add(tileItemFrame1);
+            this.document1Tile.Frames.Add(tileItemFrame2);
+            this.document1Tile.Frames.Add(tileItemFrame3);
             this.document1Tile.Group = "Main";
             this.document1Tile.Properties.FrameAnimationInterval = 1000;
             this.document1Tile.Properties.IsLarge = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileContainer1
-            // 
-            this.tileContainer1.ActivationTarget = this.pageGroup1;
-            this.tileContainer1.Items.AddRange(new DevExpress.XtraBars.Docking2010.Views.MetroUI.BaseTile[] {
-            this.document1Tile,
-            this.document2Tile,
-            this.document3Tile,
-            this.document4Tile,
-            this.document5Tile,
-            this.document6Tile});
-            // 
-            // document2
-            // 
-            this.document2.Caption = "document2";
-            this.document2.ControlName = "document2";
             // 
             // document2Tile
             // 
@@ -166,17 +185,12 @@
             this.document2Tile.Appearances.Normal.Options.UseBackColor = true;
             this.document2Tile.Appearances.Normal.Options.UseFont = true;
             this.document2Tile.Document = this.document2;
-            tileItemElement2.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Bottom;
-            tileItemElement2.Text = "element1";
-            tileItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomCenter;
-            this.document2Tile.Elements.Add(tileItemElement2);
+            tileItemElement6.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Bottom;
+            tileItemElement6.Text = "element1";
+            tileItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomCenter;
+            this.document2Tile.Elements.Add(tileItemElement6);
             this.document2Tile.Group = "Main";
             this.document2Tile.Properties.IsLarge = DevExpress.Utils.DefaultBoolean.False;
-            // 
-            // document3
-            // 
-            this.document3.Caption = "document3";
-            this.document3.ControlName = "document3";
             // 
             // document3Tile
             // 
@@ -184,21 +198,11 @@
             this.document3Tile.Group = "Main";
             this.document3Tile.Properties.IsLarge = DevExpress.Utils.DefaultBoolean.False;
             // 
-            // document4
-            // 
-            this.document4.Caption = "document4";
-            this.document4.ControlName = "document4";
-            // 
             // document4Tile
             // 
             this.document4Tile.Document = this.document4;
             this.document4Tile.Group = "Main";
             this.document4Tile.Properties.IsLarge = DevExpress.Utils.DefaultBoolean.False;
-            // 
-            // document5
-            // 
-            this.document5.Caption = "document5";
-            this.document5.ControlName = "document5";
             // 
             // document5Tile
             // 
@@ -207,10 +211,15 @@
             this.document5Tile.Group = "Utils";
             this.document5Tile.Properties.IsLarge = DevExpress.Utils.DefaultBoolean.False;
             // 
-            // document6
+            // page1
             // 
-            this.document6.Caption = "document6";
-            this.document6.ControlName = "document6";
+            this.page1.Document = this.document5;
+            this.page1.Parent = this.tileContainer1;
+            // 
+            // document5
+            // 
+            this.document5.Caption = "document5";
+            this.document5.ControlName = "document5";
             // 
             // document6Tile
             // 
@@ -219,24 +228,15 @@
             this.document6Tile.Group = "Utils";
             this.document6Tile.Properties.IsLarge = DevExpress.Utils.DefaultBoolean.False;
             // 
-            // pageGroup1
-            // 
-            this.pageGroup1.Items.AddRange(new DevExpress.XtraBars.Docking2010.Views.MetroUI.Document[] {
-            this.document1,
-            this.document2,
-            this.document3,
-            this.document4});
-            this.pageGroup1.Parent = this.tileContainer1;
-            // 
-            // page1
-            // 
-            this.page1.Document = this.document5;
-            this.page1.Parent = this.tileContainer1;
-            // 
             // page2
             // 
             this.page2.Document = this.document6;
             this.page2.Parent = this.tileContainer1;
+            // 
+            // document6
+            // 
+            this.document6.Caption = "document6";
+            this.document6.ControlName = "document6";
             // 
             // Form1
             // 
@@ -250,22 +250,22 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroUIView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document1Tile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileContainer1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document2Tile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document3Tile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document4Tile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document5Tile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document6Tile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pageGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document1Tile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document2Tile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document3Tile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document4Tile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document5Tile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.page1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document6Tile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.page2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document6)).EndInit();
             this.ResumeLayout(false);
 
         }
