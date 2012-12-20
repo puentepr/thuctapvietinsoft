@@ -43,9 +43,6 @@
             this.ckbAllDepartment = new DevExpress.XtraEditors.CheckEdit();
             this.grdDepartment = new DevExpress.XtraGrid.GridControl();
             this.grvDepartment = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colDepartmentCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDepartment = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDepViewInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grbSection = new System.Windows.Forms.GroupBox();
             this.grdSection = new DevExpress.XtraGrid.GridControl();
             this.grvSection = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -54,6 +51,9 @@
             this.colSectViewInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ckbSectionAll = new DevExpress.XtraEditors.CheckEdit();
             this.grbModule = new System.Windows.Forms.GroupBox();
+            this.trlObjectList = new DevExpress.XtraTreeList.TreeList();
+            this.tclDescription = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.tlcRight = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.ckbAllModule = new DevExpress.XtraEditors.CheckEdit();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnExport = new DevExpress.XtraEditors.SimpleButton();
@@ -63,10 +63,7 @@
             this.btnFWAdd = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.trlObjectList = new DevExpress.XtraTreeList.TreeList();
-            this.tclDescription = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.Repository = new DevExpress.XtraEditors.Repository.PersistentRepository(this.components);
-            this.tlcRight = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.grbUserInfo.SuspendLayout();
             this.grbDepartment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ckbAllDepartment.Properties)).BeginInit();
@@ -77,11 +74,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvSection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckbSectionAll.Properties)).BeginInit();
             this.grbModule.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trlObjectList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckbAllModule.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trlObjectList)).BeginInit();
             this.SuspendLayout();
             // 
             // grbUserInfo
@@ -205,33 +202,8 @@
             // 
             // grvDepartment
             // 
-            this.grvDepartment.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colDepartmentCode,
-            this.colDepartment,
-            this.colDepViewInfo});
             this.grvDepartment.GridControl = this.grdDepartment;
             this.grvDepartment.Name = "grvDepartment";
-            // 
-            // colDepartmentCode
-            // 
-            this.colDepartmentCode.Caption = "Department code";
-            this.colDepartmentCode.Name = "colDepartmentCode";
-            this.colDepartmentCode.Visible = true;
-            this.colDepartmentCode.VisibleIndex = 0;
-            // 
-            // colDepartment
-            // 
-            this.colDepartment.Caption = "Department";
-            this.colDepartment.Name = "colDepartment";
-            this.colDepartment.Visible = true;
-            this.colDepartment.VisibleIndex = 1;
-            // 
-            // colDepViewInfo
-            // 
-            this.colDepViewInfo.Caption = "Department view info";
-            this.colDepViewInfo.Name = "colDepViewInfo";
-            this.colDepViewInfo.Visible = true;
-            this.colDepViewInfo.VisibleIndex = 2;
             // 
             // grbSection
             // 
@@ -311,6 +283,35 @@
             this.grbModule.TabIndex = 3;
             this.grbModule.TabStop = false;
             this.grbModule.Text = "Module";
+            // 
+            // trlObjectList
+            // 
+            this.trlObjectList.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.tclDescription,
+            this.tlcRight});
+            this.trlObjectList.Location = new System.Drawing.Point(6, 38);
+            this.trlObjectList.Name = "trlObjectList";
+            this.trlObjectList.OptionsPrint.UsePrintStyles = true;
+            this.trlObjectList.Size = new System.Drawing.Size(520, 378);
+            this.trlObjectList.TabIndex = 3;
+            // 
+            // tclDescription
+            // 
+            this.tclDescription.Caption = "Description";
+            this.tclDescription.FieldName = "Description";
+            this.tclDescription.Name = "tclDescription";
+            this.tclDescription.Visible = true;
+            this.tclDescription.VisibleIndex = 0;
+            this.tclDescription.Width = 287;
+            // 
+            // tlcRight
+            // 
+            this.tlcRight.Caption = "Right";
+            this.tlcRight.FieldName = "treeListColumn1";
+            this.tlcRight.Name = "tlcRight";
+            this.tlcRight.Visible = true;
+            this.tlcRight.VisibleIndex = 1;
+            this.tlcRight.Width = 215;
             // 
             // ckbAllModule
             // 
@@ -394,35 +395,6 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             // 
-            // trlObjectList
-            // 
-            this.trlObjectList.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
-            this.tclDescription,
-            this.tlcRight});
-            this.trlObjectList.Location = new System.Drawing.Point(6, 38);
-            this.trlObjectList.Name = "trlObjectList";
-            this.trlObjectList.OptionsPrint.UsePrintStyles = true;
-            this.trlObjectList.Size = new System.Drawing.Size(520, 378);
-            this.trlObjectList.TabIndex = 3;
-            // 
-            // tclDescription
-            // 
-            this.tclDescription.Caption = "Description";
-            this.tclDescription.FieldName = "Description";
-            this.tclDescription.Name = "tclDescription";
-            this.tclDescription.Visible = true;
-            this.tclDescription.VisibleIndex = 0;
-            this.tclDescription.Width = 287;
-            // 
-            // tlcRight
-            // 
-            this.tlcRight.Caption = "Right";
-            this.tlcRight.FieldName = "treeListColumn1";
-            this.tlcRight.Name = "tlcRight";
-            this.tlcRight.Visible = true;
-            this.tlcRight.VisibleIndex = 1;
-            this.tlcRight.Width = 215;
-            // 
             // UserRight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -449,11 +421,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvSection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckbSectionAll.Properties)).EndInit();
             this.grbModule.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.trlObjectList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckbAllModule.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trlObjectList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -473,9 +445,6 @@
         private DevExpress.XtraEditors.CheckEdit ckbAllDepartment;
         private DevExpress.XtraGrid.GridControl grdDepartment;
         private DevExpress.XtraGrid.Views.Grid.GridView grvDepartment;
-        private DevExpress.XtraGrid.Columns.GridColumn colDepartmentCode;
-        private DevExpress.XtraGrid.Columns.GridColumn colDepartment;
-        private DevExpress.XtraGrid.Columns.GridColumn colDepViewInfo;
         private System.Windows.Forms.GroupBox grbSection;
         private DevExpress.XtraEditors.CheckEdit ckbSectionAll;
         private System.Windows.Forms.GroupBox grbModule;
