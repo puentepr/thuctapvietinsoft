@@ -9,6 +9,7 @@ using DevExpress.XtraEditors;
 using System.Data.Linq;
 using System.Linq;
 using System.Data.SqlClient;
+using HPA.Common;
 
 namespace HPA.Setting
 {
@@ -42,28 +43,36 @@ namespace HPA.Setting
 
         private void LoadLoginInfo()
         {
-            // tìm nhân viên có EmployeeID nhập vào
-            var _EmployeeList = from a in dtData.tblEmployees
-                                from b in dtData.tblDepartments
-                                where ((a.DepartmentID == b.DepartmentID) && a.EmployeeID == txtEmployeeID.Text.Trim())
-                                select new { a.FullName, b.DepartmentName };
-            
-            // đưa EmployeeID vào các textbox
-            foreach (var temp in _EmployeeList)
+            // tìm tên nhân viên có EmployeeID nhập vào
+            var _EmployeeInfo = from e in dtData.tblEmployees
+                                from d in dtData.tblDepartments
+                                where ((e.DepartmentID == d.DepartmentID) && (e.EmployeeID == txtEmployeeID.Text))
+                                select new { e.FullName, d.DepartmentName };
+            // đưa Fullname vào txtFullName
+            foreach (var temp in _EmployeeInfo)
             {
                 txtFullName.Text = temp.FullName;
                 txtDepartment.Text = temp.DepartmentName;
             }
 
-            DataTable dt = null;
-            EzSqlCollection.EzSql2 ex = new EzSqlCollection.EzSql2();
-            DataSet ds = ex.execReturnDataSet("SC_DeptSectView_List", null);
-            dt = ds.Tables[0];
-            grdDepartment.DataSource = dt;
+            if (txtFullName.Text == "")
+            {
+                txtEmployeeID.Focus();
+                MessageBox.Show("EmployeeNotExists","Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            EzSqlCollection.EzSql2 ez = new EzSqlCollection.EzSql2();
+            dtLoginInfo = ez.execReturnDataTable("SC_LoginInfor",txtEmployeeID.Text,Common.StaticVars.LoginID=3);
+            gridControl1.DataSource = dtLoginInfo;
+            
+            
 
         }
 
         HPA.SQL.DataDaigramDataContext dtData = new SQL.DataDaigramDataContext();
+
+        DataTable dtLoginInfo = null;
+        DataTable dtDepartListView = null;
 
         private void OnAdd()
         {
