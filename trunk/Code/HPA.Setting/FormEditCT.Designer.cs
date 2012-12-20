@@ -31,7 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -39,6 +38,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -53,47 +54,40 @@
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Size = new System.Drawing.Size(750, 98);
+            this.dataGridView1.Size = new System.Drawing.Size(1109, 53);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(321, 124);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 12;
-            this.btnCancel.Text = "Hủy";
-            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(221, 124);
+            this.btnSave.Location = new System.Drawing.Point(511, 84);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Lưu";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(417, 124);
+            this.button1.Location = new System.Drawing.Point(602, 85);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 14;
             this.button1.Text = "Quay về";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // FromEditCT
+            // FormEditCT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 168);
+            this.ClientSize = new System.Drawing.Size(1133, 118);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "FromEditCT";
+            this.Name = "FormEditCT";
             this.Text = "Chỉnh sửa cấu trúc công ty";
+            this.Load += new System.EventHandler(this.FormEditCT_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -102,7 +96,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button button1;
     }

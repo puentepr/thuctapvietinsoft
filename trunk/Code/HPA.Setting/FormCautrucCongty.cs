@@ -13,7 +13,8 @@ namespace HPA.Setting
     public partial class FormCautrucCongty : Form
     {
         HPA.SQL.DataDaigramDataContext dt = new SQL.DataDaigramDataContext();
-        public delegate void passdata(int t);
+        //public delegate void passdata(int id,int cap);
+        public delegate void passdata(string id, string cap);
         public FormCautrucCongty()
         {
             InitializeComponent();
@@ -75,22 +76,25 @@ namespace HPA.Setting
             }
             else if (e.ClickedItem.Text == "Edit Division")
             {
-                int k = int.Parse(treeView1.SelectedNode.Name);
+                //int id = int.Parse(treeView1.SelectedNode.Name);
+                //int cap = int.Parse(treeView1.Tag.ToString());
+                string id = treeView1.SelectedNode.Name;
+                string cap = treeView1.SelectedNode.Tag.ToString();
                 this.Close();
-                FormDivision dv = new FormDivision();
-                passdata pa = new passdata(dv.Fundata);
-                pa(k);
-                dv.Show();
+                FormEditCT fed = new FormEditCT();
+                passdata pa = new passdata(fed.fundata);
+                pa(id,cap);
+                fed.Show();
             }
             else if (e.ClickedItem.Text == "Delete Division")
             {
-                DialogResult r = MessageBox.Show("Sau khi xóa không thể hồi phục, bạn chắc chắn muốn xóa", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-                if (r == DialogResult.OK)
+                DialogResult r = MessageBox.Show("Sau khi xóa không thể hồi phục, bạn chắc chắn muốn xóa", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                if (r == DialogResult.Yes)
                 {
                     var delete = dt.tblDivisions.Single(u => u.DivisionID.ToString() == treeView1.SelectedNode.Name);
                     dt.tblDivisions.DeleteOnSubmit(delete);
                     dt.SubmitChanges();
-                    MessageBox.Show("Xóa thành công", "Thông báo");
+                    MessageBox.Show("Xóa dữ liệu thành công", "Thông báo");
                     CapnhatTree();
                 }
             }
@@ -103,7 +107,6 @@ namespace HPA.Setting
             {
                 
                 contextMenuStrip1.Items.Add("Add Division");
-                contextMenuStrip1.Items.Add("Edit Company");
             }
             else if (treeView1.SelectedNode.Tag.ToString() == "1")
             {
