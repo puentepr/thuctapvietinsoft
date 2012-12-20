@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace HPA.Setting
 {
-    public partial class FormCautrucCongty : Form
+    public partial class FormCautrucCongty : HPA.CommonForm.BaseForm
     {
         HPA.SQL.DataDaigramDataContext dt = new SQL.DataDaigramDataContext();
         public delegate void passdata(string id, string cap);
@@ -61,7 +61,10 @@ namespace HPA.Setting
                 }
 
             }
+            treeView1.ExpandAll();
             treeView1.SelectedNode = goc;
+            
+            
         }
 
         private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
