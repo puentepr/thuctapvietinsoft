@@ -247,6 +247,13 @@ namespace HPA.SQL
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeID, loginID);
 			return ((ISingleResult<SC_LoginInforResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_hr_get_fullname")]
+		public ISingleResult<sp_hr_get_fullnameResult> sp_hr_get_fullname([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployeeID", DbType="VarChar(20)")] string employeeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LoginID", DbType="Int")] System.Nullable<int> loginID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeID, loginID);
+			return ((ISingleResult<sp_hr_get_fullnameResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblSC_Login")]
@@ -5729,6 +5736,32 @@ namespace HPA.SQL
 				if ((this._AdminRight != value))
 				{
 					this._AdminRight = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_hr_get_fullnameResult
+	{
+		
+		private string _FullName;
+		
+		public sp_hr_get_fullnameResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
+		public string FullName
+		{
+			get
+			{
+				return this._FullName;
+			}
+			set
+			{
+				if ((this._FullName != value))
+				{
+					this._FullName = value;
 				}
 			}
 		}

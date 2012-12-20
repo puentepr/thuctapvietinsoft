@@ -293,4 +293,11 @@
       <Column Name="AdminRight" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.sp_hr_get_fullname" Method="sp_hr_get_fullname">
+    <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="LoginID" Parameter="loginID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_hr_get_fullnameResult">
+      <Column Name="FullName" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>
