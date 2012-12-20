@@ -130,5 +130,11 @@ namespace HPA
                 mnuSubItem.Text = i.ElementAt(0).Content; 
             }
         }
+
+        private void form3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HPA.Setting.FormCautrucCongty fct = new Setting.FormCautrucCongty();
+            fct.Show();
+        }
     }
 }
