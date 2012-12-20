@@ -65,11 +65,11 @@ namespace HPA.Setting
 
             var a = from b in dtData.tblSC_DepartmentViews
                     from c in dtData.tblDepartments
-                    where (b.LoginID == Common.StaticVars.LoginID && b.DepartmentID == c.DepartmentID)
+                    where (b.LoginID == 3 && b.DepartmentID == c.DepartmentID)
                     select new {c.DepartmentCode,c.DepartmentName,b.ViewInfo};
 
+            
             grdDepartment.DataSource = a;
-
         }
 
         HPA.SQL.DataDaigramDataContext dtData = new SQL.DataDaigramDataContext();
