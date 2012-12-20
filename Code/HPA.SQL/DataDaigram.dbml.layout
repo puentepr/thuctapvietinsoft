@@ -74,7 +74,7 @@
         <elementListCompartment Id="0200303c-2fce-4a4a-a9f5-a32948f10046" absoluteBounds="15.14, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(14.375 : 2.03929768880208); (15.125 : 2.03929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(14.375 : 2.03929768880208); (15.125 : 2.03929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataDaigramDataContext/tblDivision/tblDivision_tblDepartment" />
       <nodes>
         <classShapeMoniker Id="e967a941-6c42-4d7d-b95d-5f2ee05d8786" />
@@ -87,7 +87,7 @@
         <elementListCompartment Id="22578bc5-fe3a-42dc-b5ea-0a943cfb2f96" absoluteBounds="15.14, 5.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(16.125 : 3.03049967447917); (16.125 : 4.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(16.125 : 3.03049967447917); (16.125 : 4.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataDaigramDataContext/tblDepartment/tblDepartment_tblSection" />
       <nodes>
         <classShapeMoniker Id="1a268078-5cc0-4852-b11b-d3a8430c8bd1" />
@@ -100,7 +100,7 @@
         <elementListCompartment Id="42a547f0-0b71-4d58-9333-c4f4b3fd1e0e" absoluteBounds="12.265, 4.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(15.125 : 5.39024983723958); (14.25 : 5.39024983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(15.125 : 5.39024983723958); (14.25 : 5.39024983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataDaigramDataContext/tblSection/tblSection_tblGroup" />
       <nodes>
         <classShapeMoniker Id="997c6c11-47c5-4763-b9e8-8b4b27ece627" />
