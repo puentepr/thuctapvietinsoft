@@ -34,7 +34,6 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.dtgrCautruc = new System.Windows.Forms.DataGridView();
-            this.btnUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrCautruc)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +59,6 @@
             this.dtgrCautruc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgrCautruc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgrCautruc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F);
@@ -76,24 +74,13 @@
             this.dtgrCautruc.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgrCautruc.Size = new System.Drawing.Size(438, 222);
             this.dtgrCautruc.TabIndex = 1;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUpdate.Location = new System.Drawing.Point(612, 240);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 2;
-            this.btnUpdate.Text = "button1";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.dtgrCautruc.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgrCautruc_CellValueChanged);
             // 
             // FormCautrucCongty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 394);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dtgrCautruc);
             this.Controls.Add(this.treeView1);
             this.Name = "FormCautrucCongty";
@@ -110,6 +97,5 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.DataGridView dtgrCautruc;
-        private System.Windows.Forms.Button btnUpdate;
     }
 }
