@@ -74,7 +74,7 @@
             this.dtgrCautruc.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgrCautruc.Size = new System.Drawing.Size(438, 222);
             this.dtgrCautruc.TabIndex = 1;
-            this.dtgrCautruc.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgrCautruc_CellValueChanged);
+            this.dtgrCautruc.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgrCautruc_CellEndEdit);
             // 
             // FormCautrucCongty
             // 
