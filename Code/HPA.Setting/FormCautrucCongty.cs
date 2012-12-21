@@ -20,9 +20,6 @@ namespace HPA.Setting
         }
         private void FormCautrucCongty_Load(object sender, EventArgs e)
         {
-           
-            //Control.ControlCollection ctrls = this.Controls;
-            //HPA.Common.Methods.ChangeLanguage(ref ctrls);
             CapnhatTree();
         }
         private void CapnhatTree()
@@ -136,7 +133,7 @@ namespace HPA.Setting
                 dtgrCautruc.Columns[dtgrCautruc.ColumnCount - 1].Visible = false;
 
             }
-            dtgrCautruc.Columns[0].Visible = false;
+            //dtgrCautruc.Columns[0].Visible = false;
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -180,158 +177,158 @@ namespace HPA.Setting
             //}
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        
+        private void dtgrCautruc_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            for (int i = 0; i < dtgrCautruc.Rows.Count; i++)
+
+            int hang = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[0].Value.ToString());
+            if (cap == "0")
             {
-                if (cap == "0")
+                if (dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString() == "")
                 {
-                    if (dtgrCautruc.Rows[i].Cells[1].Value.ToString() == "")
+                    MessageBox.Show("Code không được trống", "Lỗi");
+                }
+                else if (hang == 0)
+                {
+                    if (dt.tblDivisions.Where(u => u.DivisionCode == dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString()).Count() > 0)
                     {
-                        MessageBox.Show("Code và name không được trống", "Lỗi");
-                    }
-                    else if ( int.Parse(dtgrCautruc.Rows[i].Cells[0].Value.ToString()) == 0)
-                    {
-                        if (dt.tblDivisions.Where(u => u.DivisionCode == dtgrCautruc.Rows[i].Cells[1].Value.ToString()).Count() > 0)
-                        {
-                            MessageBox.Show("Code đã tồn tại", "Lỗi");
-                        }
-                        else
-                        {
-                            HPA.SQL.tblDivision update = new SQL.tblDivision();
-                            update.DivisionCode = dtgrCautruc.Rows[i].Cells[1].Value.ToString();
-                            update.DivisionName = dtgrCautruc.Rows[i].Cells[2].Value.ToString();
-                            update.BranchID = int.Parse(dtgrCautruc.Rows[i].Cells[3].Value.ToString());
-                            dt.tblDivisions.InsertOnSubmit(update);
-                            dt.SubmitChanges();
-                        }
+                        MessageBox.Show("Code đã tồn tại", "Lỗi");
                     }
                     else
                     {
-                        var update = dt.tblDivisions.Single(u => u.DivisionID ==  int.Parse(dtgrCautruc.Rows[i].Cells[0].Value.ToString()));
-                        update.DivisionCode = dtgrCautruc.Rows[i].Cells[1].Value.ToString();
-                        update.DivisionName = dtgrCautruc.Rows[i].Cells[2].Value.ToString();
-                        update.BranchID = int.Parse(dtgrCautruc.Rows[i].Cells[3].Value.ToString());
+                        HPA.SQL.tblDivision update = new SQL.tblDivision();
+                        update.DivisionCode = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString();
+                        update.DivisionName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString();
+                        update.BranchID = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[3].Value.ToString());
+                        dt.tblDivisions.InsertOnSubmit(update);
                         dt.SubmitChanges();
                     }
                 }
-                //Neu la dp
-                //else if (cap == "1")
-                //{
-                //    if (dtgrCautruc.Rows[i].Cells[2].Value.ToString() == "")
-                //    {
-                //        MessageBox.Show("Code và name không được trống", "Lỗi");
-                //    }
-                //    else if (hang == 0)
-                //    {
-                //        if (dt.tblDepartments.Where(u => u.DepartmentCode == dtgrCautruc.Rows[i].Cells[2].Value.ToString()).Count() > 0)
-                //        {
-                //            MessageBox.Show("Code đã tồn tại", "Lỗi");
-                //        }
-                //        else
-                //        {
-                //            HPA.SQL.tblDepartment update = new SQL.tblDepartment();
-                //            update.DivisionID = int.Parse(dtgrCautruc.Rows[i].Cells[1].Value.ToString());
-                //            update.DepartmentCode = dtgrCautruc.Rows[i].Cells[2].Value.ToString();
-                //            update.DepartmentName = dtgrCautruc.Rows[i].Cells[3].Value.ToString();
-                //            update.Foreigner = int.Parse(dtgrCautruc.Rows[i].Cells[4].Value.ToString());
-                //            update.JapaneseName = dtgrCautruc.Rows[i].Cells[5].Value.ToString();
-                //            update.VietnameseName = dtgrCautruc.Rows[i].Cells[6].Value.ToString();
-                //            dt.tblDepartments.InsertOnSubmit(update);
-                //            dt.SubmitChanges();
-                //        }
-                //    }
-                //    else
-                //    {
-                //        var update = dt.tblDepartments.Single(u => u.DepartmentID ==  int.Parse(dtgrCautruc.Rows[i].Cells[0].Value.ToString()));
-                //        update.DivisionID = int.Parse(dtgrCautruc.Rows[i].Cells[1].Value.ToString());
-                //        update.DepartmentCode = dtgrCautruc.Rows[i].Cells[2].Value.ToString();
-                //        update.DepartmentName = dtgrCautruc.Rows[i].Cells[3].Value.ToString();
-                //        update.Foreigner = int.Parse(dtgrCautruc.Rows[i].Cells[4].Value.ToString());
-                //        update.JapaneseName = dtgrCautruc.Rows[i].Cells[5].Value.ToString();
-                //        update.VietnameseName = dtgrCautruc.Rows[i].Cells[6].Value.ToString();
-                //        dt.SubmitChanges();
-                //    }
-                //}
-                ////Neu la sc
-                //else if (cap == "2")
-                //{
-                //    if (dtgrCautruc.Rows[i].Cells[2].Value.ToString() == "")
-                //    {
-                //        MessageBox.Show("Code và name không được trống", "Lỗi");
-                //    }
-                //    else if ( int.Parse(dtgrCautruc.Rows[i].Cells[0].Value.ToString()) == 0)
-                //    {
-                //        if (dt.tblSections.Where(u => u.SectionCode == dtgrCautruc.Rows[i].Cells[2].Value.ToString()).Count() > 0)
-                //        {
-                //            MessageBox.Show("Code đã tồn tại", "Lỗi");
-                //        }
-                //        else
-                //        {
-                //            HPA.SQL.tblSection update = new SQL.tblSection();
-                //            update.DepartmentID = int.Parse(dtgrCautruc.Rows[i].Cells[1].Value.ToString());
-                //            update.SectionCode = dtgrCautruc.Rows[i].Cells[2].Value.ToString();
-                //            update.SectionName = dtgrCautruc.Rows[i].Cells[3].Value.ToString();
-                //            update.JapaneseName = dtgrCautruc.Rows[i].Cells[4].Value.ToString();
-                //            update.VietnameseName = dtgrCautruc.Rows[i].Cells[5].Value.ToString();
-                //            update.Foreigner = int.Parse(dtgrCautruc.Rows[i].Cells[6].Value.ToString());
-                //            dt.tblSections.InsertOnSubmit(update);
-                //            dt.SubmitChanges();
-                //        }
+                else
+                {
+                    var update = dt.tblDivisions.Single(u => u.DivisionID == hang);
+                    update.DivisionCode = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString();
+                    update.DivisionName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString();
+                    update.BranchID = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[3].Value.ToString());
+                    dt.SubmitChanges();
+                }
+            }
+            //Neu la dp
+            else if (cap == "1")
+            {
+                if (dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString() == "")
+                {
+                    MessageBox.Show("Code không được trống", "Lỗi");
+                }
+                else if (hang == 0)
+                {
+                    if (dt.tblDepartments.Where(u => u.DepartmentCode == dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString()).Count() > 0)
+                    {
+                        MessageBox.Show("Code đã tồn tại", "Lỗi");
+                    }
+                    else
+                    {
+                        HPA.SQL.tblDepartment update = new SQL.tblDepartment();
+                        update.DivisionID = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString());
+                        update.DepartmentCode = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString();
+                        update.DepartmentName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[3].Value.ToString();
+                        update.Foreigner = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[4].Value.ToString());
+                        update.JapaneseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[5].Value.ToString();
+                        update.VietnameseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[6].Value.ToString();
+                        dt.tblDepartments.InsertOnSubmit(update);
+                        dt.SubmitChanges();
+                    }
+                }
+                else
+                {
+                    var update = dt.tblDepartments.Single(u => u.DepartmentID == hang);
+                    update.DivisionID = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString());
+                    update.DepartmentCode = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString();
+                    update.DepartmentName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[3].Value.ToString();
+                    update.Foreigner = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[4].Value.ToString());
+                    update.JapaneseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[5].Value.ToString();
+                    update.VietnameseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[6].Value.ToString();
+                    dt.SubmitChanges();
+                }
+            }
+            //Neu la sc
+            else if (cap == "2")
+            {
+                if (dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString() == "")
+                {
+                    MessageBox.Show("Code không được trống", "Lỗi");
+                }
+                else if (hang == 0)
+                {
+                    if (dt.tblSections.Where(u => u.SectionCode == dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString()).Count() > 0)
+                    {
+                        MessageBox.Show("Code đã tồn tại", "Lỗi");
+                    }
+                    else
+                    {
+                        HPA.SQL.tblSection update = new SQL.tblSection();
+                        update.DepartmentID = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString());
+                        update.SectionCode = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString();
+                        update.SectionName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[3].Value.ToString();
+                        update.JapaneseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[4].Value.ToString();
+                        update.VietnameseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[5].Value.ToString();
+                        update.Foreigner = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[6].Value.ToString());
+                        dt.tblSections.InsertOnSubmit(update);
+                        dt.SubmitChanges();
+                    }
 
-                //    }
-                //    else
-                //    {
-                //        var update = dt.tblSections.Single(u => u.DepartmentID ==  int.Parse(dtgrCautruc.Rows[i].Cells[0].Value.ToString()));
-                //        update.DepartmentID = int.Parse(dtgrCautruc.Rows[i].Cells[1].Value.ToString());
-                //        update.SectionCode = dtgrCautruc.Rows[i].Cells[2].Value.ToString();
-                //        update.SectionName = dtgrCautruc.Rows[i].Cells[3].Value.ToString();
-                //        update.JapaneseName = dtgrCautruc.Rows[i].Cells[4].Value.ToString();
-                //        update.VietnameseName = dtgrCautruc.Rows[i].Cells[5].Value.ToString();
-                //        update.Foreigner = int.Parse(dtgrCautruc.Rows[i].Cells[6].Value.ToString());
-                //        dt.tblSections.InsertOnSubmit(update);
-                //        dt.SubmitChanges();
-                //    }
-                //}
-                ////Neu la Gr
-                //else if (cap == "3" || cap == "4")
-                //{
-                //    if (dtgrCautruc.Rows[i].Cells[2].Value.ToString() == "")
-                //    {
-                //        MessageBox.Show("Code và name không được trống", "Lỗi");
-                //    }
-                //    else if ( int.Parse(dtgrCautruc.Rows[i].Cells[0].Value.ToString()) == 0)
-                //    {
-                //        if (dt.tblGroups.Where(u => u.GroupCode == dtgrCautruc.Rows[i].Cells[2].Value.ToString()).Count() > 0)
-                //        {
-                //            MessageBox.Show("Code đã tồn tại", "Lỗi");
-                //        }
-                //        else
-                //        {
-                //            HPA.SQL.tblGroup update = new SQL.tblGroup();
-                //            update.SectionID = int.Parse(dtgrCautruc.Rows[i].Cells[1].Value.ToString());
-                //            update.GroupCode = dtgrCautruc.Rows[i].Cells[2].Value.ToString();
-                //            update.GroupName = dtgrCautruc.Rows[i].Cells[3].Value.ToString();
-                //            update.JapaneseName = dtgrCautruc.Rows[i].Cells[4].Value.ToString();
-                //            update.VietnameseName = dtgrCautruc.Rows[i].Cells[5].Value.ToString();
-                //            update.Foreigner = int.Parse(dtgrCautruc.Rows[i].Cells[6].Value.ToString());
-                //            dt.tblGroups.InsertOnSubmit(update);
-                //            dt.SubmitChanges();
-                //        }
-                //    }
-                //    else
-                //    {
-                //        var update = dt.tblGroups.Single(u => u.GroupID ==  int.Parse(dtgrCautruc.Rows[i].Cells[0].Value.ToString()));
-                //        update.SectionID = int.Parse(dtgrCautruc.Rows[i].Cells[1].Value.ToString());
-                //        update.GroupCode = dtgrCautruc.Rows[i].Cells[2].Value.ToString();
-                //        update.GroupName = dtgrCautruc.Rows[i].Cells[3].Value.ToString();
-                //        update.JapaneseName = dtgrCautruc.Rows[i].Cells[4].Value.ToString();
-                //        update.VietnameseName = dtgrCautruc.Rows[i].Cells[5].Value.ToString();
-                //        update.Foreigner = int.Parse(dtgrCautruc.Rows[i].Cells[6].Value.ToString());
-                //        dt.tblGroups.InsertOnSubmit(update);
-                //        dt.SubmitChanges();
-                //    }
-                //}
+                }
+                else
+                {
+                    var update = dt.tblSections.Single(u => u.DepartmentID == hang);
+                    update.DepartmentID = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString());
+                    update.SectionCode = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString();
+                    update.SectionName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[3].Value.ToString();
+                    update.JapaneseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[4].Value.ToString();
+                    update.VietnameseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[5].Value.ToString();
+                    update.Foreigner = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[6].Value.ToString());
+                    dt.tblSections.InsertOnSubmit(update);
+                    dt.SubmitChanges();
+                }
+            }
+            //Neu la Gr
+            else if (cap == "3" || cap == "4")
+            {
+                if (dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString() == "")
+                {
+                    MessageBox.Show("Code không được trống", "Lỗi");
+                }
+                else if (hang == 0)
+                {
+                    if (dt.tblGroups.Where(u => u.GroupCode == dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString()).Count() > 0)
+                    {
+                        MessageBox.Show("Code đã tồn tại", "Lỗi");
+                    }
+                    else
+                    {
+                        HPA.SQL.tblGroup update = new SQL.tblGroup();
+                        update.SectionID = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString());
+                        update.GroupCode = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString();
+                        update.GroupName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[3].Value.ToString();
+                        update.JapaneseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[4].Value.ToString();
+                        update.VietnameseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[5].Value.ToString();
+                        update.Foreigner = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[6].Value.ToString());
+                        dt.tblGroups.InsertOnSubmit(update);
+                        dt.SubmitChanges();
+                    }
+                }
+                else
+                {
+                    var update = dt.tblGroups.Single(u => u.GroupID == hang);
+                    update.SectionID = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString());
+                    update.GroupCode = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString();
+                    update.GroupName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[3].Value.ToString();
+                    update.JapaneseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[4].Value.ToString();
+                    update.VietnameseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[5].Value.ToString();
+                    update.Foreigner = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[6].Value.ToString());
+                    dt.tblGroups.InsertOnSubmit(update);
+                    dt.SubmitChanges();
+                }
             }
         }
         
