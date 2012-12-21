@@ -269,6 +269,11 @@ namespace HPA.Setting
             }
            
       }
+
+        private void dtgrCautruc_UserAddedRow(object sender, DataGridViewRowEventArgs e)
+        {
+            dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index - 1].Cells[1].Value;
+        }
         
     }
 }
