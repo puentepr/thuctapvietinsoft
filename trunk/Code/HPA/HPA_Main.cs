@@ -52,7 +52,7 @@ namespace HPA
                 ToolStripStatusLabel svrInfo = new ToolStripStatusLabel(string.Format("Server: {0}   |   Database: {1}", HPA.Common.StaticVars.ServerName,HPA.Common.StaticVars.DatabaseName));
                 statusStrip.Items.Add(svrInfo);
                 //statusStrip
-                //LoadMenu();
+                LoadMenu();
       
             }
             else
@@ -64,31 +64,40 @@ namespace HPA
         {
             //Lay danh sach menu gốc
             var i = from m in dt.MEN_Menus
-                    join msg in dt.tblMD_Messages on m.MenuID equals msg.MessageID 
-                    where msg.Language == HPA.Common.StaticVars.LanguageID && m.ParentMenuID == "Mnu"
+                    join msg in dt.tblMD_Messages on m.MenuID equals msg.MessageID
+                    where msg.Language == "VN" && m.ParentMenuID == "Mnu"
                     orderby m.Priority ascending
                     select new
                     {
                         m.MenuID,
+                        m.ParentMenuID,
+                        m.AssemblyName,
+                        m.IsModal,
+                        m.IsCollapsed,
+                        m.ShortcutKeys,
+                        m.IsVisible,
+                        m.SupperAdmin,
                         msg.Content
                     };
             //Load danh sach menu gốc
-            menuStrip.Items.Clear();
+            //menuStrip.Items.Clear();
             foreach (var goc in i)
             {
                 ToolStripMenuItem mnuParent = new ToolStripMenuItem(goc.Content.ToString());
                 mnuParent.Name = goc.MenuID;
                 menuStrip.Items.Add(mnuParent);
-                LoadSubmenu(ref mnuParent,mnuParent.Name);
+                LoadSubmenu(ref mnuParent, mnuParent.Name);
             }
         }
         private void LoadSubmenu(ref ToolStripMenuItem mnuParent, string s)
         {
+            string id = mnuParent.Name;
+            string ten = s;
             var i = from p in dt.tblSC_Objects
                     join q in dt.tblSC_Rights on p.ObjectID equals q.ObjectID
                     join m in dt.MEN_Menus on p.ObjectName equals m.AssemblyName + "." + m.ClassName
                     join msg in dt.tblMD_Messages on m.MenuID equals msg.MessageID
-                    where q.LoginID == HPA.Common.StaticVars.LoginID && msg.Language == HPA.Common.StaticVars.LanguageID && m.ParentMenuID == s
+                    where q.LoginID == 36 && msg.Language == "VN" && m.ParentMenuID == s
                     orderby m.Priority ascending
                     select new
                     {
@@ -102,9 +111,10 @@ namespace HPA
                         m.ShortcutKeys,
                         m.IsVisible,
                         m.SupperAdmin,
+                        m.ClassName,
                         msg.Content
                     };
-            if (i.Count() > 1)
+            if (i.Count() > 0)
             {
                 foreach (var k in i)
                 {
@@ -113,7 +123,7 @@ namespace HPA
                     mnuSubItem.Text = k.Content;
                     //setImage(mnuSubItem);
                     mnuParent.DropDownItems.Add(mnuSubItem);
-                    LoadSubmenu(ref mnuParent, mnuParent.Name);
+                    LoadSubmenu(ref mnuSubItem, mnuSubItem.Name);
                     if (k.Content.Contains("-------------------"))
                     {
                         //Create new seprator menu
@@ -126,8 +136,8 @@ namespace HPA
             else
             {
                 ToolStripMenuItem mnuSubItem = new ToolStripMenuItem();
-                mnuSubItem.Name = i.ElementAt(0).MenuID;
-                mnuSubItem.Text = i.ElementAt(0).Content; 
+                mnuSubItem.Name = id;
+                mnuSubItem.Text = ten;
             }
         }
 
