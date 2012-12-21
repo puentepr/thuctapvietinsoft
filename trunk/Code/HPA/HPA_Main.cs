@@ -52,7 +52,7 @@ namespace HPA
                 ToolStripStatusLabel svrInfo = new ToolStripStatusLabel(string.Format("Server: {0}   |   Database: {1}", HPA.Common.StaticVars.ServerName,HPA.Common.StaticVars.DatabaseName));
                 statusStrip.Items.Add(svrInfo);
                 //statusStrip
-                LoadMenu();
+                //LoadMenu();
       
             }
             else
@@ -97,7 +97,7 @@ namespace HPA
                     join q in dt.tblSC_Rights on p.ObjectID equals q.ObjectID
                     join m in dt.MEN_Menus on p.ObjectName equals m.AssemblyName + "." + m.ClassName
                     join msg in dt.tblMD_Messages on m.MenuID equals msg.MessageID
-                    where q.LoginID == 36 && msg.Language == "VN" && m.ParentMenuID == s
+                    where q.LoginID == 36 && msg.Language == "VN" && m.ParentMenuID == s && m.IsVisible==true
                     orderby m.Priority ascending
                     select new
                     {
@@ -109,7 +109,6 @@ namespace HPA
                         m.IsModal,
                         m.IsCollapsed,
                         m.ShortcutKeys,
-                        m.IsVisible,
                         m.SupperAdmin,
                         m.ClassName,
                         msg.Content
