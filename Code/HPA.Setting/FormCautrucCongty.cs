@@ -82,14 +82,12 @@ namespace HPA.Setting
                 dtgrCautruc.DataSource = from p in dt.tblDepartments where p.DivisionID.ToString() == id select p;
                 dtgrCautruc.Columns.RemoveAt(dtgrCautruc.ColumnCount - 1);
                 dtgrCautruc.Columns[0].ReadOnly = true;
-                dtgrCautruc.Columns[1].ReadOnly = false;
             }
             else if (cap == "2")
             {
                 dtgrCautruc.DataSource = from p in dt.tblSections where p.DepartmentID.ToString() == id select p;
                 dtgrCautruc.Columns.RemoveAt(dtgrCautruc.ColumnCount - 1);
                 dtgrCautruc.Columns[0].ReadOnly = true;
-                dtgrCautruc.Columns[1].ReadOnly = false;
 
             }
             else if (cap == "3")
@@ -97,7 +95,6 @@ namespace HPA.Setting
                 dtgrCautruc.DataSource = from p in dt.tblGroups where p.SectionID.ToString() == id select p;
                 dtgrCautruc.Columns.RemoveAt(dtgrCautruc.ColumnCount - 1);
                 dtgrCautruc.Columns[0].ReadOnly = true;
-                dtgrCautruc.Columns[1].ReadOnly = false;
 
             }
             else if (cap == "4")
@@ -105,8 +102,6 @@ namespace HPA.Setting
                 dtgrCautruc.DataSource = from p in dt.tblGroups where p.GroupID.ToString() == id select p;
                 dtgrCautruc.Columns.RemoveAt(dtgrCautruc.ColumnCount - 1);
                 dtgrCautruc.Columns[0].ReadOnly = true;
-                dtgrCautruc.Columns[1].ReadOnly = false;
-
             }
         }
 
