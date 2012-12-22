@@ -81,7 +81,6 @@ namespace HPA
                         msg.Content
                     };
             //Load danh sach menu gốc
-            menuStrip.Items.Clear();
             foreach (var goc in i)
             {
                 ToolStripMenuItem mnuParent = new ToolStripMenuItem(goc.Content.ToString());
