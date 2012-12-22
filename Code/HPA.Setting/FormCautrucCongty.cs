@@ -140,7 +140,8 @@ namespace HPA.Setting
                     {
                         if (dt.tblDivisions.Where(u => u.DivisionCode == dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString()).Count() > 0)
                         {
-                            MessageBox.Show("Code đã tồn tại", "Lỗi");
+                            HPA.Common.Methods.ShowMessage(HPA.Common.Methods.GetMessage(HPA.Common.CommonConst.CODE_EXIST));
+                            
                         }
                         else
                         {
@@ -169,7 +170,7 @@ namespace HPA.Setting
                     {
                         if (dt.tblDepartments.Where(u => u.DepartmentCode == dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString()).Count() > 0)
                         {
-                            MessageBox.Show("Code đã tồn tại", "Lỗi");
+                            HPA.Common.Methods.ShowMessage(HPA.Common.Methods.GetMessage(HPA.Common.CommonConst.CODE_EXIST));
                         }
                         else
                         {
@@ -204,7 +205,7 @@ namespace HPA.Setting
                     {
                         if (dt.tblSections.Where(u => u.SectionCode == dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString()).Count() > 0)
                         {
-                            MessageBox.Show("Code đã tồn tại", "Lỗi");
+                            HPA.Common.Methods.ShowMessage(HPA.Common.Methods.GetMessage(HPA.Common.CommonConst.CODE_EXIST));
                         }
                         else
                         {
@@ -241,7 +242,7 @@ namespace HPA.Setting
                     {
                         if (dt.tblGroups.Where(u => u.GroupCode == dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString()).Count() > 0)
                         {
-                            MessageBox.Show("Code đã tồn tại", "Lỗi");
+                            HPA.Common.Methods.ShowMessage(HPA.Common.Methods.GetMessage(HPA.Common.CommonConst.CODE_EXIST));
                         }
                         else
                         {
