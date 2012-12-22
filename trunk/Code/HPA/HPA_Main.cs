@@ -95,7 +95,7 @@ namespace HPA
             string ten = s;
             var k1 = from p in dt.tblSC_Objects
                      join q in dt.tblSC_Rights on p.ObjectID equals q.ObjectID
-                     where q.LoginID == HPA.Common.StaticVars.LoginID
+                     where q.LoginID == HPA.Common.StaticVars.LoginID && q.FullAccess!=0 && q.FullAccess!=null
                      select new
                      {
                          p.ObjectName,
@@ -131,48 +131,52 @@ namespace HPA
                         p.SupperAdmin,
                         p.ClassName,
                         p.AssemblyName,
-                        p.Content
+                        p.Content,
+                        quyen = u == null ? 0 : u.FullAccess
                     };
             if (i.Count() > 0)
             {
                 foreach (var k in i)
                 {
-                    ToolStripMenuItem mnuSubItem = new ToolStripMenuItem();
-                    mnuSubItem.Name = k.MenuID;
-                    mnuSubItem.Text = k.Content;
-                    mnuSubItem.AccessibleName = k.AssemblyName;
-                    mnuSubItem.Tag = k.ClassName;
-                    if (k.IsModal != null)
+                    if (k.quyen != 0)
                     {
-                        mnuSubItem.AutoToolTip = bool.Parse(k.IsModal.ToString());
-                    }
-                    if (k.ShortcutKeys != null)
-                    {
-                        string[] sk = k.ShortcutKeys.ToString().Split(new char[] { '|' });
-                        switch (sk.Length)
+                        ToolStripMenuItem mnuSubItem = new ToolStripMenuItem();
+                        mnuSubItem.Name = k.MenuID;
+                        mnuSubItem.Text = k.Content;
+                        mnuSubItem.AccessibleName = k.AssemblyName;
+                        mnuSubItem.Tag = k.ClassName;
+                        if (k.IsModal != null)
                         {
-                            case 2:
-                                mnuSubItem.ShortcutKeys = ((System.Windows.Forms.Keys)(Convert.ToInt32(sk[0]) | Convert.ToInt32(sk[1])));
-                                break;
-                            case 3:
-                                mnuSubItem.ShortcutKeys = ((System.Windows.Forms.Keys)(Convert.ToInt32(sk[0]) | Convert.ToInt32(sk[1]) | Convert.ToInt32(sk[2])));
-                                break;
-                            case 4:
-                                mnuSubItem.ShortcutKeys = ((System.Windows.Forms.Keys)(Convert.ToInt32(sk[0]) | Convert.ToInt32(sk[1]) | Convert.ToInt32(sk[2]) | Convert.ToInt32(sk[3])));
-                                break;
-
+                            mnuSubItem.AutoToolTip = bool.Parse(k.IsModal.ToString());
                         }
-                    }
-                    mnuSubItem.Click += new EventHandler(SubMenuClick);
-                    setImage(mnuSubItem);
-                    mnuParent.DropDownItems.Add(mnuSubItem);
-                    LoadSubmenu(ref mnuSubItem, mnuSubItem.Name);
-                    if (k.Content.Contains("-------------------"))
-                    {
-                        //Create new seprator menu
-                        ToolStripSeparator SubItem = new ToolStripSeparator();
-                        SubItem.Name = k.MenuID;
+                        if (k.ShortcutKeys != null)
+                        {
+                            string[] sk = k.ShortcutKeys.ToString().Split(new char[] { '|' });
+                            switch (sk.Length)
+                            {
+                                case 2:
+                                    mnuSubItem.ShortcutKeys = ((System.Windows.Forms.Keys)(Convert.ToInt32(sk[0]) | Convert.ToInt32(sk[1])));
+                                    break;
+                                case 3:
+                                    mnuSubItem.ShortcutKeys = ((System.Windows.Forms.Keys)(Convert.ToInt32(sk[0]) | Convert.ToInt32(sk[1]) | Convert.ToInt32(sk[2])));
+                                    break;
+                                case 4:
+                                    mnuSubItem.ShortcutKeys = ((System.Windows.Forms.Keys)(Convert.ToInt32(sk[0]) | Convert.ToInt32(sk[1]) | Convert.ToInt32(sk[2]) | Convert.ToInt32(sk[3])));
+                                    break;
+
+                            }
+                        }
+                        mnuSubItem.Click += new EventHandler(SubMenuClick);
+                        setImage(mnuSubItem);
                         mnuParent.DropDownItems.Add(mnuSubItem);
+                        LoadSubmenu(ref mnuSubItem, mnuSubItem.Name);
+                        if (k.Content.Contains("-------------------"))
+                        {
+                            //Create new seprator menu
+                            ToolStripSeparator SubItem = new ToolStripSeparator();
+                            SubItem.Name = k.MenuID;
+                            mnuParent.DropDownItems.Add(mnuSubItem);
+                        }
                     }
                 }
             }
