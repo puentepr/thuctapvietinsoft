@@ -22,6 +22,7 @@ namespace HPA.Setting
         private void FormCautrucCongty_Load(object sender, EventArgs e)
         {
             CapnhatTree();
+            contextMenuStrip1.Items.Add(HPA.Common.Methods.GetMessage(HPA.Common.CommonConst.UPDATETREE));
         }
         private void CapnhatTree()
         {
@@ -68,7 +69,10 @@ namespace HPA.Setting
 
         private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-
+            if (e.ClickedItem.Text == HPA.Common.Methods.GetMessage(HPA.Common.CommonConst.UPDATETREE))
+            {
+                CapnhatTree();
+            }
         }
         private void Loaddata()
         {

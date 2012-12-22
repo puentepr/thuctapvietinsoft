@@ -141,7 +141,7 @@ namespace HPA.Common
         public const string EDIT_VALUE = "EditValue";
         public const string PASSNOTMATCH = "PASSNOTMATCH";
         public const string PASS_CHANGED_SUCCESSFULL = "PASS_CHANGED_SUCCESSFULL";
-        
-        public const string ADD_DIVISION = "ADD_DIVISION";
+
+        public const string UPDATETREE = "UPDATETREE";
     }
 }
