@@ -278,7 +278,52 @@ namespace HPA.Setting
         private void dtgrCautruc_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
            DialogResult r = HPA.Common.Methods.ShowMessage(HPA.Common.Methods.GetMessage(HPA.Common.CommonConst.DELETE_CONFIRM), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+           if (r == DialogResult.Yes)
+           {
+               for (int i = 0; i < dtgrCautruc.Rows.Count-1; i++)
+               {
+                   if (dtgrCautruc.Rows[i].Selected == true)
+                   {
+                       int cid = int.Parse(dtgrCautruc.Rows[i].Cells[0].Value.ToString());
+                       if (cap == "0")
+                       {
+                           var del = dt.tblDivisions.Single(u => u.DivisionID == cid);
+                           dt.tblDivisions.DeleteOnSubmit(del);
+                           dtgrCautruc.Rows.RemoveAt(i);
+                       }
+                       else if (cap == "1")
+                       {
+                           var del = dt.tblDepartments.Single(u => u.DepartmentID == cid);
+                           dt.tblDepartments.DeleteOnSubmit(del);
+                           dtgrCautruc.Rows.RemoveAt(i);
+                       }
+                       else if (cap == "2")
+                       {
+                           var del = dt.tblSections.Single(u => u.SectionID == cid);
+                           dt.tblSections.DeleteOnSubmit(del);
+                           dtgrCautruc.Rows.RemoveAt(i);
+                       }
+                       else if (cap == "3" || cap == "4")
+                       {
+                           var del = dt.tblGroups.Single(u => u.GroupID == cid);
+                           dt.tblGroups.DeleteOnSubmit(del);
+                           dtgrCautruc.Rows.RemoveAt(i);
+                       }
+
+                   }
+                   else
+                   { 
+
+                   }
+               }
+               
+           }
            
+        }
+
+        private void dtgrCautruc_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            dt.SubmitChanges();
         }
         
     }

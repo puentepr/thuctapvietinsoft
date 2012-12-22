@@ -16,7 +16,7 @@ namespace HPA.Common
         }
         public static DialogResult ShowMessage(string MessID,System.Windows.Forms.MessageBoxButtons MessageButtons,System.Windows.Forms.MessageBoxIcon MessageIcons)
         {
-            return System.Windows.Forms.MessageBox.Show(HPA.Common.CommonConst.CPN_STD_NAME, GetMessage(MessID), MessageButtons, MessageIcons);
+            return System.Windows.Forms.MessageBox.Show(GetMessage(MessID), HPA.Common.CommonConst.CPN_STD_NAME, MessageButtons, MessageIcons);
         }
         public static void ShowError(Exception ex)
         {
