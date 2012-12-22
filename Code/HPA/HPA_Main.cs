@@ -96,7 +96,7 @@ namespace HPA
             string ten = s;
             var k1 = from p in dt.tblSC_Objects
                      join q in dt.tblSC_Rights on p.ObjectID equals q.ObjectID
-                     where q.LoginID == 3
+                     where q.LoginID == HPA.Common.StaticVars.LoginID
                      select new
                      {
                          p.ObjectName,
@@ -104,7 +104,7 @@ namespace HPA
                      };
             var k2 = from t in dt.MEN_Menus
                      join u in dt.tblMD_Messages on t.MenuID equals u.MessageID
-                     where u.Language == "VN" && t.IsVisible == true && t.ParentMenuID == s
+                     where u.Language == HPA.Common.StaticVars.LanguageID && t.IsVisible == true && t.ParentMenuID == s
                      orderby t.Priority ascending
                      select new
                      {
