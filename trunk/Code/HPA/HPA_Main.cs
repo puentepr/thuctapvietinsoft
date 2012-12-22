@@ -66,7 +66,7 @@ namespace HPA
             //Lay danh sach menu gốc
             var i = from m in dt.MEN_Menus
                     join msg in dt.tblMD_Messages on m.MenuID equals msg.MessageID
-                    where msg.Language == "VN" && m.ParentMenuID == "Mnu"
+                    where msg.Language == "VN" && m.ParentMenuID == "Mnu" && m.IsVisible==true
                     orderby m.Priority ascending
                     select new
                     {
@@ -154,20 +154,7 @@ namespace HPA
                             }
                             if (k.ShortcutKeys != null)
                             {
-                                string[] sk = k.ShortcutKeys.ToString().Split(new char[] { '|' });
-                                switch (sk.Length)
-                                {
-                                    case 2:
-                                        mnuSubItem.ShortcutKeys = ((System.Windows.Forms.Keys)(Convert.ToInt32(sk[0]) | Convert.ToInt32(sk[1])));
-                                        break;
-                                    case 3:
-                                        mnuSubItem.ShortcutKeys = ((System.Windows.Forms.Keys)(Convert.ToInt32(sk[0]) | Convert.ToInt32(sk[1]) | Convert.ToInt32(sk[2])));
-                                        break;
-                                    case 4:
-                                        mnuSubItem.ShortcutKeys = ((System.Windows.Forms.Keys)(Convert.ToInt32(sk[0]) | Convert.ToInt32(sk[1]) | Convert.ToInt32(sk[2]) | Convert.ToInt32(sk[3])));
-                                        break;
-
-                                }
+                                SetSK(mnuSubItem, k.ShortcutKeys);
                             }
                             mnuSubItem.Click += new EventHandler(SubMenuClick);
                             setImage(mnuSubItem);
@@ -195,20 +182,7 @@ namespace HPA
                         }
                         if (k.ShortcutKeys != null)
                         {
-                            string[] sk = k.ShortcutKeys.ToString().Split(new char[] { '|' });
-                            switch (sk.Length)
-                            {
-                                case 2:
-                                    mnuSubItem.ShortcutKeys = ((System.Windows.Forms.Keys)(Convert.ToInt32(sk[0]) | Convert.ToInt32(sk[1])));
-                                    break;
-                                case 3:
-                                    mnuSubItem.ShortcutKeys = ((System.Windows.Forms.Keys)(Convert.ToInt32(sk[0]) | Convert.ToInt32(sk[1]) | Convert.ToInt32(sk[2])));
-                                    break;
-                                case 4:
-                                    mnuSubItem.ShortcutKeys = ((System.Windows.Forms.Keys)(Convert.ToInt32(sk[0]) | Convert.ToInt32(sk[1]) | Convert.ToInt32(sk[2]) | Convert.ToInt32(sk[3])));
-                                    break;
-
-                            }
+                            SetSK(mnuSubItem, k.ShortcutKeys);
                         }
                         mnuSubItem.Click += new EventHandler(SubMenuClick);
                         setImage(mnuSubItem);
@@ -265,6 +239,23 @@ namespace HPA
         {
             HPA.Setting.FormCautrucCongty fct = new Setting.FormCautrucCongty();
             fct.Show();
+        }
+        private void SetSK(ToolStripMenuItem mnuSubItem,string s)
+        {
+            string[] sk = s.ToString().Split(new char[] { '|' });
+            switch (sk.Length)
+            {
+                case 2:
+                    mnuSubItem.ShortcutKeys = ((System.Windows.Forms.Keys)(Convert.ToInt32(sk[0]) | Convert.ToInt32(sk[1])));
+                    break;
+                case 3:
+                    mnuSubItem.ShortcutKeys = ((System.Windows.Forms.Keys)(Convert.ToInt32(sk[0]) | Convert.ToInt32(sk[1]) | Convert.ToInt32(sk[2])));
+                    break;
+                case 4:
+                    mnuSubItem.ShortcutKeys = ((System.Windows.Forms.Keys)(Convert.ToInt32(sk[0]) | Convert.ToInt32(sk[1]) | Convert.ToInt32(sk[2]) | Convert.ToInt32(sk[3])));
+                    break;
+
+            }
         }
         private void setImage(ToolStripMenuItem tskItm)
         {
