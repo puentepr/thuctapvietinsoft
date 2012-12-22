@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace HPA
 {
@@ -46,14 +47,14 @@ namespace HPA
         {
             FormLogin lg = new FormLogin();
             lg.ShowDialog();
-            if (HPA.Common.StaticVars.UserName!=null)
+            if (HPA.Common.StaticVars.UserName != null)
             {
-                toolStripStatusLabel.Text= string.Format("Login ID: {0}  |  Login Name: {1}  |",HPA.Common.StaticVars.LoginID, HPA.Common.StaticVars.UserName);
-                ToolStripStatusLabel svrInfo = new ToolStripStatusLabel(string.Format("Server: {0}   |   Database: {1}", HPA.Common.StaticVars.ServerName,HPA.Common.StaticVars.DatabaseName));
+                toolStripStatusLabel.Text = string.Format("Login ID: {0}  |  Login Name: {1}  |", HPA.Common.StaticVars.LoginID, HPA.Common.StaticVars.UserName);
+                ToolStripStatusLabel svrInfo = new ToolStripStatusLabel(string.Format("Server: {0}   |   Database: {1}", HPA.Common.StaticVars.ServerName, HPA.Common.StaticVars.DatabaseName));
                 statusStrip.Items.Add(svrInfo);
                 //statusStrip
-                //LoadMenu();
-      
+                LoadMenu();
+
             }
             else
             {
@@ -80,7 +81,7 @@ namespace HPA
                         msg.Content
                     };
             //Load danh sach menu gốc
-            //menuStrip.Items.Clear();
+            menuStrip.Items.Clear();
             foreach (var goc in i)
             {
                 ToolStripMenuItem mnuParent = new ToolStripMenuItem(goc.Content.ToString());
@@ -93,25 +94,45 @@ namespace HPA
         {
             string id = mnuParent.Name;
             string ten = s;
-            var i = from p in dt.tblSC_Objects
-                    join q in dt.tblSC_Rights on p.ObjectID equals q.ObjectID
-                    join m in dt.MEN_Menus on p.ObjectName equals m.AssemblyName + "." + m.ClassName
-                    join msg in dt.tblMD_Messages on m.MenuID equals msg.MessageID
-                    where q.LoginID == 36 && msg.Language == "VN" && m.ParentMenuID == s && m.IsVisible==true
-                    orderby m.Priority ascending
+            var k1 = from p in dt.tblSC_Objects
+                     join q in dt.tblSC_Rights on p.ObjectID equals q.ObjectID
+                     where q.LoginID == 3
+                     select new
+                     {
+                         p.ObjectName,
+                         q.FullAccess,
+                     };
+            var k2 = from t in dt.MEN_Menus
+                     join u in dt.tblMD_Messages on t.MenuID equals u.MessageID
+                     where u.Language == "VN" && t.IsVisible == true && t.ParentMenuID == s
+                     orderby t.Priority ascending
+                     select new
+                     {
+                         t.IsCollapsed,
+                         t.IsModal,
+                         t.ShortcutKeys,
+                         t.SupperAdmin,
+                         t.ClassName,
+                         t.AssemblyName,
+                         t.MenuID,
+                         u.Content,
+                         t.ParentMenuID,
+                         mnName = t.AssemblyName + "." + t.ClassName
+                     };
+            var i = from p in k2
+                    join q in k1 on p.mnName equals q.ObjectName into temp
+                    from u in temp.DefaultIfEmpty()
                     select new
                     {
-                        p.ObjectName,
-                        q.FullAccess,
-                        m.MenuID,
-                        m.ParentMenuID,
-                        m.AssemblyName,
-                        m.IsModal,
-                        m.IsCollapsed,
-                        m.ShortcutKeys,
-                        m.SupperAdmin,
-                        m.ClassName,
-                        msg.Content
+                        Name = u == null ? "null" : u.ObjectName,
+                        p.MenuID,
+                        p.IsCollapsed,
+                        p.IsModal,
+                        p.ShortcutKeys,
+                        p.SupperAdmin,
+                        p.ClassName,
+                        p.AssemblyName,
+                        p.Content
                     };
             if (i.Count() > 0)
             {
@@ -120,7 +141,31 @@ namespace HPA
                     ToolStripMenuItem mnuSubItem = new ToolStripMenuItem();
                     mnuSubItem.Name = k.MenuID;
                     mnuSubItem.Text = k.Content;
-                    //setImage(mnuSubItem);
+                    mnuSubItem.AccessibleName = k.AssemblyName;
+                    mnuSubItem.Tag = k.ClassName;
+                    if (k.IsModal != null)
+                    {
+                        mnuSubItem.AutoToolTip = bool.Parse(k.IsModal.ToString());
+                    }
+                    if (k.ShortcutKeys != null)
+                    {
+                        string[] sk = k.ShortcutKeys.ToString().Split(new char[] { '|' });
+                        switch (sk.Length)
+                        {
+                            case 2:
+                                mnuSubItem.ShortcutKeys = ((System.Windows.Forms.Keys)(Convert.ToInt32(sk[0]) | Convert.ToInt32(sk[1])));
+                                break;
+                            case 3:
+                                mnuSubItem.ShortcutKeys = ((System.Windows.Forms.Keys)(Convert.ToInt32(sk[0]) | Convert.ToInt32(sk[1]) | Convert.ToInt32(sk[2])));
+                                break;
+                            case 4:
+                                mnuSubItem.ShortcutKeys = ((System.Windows.Forms.Keys)(Convert.ToInt32(sk[0]) | Convert.ToInt32(sk[1]) | Convert.ToInt32(sk[2]) | Convert.ToInt32(sk[3])));
+                                break;
+
+                        }
+                    }
+                    mnuSubItem.Click += new EventHandler(SubMenuClick);
+                    setImage(mnuSubItem);
                     mnuParent.DropDownItems.Add(mnuSubItem);
                     LoadSubmenu(ref mnuSubItem, mnuSubItem.Name);
                     if (k.Content.Contains("-------------------"))
@@ -139,11 +184,83 @@ namespace HPA
                 mnuSubItem.Text = ten;
             }
         }
+        //Thuc thi chuong trinh
+        private void OpenExeProgram(string strClass, bool isModal)
+        {
+            string path = Application.StartupPath + @"\" + strClass;
+            Process p = new Process();
+            p.StartInfo.FileName = path;
+            p.StartInfo.CreateNoWindow = isModal;
+            p.Start();
+        }
+        public void OpenForm(string AssemblyName, string ClassName)
+        {
+            System.Runtime.Remoting.ObjectHandle handle = System.Activator.CreateInstance(AssemblyName, AssemblyName + "." + ClassName);
+            System.Windows.Forms.Form frm = (System.Windows.Forms.Form)(handle.Unwrap());
+            frm.Show();
+        }
+        void SubMenuClick(object sender, EventArgs e)
+        {
+            ToolStripMenuItem sub = (ToolStripMenuItem)sender;
+            string Assembly = sub.AccessibleName;
+            string Class = sub.Tag.ToString();
+            bool IsModal = sub.AutoToolTip;
+            if (sub.AccessibleName == "Excute")
+            {
+                OpenExeProgram(Class, IsModal);
+            }
+            else if (sub.AccessibleName == "Data")
+            {
+
+                //Assembly = "ThucTap";
+                //OpenForm(Assembly, Class);
+            }
+            else
+            {
+                OpenForm(Assembly, Class);
+            }
+        }
 
         private void form3ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HPA.Setting.FormCautrucCongty fct = new Setting.FormCautrucCongty();
             fct.Show();
+        }
+        private void setImage(ToolStripMenuItem tskItm)
+        {
+            switch (tskItm.Name.Substring(0, 6).ToLower())
+            {
+                case "mnuhrs":
+                    tskItm.Image = global::HPA.Properties.Resources.user;
+                    break;
+                case "mnutad":
+                    tskItm.Image = global::HPA.Properties.Resources.icon_clock;
+                    break;
+                case "mnuprl":
+                    tskItm.Image = global::HPA.Properties.Resources.money;
+                    break;
+                case "mnurpt":
+                    tskItm.Image = global::HPA.Properties.Resources.report;
+                    break;
+                case "mnuscr":
+                    tskItm.Image = global::HPA.Properties.Resources.security;
+                    break;
+                case "mnuext":
+                    tskItm.Image = global::HPA.Properties.Resources.update16x16;
+                    break;
+                case "mnumdt":
+                    tskItm.Image = global::HPA.Properties.Resources.masterdata;
+                    break;
+                case "mnusid":
+                    tskItm.Image = global::HPA.Properties.Resources.insIcon;
+                    break;
+                case "mnuhep":
+                    tskItm.Image = global::HPA.Properties.Resources.help_icon;
+                    break;
+                default:
+                    tskItm.Image = global::HPA.Properties.Resources.user;
+                    break;
+            }
         }
     }
 }
