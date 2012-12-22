@@ -141,7 +141,34 @@ namespace HPA
                 {
                     if (k.mnName!=null)
                     {
-                        if (k.quyen != 0)
+                        if (k.quyen != 0&&k.SupperAdmin!=true)
+                        {
+                            ToolStripMenuItem mnuSubItem = new ToolStripMenuItem();
+                            mnuSubItem.Name = k.MenuID;
+                            mnuSubItem.Text = k.Content;
+                            mnuSubItem.AccessibleName = k.AssemblyName;
+                            mnuSubItem.Tag = k.ClassName;
+                            if (k.IsModal != null)
+                            {
+                                mnuSubItem.AutoToolTip = bool.Parse(k.IsModal.ToString());
+                            }
+                            if (k.ShortcutKeys != null)
+                            {
+                                SetSK(mnuSubItem, k.ShortcutKeys);
+                            }
+                            mnuSubItem.Click += new EventHandler(SubMenuClick);
+                            setImage(mnuSubItem);
+                            mnuParent.DropDownItems.Add(mnuSubItem);
+                            LoadSubmenu(ref mnuSubItem, mnuSubItem.Name);
+                            if (k.Content.Contains("-------------------"))
+                            {
+                                //Create new seprator menu
+                                ToolStripSeparator SubItem = new ToolStripSeparator();
+                                SubItem.Name = k.MenuID;
+                                mnuParent.DropDownItems.Add(mnuSubItem);
+                            }
+                        }
+                        else if (PM(HPA.Common.StaticVars.LoginID) == true&&k.SupperAdmin==true)
                         {
                             ToolStripMenuItem mnuSubItem = new ToolStripMenuItem();
                             mnuSubItem.Name = k.MenuID;
@@ -234,7 +261,20 @@ namespace HPA
                 OpenForm(Assembly, Class);
             }
         }
-
+        private bool PM(int idm)
+        {
+            bool adm = false;
+            var i = dt.tblSC_Logins.Single(u => u.LoginID == idm);
+            if (i.AdminRight == 1)
+            {
+                adm = true;
+            }
+            else
+            {
+                adm = false;
+            }
+            return adm;
+        }
         private void form3ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HPA.Setting.FormCautrucCongty fct = new Setting.FormCautrucCongty();
