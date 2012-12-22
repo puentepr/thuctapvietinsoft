@@ -274,6 +274,12 @@ namespace HPA.Setting
         {
             dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index - 1].Cells[1].Value;
         }
+
+        private void dtgrCautruc_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+           HPA.Common.Methods.ShowMessage(HPA.Common.Methods.GetMessage(HPA.Common.CommonConst.DELETE_CONFIRM), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+           
+        }
         
     }
 }

@@ -14,9 +14,24 @@ namespace HPA.Common
         {
             System.Windows.Forms.MessageBox.Show( GetMessage(MessID),HPA.Common.CommonConst.CPN_STD_NAME);
         }
-        public static void ShowMessage(string MessID,System.Windows.Forms.MessageBoxButtons MessageButtons,System.Windows.Forms.MessageBoxIcon MessageIcons)
+        public static int ShowMessage(string MessID,System.Windows.Forms.MessageBoxButtons MessageButtons,System.Windows.Forms.MessageBoxIcon MessageIcons)
         {
-            System.Windows.Forms.MessageBox.Show(HPA.Common.CommonConst.CPN_STD_NAME, GetMessage(MessID), MessageButtons, MessageIcons);
+            int b=0;
+            System.Windows.Forms.DialogResult r =  System.Windows.Forms.MessageBox.Show(HPA.Common.CommonConst.CPN_STD_NAME, GetMessage(MessID), MessageButtons, MessageIcons);
+            if (r == System.Windows.Forms.DialogResult.OK)
+            {
+                b = 1;
+            }
+            else if (r == System.Windows.Forms.DialogResult.No)
+            {
+                b = 2;
+            }
+            else if (r == System.Windows.Forms.DialogResult.Cancel)
+            {
+                b = 3;
+            }
+            return b;
+           
         }
         public static void ShowError(Exception ex)
         {
