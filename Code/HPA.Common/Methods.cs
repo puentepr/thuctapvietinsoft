@@ -4,34 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace HPA.Common
 {
     public class Methods
     {
-        public static void ShowMessage(string MessID)
+        public static DialogResult ShowMessage(string MessID)
         {
-            System.Windows.Forms.MessageBox.Show( GetMessage(MessID),HPA.Common.CommonConst.CPN_STD_NAME);
+            return System.Windows.Forms.MessageBox.Show( GetMessage(MessID),HPA.Common.CommonConst.CPN_STD_NAME);
         }
-        public static int ShowMessage(string MessID,System.Windows.Forms.MessageBoxButtons MessageButtons,System.Windows.Forms.MessageBoxIcon MessageIcons)
+        public static DialogResult ShowMessage(string MessID,System.Windows.Forms.MessageBoxButtons MessageButtons,System.Windows.Forms.MessageBoxIcon MessageIcons)
         {
-            int b=0;
-            System.Windows.Forms.DialogResult r =  System.Windows.Forms.MessageBox.Show(HPA.Common.CommonConst.CPN_STD_NAME, GetMessage(MessID), MessageButtons, MessageIcons);
-            if (r == System.Windows.Forms.DialogResult.OK)
-            {
-                b = 1;
-            }
-            else if (r == System.Windows.Forms.DialogResult.No)
-            {
-                b = 2;
-            }
-            else if (r == System.Windows.Forms.DialogResult.Cancel)
-            {
-                b = 3;
-            }
-            return b;
-           
+            return System.Windows.Forms.MessageBox.Show(HPA.Common.CommonConst.CPN_STD_NAME, GetMessage(MessID), MessageButtons, MessageIcons);
         }
         public static void ShowError(Exception ex)
         {
@@ -179,15 +164,6 @@ namespace HPA.Common
                 outfile.Close();
             }
 
-        }
-        public static bool Kiemtrchuoi(string s, Regex r)
-        {
-            bool b = r.IsMatch(s);
-            if (b)
-            {
-                return true;
-            }
-            else return false;
         }
     }
 }
