@@ -13,6 +13,7 @@ namespace HPA
 {
     public partial class HPA_Main : Form
     {
+        bool adm;
         HPA.SQL.DataDaigramDataContext dt = new SQL.DataDaigramDataContext();
         public HPA_Main()
         {
@@ -53,6 +54,7 @@ namespace HPA
                 ToolStripStatusLabel svrInfo = new ToolStripStatusLabel(string.Format("Server: {0}   |   Database: {1}", HPA.Common.StaticVars.ServerName, HPA.Common.StaticVars.DatabaseName));
                 statusStrip.Items.Add(svrInfo);
                 //statusStrip
+                adm = PM(HPA.Common.StaticVars.LoginID);
                 LoadMenu();
 
             }
@@ -168,7 +170,7 @@ namespace HPA
                                 mnuParent.DropDownItems.Add(mnuSubItem);
                             }
                         }
-                        else if (PM(HPA.Common.StaticVars.LoginID) == true&&k.SupperAdmin==true)
+                        else if (adm == true&&k.SupperAdmin==true)
                         {
                             ToolStripMenuItem mnuSubItem = new ToolStripMenuItem();
                             mnuSubItem.Name = k.MenuID;
@@ -234,11 +236,32 @@ namespace HPA
             p.StartInfo.CreateNoWindow = isModal;
             p.Start();
         }
+        private bool checkAddForm(string Text)
+        {
+            bool add = true;
+            if (mdiManager.Pages.Count > 0)
+            {
+                for (int i = 0; i < mdiManager.Pages.Count; i++)
+                {
+                    if (mdiManager.Pages[i].Text == Text)
+                    {
+                        add = false;
+                        mdiManager.SelectedPage = mdiManager.Pages[i];
+                        return add;
+                    }
+                }
+            }
+            return add;
+        }
         public void OpenForm(string AssemblyName, string ClassName)
         {
             System.Runtime.Remoting.ObjectHandle handle = System.Activator.CreateInstance(AssemblyName, AssemblyName + "." + ClassName);
             System.Windows.Forms.Form frm = (System.Windows.Forms.Form)(handle.Unwrap());
-            frm.Show();
+            if (checkAddForm(frm.Text))
+            {
+                frm.MdiParent = this;
+                frm.Show();
+            }
         }
         void SubMenuClick(object sender, EventArgs e)
         {
@@ -278,7 +301,11 @@ namespace HPA
         private void form3ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HPA.Setting.FormCautrucCongty fct = new Setting.FormCautrucCongty();
-            fct.Show();
+            if (checkAddForm(fct.Text))
+            {
+                fct.MdiParent = this;
+                fct.Show();
+            }
         }
         private void SetSK(ToolStripMenuItem mnuSubItem,string s)
         {
