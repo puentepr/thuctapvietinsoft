@@ -277,7 +277,7 @@ namespace HPA.Setting
 
         private void dtgrCautruc_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-           HPA.Common.Methods.ShowMessage(HPA.Common.Methods.GetMessage(HPA.Common.CommonConst.DELETE_CONFIRM), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+           DialogResult r = HPA.Common.Methods.ShowMessage(HPA.Common.Methods.GetMessage(HPA.Common.CommonConst.DELETE_CONFIRM), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
            
         }
         
