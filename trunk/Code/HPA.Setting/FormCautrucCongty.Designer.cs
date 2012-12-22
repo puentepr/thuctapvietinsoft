@@ -75,6 +75,7 @@
             this.dtgrCautruc.Size = new System.Drawing.Size(438, 222);
             this.dtgrCautruc.TabIndex = 1;
             this.dtgrCautruc.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgrCautruc_CellEndEdit);
+            this.dtgrCautruc.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dtgrCautruc_RowsRemoved);
             this.dtgrCautruc.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dtgrCautruc_UserAddedRow);
             this.dtgrCautruc.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dtgrCautruc_UserDeletingRow);
             // 
