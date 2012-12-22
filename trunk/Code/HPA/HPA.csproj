@@ -127,6 +127,75 @@
   <ItemGroup>
     <None Include="Anh.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICO-Login_ico-48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Insurance.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insurance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\masterdata.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money-icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\processing.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\security.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\security.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\update16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VietinsoftAbout.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
