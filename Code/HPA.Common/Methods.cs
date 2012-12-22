@@ -165,5 +165,14 @@ namespace HPA.Common
             }
 
         }
+        public static bool Kiemtrchuoi(string s, Regex r)
+        {
+            bool b = r.IsMatch(s);
+            if (b)
+            {
+                return true;
+            }
+            else return false;
+        }
     }
 }
