@@ -253,9 +253,9 @@ namespace HPA.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap security1 {
+        internal static System.Drawing.Bitmap security2 {
             get {
-                object obj = ResourceManager.GetObject("security1", resourceCulture);
+                object obj = ResourceManager.GetObject("security2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
