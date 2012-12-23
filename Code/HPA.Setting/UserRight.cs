@@ -68,15 +68,29 @@ namespace HPA.Setting
                     where (b.LoginID == 3 && b.DepartmentID == c.DepartmentID)
                     select new {c.DepartmentCode,c.DepartmentName,b.ViewInfo};
 
+            //grdDepartment.DataSource = a;
+
+            dataGridView1.DataSource = dtData.SC_LoginInfor("90003", 3);
             
-            grdDepartment.DataSource = a;
         }
 
         HPA.SQL.DataDaigramDataContext dtData = new SQL.DataDaigramDataContext();
 
         private void OnAdd()
         {
+            SqlCommand cmd = new SqlCommand(query, _connection, _transaction) { CommandType = CommandType.Text };
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            if (ds.Tables.Count > 0)
+                return ds.Tables[0];
+            else
+                return null;
+        }
 
+        public DataTable getDepartmentInfo()
+        {
+            SqlCommand cmd = new SqlCommand("SC_LoginInfor '90003','3'"
         }
     }
 }
