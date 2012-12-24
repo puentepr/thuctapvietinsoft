@@ -55,42 +55,37 @@ namespace HPA.Setting
                 txtDepartment.Text = temp.DepartmentName;
             }
 
-            
-
             if (txtFullName.Text == "")
             {
                 txtEmployeeID.Focus();
                 MessageBox.Show("EmployeeNotExists","Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            var a = from b in dtData.tblSC_DepartmentViews
-                    from c in dtData.tblDepartments
-                    where (b.LoginID == 3 && b.DepartmentID == c.DepartmentID)
-                    select new {c.DepartmentCode,c.DepartmentName,b.ViewInfo};
+            dsDepartment = DepSecViewList();
+            dtDepartmentList = dsDepartment.Tables[0];
+            grdDepartment.DataSource = dtDepartmentList;
 
-            //grdDepartment.DataSource = a;
+            grdTest.DataSource = dsDepartment.Tables[1];
 
-            dataGridView1.DataSource = dtData.SC_LoginInfor("90003", 3);
-            
+            //dsDepartment = ezSql.execReturnDataSet(@"SC_DeptSectView_List", Common.CommonConst.A_LoginID, Common.StaticVars.LoginID = 3);
+            //dtDepartmentList = dsDepartment.Tables[0];
+            //grdDepartment.DataSource = dtDepartmentList;
         }
 
         HPA.SQL.DataDaigramDataContext dtData = new SQL.DataDaigramDataContext();
+        EzSqlCollection.EzSql2 ezSql = new EzSqlCollection.EzSql2();
+        SqlDataAdapter da = null;
+        DataSet dsDepartment = null;
+        DataTable dtDepartmentList = null;
 
-        private void OnAdd()
+        public DataSet DepSecViewList()
         {
-            SqlCommand cmd = new SqlCommand(query, _connection, _transaction) { CommandType = CommandType.Text };
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            ezSql.Connection = new SqlConnection(HPA.Common.StaticVars.ConnectionString);
+            string sQuery = string.Format(@"SC_DeptSectView_List '{0}'", Common.StaticVars.LoginID);
+            da = new SqlDataAdapter(sQuery, ezSql.Connection);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            if (ds.Tables.Count > 0)
-                return ds.Tables[0];
-            else
-                return null;
-        }
-
-        public DataTable getDepartmentInfo()
-        {
-            SqlCommand cmd = new SqlCommand("SC_LoginInfor '90003','3'"
+            return ds;
         }
     }
 }

@@ -62,7 +62,7 @@
             this.btnFWDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnFWAdd = new DevExpress.XtraEditors.SimpleButton();
             this.Repository = new DevExpress.XtraEditors.Repository.PersistentRepository(this.components);
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grdTest = new System.Windows.Forms.DataGridView();
             this.grbUserInfo.SuspendLayout();
             this.grbDepartment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ckbAllDepartment.Properties)).BeginInit();
@@ -76,7 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trlObjectList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckbAllModule.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdTest)).BeginInit();
             this.SuspendLayout();
             // 
             // grbUserInfo
@@ -190,7 +190,7 @@
             // 
             // grdDepartment
             // 
-            this.grdDepartment.Location = new System.Drawing.Point(6, 37);
+            this.grdDepartment.Location = new System.Drawing.Point(6, 32);
             this.grdDepartment.MainView = this.grvDepartment;
             this.grdDepartment.Name = "grdDepartment";
             this.grdDepartment.Size = new System.Drawing.Size(307, 186);
@@ -378,20 +378,20 @@
             this.btnFWAdd.TabIndex = 0;
             this.btnFWAdd.Text = "simpleButton1";
             // 
-            // dataGridView1
+            // grdTest
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(502, 22);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(362, 128);
-            this.dataGridView1.TabIndex = 5;
+            this.grdTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdTest.Location = new System.Drawing.Point(502, 22);
+            this.grdTest.Name = "grdTest";
+            this.grdTest.Size = new System.Drawing.Size(362, 128);
+            this.grdTest.TabIndex = 5;
             // 
             // UserRight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 627);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.grdTest);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grbModule);
             this.Controls.Add(this.grbSection);
@@ -415,7 +415,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trlObjectList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckbAllModule.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdTest)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -455,6 +455,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn tclDescription;
         private DevExpress.XtraTreeList.Columns.TreeListColumn tlcRight;
         private DevExpress.XtraEditors.Repository.PersistentRepository Repository;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grdTest;
     }
 }
