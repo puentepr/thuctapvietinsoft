@@ -48,7 +48,7 @@ namespace EzSqlCollection
 		#endregion
 		#region Properties.
 		/// Returns a reference to the internal connection object.
-		public SqlConnection Connection{get{return _connection;}}
+        public SqlConnection Connection { get { return _connection; } set { _connection = value; } }
 		/// Returns a reference to the internal transaction object.
 		public SqlTransaction Transaction{get{return _transaction;}}
 		public string Server{get{return _server;} set{_server = value;}}
@@ -687,8 +687,13 @@ namespace EzSqlCollection
 		/// @src: the source name (normally a method name) which caused the
 		/// exception.
 		#endregion
-		#region Exception throwers.
-		/// ====================================================================
+
+        #region
+
+        #endregion
+
+        #region Exception throwers.
+        /// ====================================================================
 		/// Exception thrower.
 		/// ====================================================================
 		private void throwRequireConnection(string src)

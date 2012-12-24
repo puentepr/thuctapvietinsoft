@@ -260,7 +260,12 @@ namespace HPA.SQL
 		{
 			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), loginID).ReturnValue));
 		}
-	}
+
+        public object SC_LoginInfor(int p)
+        {
+            throw new NotImplementedException();
+        }
+    }
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblSC_Login")]
 	public partial class tblSC_Login : INotifyPropertyChanging, INotifyPropertyChanged
