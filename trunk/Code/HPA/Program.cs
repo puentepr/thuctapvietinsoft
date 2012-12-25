@@ -39,7 +39,8 @@ namespace HPA
                             HPA.Common.StaticVars.DatabaseName = sqlConn.Database;
                             HPA.Common.StaticVars.ServerName = sqlConn.DataSource;
                             sqlConn.Close();
-                            HPA.SQL.SP.Connect.SetConnect(HPA.Common.StaticVars.ConnectionString);
+                            //string contact = "Data Source=" + HPA.Common.StaticVars.ServerName + ";" + "Initial Catalog=" + HPA.Common.StaticVars.DatabaseName + ";" + "User ID=" + HPA.Common.StaticVars.UserID_sql + ";" + "Password=" + HPA.Common.StaticVars.Password;
+                            //HPA.SQL.SP.Connect.SetConnect(contact);
                             Application.Run(new HPA_Main());
                         }
                         catch

@@ -46,6 +46,7 @@ namespace HPA
 
         private void HPA_Main_Load(object sender, EventArgs e)
         {
+            //string s = dt.Connection.ConnectionString.ToString();
             FormLogin lg = new FormLogin();
             lg.ShowDialog();
             if (HPA.Common.StaticVars.UserName != null)

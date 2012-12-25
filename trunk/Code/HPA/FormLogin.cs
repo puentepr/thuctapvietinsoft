@@ -50,6 +50,7 @@ namespace HPA
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
+            string s = dt.Connection.ConnectionString.ToString();
             txtName.Text = HPA.Properties.Settings.Default.Username;
             Control.ControlCollection ctrls = this.Controls;
             HPA.Common.Methods.ChangeLanguage(ref ctrls);
