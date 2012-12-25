@@ -38,6 +38,7 @@
             this.Name = "BaseForm";
             this.Text = "BaseForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BaseForm_FormClosed);
+            this.Load += new System.EventHandler(this.BaseForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BaseForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BaseForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BaseForm_MouseUp);

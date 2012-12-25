@@ -51,5 +51,10 @@ namespace HPA.CommonForm
         {
             DBEngine.close();
         }
+
+        private void BaseForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
