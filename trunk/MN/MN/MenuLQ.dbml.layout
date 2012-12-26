@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="MenuLQ">
+  <DataContextMoniker Name="/MenuLQDataContext" />
+  <nestedChildShapes>
+    <classShape Id="4256f9e3-1554-4aab-8fe9-6b9e9b1141e3" absoluteBounds="4, 1.375, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/MenuLQDataContext/MEN_Menu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c9494f94-0651-4331-8378-6c9e47405ecf" absoluteBounds="4.015, 1.835, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e882357b-6544-4a75-8728-01b9cf9d4e7b" absoluteBounds="1.5, 1.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/MenuLQDataContext/tblMD_Message" />
+      <nestedChildShapes>
+        <elementListCompartment Id="df1843a4-4419-4f84-9356-077d583512ef" absoluteBounds="1.5150000000000001, 1.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

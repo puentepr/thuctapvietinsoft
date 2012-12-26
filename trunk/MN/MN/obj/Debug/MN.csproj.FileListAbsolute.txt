@@ -1,0 +1,16 @@
+c:\users\tit\documents\visual studio 2012\Projects\MN\MN\bin\Debug\MN.exe.config
+c:\users\tit\documents\visual studio 2012\Projects\MN\MN\bin\Debug\MN.exe
+c:\users\tit\documents\visual studio 2012\Projects\MN\MN\bin\Debug\MN.pdb
+c:\users\tit\documents\visual studio 2012\Projects\MN\MN\obj\Debug\MN.csprojResolveAssemblyReference.cache
+c:\users\tit\documents\visual studio 2012\Projects\MN\MN\obj\Debug\MN.Form1.resources
+c:\users\tit\documents\visual studio 2012\Projects\MN\MN\obj\Debug\MN.Properties.Resources.resources
+c:\users\tit\documents\visual studio 2012\Projects\MN\MN\obj\Debug\MN.csproj.GenerateResource.Cache
+c:\users\tit\documents\visual studio 2012\Projects\MN\MN\obj\Debug\MN.exe.licenses
+c:\users\tit\documents\visual studio 2012\Projects\MN\MN\obj\Debug\MN.exe
+c:\users\tit\documents\visual studio 2012\Projects\MN\MN\obj\Debug\MN.pdb
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\MN\bin\Debug\HPA.CommonForm.dll
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\MN\bin\Debug\HPA.SQL.dll
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\MN\bin\Debug\HPA.Common.dll
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\MN\bin\Debug\HPA.CommonForm.pdb
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\MN\bin\Debug\HPA.SQL.pdb
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\MN\bin\Debug\HPA.Common.pdb

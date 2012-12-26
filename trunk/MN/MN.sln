@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MN", "MN\MN.csproj", "{687C036F-31FE-4333-AADA-E1ABA1009B90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPA.SQL", "E:\Junk\Project\ThucTap\Project\vietinsoft\Code\HPA.SQL\HPA.SQL.csproj", "{40DFA349-9330-45B0-9618-B91482CD7047}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPA.CommonForm", "E:\Junk\Project\ThucTap\Project\vietinsoft\Code\HPA.CommonForm\HPA.CommonForm.csproj", "{7D01B764-C616-4D35-B635-84C63E1FB7C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPA.Common", "E:\Junk\Project\ThucTap\Project\vietinsoft\Code\HPA.Common\HPA.Common.csproj", "{79C1177E-083D-4A9C-A563-73C1741396B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{687C036F-31FE-4333-AADA-E1ABA1009B90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{687C036F-31FE-4333-AADA-E1ABA1009B90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{687C036F-31FE-4333-AADA-E1ABA1009B90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{687C036F-31FE-4333-AADA-E1ABA1009B90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40DFA349-9330-45B0-9618-B91482CD7047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40DFA349-9330-45B0-9618-B91482CD7047}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40DFA349-9330-45B0-9618-B91482CD7047}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40DFA349-9330-45B0-9618-B91482CD7047}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D01B764-C616-4D35-B635-84C63E1FB7C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D01B764-C616-4D35-B635-84C63E1FB7C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D01B764-C616-4D35-B635-84C63E1FB7C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D01B764-C616-4D35-B635-84C63E1FB7C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79C1177E-083D-4A9C-A563-73C1741396B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79C1177E-083D-4A9C-A563-73C1741396B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79C1177E-083D-4A9C-A563-73C1741396B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79C1177E-083D-4A9C-A563-73C1741396B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
