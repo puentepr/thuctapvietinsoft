@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.grbUserInfo = new System.Windows.Forms.GroupBox();
+            this.txtFullName = new System.Windows.Forms.TextBox();
             this.txtDepartment = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtLoginName = new System.Windows.Forms.TextBox();
-            this.txtFullName = new System.Windows.Forms.TextBox();
             this.txtEmployeeID = new System.Windows.Forms.TextBox();
             this.lblPassword = new DevExpress.XtraEditors.LabelControl();
             this.lblDepartment = new DevExpress.XtraEditors.LabelControl();
@@ -43,6 +42,9 @@
             this.ckbAllDepartment = new DevExpress.XtraEditors.CheckEdit();
             this.grdDepartment = new DevExpress.XtraGrid.GridControl();
             this.grvDepartment = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colDepartmentCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDepartmentName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDepViewInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grbSection = new System.Windows.Forms.GroupBox();
             this.grdSection = new DevExpress.XtraGrid.GridControl();
             this.grvSection = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -52,8 +54,9 @@
             this.ckbSectionAll = new DevExpress.XtraEditors.CheckEdit();
             this.grbModule = new System.Windows.Forms.GroupBox();
             this.trlObjectList = new DevExpress.XtraTreeList.TreeList();
-            this.tclDescription = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.tlcDescription = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.tlcRight = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.rpeRightNames = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.ckbAllModule = new DevExpress.XtraEditors.CheckEdit();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnExport = new DevExpress.XtraEditors.SimpleButton();
@@ -61,8 +64,6 @@
             this.btnFWSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnFWDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnFWAdd = new DevExpress.XtraEditors.SimpleButton();
-            this.Repository = new DevExpress.XtraEditors.Repository.PersistentRepository(this.components);
-            this.grdTest = new System.Windows.Forms.DataGridView();
             this.grbUserInfo.SuspendLayout();
             this.grbDepartment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ckbAllDepartment.Properties)).BeginInit();
@@ -74,17 +75,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.ckbSectionAll.Properties)).BeginInit();
             this.grbModule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trlObjectList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpeRightNames)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckbAllModule.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdTest)).BeginInit();
             this.SuspendLayout();
             // 
             // grbUserInfo
             // 
+            this.grbUserInfo.Controls.Add(this.txtFullName);
             this.grbUserInfo.Controls.Add(this.txtDepartment);
             this.grbUserInfo.Controls.Add(this.txtPassword);
             this.grbUserInfo.Controls.Add(this.txtLoginName);
-            this.grbUserInfo.Controls.Add(this.txtFullName);
             this.grbUserInfo.Controls.Add(this.txtEmployeeID);
             this.grbUserInfo.Controls.Add(this.lblPassword);
             this.grbUserInfo.Controls.Add(this.lblDepartment);
@@ -96,6 +97,14 @@
             this.grbUserInfo.TabIndex = 0;
             this.grbUserInfo.TabStop = false;
             this.grbUserInfo.Text = "Information";
+            // 
+            // txtFullName
+            // 
+            this.txtFullName.Location = new System.Drawing.Point(247, 19);
+            this.txtFullName.Name = "txtFullName";
+            this.txtFullName.ReadOnly = true;
+            this.txtFullName.Size = new System.Drawing.Size(211, 21);
+            this.txtFullName.TabIndex = 9;
             // 
             // txtDepartment
             // 
@@ -109,6 +118,7 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(141, 68);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(100, 21);
             this.txtPassword.TabIndex = 7;
             // 
@@ -118,14 +128,6 @@
             this.txtLoginName.Name = "txtLoginName";
             this.txtLoginName.Size = new System.Drawing.Size(100, 21);
             this.txtLoginName.TabIndex = 6;
-            // 
-            // txtFullName
-            // 
-            this.txtFullName.Location = new System.Drawing.Point(249, 19);
-            this.txtFullName.Name = "txtFullName";
-            this.txtFullName.ReadOnly = true;
-            this.txtFullName.Size = new System.Drawing.Size(209, 21);
-            this.txtFullName.TabIndex = 5;
             // 
             // txtEmployeeID
             // 
@@ -187,10 +189,11 @@
             this.ckbAllDepartment.Properties.Caption = "All";
             this.ckbAllDepartment.Size = new System.Drawing.Size(75, 19);
             this.ckbAllDepartment.TabIndex = 1;
+            this.ckbAllDepartment.CheckedChanged += new System.EventHandler(this.ckbAllDepartment_CheckedChanged);
             // 
             // grdDepartment
             // 
-            this.grdDepartment.Location = new System.Drawing.Point(6, 32);
+            this.grdDepartment.Location = new System.Drawing.Point(6, 37);
             this.grdDepartment.MainView = this.grvDepartment;
             this.grdDepartment.Name = "grdDepartment";
             this.grdDepartment.Size = new System.Drawing.Size(307, 186);
@@ -200,8 +203,39 @@
             // 
             // grvDepartment
             // 
+            this.grvDepartment.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colDepartmentCode,
+            this.colDepartmentName,
+            this.colDepViewInfo});
             this.grvDepartment.GridControl = this.grdDepartment;
             this.grvDepartment.Name = "grvDepartment";
+            this.grvDepartment.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.grvDepartment_SelectionChanged);
+            // 
+            // colDepartmentCode
+            // 
+            this.colDepartmentCode.Caption = "Department Code";
+            this.colDepartmentCode.FieldName = "DepartmentCode";
+            this.colDepartmentCode.Name = "colDepartmentCode";
+            this.colDepartmentCode.OptionsColumn.ReadOnly = true;
+            this.colDepartmentCode.Visible = true;
+            this.colDepartmentCode.VisibleIndex = 0;
+            // 
+            // colDepartmentName
+            // 
+            this.colDepartmentName.Caption = "Department Name";
+            this.colDepartmentName.FieldName = "DepartmentName";
+            this.colDepartmentName.Name = "colDepartmentName";
+            this.colDepartmentName.OptionsColumn.ReadOnly = true;
+            this.colDepartmentName.Visible = true;
+            this.colDepartmentName.VisibleIndex = 1;
+            // 
+            // colDepViewInfo
+            // 
+            this.colDepViewInfo.Caption = "Department View Info";
+            this.colDepViewInfo.FieldName = "ViewInfo";
+            this.colDepViewInfo.Name = "colDepViewInfo";
+            this.colDepViewInfo.Visible = true;
+            this.colDepViewInfo.VisibleIndex = 2;
             // 
             // grbSection
             // 
@@ -242,6 +276,7 @@
             // colSectionCode
             // 
             this.colSectionCode.Caption = "Section code";
+            this.colSectionCode.FieldName = "SectionCode";
             this.colSectionCode.Name = "colSectionCode";
             this.colSectionCode.Visible = true;
             this.colSectionCode.VisibleIndex = 0;
@@ -249,6 +284,7 @@
             // colSectionName
             // 
             this.colSectionName.Caption = "Section";
+            this.colSectionName.FieldName = "SectionName";
             this.colSectionName.Name = "colSectionName";
             this.colSectionName.Visible = true;
             this.colSectionName.VisibleIndex = 1;
@@ -256,6 +292,7 @@
             // colSectViewInfo
             // 
             this.colSectViewInfo.Caption = "Section view info";
+            this.colSectViewInfo.FieldName = "ViewInfo";
             this.colSectViewInfo.Name = "colSectViewInfo";
             this.colSectViewInfo.Visible = true;
             this.colSectViewInfo.VisibleIndex = 2;
@@ -267,6 +304,7 @@
             this.ckbSectionAll.Properties.Caption = "All";
             this.ckbSectionAll.Size = new System.Drawing.Size(75, 19);
             this.ckbSectionAll.TabIndex = 1;
+            this.ckbSectionAll.CheckedChanged += new System.EventHandler(this.ckbSectionAll_CheckedChanged);
             // 
             // grbModule
             // 
@@ -284,32 +322,54 @@
             // 
             // trlObjectList
             // 
+            this.trlObjectList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.trlObjectList.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
-            this.tclDescription,
+            this.tlcDescription,
             this.tlcRight});
+            this.trlObjectList.KeyFieldName = "ObjectID";
             this.trlObjectList.Location = new System.Drawing.Point(6, 38);
             this.trlObjectList.Name = "trlObjectList";
             this.trlObjectList.OptionsPrint.UsePrintStyles = true;
+            this.trlObjectList.ParentFieldName = "ParentObjectID";
+            this.trlObjectList.PreviewFieldName = "Description";
+            this.trlObjectList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.rpeRightNames});
             this.trlObjectList.Size = new System.Drawing.Size(520, 378);
             this.trlObjectList.TabIndex = 3;
             // 
-            // tclDescription
+            // tlcDescription
             // 
-            this.tclDescription.Caption = "Description";
-            this.tclDescription.FieldName = "Description";
-            this.tclDescription.Name = "tclDescription";
-            this.tclDescription.Visible = true;
-            this.tclDescription.VisibleIndex = 0;
-            this.tclDescription.Width = 287;
+            this.tlcDescription.Caption = "Description";
+            this.tlcDescription.FieldName = "Description";
+            this.tlcDescription.Name = "tlcDescription";
+            this.tlcDescription.OptionsColumn.ReadOnly = true;
+            this.tlcDescription.Visible = true;
+            this.tlcDescription.VisibleIndex = 0;
+            this.tlcDescription.Width = 287;
             // 
             // tlcRight
             // 
             this.tlcRight.Caption = "Right";
-            this.tlcRight.FieldName = "treeListColumn1";
+            this.tlcRight.ColumnEdit = this.rpeRightNames;
+            this.tlcRight.FieldName = "Right";
             this.tlcRight.Name = "tlcRight";
             this.tlcRight.Visible = true;
             this.tlcRight.VisibleIndex = 1;
             this.tlcRight.Width = 215;
+            // 
+            // rpeRightNames
+            // 
+            this.rpeRightNames.AutoHeight = false;
+            this.rpeRightNames.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rpeRightNames.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("RightName", "RightName")});
+            this.rpeRightNames.DisplayMember = "RightName";
+            this.rpeRightNames.Name = "rpeRightNames";
+            this.rpeRightNames.ValueMember = "ID";
             // 
             // ckbAllModule
             // 
@@ -321,6 +381,7 @@
             this.ckbAllModule.Properties.Caption = "All";
             this.ckbAllModule.Size = new System.Drawing.Size(111, 19);
             this.ckbAllModule.TabIndex = 1;
+            this.ckbAllModule.CheckedChanged += new System.EventHandler(this.ckbAllModule_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -352,6 +413,7 @@
             this.btnFWReset.Size = new System.Drawing.Size(75, 32);
             this.btnFWReset.TabIndex = 3;
             this.btnFWReset.Text = "simpleButton4";
+            this.btnFWReset.Click += new System.EventHandler(this.btnFWReset_Click);
             // 
             // btnFWSave
             // 
@@ -361,6 +423,7 @@
             this.btnFWSave.Size = new System.Drawing.Size(75, 32);
             this.btnFWSave.TabIndex = 2;
             this.btnFWSave.Text = "simpleButton3";
+            this.btnFWSave.Click += new System.EventHandler(this.btnFWSave_Click);
             // 
             // btnFWDelete
             // 
@@ -369,6 +432,7 @@
             this.btnFWDelete.Size = new System.Drawing.Size(75, 32);
             this.btnFWDelete.TabIndex = 1;
             this.btnFWDelete.Text = "simpleButton2";
+            this.btnFWDelete.Click += new System.EventHandler(this.btnFWDelete_Click);
             // 
             // btnFWAdd
             // 
@@ -378,20 +442,11 @@
             this.btnFWAdd.TabIndex = 0;
             this.btnFWAdd.Text = "simpleButton1";
             // 
-            // grdTest
-            // 
-            this.grdTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdTest.Location = new System.Drawing.Point(502, 22);
-            this.grdTest.Name = "grdTest";
-            this.grdTest.Size = new System.Drawing.Size(362, 128);
-            this.grdTest.TabIndex = 5;
-            // 
             // UserRight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 627);
-            this.Controls.Add(this.grdTest);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grbModule);
             this.Controls.Add(this.grbSection);
@@ -413,9 +468,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ckbSectionAll.Properties)).EndInit();
             this.grbModule.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trlObjectList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpeRightNames)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckbAllModule.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdTest)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -444,7 +499,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSectionCode;
         private DevExpress.XtraGrid.Columns.GridColumn colSectionName;
         private DevExpress.XtraGrid.Columns.GridColumn colSectViewInfo;
-        private System.Windows.Forms.TextBox txtFullName;
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.SimpleButton btnExport;
         private DevExpress.XtraEditors.SimpleButton btnFWReset;
@@ -452,9 +506,12 @@
         private DevExpress.XtraEditors.SimpleButton btnFWDelete;
         private DevExpress.XtraEditors.SimpleButton btnFWAdd;
         private DevExpress.XtraTreeList.TreeList trlObjectList;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn tclDescription;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn tlcDescription;
         private DevExpress.XtraTreeList.Columns.TreeListColumn tlcRight;
-        private DevExpress.XtraEditors.Repository.PersistentRepository Repository;
-        private System.Windows.Forms.DataGridView grdTest;
+        private System.Windows.Forms.TextBox txtFullName;
+        private DevExpress.XtraGrid.Columns.GridColumn colDepartmentName;
+        private DevExpress.XtraGrid.Columns.GridColumn colDepViewInfo;
+        private DevExpress.XtraGrid.Columns.GridColumn colDepartmentCode;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rpeRightNames;
     }
 }
