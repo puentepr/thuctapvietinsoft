@@ -37,10 +37,7 @@ namespace HPA.Setting
 
         private void txtEmployeeID_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                LoadLoginInfo();
-            }
+
         }
 
         private bool LoadLoginInfo()
@@ -96,29 +93,23 @@ namespace HPA.Setting
                 rpeRightNames.DataSource = dtRightName;
 
                 // Enable các control
-                if (txtFullName.Text == "admin")
-                {
-                    btnFWAdd.Enabled = false;
-                    btnFWDelete.Enabled = false;
-                    btnFWSave.Enabled = true;
-                    btnFWReset.Enabled = true;
-                }
-                
-                if (txtLoginName.Text == "")
-                {
-                    btnFWAdd.Enabled = true;
-                    btnFWDelete.Enabled = false;
-                    btnFWSave.Enabled = true;
-                    btnFWReset.Enabled = true;
-                }
+                btnFWSave.Enabled = true;
+                btnFWReset.Enabled = true;
 
-                if (txtLoginName.Text != "" && txtFullName.Text != "admin")
-                {
-                    btnFWAdd.Enabled = false;
-                    btnFWDelete.Enabled = true;
-                    btnFWSave.Enabled = true;
-                    btnFWReset.Enabled = true;
-                }
+                //if (string.IsNullOrEmpty(txtLoginName.Text))
+                //{
+                //    btnFWAdd.Enabled = true;
+                //    btnFWDelete.Enabled = false;
+                //    btnFWSave.Enabled = true;
+                //    btnFWReset.Enabled = true;
+                //}
+                //else
+                //{
+                //    btnFWAdd.Enabled = false;
+                //    btnFWDelete.Enabled = true;
+                //    btnFWSave.Enabled = true;
+                //    btnFWReset.Enabled = true;
+                //}
             }
             return true;
         }
@@ -250,6 +241,8 @@ namespace HPA.Setting
         public void Save()
         {
             bool success = false;
+            if (txtLoginName.Text == "" || txtPassword.Text == "")
+                return;
             try
             {
                 DBEngine.beginTransaction();
@@ -332,10 +325,14 @@ namespace HPA.Setting
         private void btnFWSave_Click(object sender, EventArgs e)
         {
             Save();
+            btnFWReset.Enabled = false;
         }
 
         public void Delete()
         {
+            if (txtLoginName.Text == "" || txtPassword.Text == "")
+                return;
+
             if (dtLoginInfo.Rows[0][AdminRight] != DBNull.Value && Convert.ToBoolean(dtLoginInfo.Rows[0][AdminRight]) == true)
             {
                 Methods.ShowMessage("CANNOT_DELETE_ADMIN", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -366,5 +363,33 @@ namespace HPA.Setting
             Delete();
         }
 
+
+        public void Add()
+        {
+            if (txtLoginName.Text != "" && txtPassword.Text != "")
+            {
+                try
+                {
+                    DBEngine.beginTransaction();
+                    DBEngine.exec("SC_User_Insert", "@p_LoginName", txtLoginName.Text.Trim(),
+                                        "@p_Password", txtPassword.Text.Trim(),
+                                        "@p_EmployeeID", txtEmployeeID.Text.Trim(),
+                                        "@p_DepartmentID", dtLoginInfo.Rows[0]["DepartmentID"]);
+                    DBEngine.commit();
+                    LoadLoginInfo();
+                }
+                catch(Exception ex)
+                {
+                    DBEngine.rollback();
+                    Methods.ShowError(ex);
+                    return;
+                }
+            }
+        }
+
+        private void btnFWAdd_Click(object sender, EventArgs e)
+        {
+            Add();
+        }
     }
 }

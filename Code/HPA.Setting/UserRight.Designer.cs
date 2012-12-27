@@ -441,6 +441,7 @@
             this.btnFWAdd.Size = new System.Drawing.Size(75, 32);
             this.btnFWAdd.TabIndex = 0;
             this.btnFWAdd.Text = "simpleButton1";
+            this.btnFWAdd.Click += new System.EventHandler(this.btnFWAdd_Click);
             // 
             // UserRight
             // 
