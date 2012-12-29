@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace HPA.Common
 {
-    class SaveData
+    public class SaveData
     {
           bool isNoUpdate = false;
             public SaveData(System.Windows.Forms.Form frm, EzSqlCollection.EzSql2 DBE)

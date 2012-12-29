@@ -69,6 +69,7 @@ namespace HPA.Common
         public const string EmployeeTypeID = "EmployeeTypeID";
         public const string A_EmployeeID = "@EmployeeID";
         public const string A_LoginID = "@LoginID";
+        public const string A_LanguageID = "@LanguageID";
         public const string A_FromDate = "@FromDate";
         public const string A_ToDate = "@ToDate";
         public const string A_Month = "@Month";
