@@ -3,32 +3,27 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Diagnostics;
-using DevExpress.XtraBars.Docking2010;
-using DevExpress.XtraBars.Docking2010.Views.MetroUI;
 using DevExpress.XtraEditors;
+using DevExpress.XtraBars.Docking2010.Views.MetroUI;
+using DevExpress.XtraBars.Docking2010;
 using HPA.Common;
 
 namespace HPA
 {
-    public partial class HPA_Main : HPA.CommonForm.BaseForm
+    public partial class ModelUI_Main : HPA.CommonForm.BaseForm
     {
         private DocumentManager _DocManager;
         private MetroUIView _MetroUI;
-        private TileContainer TileCon;
-        private TileContainer ChildTileCon;
-        private Tile _Tile, _Tile1;
-        private Document _Doc, _Doc1;
-        private TileItemElement _Element, _Element1;
+        private Tile _Tile;
+        private Document _Doc;
+        private TileItemElement _Element;
         private TileItemFrame frame;
         private List<TileContainer> _listTileCon = new List<TileContainer>();
         private DataTable dtMenu;
         Random ran = new Random();
-        public HPA_Main()
+        public ModelUI_Main()
         {
             InitializeComponent();
             _DocManager = new DocumentManager();
@@ -38,10 +33,6 @@ namespace HPA
             _DocManager.View = _MetroUI;
             _DocManager.ViewCollection.Add(_MetroUI);
             ((ISupportInitialize)(this._DocManager)).EndInit();
-        }
-
-        private void HPA_Main_Load(object sender, EventArgs e)
-        {
             //string s = dt.Connection.ConnectionString.ToString();
             Form lg = new HPA.MAINFRAME.frmLogin();
             lg.ShowDialog();
@@ -167,16 +158,15 @@ namespace HPA
             foreach (TileContainer tc in _MetroUI.ContentContainers)
             {
                 if (tc.Caption == "Mnu")
-                    tc.Caption = "Home";
+                    tc.Caption = Methods.GetMessage("lblApplicationName1");
                 else
                 {
-                    if(dtMenu.Select(String.Format("MenuID = '{0}'", tc.Caption)).Length>0)
-                    tc.Caption = dtMenu.Select(String.Format("MenuID = '{0}'", tc.Caption))[0][CommonConst.NAME].ToString();
+                    if (dtMenu.Select(String.Format("MenuID = '{0}'", tc.Caption)).Length > 0)
+                        tc.Caption = dtMenu.Select(String.Format("MenuID = '{0}'", tc.Caption))[0][CommonConst.NAME].ToString();
                 }
             }
 
             ((ISupportInitialize)(this._MetroUI)).EndInit();
         }
-        
     }
 }
