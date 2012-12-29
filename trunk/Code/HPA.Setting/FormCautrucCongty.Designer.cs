@@ -34,6 +34,8 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.dtgrCautruc = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrCautruc)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,10 +75,29 @@
             this.dtgrCautruc.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgrCautruc.Size = new System.Drawing.Size(438, 222);
             this.dtgrCautruc.TabIndex = 1;
-            this.dtgrCautruc.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgrCautruc_CellEndEdit);
             this.dtgrCautruc.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dtgrCautruc_RowsRemoved);
             this.dtgrCautruc.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dtgrCautruc_UserAddedRow);
             this.dtgrCautruc.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dtgrCautruc_UserDeletingRow);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(346, 333);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(414, 287);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FormCautrucCongty
             // 
@@ -84,6 +105,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 394);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dtgrCautruc);
             this.Controls.Add(this.treeView1);
             this.Name = "FormCautrucCongty";
@@ -100,5 +123,7 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.DataGridView dtgrCautruc;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

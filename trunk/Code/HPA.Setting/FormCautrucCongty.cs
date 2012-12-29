@@ -13,6 +13,15 @@ namespace HPA.Setting
     public partial class FormCautrucCongty : HPA.CommonForm.BaseForm
     {
         HPA.SQL.DataDaigramDataContext dt = new SQL.DataDaigramDataContext();
+        DataTable dtDivision = null;
+        DataTable dtDepartment = null;
+        DataTable dtSection = null;
+        DataTable dtGroup = null;
+        DataView dvDivision = null;
+        DataView dvDepartment = null;
+        DataView dvSection = null;
+        DataView dvGroup = null;
+
         string id, cap;
         bool b;
         public FormCautrucCongty()
@@ -21,7 +30,16 @@ namespace HPA.Setting
         }
         private void FormCautrucCongty_Load(object sender, EventArgs e)
         {
+            dtDivision = DBEngine.execReturnDataTable("select * from tblDivision");
+            dvDivision = dtDivision.DefaultView;
+            dtDepartment = DBEngine.execReturnDataTable("select * from tblDepartment");
+            dvDepartment = dtDepartment.DefaultView;
+            dtSection = DBEngine.execReturnDataTable("select * from tblSection");
+            dvSection = dtSection.DefaultView;
+            dtGroup = DBEngine.execReturnDataTable("select * from tblGroup");
+            dvGroup = dtGroup.DefaultView;
             CapnhatTree();
+            
             contextMenuStrip1.Items.Add(HPA.Common.Methods.GetMessage(HPA.Common.CommonConst.UPDATETREE));
         }
         private void CapnhatTree()
@@ -113,168 +131,28 @@ namespace HPA.Setting
         {
             cap = treeView1.SelectedNode.Tag.ToString();
             id = treeView1.SelectedNode.Name.ToString();
-            Loaddata();
+            switch (cap)
+            {
+                case "0":
+                    dtgrCautruc.DataSource = dvDivision;
+                    break;
+                case "1":
+                    dtgrCautruc.DataSource = dvDepartment;
+                    dvDepartment.RowFilter = string.Format("DivisionID = {0}", id);
+                    
+                    break;
+                case "2":
+                    dtSection.DefaultView.RowFilter = string.Format("DepartmentID = {0}", id);
+                    dtgrCautruc.DataSource = dtSection;
+                    break;
+                case "3":
+                    dtGroup.DefaultView.RowFilter = string.Format("SectionID = {0}", id);
+                    dtgrCautruc.DataSource = dtGroup;
+                    break;
+            }
+            //Loaddata();
         }
-
-        private void dtgrCautruc_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            int count=0;
-            for (int k = 0; k < dtgrCautruc.ColumnCount; k++)
-            {
-                if (dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[k].Value == null)
-                {
-                    count++;
-                    dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[k].Style.BackColor = Color.LightBlue;
-                }
-                else
-                {
-                    dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[k].Style.BackColor = Color.White;
-                }
-            }
-            int hang = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[0].Value.ToString());
-            if (count == 0)
-            {
-                if (cap == "0")
-                {
-                    if (hang == 0)
-                    {
-                        if (dt.tblDivisions.Where(u => u.DivisionCode == dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString()).Count() > 0)
-                        {
-                            HPA.Common.Methods.ShowMessage(HPA.Common.Methods.GetMessage(HPA.Common.CommonConst.CODE_EXIST));
-                            
-                        }
-                        else
-                        {
-                            HPA.SQL.tblDivision update = new SQL.tblDivision();
-                            update.DivisionCode = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString();
-                            update.DivisionName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString();
-                            update.BranchID = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[3].Value.ToString());
-                            dt.tblDivisions.InsertOnSubmit(update);
-                            dt.SubmitChanges();
-                            dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[0].Value = dt.tblDivisions.Max(u => u.DivisionID);
-                        }
-                    }
-                    else
-                    {
-                        var update = dt.tblDivisions.Single(u => u.DivisionID == hang);
-                        update.DivisionCode = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString();
-                        update.DivisionName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString();
-                        update.BranchID = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[3].Value.ToString());
-                        dt.SubmitChanges();
-                    }
-                }
-                //Neu la dp
-                else if (cap == "1")
-                {
-                    if (hang == 0)
-                    {
-                        if (dt.tblDepartments.Where(u => u.DepartmentCode == dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString()).Count() > 0)
-                        {
-                            HPA.Common.Methods.ShowMessage(HPA.Common.Methods.GetMessage(HPA.Common.CommonConst.CODE_EXIST));
-                        }
-                        else
-                        {
-                            HPA.SQL.tblDepartment update = new SQL.tblDepartment();
-                            update.DivisionID = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString());
-                            update.DepartmentCode = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString();
-                            update.DepartmentName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[3].Value.ToString();
-                            update.Foreigner = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[4].Value.ToString());
-                            update.JapaneseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[5].Value.ToString();
-                            update.VietnameseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[6].Value.ToString();
-                            dt.tblDepartments.InsertOnSubmit(update);
-                            dt.SubmitChanges();
-                            dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[0].Value = dt.tblDepartments.Max(u => u.DepartmentID);
-                        }
-                    }
-                    else
-                    {
-                        var update = dt.tblDepartments.Single(u => u.DepartmentID == hang);
-                        update.DivisionID = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString());
-                        update.DepartmentCode = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString();
-                        update.DepartmentName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[3].Value.ToString();
-                        update.Foreigner = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[4].Value.ToString());
-                        update.JapaneseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[5].Value.ToString();
-                        update.VietnameseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[6].Value.ToString();
-                        dt.SubmitChanges();
-                    }
-                }
-                //Neu la sc
-                else if (cap == "2")
-                {
-                    if (hang == 0)
-                    {
-                        if (dt.tblSections.Where(u => u.SectionCode == dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString()).Count() > 0)
-                        {
-                            HPA.Common.Methods.ShowMessage(HPA.Common.Methods.GetMessage(HPA.Common.CommonConst.CODE_EXIST));
-                        }
-                        else
-                        {
-                            HPA.SQL.tblSection update = new SQL.tblSection();
-                            update.DepartmentID = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString());
-                            update.SectionCode = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString();
-                            update.SectionName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[3].Value.ToString();
-                            update.JapaneseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[4].Value.ToString();
-                            update.VietnameseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[5].Value.ToString();
-                            update.Foreigner = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[6].Value.ToString());
-                            dt.tblSections.InsertOnSubmit(update);
-                            dt.SubmitChanges();
-                            dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[0].Value = dt.tblSections.Max(u => u.SectionID);
-                        }
-
-                    }
-                    else
-                    {
-                        var update = dt.tblSections.Single(u => u.DepartmentID == hang);
-                        update.DepartmentID = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString());
-                        update.SectionCode = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString();
-                        update.SectionName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[3].Value.ToString();
-                        update.JapaneseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[4].Value.ToString();
-                        update.VietnameseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[5].Value.ToString();
-                        update.Foreigner = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[6].Value.ToString());
-                        dt.tblSections.InsertOnSubmit(update);
-                        dt.SubmitChanges();
-                    }
-                }
-                //Neu la Gr
-                else if (cap == "3" || cap == "4")
-                {
-                    if (hang == 0)
-                    {
-                        if (dt.tblGroups.Where(u => u.GroupCode == dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString()).Count() > 0)
-                        {
-                            HPA.Common.Methods.ShowMessage(HPA.Common.Methods.GetMessage(HPA.Common.CommonConst.CODE_EXIST));
-                        }
-                        else
-                        {
-                            HPA.SQL.tblGroup update = new SQL.tblGroup();
-                            update.SectionID = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString());
-                            update.GroupCode = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString();
-                            update.GroupName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[3].Value.ToString();
-                            update.JapaneseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[4].Value.ToString();
-                            update.VietnameseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[5].Value.ToString();
-                            update.Foreigner = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[6].Value.ToString());
-                            dt.tblGroups.InsertOnSubmit(update);
-                            dt.SubmitChanges();
-                            dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[0].Value = dt.tblGroups.Max(u => u.GroupID);
-                        }
-                    }
-                    else
-                    {
-                        var update = dt.tblGroups.Single(u => u.GroupID == hang);
-                        update.SectionID = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value.ToString());
-                        update.GroupCode = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[2].Value.ToString();
-                        update.GroupName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[3].Value.ToString();
-                        update.JapaneseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[4].Value.ToString();
-                        update.VietnameseName = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[5].Value.ToString();
-                        update.Foreigner = int.Parse(dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[6].Value.ToString());
-                        dt.tblGroups.InsertOnSubmit(update);
-                        dt.SubmitChanges();
-                    }
-                }
-            }
-           
-      }
-
+       
         private void dtgrCautruc_UserAddedRow(object sender, DataGridViewRowEventArgs e)
         {
             dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index].Cells[1].Value = dtgrCautruc.Rows[dtgrCautruc.CurrentRow.Index - 1].Cells[1].Value;
@@ -329,6 +207,52 @@ namespace HPA.Setting
         private void dtgrCautruc_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             dt.SubmitChanges();
+        }
+
+        private void FormCautrucCongty_KeyDown(object sender, KeyEventArgs e)
+        {
+            MessageBox.Show(e.KeyCode.ToString());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //luu department
+            foreach (DataRow drchange in dtDepartment.GetChanges().Rows)
+            {
+                switch (drchange.RowState)
+                {
+                    case DataRowState.Added:
+                        HPA.SQL.tblDepartment dpe = new SQL.tblDepartment();
+                        if (drchange["DepartmentCode"] == null || dt.tblDepartments.Where(u => u.DepartmentCode.ToString() == drchange["DepartmentCode"]).Count() > 0)
+                        {
+                            
+                            drchange.SetColumnError("DepartmentCode", "ERROR");
+                            
+                            //errorProvider1.SetError(drchange, "ERROR");
+                        }
+                        else
+                        {
+                            dpe.DepartmentCode = drchange["DepartmentCode"].ToString();
+                            dt.tblDepartments.InsertOnSubmit(dpe);
+                            dt.SubmitChanges();
+                        
+                        }
+                        break;
+                    case DataRowState.Modified:
+                        var dv1 = dt.tblDepartments.Single(u => u.DepartmentID == int.Parse(drchange["DepartmentID"].ToString()));
+                        dv1.DepartmentCode = drchange["DepartmentCode"].ToString();
+                        dt.SubmitChanges();
+                        break;
+                    case DataRowState.Deleted:
+                        break;
+                }
+            }
+            //Luu sec
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dtDepartment.RejectChanges();
         }
         
     }
