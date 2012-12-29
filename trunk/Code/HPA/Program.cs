@@ -38,10 +38,11 @@ namespace HPA
                             HPA.Common.StaticVars.Password = HPA.Common.StaticVars.ConnectionString.Split(HPA.Common.CommonConst.SEMICOLON_CHAR.ToCharArray())[3].Split('=')[1].Trim();
                             HPA.Common.StaticVars.DatabaseName = sqlConn.Database;
                             HPA.Common.StaticVars.ServerName = sqlConn.DataSource;
+                            Common.StaticVars.UserName = HPA.Properties.Settings.Default.Username;
                             sqlConn.Close();
                             //string contact = "Data Source=" + HPA.Common.StaticVars.ServerName + ";" + "Initial Catalog=" + HPA.Common.StaticVars.DatabaseName + ";" + "User ID=" + HPA.Common.StaticVars.UserID_sql + ";" + "Password=" + HPA.Common.StaticVars.Password;
                             //HPA.SQL.SP.Connect.SetConnect(contact);
-                            Application.Run(new HPA_Main());
+                            Application.Run(new ModelUI_Main());
                         }
                         catch
                         {

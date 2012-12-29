@@ -62,19 +62,19 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="HPA_Main.cs">
+    <Compile Include="ModelUI_Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HPA_Main.Designer.cs">
-      <DependentUpon>HPA_Main.cs</DependentUpon>
+    <Compile Include="ModelUI_Main.Designer.cs">
+      <DependentUpon>ModelUI_Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HPA_Main.resx">
-      <DependentUpon>HPA_Main.cs</DependentUpon>
+    <EmbeddedResource Include="ModelUI_Main.resx">
+      <DependentUpon>ModelUI_Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
