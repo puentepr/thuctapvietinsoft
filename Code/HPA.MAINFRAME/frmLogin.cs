@@ -17,6 +17,17 @@ namespace HPA.MAINFRAME
             InitializeComponent();
             Control.ControlCollection ctrl = this.Controls;
             HPA.Common.Methods.ChangeLanguage(ref ctrl);
+            this.AcceptButton = login1.btnLogin;
+            this.CancelButton = login1.btnCancel;
         }
+
+        private void login1_VisibleChanged(object sender, EventArgs e)
+        {
+            if (login1.LoginSuccess)
+            {
+                this.Close();
+            }
+        }
+
     }
 }

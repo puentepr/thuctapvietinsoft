@@ -42,6 +42,7 @@
             this.login1.Name = "login1";
             this.login1.Size = new System.Drawing.Size(1027, 400);
             this.login1.TabIndex = 0;
+            this.login1.VisibleChanged += new System.EventHandler(this.login1_VisibleChanged);
             // 
             // frmLogin
             // 
@@ -51,8 +52,9 @@
             this.ClientSize = new System.Drawing.Size(1024, 700);
             this.Controls.Add(this.login1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(1024, 700);
+            this.MinimumSize = new System.Drawing.Size(1022, 700);
             this.Name = "frmLogin";
+            this.Opacity = 0.9D;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
