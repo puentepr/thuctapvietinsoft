@@ -56,12 +56,6 @@
     <Compile Include="AboutHPA.Designer.cs">
       <DependentUpon>AboutHPA.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormLogin.Designer.cs">
-      <DependentUpon>FormLogin.cs</DependentUpon>
-    </Compile>
     <Compile Include="ModelUI_Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,9 +64,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormLogin.resx">
-      <DependentUpon>FormLogin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ModelUI_Main.resx">
       <DependentUpon>ModelUI_Main.cs</DependentUpon>
     </EmbeddedResource>
