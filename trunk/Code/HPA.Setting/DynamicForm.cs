@@ -424,7 +424,9 @@ namespace HPA.Setting
                     }
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) {
+                Methods.ShowError(ex);
+            }
         }
         private string MakeLoadAllDataQuery(string tblName)
         {
