@@ -52,6 +52,12 @@
     <Compile Include="BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BaseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseUserControl.Designer.cs">
+      <DependentUpon>BaseUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +73,9 @@
   <ItemGroup>
     <EmbeddedResource Include="BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseUserControl.resx">
+      <DependentUpon>BaseUserControl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

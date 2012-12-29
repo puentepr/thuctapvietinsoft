@@ -57,10 +57,10 @@
             // 
             this.grvDynamic.GridControl = this.grdDynamic;
             this.grvDynamic.Name = "grvDynamic";
-            this.grvDynamic.OptionsFind.AlwaysVisible = true;
+            this.grvDynamic.OptionsFind.FindDelay = 400;
             this.grvDynamic.OptionsFind.FindMode = DevExpress.XtraEditors.FindMode.Always;
-            this.grvDynamic.OptionsFind.ShowCloseButton = false;
-            this.grvDynamic.OptionsFind.ShowFindButton = false;
+            this.grvDynamic.OptionsFind.SearchInPreview = true;
+            this.grvDynamic.OptionsFind.ShowClearButton = false;
             this.grvDynamic.OptionsView.ShowFooter = true;
             // 
             // rpeDateTimeMask
@@ -75,6 +75,9 @@
             // rpeNumberMask
             // 
             this.rpeNumberMask.AutoHeight = false;
+            this.rpeNumberMask.Mask.EditMask = "n";
+            this.rpeNumberMask.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.rpeNumberMask.Mask.UseMaskAsDisplayFormat = true;
             this.rpeNumberMask.Name = "rpeNumberMask";
             // 
             // DynamicForm

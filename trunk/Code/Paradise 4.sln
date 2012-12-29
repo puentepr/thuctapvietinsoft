@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPA.CommonForm", "HPA.Commo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPA.Security", "HPA.Security\HPA.Security.csproj", "{D3A60864-36B6-48B9-A430-4BD89D972643}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPA.MAINFRAME", "HPA.MAINFRAME\HPA.MAINFRAME.csproj", "{4207CE35-7E9F-4673-8BAA-A93D57D77D3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{D3A60864-36B6-48B9-A430-4BD89D972643}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3A60864-36B6-48B9-A430-4BD89D972643}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3A60864-36B6-48B9-A430-4BD89D972643}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4207CE35-7E9F-4673-8BAA-A93D57D77D3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4207CE35-7E9F-4673-8BAA-A93D57D77D3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4207CE35-7E9F-4673-8BAA-A93D57D77D3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4207CE35-7E9F-4673-8BAA-A93D57D77D3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
