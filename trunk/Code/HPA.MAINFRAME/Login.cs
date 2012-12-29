@@ -42,7 +42,13 @@ namespace HPA.MAINFRAME
         {
             HPA.SQL.DataDaigramDataContext dt = new SQL.DataDaigramDataContext();
             string pa = HPA.Common.Encryption.EncryptText(txtPassword.Text, true);
-
+            if (!HPA.Common.StaticVars.UserName.Trim().Equals(string.Empty))
+            {
+                if (!txtUserName.Text.Trim().Equals(HPA.Common.StaticVars.UserName.Trim()))
+                {
+                    LOGIN_FAILURE.Text = string.Format(Methods.GetMessage("SESSION_CONFLICT"), HPA.Common.StaticVars.UserName); ;
+                }
+            }
             int Loginid = dt.SC_Login_CheckLogin(txtUserName.Text.Trim(), pa);
             if (Loginid == -1 || Loginid == -2)
             {

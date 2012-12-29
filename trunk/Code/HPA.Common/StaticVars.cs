@@ -15,6 +15,7 @@ namespace HPA.Common
         public static string Password;
         public static string DatabaseName;
         public static string ConnectionString;
+        public static string DataSetting_ProcName;
         public static string App_path=string.Empty;
         public static string LanguageID=string.Empty;
         public static bool ENTER_TO_TAB = false;

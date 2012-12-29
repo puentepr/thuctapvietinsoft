@@ -39,6 +39,7 @@ namespace HPA
             if (HPA.Common.StaticVars.UserName != null)
             {
                 LoadModelMenu();
+                _MetroUI.QueryControl += _MetroUI_QueryControl;
             }
             else
             {
@@ -81,9 +82,10 @@ namespace HPA
             _MetroUI.Tiles.Add(_Tile);
             _MetroUI.Documents.Add(_Doc);
 
-            _MetroUI.QueryControl += _MetroUI_QueryControl;
+            
 
-            _Doc.ControlName = element;
+            _Doc.ControlName = Menu["ClassName"].ToString();
+            _Doc.ControlTypeName = Menu["AssemblyName"].ToString();
             _Doc.Caption = element;
 
             _Tile.Document = _Doc;
@@ -109,6 +111,15 @@ namespace HPA
         }
         void _MetroUI_QueryControl(object sender, DevExpress.XtraBars.Docking2010.Views.QueryControlEventArgs e)
         {
+
+            if (e.Document.ControlTypeName == "DataSetting")
+            {
+                StaticVars.DataSetting_ProcName = e.Document.ControlName;
+                System.Runtime.Remoting.ObjectHandle handle = System.Activator.CreateInstance("HPA.Setting", "HPA.Setting.DynamicUserControl");
+                HPA.CommonForm.BaseUserControl frm = (HPA.CommonForm.BaseUserControl)(handle.Unwrap());
+                e.Control = frm;
+            }
+            else
             e.Control = new Control();
         }
         public bool Dash(string MenuID)
