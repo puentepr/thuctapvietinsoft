@@ -68,6 +68,12 @@
     <Compile Include="DynamicForm.Designer.cs">
       <DependentUpon>DynamicForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DynamicUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DynamicUserControl.Designer.cs">
+      <DependentUpon>DynamicUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCautrucCongty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
   <ItemGroup>
     <EmbeddedResource Include="DynamicForm.resx">
       <DependentUpon>DynamicForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DynamicUserControl.resx">
+      <DependentUpon>DynamicUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCautrucCongty.resx">
       <DependentUpon>FormCautrucCongty.cs</DependentUpon>

@@ -56,33 +56,6 @@ namespace HPA.CommonForm
         {
 
         }
-        protected virtual void Test()
-        {
-            
-        }
-        protected virtual void Save()
-        {
-            
-        }
-        //Set su kien bam phim 
-        protected override bool ProcessDialogKey(Keys keyData)
-        {
-            if (keyData == Keys.F2)
-            {
-                this.Test();
-                return true;
-            }
-            else if (keyData == (Keys.Control | Keys.S))
-            {
-                this.Save();
-                return true;
-            }
-            else if (keyData == Keys.F1)
-            {
-                Help.ShowHelp(this, "huongdan.chm");
-                return true;
-            }
-            else return false;
-        }
+       
     }
 }
