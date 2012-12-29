@@ -14,6 +14,7 @@ namespace HPA
     
     public partial class FormLogin : HPA.CommonForm.BaseForm
     {
+        
         HPA.SQL.DataDaigramDataContext dt = new SQL.DataDaigramDataContext();
         public FormLogin()
         {

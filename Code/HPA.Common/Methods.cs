@@ -166,7 +166,7 @@ namespace HPA.Common
             }
 
         }
-        public static bool Kiemtrchuoi(string s, Regex r)
+        public static bool Kiemtrchuoi(string s, System.Text.RegularExpressions.Regex r)
         {
             bool b = r.IsMatch(s);
             if (b)

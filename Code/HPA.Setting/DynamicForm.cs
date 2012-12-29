@@ -9,7 +9,6 @@ namespace HPA.Setting
     public partial class DynamicForm : HPA.CommonForm.BaseForm
     {
         DataTable tblInfo = null;
-        private DataTable m_dtPrimaryKeys;
         private DataTable m_dtTableData;
         private DataTable m_dtColumnsName_Org;
         private DataTable dt_OldValue;
@@ -122,6 +121,8 @@ namespace HPA.Setting
                     strColumnHide = tblInfo.Rows[0][ColumnHide].ToString().Split(',');
                     strColumnFixed = tblInfo.Rows[0][FixedColumns].ToString().Split(',');
                     strGroupColumns = tblInfo.Rows[0][GroupColumns].ToString().Split(',');
+                    if (strGroupColumns.Length <= 1)
+                        grvDynamic.OptionsView.ShowGroupPanel = false;
                     strColumnOrderBy = tblInfo.Rows[0][ColumnOrderBy].ToString().Split(',');
                     strColumnCombobox = tblInfo.Rows[0]["ComboboxColumns"].ToString().Split('|');
                     m_dtColumnsName = DBEngine.execReturnDataTable("sp_TableEditor_Columns", "@Tablename", strViewName);
@@ -393,13 +394,14 @@ namespace HPA.Setting
             grvDynamic.BestFitColumns();
             if (strGroupColumns != null && strGroupColumns.Length > 0)
             {
-                grvDynamic.OptionsView.ShowGroupPanel = true;
+                grvDynamic.OptionsView.ShowGroupPanel = false;
                 foreach (string com in strGroupColumns)
                 {
                     foreach (GridColumn colGroup in grvDynamic.Columns)
                         if (colGroup.Name.ToLower() == com.ToLower())
                         {
                             colGroup.GroupIndex = ++iGroupIndexCount;
+                            grvDynamic.OptionsView.ShowGroupPanel = true;
                         }
                 }
                 grvDynamic.ExpandAllGroups();
