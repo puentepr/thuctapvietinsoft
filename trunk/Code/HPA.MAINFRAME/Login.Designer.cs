@@ -28,56 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.txtUserName = new DevExpress.XtraEditors.TextEdit();
+            this.txtPassword = new DevExpress.XtraEditors.TextEdit();
             this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.lblApplicationName1 = new System.Windows.Forms.Label();
             this.lblCompanyName2 = new System.Windows.Forms.Label();
             this.lblApplicationName = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            this.picLoginPic = new DevExpress.XtraEditors.PictureEdit();
+            this.LOGIN_FAILURE = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLoginPic.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // textEdit1
+            // txtUserName
             // 
-            this.textEdit1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textEdit1.Location = new System.Drawing.Point(7, 194);
-            this.textEdit1.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Size = new System.Drawing.Size(394, 30);
-            this.textEdit1.TabIndex = 0;
+            this.txtUserName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtUserName.Location = new System.Drawing.Point(11, 194);
+            this.txtUserName.MinimumSize = new System.Drawing.Size(0, 30);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserName.Properties.Appearance.Options.UseFont = true;
+            this.txtUserName.Size = new System.Drawing.Size(394, 28);
+            this.txtUserName.TabIndex = 1;
             // 
-            // textEdit2
+            // txtPassword
             // 
-            this.textEdit2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textEdit2.Location = new System.Drawing.Point(7, 230);
-            this.textEdit2.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit2.Properties.Appearance.Options.UseFont = true;
-            this.textEdit2.Size = new System.Drawing.Size(394, 30);
-            this.textEdit2.TabIndex = 0;
-            // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureEdit1.Location = new System.Drawing.Point(7, 105);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Size = new System.Drawing.Size(78, 83);
-            this.pictureEdit1.TabIndex = 2;
+            this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtPassword.Location = new System.Drawing.Point(11, 230);
+            this.txtPassword.MinimumSize = new System.Drawing.Size(0, 30);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Properties.Appearance.Options.UseFont = true;
+            this.txtPassword.Properties.UseSystemPasswordChar = true;
+            this.txtPassword.Size = new System.Drawing.Size(394, 28);
+            this.txtPassword.TabIndex = 2;
+            this.txtPassword.ToolTipTitle = "alsdf asdf";
             // 
             // btnLogin
             // 
-            this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnLogin.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.Appearance.Options.UseFont = true;
             this.btnLogin.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnLogin.Location = new System.Drawing.Point(194, 343);
+            this.btnLogin.Location = new System.Drawing.Point(219, 348);
             this.btnLogin.MinimumSize = new System.Drawing.Size(90, 32);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(90, 32);
@@ -87,15 +82,15 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnCancel.Location = new System.Drawing.Point(290, 343);
+            this.btnCancel.Location = new System.Drawing.Point(315, 348);
             this.btnCancel.MinimumSize = new System.Drawing.Size(90, 32);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(90, 32);
-            this.btnCancel.TabIndex = 3;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "simpleButton1";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -104,7 +99,7 @@
             this.lblApplicationName1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblApplicationName1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApplicationName1.ForeColor = System.Drawing.Color.Transparent;
-            this.lblApplicationName1.Location = new System.Drawing.Point(-50, 0);
+            this.lblApplicationName1.Location = new System.Drawing.Point(-46, 0);
             this.lblApplicationName1.Name = "lblApplicationName1";
             this.lblApplicationName1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblApplicationName1.Size = new System.Drawing.Size(458, 37);
@@ -117,7 +112,7 @@
             this.lblCompanyName2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblCompanyName2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCompanyName2.ForeColor = System.Drawing.Color.Transparent;
-            this.lblCompanyName2.Location = new System.Drawing.Point(-79, 37);
+            this.lblCompanyName2.Location = new System.Drawing.Point(-75, 37);
             this.lblCompanyName2.Name = "lblCompanyName2";
             this.lblCompanyName2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblCompanyName2.Size = new System.Drawing.Size(487, 25);
@@ -130,13 +125,36 @@
             this.lblApplicationName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblApplicationName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApplicationName.ForeColor = System.Drawing.Color.Transparent;
-            this.lblApplicationName.Location = new System.Drawing.Point(-50, 62);
+            this.lblApplicationName.Location = new System.Drawing.Point(-46, 62);
             this.lblApplicationName.Name = "lblApplicationName";
             this.lblApplicationName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblApplicationName.Size = new System.Drawing.Size(458, 25);
             this.lblApplicationName.TabIndex = 4;
             this.lblApplicationName.Text = "label1";
             this.lblApplicationName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // picLoginPic
+            // 
+            this.picLoginPic.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.picLoginPic.Location = new System.Drawing.Point(11, 90);
+            this.picLoginPic.Name = "picLoginPic";
+            this.picLoginPic.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.picLoginPic.Size = new System.Drawing.Size(88, 96);
+            this.picLoginPic.TabIndex = 5;
+            // 
+            // LOGIN_FAILURE
+            // 
+            this.LOGIN_FAILURE.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LOGIN_FAILURE.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LOGIN_FAILURE.ForeColor = System.Drawing.Color.Tomato;
+            this.LOGIN_FAILURE.Location = new System.Drawing.Point(7, 274);
+            this.LOGIN_FAILURE.Name = "LOGIN_FAILURE";
+            this.LOGIN_FAILURE.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.LOGIN_FAILURE.Size = new System.Drawing.Size(398, 55);
+            this.LOGIN_FAILURE.TabIndex = 4;
+            this.LOGIN_FAILURE.Text = "label1";
+            this.LOGIN_FAILURE.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LOGIN_FAILURE.Visible = false;
             // 
             // Login
             // 
@@ -145,33 +163,35 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.Controls.Add(this.picLoginPic);
+            this.Controls.Add(this.LOGIN_FAILURE);
             this.Controls.Add(this.lblApplicationName);
             this.Controls.Add(this.lblCompanyName2);
             this.Controls.Add(this.lblApplicationName1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.pictureEdit1);
-            this.Controls.Add(this.textEdit2);
-            this.Controls.Add(this.textEdit1);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUserName);
             this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "Login";
-            this.Size = new System.Drawing.Size(410, 400);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            this.Size = new System.Drawing.Size(418, 400);
+            ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLoginPic.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
-        private DevExpress.XtraEditors.SimpleButton btnLogin;
-        private DevExpress.XtraEditors.SimpleButton btnCancel;
+        private DevExpress.XtraEditors.TextEdit txtUserName;
+        private DevExpress.XtraEditors.TextEdit txtPassword;
+        public DevExpress.XtraEditors.SimpleButton btnLogin;
+        public DevExpress.XtraEditors.SimpleButton btnCancel;
         private System.Windows.Forms.Label lblApplicationName1;
         private System.Windows.Forms.Label lblCompanyName2;
         private System.Windows.Forms.Label lblApplicationName;
+        private DevExpress.XtraEditors.PictureEdit picLoginPic;
+        private System.Windows.Forms.Label LOGIN_FAILURE;
     }
 }
