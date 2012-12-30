@@ -128,31 +128,6 @@ namespace HPA.Setting
             LoadData();
             //label1.Text = e.Node.Level.ToString();
         }
-
-        private void FormCompany_KeyDown(object sender, KeyEventArgs e)
-        {
-            
-        }
-
-        private void dtgrCautruc_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void gridView1_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void dtgrCautruc_EditorKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Modifiers == Keys.Control)
-            {
-                if (e.KeyCode == Keys.S)
-                { MessageBox.Show("Lưu"); }
-
-            }   
-        }
         
     }
 }
