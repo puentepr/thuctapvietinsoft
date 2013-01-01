@@ -1,0 +1,10 @@
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\Employee\bin\Debug\Employee.pdb
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\Employee\obj\Debug\Employee.csproj.GenerateResource.Cache
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\Employee\obj\Debug\Employee.pdb
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\Employee\bin\Debug\Employee.dll.config
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\Employee\bin\Debug\Employee.dll
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\Employee\obj\Debug\Employee.csprojResolveAssemblyReference.cache
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\Employee\obj\Debug\Employee.dll.licenses
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\Employee\obj\Debug\Employee.dll
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\Employee\obj\Debug\Employee.UserControl1.resources
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\Employee\obj\Debug\Employee.Employe.resources

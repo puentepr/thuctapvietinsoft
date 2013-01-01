@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MN
+namespace Menu
 {
     static class Program
     {
@@ -23,7 +23,7 @@ namespace MN
             HPA.Common.StaticVars.DatabaseName = HPA.Common.StaticVars.ConnectionString.Split(HPA.Common.CommonConst.SEMICOLON_CHAR.ToCharArray())[1].Split('=')[1].Trim();
             HPA.Common.StaticVars.ServerName = HPA.Common.StaticVars.ConnectionString.Split(HPA.Common.CommonConst.SEMICOLON_CHAR.ToCharArray())[0].Split('=')[1].Trim();
             
-            Application.Run(new Form1());
+            Application.Run(new Menu());
         }
     }
 }

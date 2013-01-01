@@ -1,0 +1,13 @@
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\HPA.Update\bin\Debug\HPA.Update.dll
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\HPA.Update\bin\Debug\HPA.Update.pdb
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\HPA.Update\obj\Debug\HPA.Update.dll
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\HPA.Update\obj\Debug\HPA.Update.pdb
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\HPA.Update\bin\Debug\HPA.SQL.dll
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\HPA.Update\bin\Debug\HPA.SQL.pdb
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\HPA.Update\obj\Debug\HPA.Update.csprojResolveAssemblyReference.cache
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\HPA.Update\obj\Debug\HPA.Update.UpdateFromFile.resources
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\HPA.Update\obj\Debug\HPA.Update.csproj.GenerateResource.Cache
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\HPA.Update\bin\Debug\HPA.Common.dll
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\HPA.Update\bin\Debug\HPA.CommonForm.dll
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\HPA.Update\bin\Debug\HPA.CommonForm.pdb
+C:\Users\TIT\Documents\Visual Studio 2012\Projects\MN\HPA.Update\bin\Debug\HPA.Common.pdb
