@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paradise5", "Paradise5\Paradise5.csproj", "{977968F1-7615-423A-AAA0-0AE0C0EAF7B1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{85C2A511-113C-4B41-A223-234A2CB250BF} = {85C2A511-113C-4B41-A223-234A2CB250BF}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paradise5.Web", "Paradise5.Web\Paradise5.Web.csproj", "{85C2A511-113C-4B41-A223-234A2CB250BF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{977968F1-7615-423A-AAA0-0AE0C0EAF7B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{977968F1-7615-423A-AAA0-0AE0C0EAF7B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{977968F1-7615-423A-AAA0-0AE0C0EAF7B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{977968F1-7615-423A-AAA0-0AE0C0EAF7B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85C2A511-113C-4B41-A223-234A2CB250BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85C2A511-113C-4B41-A223-234A2CB250BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85C2A511-113C-4B41-A223-234A2CB250BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85C2A511-113C-4B41-A223-234A2CB250BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
