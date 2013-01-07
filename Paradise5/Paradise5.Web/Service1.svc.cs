@@ -105,6 +105,5 @@ namespace Paradise5.Web
             var i = from p in dt.ViewMenus where p.Language==Langgue && p.IsVisible==true orderby p.Priority ascending select p;
             return i.ToList();
         }
-        
     }
 }
