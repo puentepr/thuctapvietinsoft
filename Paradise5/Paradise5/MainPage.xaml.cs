@@ -20,7 +20,7 @@ namespace Paradise5
 {
     public partial class MainPage : UserControl
     {
-        List<string> cha=new List<string>();
+        List<string> cha = new List<string>();
         int LoginID;
         List<ViewMenu> view;
         Service1Client ws = new Service1Client();
@@ -53,7 +53,6 @@ namespace Paradise5
         #region LoadMenu
         public void LoadMenu(string ParentName)
         {
-            TLYC.HorizontalAlignment = HorizontalAlignment.Center;
             if (ParentName == "Mnu")
             {
                 TLYC.Children.Clear();
@@ -82,7 +81,7 @@ namespace Paradise5
                 else
                 {
                     var t = view.Single(u => u.MenuID == ParentName && u.LoginID == LoginID && u.ClassName != "OK");
-                    CreateChildPage(t.AssemblyName+"."+t.ClassName);
+                    this.CreateChildPage(t.AssemblyName+"."+t.ClassName);
                     cha.RemoveAt(cha.Count - 1);
                 }
             }
@@ -111,12 +110,12 @@ namespace Paradise5
         private void CreateChildPage(string pagename)
         {
             //pagename = "Paradise5.View." + "ChildWindow1";
+            //pagename = "Paradise5." + pagename;
             Type pageType = Assembly.GetExecutingAssembly().GetType(pagename);
             try
             {
                 ChildWindow child = (ChildWindow)Activator.CreateInstance(pageType);
                 TLYC.Children.Clear();
-                TLYC.HorizontalAlignment = HorizontalAlignment.Stretch;
                 TLYC.Children.Add(child);
             }
             catch
@@ -153,6 +152,16 @@ namespace Paradise5
         void ws_RemoveSessionCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
             this.Content = new Test();
+        }
+        private Visibility HideBack()
+        {
+            Visibility hide;
+            if (cha.Count > 0)
+            {
+                hide= Visibility.Visible;
+            }
+            else hide= Visibility.Collapsed;
+            return hide;
         }
     }
 }
