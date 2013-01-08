@@ -14,7 +14,6 @@ using DevExpress.Xpf.LayoutControl;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Reflection;
-using System.IO;
 
 namespace Paradise5
 {
@@ -51,7 +50,7 @@ namespace Paradise5
             LoadMenu("Mnu");
         }
         #region LoadMenu
-        public void LoadMenu(string ParentName)
+        private void LoadMenu(string ParentName)
         {
             if (ParentName == "Mnu")
             {
@@ -81,7 +80,7 @@ namespace Paradise5
                 else
                 {
                     var t = view.Single(u => u.MenuID == ParentName && u.LoginID == LoginID && u.ClassName != "OK");
-                    this.CreateChildPage(t.AssemblyName+"."+t.ClassName);
+                    this.CreateChildPage(t.AssemblyName,t.ClassName);
                     cha.RemoveAt(cha.Count - 1);
                 }
             }
@@ -107,21 +106,27 @@ namespace Paradise5
             //til.Content = img;
             TLYC.Children.Add(til);
         }
-        private void CreateChildPage(string pagename)
+        private void CreateChildPage(string asb, string cls)
         {
-            //pagename = "Paradise5.View." + "ChildWindow1";
-            //pagename = "Paradise5." + pagename;
-            Type pageType = Assembly.GetExecutingAssembly().GetType(pagename);
-            try
+            var WbClnt = new WebClient();
+            WbClnt.OpenReadCompleted += (a, b) =>
             {
-                ChildWindow child = (ChildWindow)Activator.CreateInstance(pageType);
-                TLYC.Children.Clear();
-                TLYC.Children.Add(child);
-            }
-            catch
-            {
-                MessageBox.Show("Page not exist");
-            }
+                if (b.Error == null)
+                {
+                    AssemblyPart assmbpart = new AssemblyPart();
+                    Assembly assembly = assmbpart.Load(b.Result);
+                    Object Obj = assembly.CreateInstance(asb + "." + cls);
+                    if (Obj != null)
+                    {
+                        ChildWindow child = (ChildWindow)assembly.CreateInstance(asb + "." + cls);
+                        TLYC.Children.Clear();
+                        TLYC.Children.Add(child);
+                    }
+                    else { MessageBox.Show("Page not exist"); }
+                }
+                else { MessageBox.Show("Page not exist"); }
+            };
+            WbClnt.OpenReadAsync(new Uri("http://localhost:10511/Control/" + asb + ".dll", UriKind.Absolute));
        }
         #endregion
         private void TLYC_TileClick(object sender, TileClickEventArgs e)

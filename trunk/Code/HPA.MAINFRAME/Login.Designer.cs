@@ -175,6 +175,7 @@
             this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "Login";
             this.Size = new System.Drawing.Size(418, 400);
+            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLoginPic.Properties)).EndInit();

@@ -48,5 +48,10 @@ namespace HPA.CommonForm
             }
             else return false;
         }
+
+        private void BaseUserControl_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
