@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
+using System.Windows.Browser;
 
 namespace Paradise5
 {
@@ -18,6 +19,8 @@ namespace Paradise5
         public Home()
         {
             InitializeComponent();
+            //TLYC.Width = (double)HtmlPage.Window.Eval("screen.availWidth");
+            //TLYC.Height = (double)HtmlPage.Window.Eval("screen.availHeight")-300; 
         }
 
         // Executes when the user navigates to this page.
