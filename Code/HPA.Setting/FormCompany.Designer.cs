@@ -65,6 +65,7 @@
             this.treeView1.OptionsView.ShowColumns = false;
             this.treeView1.OptionsView.ShowHorzLines = false;
             this.treeView1.OptionsView.ShowIndicator = false;
+            this.treeView1.OptionsView.ShowVertLines = false;
             this.treeView1.Size = new System.Drawing.Size(280, 317);
             this.treeView1.TabIndex = 0;
             this.treeView1.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeView1_FocusedNodeChanged);
@@ -74,8 +75,6 @@
             this.treeListColumn1.Caption = "ID";
             this.treeListColumn1.FieldName = "ID";
             this.treeListColumn1.Name = "treeListColumn1";
-            this.treeListColumn1.Visible = true;
-            this.treeListColumn1.VisibleIndex = 1;
             // 
             // treeListColumn2
             // 

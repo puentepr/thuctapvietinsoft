@@ -1,5 +1,5 @@
 ﻿using DevExpress.XtraBars.Docking2010;
-using DevExpress.XtraBars.Docking2010.Views.MetroUI;
+using DevExpress.XtraBars.Docking2010.Views.WindowsUI;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;

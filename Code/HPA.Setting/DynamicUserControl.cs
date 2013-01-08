@@ -471,5 +471,9 @@ namespace HPA.Setting
             grvDynamic.BestFitColumns();
             return dtRet;
         }
+        protected override void Save()
+        {
+            MessageBox.Show("Test");
+        }
     }
 }

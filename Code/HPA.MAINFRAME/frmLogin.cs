@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace HPA.MAINFRAME
 {
-    public partial class frmLogin : Form
+    public partial class frmLogin : HPA.CommonForm.BaseForm
     {
         public frmLogin()
         {
@@ -28,6 +28,17 @@ namespace HPA.MAINFRAME
                 this.Close();
             }
         }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void login1_Load(object sender, EventArgs e)
+        {
+            
+        }
+        
 
     }
 }

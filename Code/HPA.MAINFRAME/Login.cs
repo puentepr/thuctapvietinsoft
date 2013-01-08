@@ -66,5 +66,14 @@ namespace HPA.MAINFRAME
                 this.Visible = false;
             }
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+        protected override void Save()
+        {
+            MessageBox.Show("Test");
+        }
     }
 }

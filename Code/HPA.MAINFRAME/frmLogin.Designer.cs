@@ -42,13 +42,13 @@
             this.login1.Name = "login1";
             this.login1.Size = new System.Drawing.Size(1027, 400);
             this.login1.TabIndex = 0;
+            this.login1.Load += new System.EventHandler(this.login1_Load);
             this.login1.VisibleChanged += new System.EventHandler(this.login1_VisibleChanged);
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(97)))), ((int)(((byte)(133)))));
             this.ClientSize = new System.Drawing.Size(1024, 700);
             this.Controls.Add(this.login1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -60,6 +60,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmLogin";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

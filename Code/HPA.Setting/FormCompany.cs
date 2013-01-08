@@ -13,6 +13,7 @@ using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraEditors;
 using DevExpress.Utils;
+using DevExpress.XtraEditors.Repository;
 
 
 namespace HPA.Setting
@@ -85,6 +86,13 @@ namespace HPA.Setting
                 dtgrCautruc.DataSource = null;
                 dtgrCautruc.Views[0].PopulateColumns();
                 dtgrCautruc.DataSource = dtDivision;
+                //Create a repository item for a combo box editor
+                RepositoryItemComboBox riCombo = new RepositoryItemComboBox();
+                riCombo.Items.AddRange(new string[] {"London", "Berlin", "Paris"});
+                //Add the item to the internal repository 
+                dtgrCautruc.RepositoryItems.Add(riCombo);
+                //Now you can define the repository item as an in-place column editor 
+                gridView1.Columns["DivisionID"].ColumnEdit = riCombo;
                 //Set Readonly
                 gridView1.Columns["DivisionID"].OptionsColumn.AllowEdit = false;
             }
