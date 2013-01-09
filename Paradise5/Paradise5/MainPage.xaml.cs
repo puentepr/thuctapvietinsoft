@@ -21,7 +21,7 @@ namespace Paradise5
     public partial class MainPage : UserControl
     {
         List<string> cha = new List<string>();
-        int LoginID;
+        int LoginID=-1;
         List<ViewMenu> view;
         Service1Client ws = new Service1Client();
         TimeSpan ts = new TimeSpan(0, 0, 1);
@@ -187,12 +187,15 @@ namespace Paradise5
             }
             else
             {
-                LoadMenu("Mnu");
+                if (LoginID != -1)
+                { LoadMenu("Mnu"); }
+                else { }
             }
         }
         #region Logout
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
+            LoginID = -1;
             ws.RemoveSessionCompleted += ws_RemoveSessionCompleted;
             ws.RemoveSessionAsync();
         }
