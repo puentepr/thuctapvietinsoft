@@ -6,7 +6,7 @@
     xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
     xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" 
-    xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking"
+    xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking" x:Name="Home"
     x:Class="Paradise5.MainPage"
     d:DesignWidth="640" d:DesignHeight="480"
     mc:Ignorable="d">
@@ -24,7 +24,7 @@
                 <ImageBrush Stretch="None" ImageSource="Image/Back.png"/>
             </HyperlinkButton.Background>
         </HyperlinkButton>
-        <dxdo:DockLayoutManager Background="Transparent" Name="dockManager1" FlowDirection="RightToLeft" Grid.Row="0">
+        <dxdo:DockLayoutManager Background="Black" Name="dockManager1" FlowDirection="RightToLeft" Grid.Row="0">
             <dxdo:DockLayoutManager.AutoHideGroups>
                 <dxdo:AutoHideGroup DockType="Top">
                     <dxdo:LayoutPanel x:Name="paneProperties" ShowCaption="False" Caption="Login" FloatOnDoubleClick="False" MaxHeight="40" AllowActivate="False" AllowClose="False" AllowContextMenu="False" AllowDock="False" AllowDockToDocumentGroup="False" AllowDrag="False" AllowFloat="False" AllowMaximize="False" AllowMinimize="False" AllowMove="False" AllowRename="False" AllowRestore="False" AllowSizing="False" ShowCloseButton="False" ShowControlBox="False" ShowPinButton="False" Width="Auto">

@@ -10,6 +10,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paradise5.Web", "Paradise5.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPA.TimeAttendance", "HPA.TimeAttendance\HPA.TimeAttendance.csproj", "{66380216-5462-47B3-ABF2-400ED486AFB0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPA.Control", "HPA.Control\HPA.Control.csproj", "{6ADB5A92-9E5E-4F21-80FB-5ED0FEAB4B4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPA.Common", "HPA.Common\HPA.Common.csproj", "{1E1F7283-94C1-4B16-AA4E-02C616BDCB78}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +32,14 @@ Global
 		{66380216-5462-47B3-ABF2-400ED486AFB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66380216-5462-47B3-ABF2-400ED486AFB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66380216-5462-47B3-ABF2-400ED486AFB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ADB5A92-9E5E-4F21-80FB-5ED0FEAB4B4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ADB5A92-9E5E-4F21-80FB-5ED0FEAB4B4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ADB5A92-9E5E-4F21-80FB-5ED0FEAB4B4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ADB5A92-9E5E-4F21-80FB-5ED0FEAB4B4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E1F7283-94C1-4B16-AA4E-02C616BDCB78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E1F7283-94C1-4B16-AA4E-02C616BDCB78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E1F7283-94C1-4B16-AA4E-02C616BDCB78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E1F7283-94C1-4B16-AA4E-02C616BDCB78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
