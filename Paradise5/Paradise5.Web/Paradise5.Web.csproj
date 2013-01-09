@@ -75,7 +75,6 @@
   <ItemGroup>
     <Compile Include="Encryption.cs" />
     <Compile Include="IService1.cs" />
-    <Compile Include="Linq2Datatable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

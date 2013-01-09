@@ -13,7 +13,6 @@
       <xsd:import schemaLocation="http://localhost:10511/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:10511/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:10511/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Paradise5.Web" />
-      <xsd:import schemaLocation="http://localhost:10511/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_Login_InputMessage">
@@ -45,12 +44,6 @@
   </wsdl:message>
   <wsdl:message name="IService1_RemoveSession_OutputMessage">
     <wsdl:part name="parameters" element="tns:RemoveSessionResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetMenu_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetMenu" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetMenu_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetMenuResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_ViewMN_InputMessage">
     <wsdl:part name="parameters" element="tns:ViewMN" />
@@ -84,10 +77,6 @@
     <wsdl:operation name="RemoveSession">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RemoveSession" message="tns:IService1_RemoveSession_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/RemoveSessionResponse" message="tns:IService1_RemoveSession_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetMenu">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetMenu" message="tns:IService1_GetMenu_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetMenuResponse" message="tns:IService1_GetMenu_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ViewMN">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ViewMN" message="tns:IService1_ViewMN_InputMessage" />
@@ -139,15 +128,6 @@
     </wsdl:operation>
     <wsdl:operation name="RemoveSession">
       <soap12:operation soapAction="http://tempuri.org/IService1/RemoveSession" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetMenu">
-      <soap12:operation soapAction="http://tempuri.org/IService1/GetMenu" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -14,6 +14,7 @@ using DevExpress.Xpf.LayoutControl;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Reflection;
+using System.Windows.Browser;
 
 namespace Paradise5
 {
@@ -27,20 +28,57 @@ namespace Paradise5
         public MainPage()
         {
             InitializeComponent();
-            ws.GetSessionCompleted += ws_GetSessionCompleted;
-            ws.GetSessionAsync();
+        }
+        #region Login
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtName.Text == "")
+            {
+                txtName.SetValidation("Tên đăng nhập không được để trống");
+                txtName.RaiseValidationError();
+            }
+            else
+            {
+                txtName.ClearValidationError();
+                ws.CheckloginCompleted -= ws_CheckloginCompleted;
+                ws.CheckloginCompleted += ws_CheckloginCompleted;
+                ws.CheckloginAsync(txtName.Text, txtPass.Password);
+            }
+        }
+        void ws_CheckloginCompleted(object sender, CheckloginCompletedEventArgs e)
+        {
+            int loginid = e.Result;
+            if (loginid == -2 || loginid == -1)
+            {
+                txtName.SetValidation("Tên đăng nhập hoặc mật khẩu không đúng");
+                txtName.RaiseValidationError();
+            }
+            else if (loginid == -3)
+            {
+                txtName.SetValidation("Mật khẩu của bạn đã lâu không thay đổi. Vui lòng đổi mật khẩu");
+                txtName.RaiseValidationError();
+            }
+            else
+            {
+                txtName.ClearValidationError();
+                LoginID = loginid;
+                paneProperties.Caption = "Options";
+                HPL1.Content = "Chào mừng " + txtName.Text;
+                txtName.Visibility = Visibility.Collapsed;
+                txtPass.Visibility = Visibility.Collapsed;
+                btnLogin.Visibility = Visibility.Collapsed;
+                HPL1.Visibility = Visibility.Visible;
+                HpLogout.Visibility = Visibility.Visible;
+                ws.SetSessionCompleted += ws_SetSessionCompleted;
+                ws.SetSessionAsync(txtName.Text, loginid);
+                //Cookie cookie = new Cookie ("UserName", txtName.Text);
+                //cookie.Expires = DateTime.Now.AddYears(1);
+            }
         }
 
-        void ws_GetSessionCompleted(object sender, GetSessionCompletedEventArgs e)
+        void ws_SetSessionCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
-            HPL1.Content = "Chào mừng "+ e.Result;
-            ws.GetIDCompleted += ws_GetIDCompleted;
-            ws.GetIDAsync();
-        }
 
-        void ws_GetIDCompleted(object sender, GetIDCompletedEventArgs e)
-        {
-            LoginID = e.Result;
             ws.ViewMNCompleted += ws_ViewMNCompleted;
             ws.ViewMNAsync("VN");
         }
@@ -49,9 +87,12 @@ namespace Paradise5
             view = e.Result.ToList();
             LoadMenu("Mnu");
         }
+        #endregion
+
         #region LoadMenu
         private void LoadMenu(string ParentName)
         {
+            TLYC.HorizontalAlignment = HorizontalAlignment.Center;
             if (ParentName == "Mnu")
             {
                 TLYC.Children.Clear();
@@ -108,23 +149,25 @@ namespace Paradise5
         }
         private void CreateChildPage(string asb, string cls)
         {
-            var WbClnt = new WebClient();
+            var WbClnt = new WebClient();//Tao WebClient
             WbClnt.OpenReadCompleted += (a, b) =>
             {
                 if (b.Error == null)
                 {
                     AssemblyPart assmbpart = new AssemblyPart();
                     Assembly assembly = assmbpart.Load(b.Result);
-                    Object Obj = assembly.CreateInstance(asb + "." + cls);
-                    if (Obj != null)
+                    Object Obj = assembly.CreateInstance(asb + "." + cls);//Truy xuat file dll
+                    if (Obj != null)//Neu co file dll thi tao ChildWindow
                     {
                         ChildWindow child = (ChildWindow)assembly.CreateInstance(asb + "." + cls);
                         TLYC.Children.Clear();
                         TLYC.Children.Add(child);
+                        child.Width = (double)HtmlPage.Window.Eval("screen.availWidth")-200;
+                        child.Height = (double)HtmlPage.Window.Eval("screen.availHeight")-300;
                     }
-                    else { MessageBox.Show("Page not exist"); }
+                    else { MessageBox.Show("Page not exist"); }//Khong ton tai page thi bao loi
                 }
-                else { MessageBox.Show("Page not exist"); }
+                else { MessageBox.Show("Page not exist"); }//Khong ton tai file dll thi bao loi
             };
             WbClnt.OpenReadAsync(new Uri("http://localhost:10511/Control/" + asb + ".dll", UriKind.Absolute));
        }
@@ -147,7 +190,7 @@ namespace Paradise5
                 LoadMenu("Mnu");
             }
         }
-
+        #region Logout
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             ws.RemoveSessionCompleted += ws_RemoveSessionCompleted;
@@ -156,17 +199,15 @@ namespace Paradise5
 
         void ws_RemoveSessionCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
-            this.Content = new Test();
+            //this.Content = new Test();
+            paneProperties.Caption = "Login";
+            txtName.Visibility = Visibility.Visible;
+            txtPass.Visibility = Visibility.Visible;
+            btnLogin.Visibility = Visibility.Visible;
+            HPL1.Visibility = Visibility.Collapsed;
+            HpLogout.Visibility = Visibility.Collapsed;
+            TLYC.Children.Clear();
         }
-        private Visibility HideBack()
-        {
-            Visibility hide;
-            if (cha.Count > 0)
-            {
-                hide= Visibility.Visible;
-            }
-            else hide= Visibility.Collapsed;
-            return hide;
-        }
+        #endregion
     }
 }

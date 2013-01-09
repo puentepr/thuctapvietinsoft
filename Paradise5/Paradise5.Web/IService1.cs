@@ -23,8 +23,6 @@ namespace Paradise5.Web
         [OperationContract]
         void RemoveSession();
         [OperationContract]
-        DataTable GetMenu();
-        [OperationContract]
         List<ViewMenu> ViewMN(string Langgue);
         [OperationContract]
         int GetID();
