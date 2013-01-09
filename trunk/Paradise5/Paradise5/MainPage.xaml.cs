@@ -99,7 +99,7 @@ namespace Paradise5
                 var q = from p in view where p.ParentMenuID == "Mnu" select p;
                 foreach (var i in q)
                 {
-                    CreatTile(i.MenuID, i.Name,"");
+                    CreatTile(i.MenuID, i.Name,"",q.Count());
                 }
             }
             else
@@ -111,10 +111,10 @@ namespace Paradise5
                     foreach (var i in q)
                     {
                         if (i.SupperAdmin == true && LoginID == 3)
-                        { CreatTile(i.MenuID, i.Name, i.AssemblyName + "." + i.ClassName); }
+                        { CreatTile(i.MenuID, i.Name, i.AssemblyName + "." + i.ClassName, q.Count()); }
                         else if (i.SupperAdmin == false || i.SupperAdmin == null)
                         {
-                            CreatTile(i.MenuID, i.Name,i.AssemblyName+"."+i.ClassName);
+                            CreatTile(i.MenuID, i.Name, i.AssemblyName + "." + i.ClassName, q.Count());
                         }
                     }
                 }
@@ -126,7 +126,7 @@ namespace Paradise5
                 }
             }
         }
-        private void CreatTile(string MenuID, string MenuName, string Pagename)
+        private void CreatTile(string MenuID, string MenuName, string Pagename,int dem)
         {
             Tile til = new Tile();
             til.Header = MenuName;
@@ -134,10 +134,12 @@ namespace Paradise5
             var k = from p in view where p.ParentMenuID == MenuID && p.LoginID == LoginID && p.ClassName != "OK" select p.Name;
             til.ContentSource = k.ToList();
             til.ContentChangeInterval = ts;
-            til.VerticalAlignment = VerticalAlignment.Center;
-            til.HorizontalAlignment = HorizontalAlignment.Center;
             til.Name = MenuID;
             til.Tag = Pagename;
+            //TLYC.Width = ((double)HtmlPage.Window.Eval("screen.availWidth"));
+            //TLYC.Height = ((double)HtmlPage.Window.Eval("screen.availHeight"))-100;
+            //til.Width=((double)HtmlPage.Window.Eval("screen.availWidth"))/dem;
+            //til.Height = (((double)HtmlPage.Window.Eval("screen.availHeight")) - 100) / dem;
             ////Set image
             //Image img = new Image();
             //BitmapImage bmp = new BitmapImage(new Uri("Image/Back.png", UriKind.Relative));
