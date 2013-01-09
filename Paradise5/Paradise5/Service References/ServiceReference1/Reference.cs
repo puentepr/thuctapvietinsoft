@@ -375,6 +375,156 @@ namespace Paradise5.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="sp_EmployeeIDListResult", Namespace="http://schemas.datacontract.org/2004/07/Paradise5.Web")]
+    public partial class sp_EmployeeIDListResult : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string EmployeeIDField;
+        
+        private string LastNameField;
+        
+        private string FirstNameField;
+        
+        private System.Nullable<short> EmployeeStatusIDField;
+        
+        private string LastNameENField;
+        
+        private string FirstNameENField;
+        
+        private string TitleField;
+        
+        private string EmailField;
+        
+        private string FullNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmployeeID {
+            get {
+                return this.EmployeeIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmployeeIDField, value) != true)) {
+                    this.EmployeeIDField = value;
+                    this.RaisePropertyChanged("EmployeeID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastName {
+            get {
+                return this.LastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
+                    this.LastNameField = value;
+                    this.RaisePropertyChanged("LastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string FirstName {
+            get {
+                return this.FirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<short> EmployeeStatusID {
+            get {
+                return this.EmployeeStatusIDField;
+            }
+            set {
+                if ((this.EmployeeStatusIDField.Equals(value) != true)) {
+                    this.EmployeeStatusIDField = value;
+                    this.RaisePropertyChanged("EmployeeStatusID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public string LastNameEN {
+            get {
+                return this.LastNameENField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastNameENField, value) != true)) {
+                    this.LastNameENField = value;
+                    this.RaisePropertyChanged("LastNameEN");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public string FirstNameEN {
+            get {
+                return this.FirstNameENField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstNameENField, value) != true)) {
+                    this.FirstNameENField = value;
+                    this.RaisePropertyChanged("FirstNameEN");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+        public string FullName {
+            get {
+                return this.FullNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FullNameField, value) != true)) {
+                    this.FullNameField = value;
+                    this.RaisePropertyChanged("FullName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -413,6 +563,11 @@ namespace Paradise5.ServiceReference1 {
         System.IAsyncResult BeginGetID(System.AsyncCallback callback, object asyncState);
         
         int EndGetID(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService1/FindNV", ReplyAction="http://tempuri.org/IService1/FindNVResponse")]
+        System.IAsyncResult BeginFindNV(int id, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.sp_EmployeeIDListResult> EndFindNV(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -516,6 +671,25 @@ namespace Paradise5.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class FindNVCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public FindNVCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.sp_EmployeeIDListResult> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.sp_EmployeeIDListResult>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class Service1Client : System.ServiceModel.ClientBase<Paradise5.ServiceReference1.IService1>, Paradise5.ServiceReference1.IService1 {
         
         private BeginOperationDelegate onBeginLoginDelegate;
@@ -559,6 +733,12 @@ namespace Paradise5.ServiceReference1 {
         private EndOperationDelegate onEndGetIDDelegate;
         
         private System.Threading.SendOrPostCallback onGetIDCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginFindNVDelegate;
+        
+        private EndOperationDelegate onEndFindNVDelegate;
+        
+        private System.Threading.SendOrPostCallback onFindNVCompletedDelegate;
         
         private BeginOperationDelegate onBeginOpenDelegate;
         
@@ -626,6 +806,8 @@ namespace Paradise5.ServiceReference1 {
         public event System.EventHandler<ViewMNCompletedEventArgs> ViewMNCompleted;
         
         public event System.EventHandler<GetIDCompletedEventArgs> GetIDCompleted;
+        
+        public event System.EventHandler<FindNVCompletedEventArgs> FindNVCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
@@ -945,6 +1127,52 @@ namespace Paradise5.ServiceReference1 {
             base.InvokeAsync(this.onBeginGetIDDelegate, null, this.onEndGetIDDelegate, this.onGetIDCompletedDelegate, userState);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult Paradise5.ServiceReference1.IService1.BeginFindNV(int id, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginFindNV(id, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.sp_EmployeeIDListResult> Paradise5.ServiceReference1.IService1.EndFindNV(System.IAsyncResult result) {
+            return base.Channel.EndFindNV(result);
+        }
+        
+        private System.IAsyncResult OnBeginFindNV(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int id = ((int)(inValues[0]));
+            return ((Paradise5.ServiceReference1.IService1)(this)).BeginFindNV(id, callback, asyncState);
+        }
+        
+        private object[] OnEndFindNV(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.sp_EmployeeIDListResult> retVal = ((Paradise5.ServiceReference1.IService1)(this)).EndFindNV(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnFindNVCompleted(object state) {
+            if ((this.FindNVCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.FindNVCompleted(this, new FindNVCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void FindNVAsync(int id) {
+            this.FindNVAsync(id, null);
+        }
+        
+        public void FindNVAsync(int id, object userState) {
+            if ((this.onBeginFindNVDelegate == null)) {
+                this.onBeginFindNVDelegate = new BeginOperationDelegate(this.OnBeginFindNV);
+            }
+            if ((this.onEndFindNVDelegate == null)) {
+                this.onEndFindNVDelegate = new EndOperationDelegate(this.OnEndFindNV);
+            }
+            if ((this.onFindNVCompletedDelegate == null)) {
+                this.onFindNVCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnFindNVCompleted);
+            }
+            base.InvokeAsync(this.onBeginFindNVDelegate, new object[] {
+                        id}, this.onEndFindNVDelegate, this.onFindNVCompletedDelegate, userState);
+        }
+        
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
             return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
         }
@@ -1104,6 +1332,19 @@ namespace Paradise5.ServiceReference1 {
             public int EndGetID(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 int _result = ((int)(base.EndInvoke("GetID", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginFindNV(int id, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = id;
+                System.IAsyncResult _result = base.BeginInvoke("FindNV", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.sp_EmployeeIDListResult> EndFindNV(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.sp_EmployeeIDListResult> _result = ((System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.sp_EmployeeIDListResult>)(base.EndInvoke("FindNV", _args, result)));
                 return _result;
             }
         }

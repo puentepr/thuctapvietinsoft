@@ -94,5 +94,9 @@ namespace Paradise5.Web
             var i = from p in dt.ViewMenus where p.Language==Langgue && p.IsVisible==true orderby p.Priority ascending select p;
             return i.ToList();
         }
+        public List<sp_EmployeeIDListResult> FindNV(int id)
+        {
+            return dt.sp_EmployeeIDList("-1",id).ToList();
+        }
     }
 }

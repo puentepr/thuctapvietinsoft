@@ -23,7 +23,7 @@ namespace Paradise5.Web
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="TestP4")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="phanmemtinhluon_P4")]
 	public partial class TestDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -46,6 +46,9 @@ namespace Paradise5.Web
     partial void InserttblMD_Message(tblMD_Message instance);
     partial void UpdatetblMD_Message(tblMD_Message instance);
     partial void DeletetblMD_Message(tblMD_Message instance);
+    partial void InserttblEmployee(tblEmployee instance);
+    partial void UpdatetblEmployee(tblEmployee instance);
+    partial void DeletetblEmployee(tblEmployee instance);
     #endregion
 		
 		public TestDataContext() : 
@@ -126,11 +129,26 @@ namespace Paradise5.Web
 			}
 		}
 		
+		public System.Data.Linq.Table<tblEmployee> tblEmployees
+		{
+			get
+			{
+				return this.GetTable<tblEmployee>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SC_Login_CheckLogin")]
 		public int SC_Login_CheckLogin([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LoginName", DbType="VarChar(20)")] string loginName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PassWord", DbType="VarChar(20)")] string passWord)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), loginName, passWord);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EmployeeIDList")]
+		public ISingleResult<sp_EmployeeIDListResult> sp_EmployeeIDList([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ScreenID", DbType="VarChar(30)")] string screenID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LoginID", DbType="Int")] System.Nullable<int> loginID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), screenID, loginID);
+			return ((ISingleResult<sp_EmployeeIDListResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1410,6 +1428,2812 @@ namespace Paradise5.Web
 				if ((this._LoginID != value))
 				{
 					this._LoginID = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblEmployee")]
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class tblEmployee : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _EmployeeID;
+		
+		private System.Nullable<int> _WorkingPlaceID;
+		
+		private System.Nullable<int> _AreaID;
+		
+		private System.Nullable<int> _BranchID;
+		
+		private System.Nullable<int> _DivisionID;
+		
+		private System.Nullable<int> _DepartmentID;
+		
+		private System.Nullable<int> _SectionID;
+		
+		private System.Nullable<int> _GroupID;
+		
+		private string _FullName;
+		
+		private string _Title;
+		
+		private string _LastName;
+		
+		private string _FirstName;
+		
+		private System.Nullable<int> _PositionID;
+		
+		private string _Photo;
+		
+		private string _Nationality;
+		
+		private bool _Sex;
+		
+		private string _Address1;
+		
+		private string _Address2;
+		
+		private string _BusinessPhone;
+		
+		private string _Extension;
+		
+		private string _MobilePhone;
+		
+		private string _FaxNumber;
+		
+		private string _HomePhone;
+		
+		private string _HomeFax;
+		
+		private string _Email;
+		
+		private string _ID_Number;
+		
+		private System.Nullable<System.DateTime> _ID_Issue_Date;
+		
+		private string _ID_Issue_Place;
+		
+		private string _ID_ProvinceID;
+		
+		private System.Nullable<bool> _Marital;
+		
+		private System.Nullable<System.DateTime> _Birthday;
+		
+		private System.Nullable<bool> _FalseDay;
+		
+		private string _BirthPlace;
+		
+		private string _NativeCountry;
+		
+		private System.Nullable<System.DateTime> _HireDate;
+		
+		private System.Nullable<short> _EmployeeStatusID;
+		
+		private System.Nullable<System.DateTime> _TerminateDate;
+		
+		private System.Nullable<int> _WorkingStatusID;
+		
+		private System.Nullable<short> _PaymentID;
+		
+		private System.Nullable<int> _BankID;
+		
+		private string _AccountNo;
+		
+		private string _BasicInfoNotes;
+		
+		private string _Religion;
+		
+		private string _PassportNo;
+		
+		private System.Nullable<System.DateTime> _PassportIssueDate;
+		
+		private System.Nullable<System.DateTime> _PassportExpiredDate;
+		
+		private string _PassportPlace;
+		
+		private string _Transport;
+		
+		private string _CallName;
+		
+		private string _OfficeID;
+		
+		private System.Nullable<int> _CountryID;
+		
+		private string _HomeEmail;
+		
+		private string _HomeNotes;
+		
+		private System.Nullable<bool> _Official;
+		
+		private string _LBNo;
+		
+		private string _ContractNo;
+		
+		private System.Nullable<System.DateTime> _ContractStartDay;
+		
+		private System.Nullable<System.DateTime> _ContractEndDay;
+		
+		private string _LabourName;
+		
+		private System.Nullable<bool> _IsWorker;
+		
+		private System.Nullable<float> _AccPoint;
+		
+		private System.Nullable<bool> _IsDeclaredSI;
+		
+		private System.Nullable<System.DateTime> _SignedDate;
+		
+		private System.Nullable<int> _TerminateReasonID;
+		
+		private System.Nullable<System.DateTime> _ProbationEndDate;
+		
+		private string _AccOwner;
+		
+		private string _CardNo;
+		
+		private System.Nullable<int> _PaymentMethod;
+		
+		private System.Data.Linq.Binary _PhotoImage;
+		
+		private string _WorkPermitNo;
+		
+		private System.Nullable<System.DateTime> _WorkPermit_IssueDate;
+		
+		private System.Nullable<System.DateTime> _WorkPermit_ExpireDate;
+		
+		private string _TemporaryPhone;
+		
+		private System.Nullable<bool> _IsOTInSalary;
+		
+		private string _TaxRegNo;
+		
+		private string _Ethnic;
+		
+		private System.Nullable<bool> _Product;
+		
+		private string _DistrictID;
+		
+		private string _ProvinceID;
+		
+		private string _Ward;
+		
+		private string _tmpDistrictID;
+		
+		private string _tmpProvinceID;
+		
+		private string _tmpWard;
+		
+		private string _EducationalBase;
+		
+		private string _ResidentAdd;
+		
+		private System.Nullable<int> _RateID;
+		
+		private System.Nullable<int> _LevelID;
+		
+		private System.Nullable<bool> _IsNonTaxable;
+		
+		private string _LineManagerID;
+		
+		private string _AreaSupID;
+		
+		private string _IDForBankTransfer;
+		
+		private string _EmployeeTypeID;
+		
+		private System.Nullable<bool> _Approved;
+		
+		private string _FacilityCountry;
+		
+		private string _FacilityTown;
+		
+		private string _FullTime;
+		
+		private System.Nullable<float> _WorkingTimePercent;
+		
+		private System.Nullable<float> _WHPerWeek;
+		
+		private string _NewCostCenter;
+		
+		private string _OldCostCenter;
+		
+		private string _ProductionLine;
+		
+		private System.Nullable<System.DateTime> _TaxRegDate;
+		
+		private string _TaxRegPlace;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEmployeeIDChanging(string value);
+    partial void OnEmployeeIDChanged();
+    partial void OnWorkingPlaceIDChanging(System.Nullable<int> value);
+    partial void OnWorkingPlaceIDChanged();
+    partial void OnAreaIDChanging(System.Nullable<int> value);
+    partial void OnAreaIDChanged();
+    partial void OnBranchIDChanging(System.Nullable<int> value);
+    partial void OnBranchIDChanged();
+    partial void OnDivisionIDChanging(System.Nullable<int> value);
+    partial void OnDivisionIDChanged();
+    partial void OnDepartmentIDChanging(System.Nullable<int> value);
+    partial void OnDepartmentIDChanged();
+    partial void OnSectionIDChanging(System.Nullable<int> value);
+    partial void OnSectionIDChanged();
+    partial void OnGroupIDChanging(System.Nullable<int> value);
+    partial void OnGroupIDChanged();
+    partial void OnFullNameChanging(string value);
+    partial void OnFullNameChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnLastNameChanging(string value);
+    partial void OnLastNameChanged();
+    partial void OnFirstNameChanging(string value);
+    partial void OnFirstNameChanged();
+    partial void OnPositionIDChanging(System.Nullable<int> value);
+    partial void OnPositionIDChanged();
+    partial void OnPhotoChanging(string value);
+    partial void OnPhotoChanged();
+    partial void OnNationalityChanging(string value);
+    partial void OnNationalityChanged();
+    partial void OnSexChanging(bool value);
+    partial void OnSexChanged();
+    partial void OnAddress1Changing(string value);
+    partial void OnAddress1Changed();
+    partial void OnAddress2Changing(string value);
+    partial void OnAddress2Changed();
+    partial void OnBusinessPhoneChanging(string value);
+    partial void OnBusinessPhoneChanged();
+    partial void OnExtensionChanging(string value);
+    partial void OnExtensionChanged();
+    partial void OnMobilePhoneChanging(string value);
+    partial void OnMobilePhoneChanged();
+    partial void OnFaxNumberChanging(string value);
+    partial void OnFaxNumberChanged();
+    partial void OnHomePhoneChanging(string value);
+    partial void OnHomePhoneChanged();
+    partial void OnHomeFaxChanging(string value);
+    partial void OnHomeFaxChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnID_NumberChanging(string value);
+    partial void OnID_NumberChanged();
+    partial void OnID_Issue_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnID_Issue_DateChanged();
+    partial void OnID_Issue_PlaceChanging(string value);
+    partial void OnID_Issue_PlaceChanged();
+    partial void OnID_ProvinceIDChanging(string value);
+    partial void OnID_ProvinceIDChanged();
+    partial void OnMaritalChanging(System.Nullable<bool> value);
+    partial void OnMaritalChanged();
+    partial void OnBirthdayChanging(System.Nullable<System.DateTime> value);
+    partial void OnBirthdayChanged();
+    partial void OnFalseDayChanging(System.Nullable<bool> value);
+    partial void OnFalseDayChanged();
+    partial void OnBirthPlaceChanging(string value);
+    partial void OnBirthPlaceChanged();
+    partial void OnNativeCountryChanging(string value);
+    partial void OnNativeCountryChanged();
+    partial void OnHireDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnHireDateChanged();
+    partial void OnEmployeeStatusIDChanging(System.Nullable<short> value);
+    partial void OnEmployeeStatusIDChanged();
+    partial void OnTerminateDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnTerminateDateChanged();
+    partial void OnWorkingStatusIDChanging(System.Nullable<int> value);
+    partial void OnWorkingStatusIDChanged();
+    partial void OnPaymentIDChanging(System.Nullable<short> value);
+    partial void OnPaymentIDChanged();
+    partial void OnBankIDChanging(System.Nullable<int> value);
+    partial void OnBankIDChanged();
+    partial void OnAccountNoChanging(string value);
+    partial void OnAccountNoChanged();
+    partial void OnBasicInfoNotesChanging(string value);
+    partial void OnBasicInfoNotesChanged();
+    partial void OnReligionChanging(string value);
+    partial void OnReligionChanged();
+    partial void OnPassportNoChanging(string value);
+    partial void OnPassportNoChanged();
+    partial void OnPassportIssueDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnPassportIssueDateChanged();
+    partial void OnPassportExpiredDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnPassportExpiredDateChanged();
+    partial void OnPassportPlaceChanging(string value);
+    partial void OnPassportPlaceChanged();
+    partial void OnTransportChanging(string value);
+    partial void OnTransportChanged();
+    partial void OnCallNameChanging(string value);
+    partial void OnCallNameChanged();
+    partial void OnOfficeIDChanging(string value);
+    partial void OnOfficeIDChanged();
+    partial void OnCountryIDChanging(System.Nullable<int> value);
+    partial void OnCountryIDChanged();
+    partial void OnHomeEmailChanging(string value);
+    partial void OnHomeEmailChanged();
+    partial void OnHomeNotesChanging(string value);
+    partial void OnHomeNotesChanged();
+    partial void OnOfficialChanging(System.Nullable<bool> value);
+    partial void OnOfficialChanged();
+    partial void OnLBNoChanging(string value);
+    partial void OnLBNoChanged();
+    partial void OnContractNoChanging(string value);
+    partial void OnContractNoChanged();
+    partial void OnContractStartDayChanging(System.Nullable<System.DateTime> value);
+    partial void OnContractStartDayChanged();
+    partial void OnContractEndDayChanging(System.Nullable<System.DateTime> value);
+    partial void OnContractEndDayChanged();
+    partial void OnLabourNameChanging(string value);
+    partial void OnLabourNameChanged();
+    partial void OnIsWorkerChanging(System.Nullable<bool> value);
+    partial void OnIsWorkerChanged();
+    partial void OnAccPointChanging(System.Nullable<float> value);
+    partial void OnAccPointChanged();
+    partial void OnIsDeclaredSIChanging(System.Nullable<bool> value);
+    partial void OnIsDeclaredSIChanged();
+    partial void OnSignedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnSignedDateChanged();
+    partial void OnTerminateReasonIDChanging(System.Nullable<int> value);
+    partial void OnTerminateReasonIDChanged();
+    partial void OnProbationEndDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnProbationEndDateChanged();
+    partial void OnAccOwnerChanging(string value);
+    partial void OnAccOwnerChanged();
+    partial void OnCardNoChanging(string value);
+    partial void OnCardNoChanged();
+    partial void OnPaymentMethodChanging(System.Nullable<int> value);
+    partial void OnPaymentMethodChanged();
+    partial void OnPhotoImageChanging(System.Data.Linq.Binary value);
+    partial void OnPhotoImageChanged();
+    partial void OnWorkPermitNoChanging(string value);
+    partial void OnWorkPermitNoChanged();
+    partial void OnWorkPermit_IssueDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnWorkPermit_IssueDateChanged();
+    partial void OnWorkPermit_ExpireDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnWorkPermit_ExpireDateChanged();
+    partial void OnTemporaryPhoneChanging(string value);
+    partial void OnTemporaryPhoneChanged();
+    partial void OnIsOTInSalaryChanging(System.Nullable<bool> value);
+    partial void OnIsOTInSalaryChanged();
+    partial void OnTaxRegNoChanging(string value);
+    partial void OnTaxRegNoChanged();
+    partial void OnEthnicChanging(string value);
+    partial void OnEthnicChanged();
+    partial void OnProductChanging(System.Nullable<bool> value);
+    partial void OnProductChanged();
+    partial void OnDistrictIDChanging(string value);
+    partial void OnDistrictIDChanged();
+    partial void OnProvinceIDChanging(string value);
+    partial void OnProvinceIDChanged();
+    partial void OnWardChanging(string value);
+    partial void OnWardChanged();
+    partial void OntmpDistrictIDChanging(string value);
+    partial void OntmpDistrictIDChanged();
+    partial void OntmpProvinceIDChanging(string value);
+    partial void OntmpProvinceIDChanged();
+    partial void OntmpWardChanging(string value);
+    partial void OntmpWardChanged();
+    partial void OnEducationalBaseChanging(string value);
+    partial void OnEducationalBaseChanged();
+    partial void OnResidentAddChanging(string value);
+    partial void OnResidentAddChanged();
+    partial void OnRateIDChanging(System.Nullable<int> value);
+    partial void OnRateIDChanged();
+    partial void OnLevelIDChanging(System.Nullable<int> value);
+    partial void OnLevelIDChanged();
+    partial void OnIsNonTaxableChanging(System.Nullable<bool> value);
+    partial void OnIsNonTaxableChanged();
+    partial void OnLineManagerIDChanging(string value);
+    partial void OnLineManagerIDChanged();
+    partial void OnAreaSupIDChanging(string value);
+    partial void OnAreaSupIDChanged();
+    partial void OnIDForBankTransferChanging(string value);
+    partial void OnIDForBankTransferChanged();
+    partial void OnEmployeeTypeIDChanging(string value);
+    partial void OnEmployeeTypeIDChanged();
+    partial void OnApprovedChanging(System.Nullable<bool> value);
+    partial void OnApprovedChanged();
+    partial void OnFacilityCountryChanging(string value);
+    partial void OnFacilityCountryChanged();
+    partial void OnFacilityTownChanging(string value);
+    partial void OnFacilityTownChanged();
+    partial void OnFullTimeChanging(string value);
+    partial void OnFullTimeChanged();
+    partial void OnWorkingTimePercentChanging(System.Nullable<float> value);
+    partial void OnWorkingTimePercentChanged();
+    partial void OnWHPerWeekChanging(System.Nullable<float> value);
+    partial void OnWHPerWeekChanged();
+    partial void OnNewCostCenterChanging(string value);
+    partial void OnNewCostCenterChanged();
+    partial void OnOldCostCenterChanging(string value);
+    partial void OnOldCostCenterChanged();
+    partial void OnProductionLineChanging(string value);
+    partial void OnProductionLineChanged();
+    partial void OnTaxRegDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnTaxRegDateChanged();
+    partial void OnTaxRegPlaceChanging(string value);
+    partial void OnTaxRegPlaceChanged();
+    #endregion
+		
+		public tblEmployee()
+		{
+			this.Initialize();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public string EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					this.OnEmployeeIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkingPlaceID", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public System.Nullable<int> WorkingPlaceID
+		{
+			get
+			{
+				return this._WorkingPlaceID;
+			}
+			set
+			{
+				if ((this._WorkingPlaceID != value))
+				{
+					this.OnWorkingPlaceIDChanging(value);
+					this.SendPropertyChanging();
+					this._WorkingPlaceID = value;
+					this.SendPropertyChanged("WorkingPlaceID");
+					this.OnWorkingPlaceIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AreaID", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public System.Nullable<int> AreaID
+		{
+			get
+			{
+				return this._AreaID;
+			}
+			set
+			{
+				if ((this._AreaID != value))
+				{
+					this.OnAreaIDChanging(value);
+					this.SendPropertyChanging();
+					this._AreaID = value;
+					this.SendPropertyChanged("AreaID");
+					this.OnAreaIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchID", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public System.Nullable<int> BranchID
+		{
+			get
+			{
+				return this._BranchID;
+			}
+			set
+			{
+				if ((this._BranchID != value))
+				{
+					this.OnBranchIDChanging(value);
+					this.SendPropertyChanging();
+					this._BranchID = value;
+					this.SendPropertyChanged("BranchID");
+					this.OnBranchIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DivisionID", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public System.Nullable<int> DivisionID
+		{
+			get
+			{
+				return this._DivisionID;
+			}
+			set
+			{
+				if ((this._DivisionID != value))
+				{
+					this.OnDivisionIDChanging(value);
+					this.SendPropertyChanging();
+					this._DivisionID = value;
+					this.SendPropertyChanged("DivisionID");
+					this.OnDivisionIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentID", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public System.Nullable<int> DepartmentID
+		{
+			get
+			{
+				return this._DepartmentID;
+			}
+			set
+			{
+				if ((this._DepartmentID != value))
+				{
+					this.OnDepartmentIDChanging(value);
+					this.SendPropertyChanging();
+					this._DepartmentID = value;
+					this.SendPropertyChanged("DepartmentID");
+					this.OnDepartmentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SectionID", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		public System.Nullable<int> SectionID
+		{
+			get
+			{
+				return this._SectionID;
+			}
+			set
+			{
+				if ((this._SectionID != value))
+				{
+					this.OnSectionIDChanging(value);
+					this.SendPropertyChanging();
+					this._SectionID = value;
+					this.SendPropertyChanged("SectionID");
+					this.OnSectionIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroupID", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		public System.Nullable<int> GroupID
+		{
+			get
+			{
+				return this._GroupID;
+			}
+			set
+			{
+				if ((this._GroupID != value))
+				{
+					this.OnGroupIDChanging(value);
+					this.SendPropertyChanging();
+					this._GroupID = value;
+					this.SendPropertyChanged("GroupID");
+					this.OnGroupIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		public string FullName
+		{
+			get
+			{
+				return this._FullName;
+			}
+			set
+			{
+				if ((this._FullName != value))
+				{
+					this.OnFullNameChanging(value);
+					this.SendPropertyChanging();
+					this._FullName = value;
+					this.SendPropertyChanged("FullName");
+					this.OnFullNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(30)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this.OnLastNameChanging(value);
+					this.SendPropertyChanging();
+					this._LastName = value;
+					this.SendPropertyChanged("LastName");
+					this.OnLastNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this.OnFirstNameChanging(value);
+					this.SendPropertyChanging();
+					this._FirstName = value;
+					this.SendPropertyChanged("FirstName");
+					this.OnFirstNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PositionID", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
+		public System.Nullable<int> PositionID
+		{
+			get
+			{
+				return this._PositionID;
+			}
+			set
+			{
+				if ((this._PositionID != value))
+				{
+					this.OnPositionIDChanging(value);
+					this.SendPropertyChanging();
+					this._PositionID = value;
+					this.SendPropertyChanged("PositionID");
+					this.OnPositionIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Photo", DbType="VarChar(40)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
+		public string Photo
+		{
+			get
+			{
+				return this._Photo;
+			}
+			set
+			{
+				if ((this._Photo != value))
+				{
+					this.OnPhotoChanging(value);
+					this.SendPropertyChanging();
+					this._Photo = value;
+					this.SendPropertyChanged("Photo");
+					this.OnPhotoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nationality", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15)]
+		public string Nationality
+		{
+			get
+			{
+				return this._Nationality;
+			}
+			set
+			{
+				if ((this._Nationality != value))
+				{
+					this.OnNationalityChanging(value);
+					this.SendPropertyChanging();
+					this._Nationality = value;
+					this.SendPropertyChanged("Nationality");
+					this.OnNationalityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sex", DbType="Bit NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=16)]
+		public bool Sex
+		{
+			get
+			{
+				return this._Sex;
+			}
+			set
+			{
+				if ((this._Sex != value))
+				{
+					this.OnSexChanging(value);
+					this.SendPropertyChanging();
+					this._Sex = value;
+					this.SendPropertyChanged("Sex");
+					this.OnSexChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address1", DbType="NVarChar(500)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=17)]
+		public string Address1
+		{
+			get
+			{
+				return this._Address1;
+			}
+			set
+			{
+				if ((this._Address1 != value))
+				{
+					this.OnAddress1Changing(value);
+					this.SendPropertyChanging();
+					this._Address1 = value;
+					this.SendPropertyChanged("Address1");
+					this.OnAddress1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address2", DbType="NVarChar(500)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=18)]
+		public string Address2
+		{
+			get
+			{
+				return this._Address2;
+			}
+			set
+			{
+				if ((this._Address2 != value))
+				{
+					this.OnAddress2Changing(value);
+					this.SendPropertyChanging();
+					this._Address2 = value;
+					this.SendPropertyChanged("Address2");
+					this.OnAddress2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessPhone", DbType="VarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=19)]
+		public string BusinessPhone
+		{
+			get
+			{
+				return this._BusinessPhone;
+			}
+			set
+			{
+				if ((this._BusinessPhone != value))
+				{
+					this.OnBusinessPhoneChanging(value);
+					this.SendPropertyChanging();
+					this._BusinessPhone = value;
+					this.SendPropertyChanged("BusinessPhone");
+					this.OnBusinessPhoneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Extension", DbType="VarChar(18)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=20)]
+		public string Extension
+		{
+			get
+			{
+				return this._Extension;
+			}
+			set
+			{
+				if ((this._Extension != value))
+				{
+					this.OnExtensionChanging(value);
+					this.SendPropertyChanging();
+					this._Extension = value;
+					this.SendPropertyChanged("Extension");
+					this.OnExtensionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MobilePhone", DbType="VarChar(15)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=21)]
+		public string MobilePhone
+		{
+			get
+			{
+				return this._MobilePhone;
+			}
+			set
+			{
+				if ((this._MobilePhone != value))
+				{
+					this.OnMobilePhoneChanging(value);
+					this.SendPropertyChanging();
+					this._MobilePhone = value;
+					this.SendPropertyChanged("MobilePhone");
+					this.OnMobilePhoneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FaxNumber", DbType="VarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=22)]
+		public string FaxNumber
+		{
+			get
+			{
+				return this._FaxNumber;
+			}
+			set
+			{
+				if ((this._FaxNumber != value))
+				{
+					this.OnFaxNumberChanging(value);
+					this.SendPropertyChanging();
+					this._FaxNumber = value;
+					this.SendPropertyChanged("FaxNumber");
+					this.OnFaxNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HomePhone", DbType="VarChar(15)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=23)]
+		public string HomePhone
+		{
+			get
+			{
+				return this._HomePhone;
+			}
+			set
+			{
+				if ((this._HomePhone != value))
+				{
+					this.OnHomePhoneChanging(value);
+					this.SendPropertyChanging();
+					this._HomePhone = value;
+					this.SendPropertyChanged("HomePhone");
+					this.OnHomePhoneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HomeFax", DbType="VarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=24)]
+		public string HomeFax
+		{
+			get
+			{
+				return this._HomeFax;
+			}
+			set
+			{
+				if ((this._HomeFax != value))
+				{
+					this.OnHomeFaxChanging(value);
+					this.SendPropertyChanging();
+					this._HomeFax = value;
+					this.SendPropertyChanged("HomeFax");
+					this.OnHomeFaxChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(30)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=25)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Number", DbType="VarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=26)]
+		public string ID_Number
+		{
+			get
+			{
+				return this._ID_Number;
+			}
+			set
+			{
+				if ((this._ID_Number != value))
+				{
+					this.OnID_NumberChanging(value);
+					this.SendPropertyChanging();
+					this._ID_Number = value;
+					this.SendPropertyChanged("ID_Number");
+					this.OnID_NumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Issue_Date", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=27)]
+		public System.Nullable<System.DateTime> ID_Issue_Date
+		{
+			get
+			{
+				return this._ID_Issue_Date;
+			}
+			set
+			{
+				if ((this._ID_Issue_Date != value))
+				{
+					this.OnID_Issue_DateChanging(value);
+					this.SendPropertyChanging();
+					this._ID_Issue_Date = value;
+					this.SendPropertyChanged("ID_Issue_Date");
+					this.OnID_Issue_DateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Issue_Place", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=28)]
+		public string ID_Issue_Place
+		{
+			get
+			{
+				return this._ID_Issue_Place;
+			}
+			set
+			{
+				if ((this._ID_Issue_Place != value))
+				{
+					this.OnID_Issue_PlaceChanging(value);
+					this.SendPropertyChanging();
+					this._ID_Issue_Place = value;
+					this.SendPropertyChanged("ID_Issue_Place");
+					this.OnID_Issue_PlaceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ProvinceID", DbType="Char(2)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=29)]
+		public string ID_ProvinceID
+		{
+			get
+			{
+				return this._ID_ProvinceID;
+			}
+			set
+			{
+				if ((this._ID_ProvinceID != value))
+				{
+					this.OnID_ProvinceIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID_ProvinceID = value;
+					this.SendPropertyChanged("ID_ProvinceID");
+					this.OnID_ProvinceIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Marital", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=30)]
+		public System.Nullable<bool> Marital
+		{
+			get
+			{
+				return this._Marital;
+			}
+			set
+			{
+				if ((this._Marital != value))
+				{
+					this.OnMaritalChanging(value);
+					this.SendPropertyChanging();
+					this._Marital = value;
+					this.SendPropertyChanged("Marital");
+					this.OnMaritalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Birthday", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=31)]
+		public System.Nullable<System.DateTime> Birthday
+		{
+			get
+			{
+				return this._Birthday;
+			}
+			set
+			{
+				if ((this._Birthday != value))
+				{
+					this.OnBirthdayChanging(value);
+					this.SendPropertyChanging();
+					this._Birthday = value;
+					this.SendPropertyChanged("Birthday");
+					this.OnBirthdayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FalseDay", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=32)]
+		public System.Nullable<bool> FalseDay
+		{
+			get
+			{
+				return this._FalseDay;
+			}
+			set
+			{
+				if ((this._FalseDay != value))
+				{
+					this.OnFalseDayChanging(value);
+					this.SendPropertyChanging();
+					this._FalseDay = value;
+					this.SendPropertyChanged("FalseDay");
+					this.OnFalseDayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BirthPlace", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=33)]
+		public string BirthPlace
+		{
+			get
+			{
+				return this._BirthPlace;
+			}
+			set
+			{
+				if ((this._BirthPlace != value))
+				{
+					this.OnBirthPlaceChanging(value);
+					this.SendPropertyChanging();
+					this._BirthPlace = value;
+					this.SendPropertyChanged("BirthPlace");
+					this.OnBirthPlaceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NativeCountry", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=34)]
+		public string NativeCountry
+		{
+			get
+			{
+				return this._NativeCountry;
+			}
+			set
+			{
+				if ((this._NativeCountry != value))
+				{
+					this.OnNativeCountryChanging(value);
+					this.SendPropertyChanging();
+					this._NativeCountry = value;
+					this.SendPropertyChanged("NativeCountry");
+					this.OnNativeCountryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HireDate", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=35)]
+		public System.Nullable<System.DateTime> HireDate
+		{
+			get
+			{
+				return this._HireDate;
+			}
+			set
+			{
+				if ((this._HireDate != value))
+				{
+					this.OnHireDateChanging(value);
+					this.SendPropertyChanging();
+					this._HireDate = value;
+					this.SendPropertyChanged("HireDate");
+					this.OnHireDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeStatusID", DbType="SmallInt")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=36)]
+		public System.Nullable<short> EmployeeStatusID
+		{
+			get
+			{
+				return this._EmployeeStatusID;
+			}
+			set
+			{
+				if ((this._EmployeeStatusID != value))
+				{
+					this.OnEmployeeStatusIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeStatusID = value;
+					this.SendPropertyChanged("EmployeeStatusID");
+					this.OnEmployeeStatusIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TerminateDate", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=37)]
+		public System.Nullable<System.DateTime> TerminateDate
+		{
+			get
+			{
+				return this._TerminateDate;
+			}
+			set
+			{
+				if ((this._TerminateDate != value))
+				{
+					this.OnTerminateDateChanging(value);
+					this.SendPropertyChanging();
+					this._TerminateDate = value;
+					this.SendPropertyChanged("TerminateDate");
+					this.OnTerminateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkingStatusID", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=38)]
+		public System.Nullable<int> WorkingStatusID
+		{
+			get
+			{
+				return this._WorkingStatusID;
+			}
+			set
+			{
+				if ((this._WorkingStatusID != value))
+				{
+					this.OnWorkingStatusIDChanging(value);
+					this.SendPropertyChanging();
+					this._WorkingStatusID = value;
+					this.SendPropertyChanged("WorkingStatusID");
+					this.OnWorkingStatusIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaymentID", DbType="SmallInt")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=39)]
+		public System.Nullable<short> PaymentID
+		{
+			get
+			{
+				return this._PaymentID;
+			}
+			set
+			{
+				if ((this._PaymentID != value))
+				{
+					this.OnPaymentIDChanging(value);
+					this.SendPropertyChanging();
+					this._PaymentID = value;
+					this.SendPropertyChanged("PaymentID");
+					this.OnPaymentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BankID", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=40)]
+		public System.Nullable<int> BankID
+		{
+			get
+			{
+				return this._BankID;
+			}
+			set
+			{
+				if ((this._BankID != value))
+				{
+					this.OnBankIDChanging(value);
+					this.SendPropertyChanging();
+					this._BankID = value;
+					this.SendPropertyChanged("BankID");
+					this.OnBankIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountNo", DbType="VarChar(25)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=41)]
+		public string AccountNo
+		{
+			get
+			{
+				return this._AccountNo;
+			}
+			set
+			{
+				if ((this._AccountNo != value))
+				{
+					this.OnAccountNoChanging(value);
+					this.SendPropertyChanging();
+					this._AccountNo = value;
+					this.SendPropertyChanged("AccountNo");
+					this.OnAccountNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BasicInfoNotes", DbType="NVarChar(500)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=42)]
+		public string BasicInfoNotes
+		{
+			get
+			{
+				return this._BasicInfoNotes;
+			}
+			set
+			{
+				if ((this._BasicInfoNotes != value))
+				{
+					this.OnBasicInfoNotesChanging(value);
+					this.SendPropertyChanging();
+					this._BasicInfoNotes = value;
+					this.SendPropertyChanged("BasicInfoNotes");
+					this.OnBasicInfoNotesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Religion", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=43)]
+		public string Religion
+		{
+			get
+			{
+				return this._Religion;
+			}
+			set
+			{
+				if ((this._Religion != value))
+				{
+					this.OnReligionChanging(value);
+					this.SendPropertyChanging();
+					this._Religion = value;
+					this.SendPropertyChanged("Religion");
+					this.OnReligionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PassportNo", DbType="VarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=44)]
+		public string PassportNo
+		{
+			get
+			{
+				return this._PassportNo;
+			}
+			set
+			{
+				if ((this._PassportNo != value))
+				{
+					this.OnPassportNoChanging(value);
+					this.SendPropertyChanging();
+					this._PassportNo = value;
+					this.SendPropertyChanged("PassportNo");
+					this.OnPassportNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PassportIssueDate", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=45)]
+		public System.Nullable<System.DateTime> PassportIssueDate
+		{
+			get
+			{
+				return this._PassportIssueDate;
+			}
+			set
+			{
+				if ((this._PassportIssueDate != value))
+				{
+					this.OnPassportIssueDateChanging(value);
+					this.SendPropertyChanging();
+					this._PassportIssueDate = value;
+					this.SendPropertyChanged("PassportIssueDate");
+					this.OnPassportIssueDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PassportExpiredDate", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=46)]
+		public System.Nullable<System.DateTime> PassportExpiredDate
+		{
+			get
+			{
+				return this._PassportExpiredDate;
+			}
+			set
+			{
+				if ((this._PassportExpiredDate != value))
+				{
+					this.OnPassportExpiredDateChanging(value);
+					this.SendPropertyChanging();
+					this._PassportExpiredDate = value;
+					this.SendPropertyChanged("PassportExpiredDate");
+					this.OnPassportExpiredDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PassportPlace", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=47)]
+		public string PassportPlace
+		{
+			get
+			{
+				return this._PassportPlace;
+			}
+			set
+			{
+				if ((this._PassportPlace != value))
+				{
+					this.OnPassportPlaceChanging(value);
+					this.SendPropertyChanging();
+					this._PassportPlace = value;
+					this.SendPropertyChanged("PassportPlace");
+					this.OnPassportPlaceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Transport", DbType="VarChar(30)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=48)]
+		public string Transport
+		{
+			get
+			{
+				return this._Transport;
+			}
+			set
+			{
+				if ((this._Transport != value))
+				{
+					this.OnTransportChanging(value);
+					this.SendPropertyChanging();
+					this._Transport = value;
+					this.SendPropertyChanged("Transport");
+					this.OnTransportChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CallName", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=49)]
+		public string CallName
+		{
+			get
+			{
+				return this._CallName;
+			}
+			set
+			{
+				if ((this._CallName != value))
+				{
+					this.OnCallNameChanging(value);
+					this.SendPropertyChanging();
+					this._CallName = value;
+					this.SendPropertyChanged("CallName");
+					this.OnCallNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OfficeID", DbType="VarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=50)]
+		public string OfficeID
+		{
+			get
+			{
+				return this._OfficeID;
+			}
+			set
+			{
+				if ((this._OfficeID != value))
+				{
+					this.OnOfficeIDChanging(value);
+					this.SendPropertyChanging();
+					this._OfficeID = value;
+					this.SendPropertyChanged("OfficeID");
+					this.OnOfficeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountryID", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=51)]
+		public System.Nullable<int> CountryID
+		{
+			get
+			{
+				return this._CountryID;
+			}
+			set
+			{
+				if ((this._CountryID != value))
+				{
+					this.OnCountryIDChanging(value);
+					this.SendPropertyChanging();
+					this._CountryID = value;
+					this.SendPropertyChanged("CountryID");
+					this.OnCountryIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HomeEmail", DbType="VarChar(30)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=52)]
+		public string HomeEmail
+		{
+			get
+			{
+				return this._HomeEmail;
+			}
+			set
+			{
+				if ((this._HomeEmail != value))
+				{
+					this.OnHomeEmailChanging(value);
+					this.SendPropertyChanging();
+					this._HomeEmail = value;
+					this.SendPropertyChanged("HomeEmail");
+					this.OnHomeEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HomeNotes", DbType="NVarChar(500)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=53)]
+		public string HomeNotes
+		{
+			get
+			{
+				return this._HomeNotes;
+			}
+			set
+			{
+				if ((this._HomeNotes != value))
+				{
+					this.OnHomeNotesChanging(value);
+					this.SendPropertyChanging();
+					this._HomeNotes = value;
+					this.SendPropertyChanged("HomeNotes");
+					this.OnHomeNotesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Official", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=54)]
+		public System.Nullable<bool> Official
+		{
+			get
+			{
+				return this._Official;
+			}
+			set
+			{
+				if ((this._Official != value))
+				{
+					this.OnOfficialChanging(value);
+					this.SendPropertyChanging();
+					this._Official = value;
+					this.SendPropertyChanged("Official");
+					this.OnOfficialChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LBNo", DbType="VarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=55)]
+		public string LBNo
+		{
+			get
+			{
+				return this._LBNo;
+			}
+			set
+			{
+				if ((this._LBNo != value))
+				{
+					this.OnLBNoChanging(value);
+					this.SendPropertyChanging();
+					this._LBNo = value;
+					this.SendPropertyChanged("LBNo");
+					this.OnLBNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContractNo", DbType="VarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=56)]
+		public string ContractNo
+		{
+			get
+			{
+				return this._ContractNo;
+			}
+			set
+			{
+				if ((this._ContractNo != value))
+				{
+					this.OnContractNoChanging(value);
+					this.SendPropertyChanging();
+					this._ContractNo = value;
+					this.SendPropertyChanged("ContractNo");
+					this.OnContractNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContractStartDay", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=57)]
+		public System.Nullable<System.DateTime> ContractStartDay
+		{
+			get
+			{
+				return this._ContractStartDay;
+			}
+			set
+			{
+				if ((this._ContractStartDay != value))
+				{
+					this.OnContractStartDayChanging(value);
+					this.SendPropertyChanging();
+					this._ContractStartDay = value;
+					this.SendPropertyChanged("ContractStartDay");
+					this.OnContractStartDayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContractEndDay", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=58)]
+		public System.Nullable<System.DateTime> ContractEndDay
+		{
+			get
+			{
+				return this._ContractEndDay;
+			}
+			set
+			{
+				if ((this._ContractEndDay != value))
+				{
+					this.OnContractEndDayChanging(value);
+					this.SendPropertyChanging();
+					this._ContractEndDay = value;
+					this.SendPropertyChanged("ContractEndDay");
+					this.OnContractEndDayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LabourName", DbType="VarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=59)]
+		public string LabourName
+		{
+			get
+			{
+				return this._LabourName;
+			}
+			set
+			{
+				if ((this._LabourName != value))
+				{
+					this.OnLabourNameChanging(value);
+					this.SendPropertyChanging();
+					this._LabourName = value;
+					this.SendPropertyChanged("LabourName");
+					this.OnLabourNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsWorker", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=60)]
+		public System.Nullable<bool> IsWorker
+		{
+			get
+			{
+				return this._IsWorker;
+			}
+			set
+			{
+				if ((this._IsWorker != value))
+				{
+					this.OnIsWorkerChanging(value);
+					this.SendPropertyChanging();
+					this._IsWorker = value;
+					this.SendPropertyChanged("IsWorker");
+					this.OnIsWorkerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccPoint", DbType="Real")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=61)]
+		public System.Nullable<float> AccPoint
+		{
+			get
+			{
+				return this._AccPoint;
+			}
+			set
+			{
+				if ((this._AccPoint != value))
+				{
+					this.OnAccPointChanging(value);
+					this.SendPropertyChanging();
+					this._AccPoint = value;
+					this.SendPropertyChanged("AccPoint");
+					this.OnAccPointChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDeclaredSI", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=62)]
+		public System.Nullable<bool> IsDeclaredSI
+		{
+			get
+			{
+				return this._IsDeclaredSI;
+			}
+			set
+			{
+				if ((this._IsDeclaredSI != value))
+				{
+					this.OnIsDeclaredSIChanging(value);
+					this.SendPropertyChanging();
+					this._IsDeclaredSI = value;
+					this.SendPropertyChanged("IsDeclaredSI");
+					this.OnIsDeclaredSIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SignedDate", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=63)]
+		public System.Nullable<System.DateTime> SignedDate
+		{
+			get
+			{
+				return this._SignedDate;
+			}
+			set
+			{
+				if ((this._SignedDate != value))
+				{
+					this.OnSignedDateChanging(value);
+					this.SendPropertyChanging();
+					this._SignedDate = value;
+					this.SendPropertyChanged("SignedDate");
+					this.OnSignedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TerminateReasonID", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=64)]
+		public System.Nullable<int> TerminateReasonID
+		{
+			get
+			{
+				return this._TerminateReasonID;
+			}
+			set
+			{
+				if ((this._TerminateReasonID != value))
+				{
+					this.OnTerminateReasonIDChanging(value);
+					this.SendPropertyChanging();
+					this._TerminateReasonID = value;
+					this.SendPropertyChanged("TerminateReasonID");
+					this.OnTerminateReasonIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProbationEndDate", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=65)]
+		public System.Nullable<System.DateTime> ProbationEndDate
+		{
+			get
+			{
+				return this._ProbationEndDate;
+			}
+			set
+			{
+				if ((this._ProbationEndDate != value))
+				{
+					this.OnProbationEndDateChanging(value);
+					this.SendPropertyChanging();
+					this._ProbationEndDate = value;
+					this.SendPropertyChanged("ProbationEndDate");
+					this.OnProbationEndDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccOwner", DbType="VarChar(40)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=66)]
+		public string AccOwner
+		{
+			get
+			{
+				return this._AccOwner;
+			}
+			set
+			{
+				if ((this._AccOwner != value))
+				{
+					this.OnAccOwnerChanging(value);
+					this.SendPropertyChanging();
+					this._AccOwner = value;
+					this.SendPropertyChanged("AccOwner");
+					this.OnAccOwnerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CardNo", DbType="VarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=67)]
+		public string CardNo
+		{
+			get
+			{
+				return this._CardNo;
+			}
+			set
+			{
+				if ((this._CardNo != value))
+				{
+					this.OnCardNoChanging(value);
+					this.SendPropertyChanging();
+					this._CardNo = value;
+					this.SendPropertyChanged("CardNo");
+					this.OnCardNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaymentMethod", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=68)]
+		public System.Nullable<int> PaymentMethod
+		{
+			get
+			{
+				return this._PaymentMethod;
+			}
+			set
+			{
+				if ((this._PaymentMethod != value))
+				{
+					this.OnPaymentMethodChanging(value);
+					this.SendPropertyChanging();
+					this._PaymentMethod = value;
+					this.SendPropertyChanged("PaymentMethod");
+					this.OnPaymentMethodChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhotoImage", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=69)]
+		public System.Data.Linq.Binary PhotoImage
+		{
+			get
+			{
+				return this._PhotoImage;
+			}
+			set
+			{
+				if ((this._PhotoImage != value))
+				{
+					this.OnPhotoImageChanging(value);
+					this.SendPropertyChanging();
+					this._PhotoImage = value;
+					this.SendPropertyChanged("PhotoImage");
+					this.OnPhotoImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkPermitNo", DbType="VarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=70)]
+		public string WorkPermitNo
+		{
+			get
+			{
+				return this._WorkPermitNo;
+			}
+			set
+			{
+				if ((this._WorkPermitNo != value))
+				{
+					this.OnWorkPermitNoChanging(value);
+					this.SendPropertyChanging();
+					this._WorkPermitNo = value;
+					this.SendPropertyChanged("WorkPermitNo");
+					this.OnWorkPermitNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkPermit_IssueDate", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=71)]
+		public System.Nullable<System.DateTime> WorkPermit_IssueDate
+		{
+			get
+			{
+				return this._WorkPermit_IssueDate;
+			}
+			set
+			{
+				if ((this._WorkPermit_IssueDate != value))
+				{
+					this.OnWorkPermit_IssueDateChanging(value);
+					this.SendPropertyChanging();
+					this._WorkPermit_IssueDate = value;
+					this.SendPropertyChanged("WorkPermit_IssueDate");
+					this.OnWorkPermit_IssueDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkPermit_ExpireDate", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=72)]
+		public System.Nullable<System.DateTime> WorkPermit_ExpireDate
+		{
+			get
+			{
+				return this._WorkPermit_ExpireDate;
+			}
+			set
+			{
+				if ((this._WorkPermit_ExpireDate != value))
+				{
+					this.OnWorkPermit_ExpireDateChanging(value);
+					this.SendPropertyChanging();
+					this._WorkPermit_ExpireDate = value;
+					this.SendPropertyChanged("WorkPermit_ExpireDate");
+					this.OnWorkPermit_ExpireDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TemporaryPhone", DbType="VarChar(15)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=73)]
+		public string TemporaryPhone
+		{
+			get
+			{
+				return this._TemporaryPhone;
+			}
+			set
+			{
+				if ((this._TemporaryPhone != value))
+				{
+					this.OnTemporaryPhoneChanging(value);
+					this.SendPropertyChanging();
+					this._TemporaryPhone = value;
+					this.SendPropertyChanged("TemporaryPhone");
+					this.OnTemporaryPhoneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsOTInSalary", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=74)]
+		public System.Nullable<bool> IsOTInSalary
+		{
+			get
+			{
+				return this._IsOTInSalary;
+			}
+			set
+			{
+				if ((this._IsOTInSalary != value))
+				{
+					this.OnIsOTInSalaryChanging(value);
+					this.SendPropertyChanging();
+					this._IsOTInSalary = value;
+					this.SendPropertyChanged("IsOTInSalary");
+					this.OnIsOTInSalaryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TaxRegNo", DbType="VarChar(25)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=75)]
+		public string TaxRegNo
+		{
+			get
+			{
+				return this._TaxRegNo;
+			}
+			set
+			{
+				if ((this._TaxRegNo != value))
+				{
+					this.OnTaxRegNoChanging(value);
+					this.SendPropertyChanging();
+					this._TaxRegNo = value;
+					this.SendPropertyChanged("TaxRegNo");
+					this.OnTaxRegNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ethnic", DbType="VarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=76)]
+		public string Ethnic
+		{
+			get
+			{
+				return this._Ethnic;
+			}
+			set
+			{
+				if ((this._Ethnic != value))
+				{
+					this.OnEthnicChanging(value);
+					this.SendPropertyChanging();
+					this._Ethnic = value;
+					this.SendPropertyChanged("Ethnic");
+					this.OnEthnicChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=77)]
+		public System.Nullable<bool> Product
+		{
+			get
+			{
+				return this._Product;
+			}
+			set
+			{
+				if ((this._Product != value))
+				{
+					this.OnProductChanging(value);
+					this.SendPropertyChanging();
+					this._Product = value;
+					this.SendPropertyChanged("Product");
+					this.OnProductChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DistrictID", DbType="Char(2)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=78)]
+		public string DistrictID
+		{
+			get
+			{
+				return this._DistrictID;
+			}
+			set
+			{
+				if ((this._DistrictID != value))
+				{
+					this.OnDistrictIDChanging(value);
+					this.SendPropertyChanging();
+					this._DistrictID = value;
+					this.SendPropertyChanged("DistrictID");
+					this.OnDistrictIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProvinceID", DbType="Char(2)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=79)]
+		public string ProvinceID
+		{
+			get
+			{
+				return this._ProvinceID;
+			}
+			set
+			{
+				if ((this._ProvinceID != value))
+				{
+					this.OnProvinceIDChanging(value);
+					this.SendPropertyChanging();
+					this._ProvinceID = value;
+					this.SendPropertyChanged("ProvinceID");
+					this.OnProvinceIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ward", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=80)]
+		public string Ward
+		{
+			get
+			{
+				return this._Ward;
+			}
+			set
+			{
+				if ((this._Ward != value))
+				{
+					this.OnWardChanging(value);
+					this.SendPropertyChanging();
+					this._Ward = value;
+					this.SendPropertyChanged("Ward");
+					this.OnWardChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tmpDistrictID", DbType="Char(2)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=81)]
+		public string tmpDistrictID
+		{
+			get
+			{
+				return this._tmpDistrictID;
+			}
+			set
+			{
+				if ((this._tmpDistrictID != value))
+				{
+					this.OntmpDistrictIDChanging(value);
+					this.SendPropertyChanging();
+					this._tmpDistrictID = value;
+					this.SendPropertyChanged("tmpDistrictID");
+					this.OntmpDistrictIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tmpProvinceID", DbType="Char(2)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=82)]
+		public string tmpProvinceID
+		{
+			get
+			{
+				return this._tmpProvinceID;
+			}
+			set
+			{
+				if ((this._tmpProvinceID != value))
+				{
+					this.OntmpProvinceIDChanging(value);
+					this.SendPropertyChanging();
+					this._tmpProvinceID = value;
+					this.SendPropertyChanged("tmpProvinceID");
+					this.OntmpProvinceIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tmpWard", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=83)]
+		public string tmpWard
+		{
+			get
+			{
+				return this._tmpWard;
+			}
+			set
+			{
+				if ((this._tmpWard != value))
+				{
+					this.OntmpWardChanging(value);
+					this.SendPropertyChanging();
+					this._tmpWard = value;
+					this.SendPropertyChanged("tmpWard");
+					this.OntmpWardChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EducationalBase", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=84)]
+		public string EducationalBase
+		{
+			get
+			{
+				return this._EducationalBase;
+			}
+			set
+			{
+				if ((this._EducationalBase != value))
+				{
+					this.OnEducationalBaseChanging(value);
+					this.SendPropertyChanging();
+					this._EducationalBase = value;
+					this.SendPropertyChanged("EducationalBase");
+					this.OnEducationalBaseChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResidentAdd", DbType="NVarChar(150)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=85)]
+		public string ResidentAdd
+		{
+			get
+			{
+				return this._ResidentAdd;
+			}
+			set
+			{
+				if ((this._ResidentAdd != value))
+				{
+					this.OnResidentAddChanging(value);
+					this.SendPropertyChanging();
+					this._ResidentAdd = value;
+					this.SendPropertyChanged("ResidentAdd");
+					this.OnResidentAddChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RateID", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=86)]
+		public System.Nullable<int> RateID
+		{
+			get
+			{
+				return this._RateID;
+			}
+			set
+			{
+				if ((this._RateID != value))
+				{
+					this.OnRateIDChanging(value);
+					this.SendPropertyChanging();
+					this._RateID = value;
+					this.SendPropertyChanged("RateID");
+					this.OnRateIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LevelID", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=87)]
+		public System.Nullable<int> LevelID
+		{
+			get
+			{
+				return this._LevelID;
+			}
+			set
+			{
+				if ((this._LevelID != value))
+				{
+					this.OnLevelIDChanging(value);
+					this.SendPropertyChanging();
+					this._LevelID = value;
+					this.SendPropertyChanged("LevelID");
+					this.OnLevelIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsNonTaxable", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=88)]
+		public System.Nullable<bool> IsNonTaxable
+		{
+			get
+			{
+				return this._IsNonTaxable;
+			}
+			set
+			{
+				if ((this._IsNonTaxable != value))
+				{
+					this.OnIsNonTaxableChanging(value);
+					this.SendPropertyChanging();
+					this._IsNonTaxable = value;
+					this.SendPropertyChanged("IsNonTaxable");
+					this.OnIsNonTaxableChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LineManagerID", DbType="VarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=89)]
+		public string LineManagerID
+		{
+			get
+			{
+				return this._LineManagerID;
+			}
+			set
+			{
+				if ((this._LineManagerID != value))
+				{
+					this.OnLineManagerIDChanging(value);
+					this.SendPropertyChanging();
+					this._LineManagerID = value;
+					this.SendPropertyChanged("LineManagerID");
+					this.OnLineManagerIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AreaSupID", DbType="VarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=90)]
+		public string AreaSupID
+		{
+			get
+			{
+				return this._AreaSupID;
+			}
+			set
+			{
+				if ((this._AreaSupID != value))
+				{
+					this.OnAreaSupIDChanging(value);
+					this.SendPropertyChanging();
+					this._AreaSupID = value;
+					this.SendPropertyChanged("AreaSupID");
+					this.OnAreaSupIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDForBankTransfer", DbType="VarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=91)]
+		public string IDForBankTransfer
+		{
+			get
+			{
+				return this._IDForBankTransfer;
+			}
+			set
+			{
+				if ((this._IDForBankTransfer != value))
+				{
+					this.OnIDForBankTransferChanging(value);
+					this.SendPropertyChanging();
+					this._IDForBankTransfer = value;
+					this.SendPropertyChanged("IDForBankTransfer");
+					this.OnIDForBankTransferChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeTypeID", DbType="VarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=92)]
+		public string EmployeeTypeID
+		{
+			get
+			{
+				return this._EmployeeTypeID;
+			}
+			set
+			{
+				if ((this._EmployeeTypeID != value))
+				{
+					this.OnEmployeeTypeIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeTypeID = value;
+					this.SendPropertyChanged("EmployeeTypeID");
+					this.OnEmployeeTypeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Approved", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=93)]
+		public System.Nullable<bool> Approved
+		{
+			get
+			{
+				return this._Approved;
+			}
+			set
+			{
+				if ((this._Approved != value))
+				{
+					this.OnApprovedChanging(value);
+					this.SendPropertyChanging();
+					this._Approved = value;
+					this.SendPropertyChanged("Approved");
+					this.OnApprovedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacilityCountry", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=94)]
+		public string FacilityCountry
+		{
+			get
+			{
+				return this._FacilityCountry;
+			}
+			set
+			{
+				if ((this._FacilityCountry != value))
+				{
+					this.OnFacilityCountryChanging(value);
+					this.SendPropertyChanging();
+					this._FacilityCountry = value;
+					this.SendPropertyChanged("FacilityCountry");
+					this.OnFacilityCountryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacilityTown", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=95)]
+		public string FacilityTown
+		{
+			get
+			{
+				return this._FacilityTown;
+			}
+			set
+			{
+				if ((this._FacilityTown != value))
+				{
+					this.OnFacilityTownChanging(value);
+					this.SendPropertyChanging();
+					this._FacilityTown = value;
+					this.SendPropertyChanged("FacilityTown");
+					this.OnFacilityTownChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullTime", DbType="VarChar(10)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=96)]
+		public string FullTime
+		{
+			get
+			{
+				return this._FullTime;
+			}
+			set
+			{
+				if ((this._FullTime != value))
+				{
+					this.OnFullTimeChanging(value);
+					this.SendPropertyChanging();
+					this._FullTime = value;
+					this.SendPropertyChanged("FullTime");
+					this.OnFullTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkingTimePercent", DbType="Real")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=97)]
+		public System.Nullable<float> WorkingTimePercent
+		{
+			get
+			{
+				return this._WorkingTimePercent;
+			}
+			set
+			{
+				if ((this._WorkingTimePercent != value))
+				{
+					this.OnWorkingTimePercentChanging(value);
+					this.SendPropertyChanging();
+					this._WorkingTimePercent = value;
+					this.SendPropertyChanged("WorkingTimePercent");
+					this.OnWorkingTimePercentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WHPerWeek", DbType="Real")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=98)]
+		public System.Nullable<float> WHPerWeek
+		{
+			get
+			{
+				return this._WHPerWeek;
+			}
+			set
+			{
+				if ((this._WHPerWeek != value))
+				{
+					this.OnWHPerWeekChanging(value);
+					this.SendPropertyChanging();
+					this._WHPerWeek = value;
+					this.SendPropertyChanged("WHPerWeek");
+					this.OnWHPerWeekChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NewCostCenter", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=99)]
+		public string NewCostCenter
+		{
+			get
+			{
+				return this._NewCostCenter;
+			}
+			set
+			{
+				if ((this._NewCostCenter != value))
+				{
+					this.OnNewCostCenterChanging(value);
+					this.SendPropertyChanging();
+					this._NewCostCenter = value;
+					this.SendPropertyChanged("NewCostCenter");
+					this.OnNewCostCenterChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OldCostCenter", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=100)]
+		public string OldCostCenter
+		{
+			get
+			{
+				return this._OldCostCenter;
+			}
+			set
+			{
+				if ((this._OldCostCenter != value))
+				{
+					this.OnOldCostCenterChanging(value);
+					this.SendPropertyChanging();
+					this._OldCostCenter = value;
+					this.SendPropertyChanged("OldCostCenter");
+					this.OnOldCostCenterChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductionLine", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=101)]
+		public string ProductionLine
+		{
+			get
+			{
+				return this._ProductionLine;
+			}
+			set
+			{
+				if ((this._ProductionLine != value))
+				{
+					this.OnProductionLineChanging(value);
+					this.SendPropertyChanging();
+					this._ProductionLine = value;
+					this.SendPropertyChanged("ProductionLine");
+					this.OnProductionLineChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TaxRegDate", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=102)]
+		public System.Nullable<System.DateTime> TaxRegDate
+		{
+			get
+			{
+				return this._TaxRegDate;
+			}
+			set
+			{
+				if ((this._TaxRegDate != value))
+				{
+					this.OnTaxRegDateChanging(value);
+					this.SendPropertyChanging();
+					this._TaxRegDate = value;
+					this.SendPropertyChanged("TaxRegDate");
+					this.OnTaxRegDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TaxRegPlace", DbType="NVarChar(100)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=103)]
+		public string TaxRegPlace
+		{
+			get
+			{
+				return this._TaxRegPlace;
+			}
+			set
+			{
+				if ((this._TaxRegPlace != value))
+				{
+					this.OnTaxRegPlaceChanging(value);
+					this.SendPropertyChanging();
+					this._TaxRegPlace = value;
+					this.SendPropertyChanged("TaxRegPlace");
+					this.OnTaxRegPlaceChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void Initialize()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnDeserializing(StreamingContext context)
+		{
+			this.Initialize();
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class sp_EmployeeIDListResult
+	{
+		
+		private string _EmployeeID;
+		
+		private string _LastName;
+		
+		private string _FirstName;
+		
+		private System.Nullable<short> _EmployeeStatusID;
+		
+		private string _LastNameEN;
+		
+		private string _FirstNameEN;
+		
+		private string _Title;
+		
+		private string _Email;
+		
+		private string _FullName;
+		
+		public sp_EmployeeIDListResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public string EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					this._EmployeeID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(30)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this._LastName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this._FirstName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeStatusID", DbType="SmallInt")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public System.Nullable<short> EmployeeStatusID
+		{
+			get
+			{
+				return this._EmployeeStatusID;
+			}
+			set
+			{
+				if ((this._EmployeeStatusID != value))
+				{
+					this._EmployeeStatusID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastNameEN", DbType="NVarChar(MAX)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public string LastNameEN
+		{
+			get
+			{
+				return this._LastNameEN;
+			}
+			set
+			{
+				if ((this._LastNameEN != value))
+				{
+					this._LastNameEN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstNameEN", DbType="NVarChar(MAX)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public string FirstNameEN
+		{
+			get
+			{
+				return this._FirstNameEN;
+			}
+			set
+			{
+				if ((this._FirstNameEN != value))
+				{
+					this._FirstNameEN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this._Title = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(30)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		public string FullName
+		{
+			get
+			{
+				return this._FullName;
+			}
+			set
+			{
+				if ((this._FullName != value))
+				{
+					this._FullName = value;
 				}
 			}
 		}

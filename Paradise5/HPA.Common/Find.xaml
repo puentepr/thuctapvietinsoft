@@ -8,18 +8,15 @@
     <Grid x:Name="LayoutRoot" Margin="2">
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
-            <RowDefinition Height="30" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="77"/>
             <ColumnDefinition Width="223"/>
         </Grid.ColumnDefinitions>
-        <sdk:Label x:Name="lblFullName" Grid.Row="0" Grid.Column="0" Content="Tên đầy đủ"/>
-        <sdk:Label x:Name="lblEmployeeStatus" Grid.Row="1" Grid.Column="0" Content="Trạng thái"/>
-        <TextBox x:Name="txtName" Grid.Row="0" Grid.Column="1" Margin="10,5" TextChanged="txtName_TextChanged"/>
-        <ComboBox x:Name="cbStatus" Grid.Column="1" Grid.Row="1" Margin="10,5"/>
-        <dxg:GridControl x:Name="dtgrNV" AutoPopulateColumns="True" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Stretch">
+        <sdk:Label x:Name="lblFind" Grid.Row="0" Grid.Column="0" Content="Tìm kiếm"/>
+        <TextBox x:Name="txtName" Grid.Row="0" Grid.Column="1" Margin="10,5" TextChanged="txtName_TextChanged" Height="20"/>
+        <dxg:GridControl x:Name="dtgrNV" AutoPopulateColumns="True" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Stretch">
             <dxg:GridControl.View>
                 <dxg:TableView x:Name="GridNV" ShowTotalSummary="True"/>
             </dxg:GridControl.View>

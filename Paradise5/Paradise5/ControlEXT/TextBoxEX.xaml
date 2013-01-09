@@ -3,11 +3,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    d:DesignHeight="300" d:DesignWidth="400">
+    mc:Ignorable="d">
+ 
     
     <Grid x:Name="LayoutRoot" Background="White">
-        <TextBox Name="txtMNV" HorizontalAlignment="Left" Height="23" Margin="5,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
-        <Button Name="btnBrowse" Content="..." Width="20" Margin="139,4,241,275" Click="btnBrowse_Click"/>
+        <StackPanel Orientation="Horizontal">
+        <TextBox Height="23" TextWrapping="Wrap" MinWidth="100" MaxWidth="200"/>
+            <Button Content="..." Width="20" Click="btnBrowse_Click" Height="22"/>
+        </StackPanel>
     </Grid>
 </UserControl>

@@ -44,4 +44,24 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ViewMenu" nillable="true" type="tns:ViewMenu" />
+  <xs:complexType name="ArrayOfsp_EmployeeIDListResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="sp_EmployeeIDListResult" nillable="true" type="tns:sp_EmployeeIDListResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfsp_EmployeeIDListResult" nillable="true" type="tns:ArrayOfsp_EmployeeIDListResult" />
+  <xs:complexType name="sp_EmployeeIDListResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmployeeID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeStatusID" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="LastNameEN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstNameEN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="sp_EmployeeIDListResult" nillable="true" type="tns:sp_EmployeeIDListResult" />
 </xs:schema>

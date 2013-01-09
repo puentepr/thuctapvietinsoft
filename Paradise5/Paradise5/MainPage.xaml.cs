@@ -162,10 +162,9 @@ namespace Paradise5
                     if (Obj != null)//Neu co file dll thi tao ChildWindow
                     {
                         ChildWindow child = (ChildWindow)assembly.CreateInstance(asb + "." + cls);
-                        TLYC.Children.Clear();
-                        TLYC.Children.Add(child);
-                        child.Width = (double)HtmlPage.Window.Eval("screen.availWidth")-200;
-                        child.Height = (double)HtmlPage.Window.Eval("screen.availHeight")-300;
+                        child.Width = (double)HtmlPage.Window.Eval("screen.availWidth")-100;
+                        child.Height = (double)HtmlPage.Window.Eval("screen.availHeight")-100;
+                        child.Show();
                     }
                     else { MessageBox.Show("Page not exist"); }//Khong ton tai page thi bao loi
                 }
