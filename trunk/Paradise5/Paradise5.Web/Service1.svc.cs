@@ -21,17 +21,6 @@ namespace Paradise5.Web
             var i = dt.tblSC_Logins.Select(n => n);
             return i.ToList();
         }
-        //public int Checklogin(string Name, string Pass)
-        //{
-        //    int loginid = 0;
-        //    var i = dt.tblSC_Logins.Where(u => u.LoginName == Name && u.PassWord == Pass);
-        //    if (i.Count() > 0)
-        //    {
-        //        loginid = i.First().LoginID;
-        //    }
-        //    else { loginid = 0; }
-        //    return loginid;
-        //}
         public int Checklogin(string Name, string Pass)
         {
             return dt.SC_Login_CheckLogin(Name, Pass);
@@ -55,7 +44,7 @@ namespace Paradise5.Web
             var n = dt.tblSC_Logins.Single(u => u.LoginName == HttpContext.Current.Session["UserName"].ToString());
             return n.LoginID;
         }
-        public DataTable GetMenu()
+        /*public DataTable GetMenu()
         {
             var k1 = from p in dt.tblSC_Objects
                      join q in dt.tblSC_Rights on p.ObjectID equals q.ObjectID
@@ -99,7 +88,7 @@ namespace Paradise5.Web
                         p.ParentMenuID
                     };
             return Linq2Datatable.LinqToDataTable(i);
-        }
+        }*/
         public List<ViewMenu> ViewMN(string Langgue)
         {
             var i = from p in dt.ViewMenus where p.Language==Langgue && p.IsVisible==true orderby p.Priority ascending select p;
