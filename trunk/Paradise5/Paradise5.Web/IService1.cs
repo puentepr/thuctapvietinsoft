@@ -26,5 +26,7 @@ namespace Paradise5.Web
         List<ViewMenu> ViewMN(string Langgue);
         [OperationContract]
         int GetID();
+        [OperationContract]
+        List<sp_EmployeeIDListResult> FindNV(int id);
     }
 }

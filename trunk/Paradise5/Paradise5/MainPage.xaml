@@ -6,11 +6,11 @@
     xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
     xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" 
-    xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking" x:Name="Home"
+    xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking" xmlns:ControlEXT="clr-namespace:Paradise5.ControlEXT" x:Name="Home"
     x:Class="Paradise5.MainPage"
     d:DesignWidth="640" d:DesignHeight="480"
     mc:Ignorable="d">
-    
+
     <Grid x:Name="LayoutRoot" Background="DarkMagenta">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
@@ -24,7 +24,7 @@
                 <ImageBrush Stretch="None" ImageSource="Image/Back.png"/>
             </HyperlinkButton.Background>
         </HyperlinkButton>
-        <dxdo:DockLayoutManager Background="Black" Name="dockManager1" FlowDirection="RightToLeft" Grid.Row="0">
+        <dxdo:DockLayoutManager Background="Black" x:Name="dockManager1" FlowDirection="RightToLeft" Grid.Row="0">
             <dxdo:DockLayoutManager.AutoHideGroups>
                 <dxdo:AutoHideGroup DockType="Top">
                     <dxdo:LayoutPanel x:Name="paneProperties" ShowCaption="False" Caption="Login" FloatOnDoubleClick="False" MaxHeight="40" AllowActivate="False" AllowClose="False" AllowContextMenu="False" AllowDock="False" AllowDockToDocumentGroup="False" AllowDrag="False" AllowFloat="False" AllowMaximize="False" AllowMinimize="False" AllowMove="False" AllowRename="False" AllowRestore="False" AllowSizing="False" ShowCloseButton="False" ShowControlBox="False" ShowPinButton="False" Width="Auto">
@@ -45,6 +45,7 @@
             </dxdo:DockLayoutManager.AutoHideGroups>
         </dxdo:DockLayoutManager>
         <dxlc:TileLayoutControl x:Name="TLYC" Background="Transparent" Grid.ColumnSpan="3" Grid.Row="1" Margin="10,10,10,10" TileClick="TLYC_TileClick">
+            <ControlEXT:TextBoxEX HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="120"/>
             <!--<dxlc:Tile x:Name="TileTest" Header="Tile" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Image Name="image1" Stretch="None" Source="Image\Back.png"/>
             </dxlc:Tile>-->

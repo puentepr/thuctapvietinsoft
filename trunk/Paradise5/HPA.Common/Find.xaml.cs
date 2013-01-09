@@ -13,17 +13,18 @@ using Paradise5.ServiceReference1;
 using DevExpress.Xpf.Grid;
 using System.Windows.Data;
 
+
 namespace HPA.Common
 {
     public partial class Find : ChildWindow
     {
         Paradise5.ServiceReference1.Service1Client ws = new Paradise5.ServiceReference1.Service1Client();
-        List<Employee_List_Code_WithStatusResult> nv;
+        List<sp_EmployeeIDListResult> nv;
         public Find()
         {
             InitializeComponent();
             ws.FindNVCompleted += ws_FindNVCompleted;
-            ws.FindNVAsync();
+            ws.FindNVAsync(3);//Can sua cho dung quyen han
         }
 
         void ws_FindNVCompleted(object sender, Paradise5.ServiceReference1.FindNVCompletedEventArgs e)
@@ -44,7 +45,7 @@ namespace HPA.Common
 
         private void txtName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            dtgrNV.ItemsSource = from p in nv where p.FullName.Contains(txtName.Text.ToLower()) || p.FullName.Contains(txtName.Text.ToUpper()) select p;
+            dtgrNV.ItemsSource = from p in nv where p.LastNameEN.ToUpper().Contains(txtName.Text.ToUpper())|| p.FullName.ToUpper().Contains(txtName.Text.ToUpper()) ||p.EmployeeID.Contains(txtName.Text) select p;
         }
     }
 }

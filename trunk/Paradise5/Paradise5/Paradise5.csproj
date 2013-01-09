@@ -156,6 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
+    <None Include="Service References\ServiceReference1\Paradise5.ServiceReference1.sp_EmployeeIDListResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceReference1\Paradise5.ServiceReference1.tblSC_Login.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -213,12 +216,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HPA.TimeAttendance\HPA.TimeAttendance.csproj">
-      <Project>{66380216-5462-47b3-abf2-400ed486afb0}</Project>
-      <Name>HPA.TimeAttendance</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
