@@ -20,24 +20,13 @@ namespace HPA.Common
     {
         Paradise5.ServiceReference1.Service1Client ws = new Paradise5.ServiceReference1.Service1Client();
         List<sp_EmployeeIDListResult> nv;
-        int Loginid=3;
+        int Loginid=Paradise5.MainPage.LoginID;
         public Find()
         {
             InitializeComponent();
-            //Sau nay can dung de getID
-            //ws.GetIDCompleted += ws_GetIDCompleted;
-            //ws.GetIDAsync();
             ws.FindNVCompleted+=ws_FindNVCompleted;
             ws.FindNVAsync(3);//Tam the de test
         }
-
-        void ws_GetIDCompleted(object sender, GetIDCompletedEventArgs e)
-        {
-            Loginid = e.Result;
-            //ws.FindNVCompleted += ws_FindNVCompleted;
-            //ws.FindNVAsync(Loginid);
-        }
-
         void ws_FindNVCompleted(object sender, Paradise5.ServiceReference1.FindNVCompletedEventArgs e)
         {
             nv = e.Result.ToList();
