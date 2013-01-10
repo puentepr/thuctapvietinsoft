@@ -15,6 +15,7 @@ namespace Paradise5.ControlEXT
 {
     public partial class TextBoxEX : UserControl
     {
+        //public delegate string (string strAssemblyName, string strClassName, bool bIsModal, object objParamIn, out object objParamOut);
         public TextBoxEX()
         {
             InitializeComponent();
