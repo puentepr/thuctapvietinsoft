@@ -39,7 +39,7 @@ namespace Paradise5.ControlEXT
                     if (Obj != null)//Neu co file dll thi tao ChildWindow
                     {
                         ChildWindow child = (ChildWindow)assembly.CreateInstance("HPA.Common" + "." + "Find");
-                        child.Closed -= GetEMPID;
+                        child.Closed -= GetEMPID;//nhan ket qua tra ve tu childwindow
                         child.Closed += GetEMPID;
                         child.Show();
                         //if (child.DialogResult==true)

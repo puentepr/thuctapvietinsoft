@@ -20,11 +20,22 @@ namespace HPA.Common
     {
         Paradise5.ServiceReference1.Service1Client ws = new Paradise5.ServiceReference1.Service1Client();
         List<sp_EmployeeIDListResult> nv;
+        int Loginid=3;
         public Find()
         {
             InitializeComponent();
-            ws.FindNVCompleted += ws_FindNVCompleted;
-            ws.FindNVAsync(3);//Can sua cho dung quyen han
+            //Sau nay can dung de getID
+            //ws.GetIDCompleted += ws_GetIDCompleted;
+            //ws.GetIDAsync();
+            ws.FindNVCompleted+=ws_FindNVCompleted;
+            ws.FindNVAsync(3);//Tam the de test
+        }
+
+        void ws_GetIDCompleted(object sender, GetIDCompletedEventArgs e)
+        {
+            Loginid = e.Result;
+            //ws.FindNVCompleted += ws_FindNVCompleted;
+            //ws.FindNVAsync(Loginid);
         }
 
         void ws_FindNVCompleted(object sender, Paradise5.ServiceReference1.FindNVCompletedEventArgs e)
@@ -50,7 +61,7 @@ namespace HPA.Common
 
         private void GridNV_RowDoubleClick(object sender, RowDoubleClickEventArgs e)
         {
-            Paradise5.ControlEXT.TextBoxEX.EMPID = "125";
+            Paradise5.ControlEXT.TextBoxEX.EMPID=dtgrNV.GetCellValue(GridNV.FocusedRowHandle, "EmployeeID").ToString();
             this.Close();
         }
     }
