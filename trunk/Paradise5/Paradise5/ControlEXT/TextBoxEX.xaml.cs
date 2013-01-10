@@ -10,15 +10,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using Paradise5.ServiceReference1;
+
 
 namespace Paradise5.ControlEXT
 {
     public partial class TextBoxEX : UserControl
     {
-        //public delegate string (string strAssemblyName, string strClassName, bool bIsModal, object objParamIn, out object objParamOut);
+        public static string EMPID;
         public TextBoxEX()
         {
             InitializeComponent();
+        }
+        void GetEMPID(object sender, EventArgs e)
+        {
+            txtMNV.Text = EMPID;
         }
         private void btnBrowse_Click(object sender, RoutedEventArgs e)
         {
@@ -33,7 +39,12 @@ namespace Paradise5.ControlEXT
                     if (Obj != null)//Neu co file dll thi tao ChildWindow
                     {
                         ChildWindow child = (ChildWindow)assembly.CreateInstance("HPA.Common" + "." + "Find");
+                        child.Closed -= GetEMPID;
+                        child.Closed += GetEMPID;
                         child.Show();
+                        //if (child.DialogResult==true)
+                        //{ txtMNV.Text = EMPID; }
+                        //else { txtMNV.Text = "null"; }
                     }
                     else { MessageBox.Show("Page not exist"); }//Khong ton tai page thi bao loi
                 }

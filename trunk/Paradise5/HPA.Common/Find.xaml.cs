@@ -47,6 +47,12 @@ namespace HPA.Common
         {
             dtgrNV.ItemsSource = from p in nv where p.LastNameEN.ToUpper().Contains(txtName.Text.ToUpper())|| p.FullName.ToUpper().Contains(txtName.Text.ToUpper()) ||p.EmployeeID.Contains(txtName.Text) select p;
         }
+
+        private void GridNV_RowDoubleClick(object sender, RowDoubleClickEventArgs e)
+        {
+            Paradise5.ControlEXT.TextBoxEX.EMPID = "125";
+            this.Close();
+        }
     }
 }
 

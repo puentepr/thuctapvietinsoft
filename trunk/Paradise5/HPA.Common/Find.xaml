@@ -18,7 +18,7 @@
         <TextBox x:Name="txtName" Grid.Row="0" Grid.Column="1" Margin="10,5" TextChanged="txtName_TextChanged" Height="20"/>
         <dxg:GridControl x:Name="dtgrNV" AutoPopulateColumns="True" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Stretch">
             <dxg:GridControl.View>
-                <dxg:TableView x:Name="GridNV" ShowTotalSummary="True"/>
+                <dxg:TableView x:Name="GridNV" ShowTotalSummary="True" RowDoubleClick="GridNV_RowDoubleClick"/>
             </dxg:GridControl.View>
         </dxg:GridControl>
     </Grid>
