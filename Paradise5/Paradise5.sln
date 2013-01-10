@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPA.TimeAttendance", "HPA.T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPA.Common", "HPA.Common\HPA.Common.csproj", "{1E1F7283-94C1-4B16-AA4E-02C616BDCB78}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPA.BASE", "HPA.BASE\HPA.BASE.csproj", "{93A9A98A-B01A-4F9F-86BA-5079641CB7F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,10 @@ Global
 		{1E1F7283-94C1-4B16-AA4E-02C616BDCB78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E1F7283-94C1-4B16-AA4E-02C616BDCB78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E1F7283-94C1-4B16-AA4E-02C616BDCB78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93A9A98A-B01A-4F9F-86BA-5079641CB7F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93A9A98A-B01A-4F9F-86BA-5079641CB7F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93A9A98A-B01A-4F9F-86BA-5079641CB7F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93A9A98A-B01A-4F9F-86BA-5079641CB7F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

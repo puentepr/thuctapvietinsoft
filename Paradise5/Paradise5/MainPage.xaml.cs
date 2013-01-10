@@ -21,7 +21,7 @@ namespace Paradise5
     public partial class MainPage : UserControl
     {
         List<string> cha = new List<string>();
-        int LoginID=-1;
+        public static int LoginID=-1;
         List<ViewMenu> view;
         Service1Client ws = new Service1Client();
         TimeSpan ts = new TimeSpan(0, 0, 1);
