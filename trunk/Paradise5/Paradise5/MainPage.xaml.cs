@@ -86,6 +86,7 @@ namespace Paradise5
         {
             view = e.Result.ToList();
             LoadMenu("Mnu");
+            
         }
         #endregion
 
@@ -213,5 +214,15 @@ namespace Paradise5
             TLYC.Children.Clear();
         }
         #endregion
+
+        private void txtName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtName.Text="";
+        }
+
+        private void txtPass_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtPass.Password = "";
+        }
     }
 }
