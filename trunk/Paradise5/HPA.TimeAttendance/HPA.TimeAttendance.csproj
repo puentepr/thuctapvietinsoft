@@ -86,6 +86,9 @@
     <Compile Include="ModifyTAData.xaml.cs">
       <DependentUpon>ModifyTAData.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProcessTAData.xaml.cs">
+      <DependentUpon>ProcessTAData.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -96,6 +99,10 @@
     <Page Include="ModifyTAData.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ProcessTAData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
