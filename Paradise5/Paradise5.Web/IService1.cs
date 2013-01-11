@@ -38,5 +38,7 @@ namespace Paradise5.Web
         List<tblSection> ColSectionCodelist();
         [OperationContract]
         List<tblGroup> ColGroupCodelist();
+        [OperationContract]
+        List<tblSection> selectdanhsach(int depID);
     }
 }

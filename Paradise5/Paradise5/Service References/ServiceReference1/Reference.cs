@@ -1284,6 +1284,11 @@ namespace Paradise5.ServiceReference1 {
         System.IAsyncResult BeginColGroupCodelist(System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblGroup> EndColGroupCodelist(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService1/selectdanhsach", ReplyAction="http://tempuri.org/IService1/selectdanhsachResponse")]
+        System.IAsyncResult Beginselectdanhsach(int depID, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblSection> Endselectdanhsach(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1501,6 +1506,25 @@ namespace Paradise5.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class selectdanhsachCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public selectdanhsachCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblSection> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblSection>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class Service1Client : System.ServiceModel.ClientBase<Paradise5.ServiceReference1.IService1>, Paradise5.ServiceReference1.IService1 {
         
         private BeginOperationDelegate onBeginLoginDelegate;
@@ -1581,6 +1605,12 @@ namespace Paradise5.ServiceReference1 {
         
         private System.Threading.SendOrPostCallback onColGroupCodelistCompletedDelegate;
         
+        private BeginOperationDelegate onBeginselectdanhsachDelegate;
+        
+        private EndOperationDelegate onEndselectdanhsachDelegate;
+        
+        private System.Threading.SendOrPostCallback onselectdanhsachCompletedDelegate;
+        
         private BeginOperationDelegate onBeginOpenDelegate;
         
         private EndOperationDelegate onEndOpenDelegate;
@@ -1659,6 +1689,8 @@ namespace Paradise5.ServiceReference1 {
         public event System.EventHandler<ColSectionCodelistCompletedEventArgs> ColSectionCodelistCompleted;
         
         public event System.EventHandler<ColGroupCodelistCompletedEventArgs> ColGroupCodelistCompleted;
+        
+        public event System.EventHandler<selectdanhsachCompletedEventArgs> selectdanhsachCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
@@ -2288,6 +2320,52 @@ namespace Paradise5.ServiceReference1 {
             base.InvokeAsync(this.onBeginColGroupCodelistDelegate, null, this.onEndColGroupCodelistDelegate, this.onColGroupCodelistCompletedDelegate, userState);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult Paradise5.ServiceReference1.IService1.Beginselectdanhsach(int depID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.Beginselectdanhsach(depID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblSection> Paradise5.ServiceReference1.IService1.Endselectdanhsach(System.IAsyncResult result) {
+            return base.Channel.Endselectdanhsach(result);
+        }
+        
+        private System.IAsyncResult OnBeginselectdanhsach(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int depID = ((int)(inValues[0]));
+            return ((Paradise5.ServiceReference1.IService1)(this)).Beginselectdanhsach(depID, callback, asyncState);
+        }
+        
+        private object[] OnEndselectdanhsach(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblSection> retVal = ((Paradise5.ServiceReference1.IService1)(this)).Endselectdanhsach(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnselectdanhsachCompleted(object state) {
+            if ((this.selectdanhsachCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.selectdanhsachCompleted(this, new selectdanhsachCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void selectdanhsachAsync(int depID) {
+            this.selectdanhsachAsync(depID, null);
+        }
+        
+        public void selectdanhsachAsync(int depID, object userState) {
+            if ((this.onBeginselectdanhsachDelegate == null)) {
+                this.onBeginselectdanhsachDelegate = new BeginOperationDelegate(this.OnBeginselectdanhsach);
+            }
+            if ((this.onEndselectdanhsachDelegate == null)) {
+                this.onEndselectdanhsachDelegate = new EndOperationDelegate(this.OnEndselectdanhsach);
+            }
+            if ((this.onselectdanhsachCompletedDelegate == null)) {
+                this.onselectdanhsachCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnselectdanhsachCompleted);
+            }
+            base.InvokeAsync(this.onBeginselectdanhsachDelegate, new object[] {
+                        depID}, this.onEndselectdanhsachDelegate, this.onselectdanhsachCompletedDelegate, userState);
+        }
+        
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
             return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
         }
@@ -2550,6 +2628,19 @@ namespace Paradise5.ServiceReference1 {
             public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblGroup> EndColGroupCodelist(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblGroup> _result = ((System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblGroup>)(base.EndInvoke("ColGroupCodelist", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult Beginselectdanhsach(int depID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = depID;
+                System.IAsyncResult _result = base.BeginInvoke("selectdanhsach", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblSection> Endselectdanhsach(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblSection> _result = ((System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblSection>)(base.EndInvoke("selectdanhsach", _args, result)));
                 return _result;
             }
         }

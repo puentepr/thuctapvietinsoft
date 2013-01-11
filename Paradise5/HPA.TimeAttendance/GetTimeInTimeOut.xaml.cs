@@ -22,12 +22,7 @@ namespace HPA.TimeAttendance
             InitializeComponent();   
             sv.danhsachtheocagiolamCompleted+=sv_danhsachtheocagiolamCompleted;
             sv.danhsachtheocagiolamAsync();
-            
-            
-            //sv.selectdanhsachAsync(1);
-           
         }
-
         void sv_danhsachtheocagiolamCompleted(object sender, Paradise5.ServiceReference1.danhsachtheocagiolamCompletedEventArgs e)
         {
             lookup1.ItemsSource = e.Result;
