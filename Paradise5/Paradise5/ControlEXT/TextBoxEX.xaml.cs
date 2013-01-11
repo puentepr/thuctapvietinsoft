@@ -17,7 +17,7 @@ namespace Paradise5.ControlEXT
 {
     public partial class TextBoxEX : UserControl
     {
-        public static string EMPID;
+        public static string EMPID="";
         public TextBoxEX()
         {
             InitializeComponent();
