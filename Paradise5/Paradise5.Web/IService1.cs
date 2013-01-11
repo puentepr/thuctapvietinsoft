@@ -30,5 +30,13 @@ namespace Paradise5.Web
         List<sp_EmployeeIDListResult> FindNV(int id);
         [OperationContract]
         List<tblDepartment> danhsachtheocagiolam();
+        [OperationContract]
+        List<tmpCheckTimeList> CheckTimeList(DateTime from, DateTime to, int depID, int secID, int groupId, string empID, bool nomal, bool noIn, bool noOut, bool noInNoOut, bool wordOnHolyday, bool leave, bool holyday, int logID);
+        [OperationContract]
+        List<tblDepartment> ColDepartmentCodelist();
+        [OperationContract]
+        List<tblSection> ColSectionCodelist();
+        [OperationContract]
+        List<tblGroup> ColGroupCodelist();
     }
 }

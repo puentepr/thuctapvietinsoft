@@ -83,12 +83,19 @@
     <Compile Include="GetTimeInTimeOut.xaml.cs">
       <DependentUpon>GetTimeInTimeOut.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ModifyTAData.xaml.cs">
+      <DependentUpon>ModifyTAData.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="GetTimeInTimeOut.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModifyTAData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

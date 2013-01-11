@@ -114,4 +114,67 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="CheckTimeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="from" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="to" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="depID" type="xs:int" />
+        <xs:element minOccurs="0" name="secID" type="xs:int" />
+        <xs:element minOccurs="0" name="groupId" type="xs:int" />
+        <xs:element minOccurs="0" name="empID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nomal" type="xs:boolean" />
+        <xs:element minOccurs="0" name="noIn" type="xs:boolean" />
+        <xs:element minOccurs="0" name="noOut" type="xs:boolean" />
+        <xs:element minOccurs="0" name="noInNoOut" type="xs:boolean" />
+        <xs:element minOccurs="0" name="wordOnHolyday" type="xs:boolean" />
+        <xs:element minOccurs="0" name="leave" type="xs:boolean" />
+        <xs:element minOccurs="0" name="holyday" type="xs:boolean" />
+        <xs:element minOccurs="0" name="logID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckTimeListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Paradise5.Web" minOccurs="0" name="CheckTimeListResult" nillable="true" type="q5:ArrayOftmpCheckTimeList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ColDepartmentCodelist">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ColDepartmentCodelistResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Paradise5.Web" minOccurs="0" name="ColDepartmentCodelistResult" nillable="true" type="q6:ArrayOftblDepartment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ColSectionCodelist">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ColSectionCodelistResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Paradise5.Web" minOccurs="0" name="ColSectionCodelistResult" nillable="true" type="q7:ArrayOftblSection" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ColGroupCodelist">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ColGroupCodelistResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Paradise5.Web" minOccurs="0" name="ColGroupCodelistResult" nillable="true" type="q8:ArrayOftblGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

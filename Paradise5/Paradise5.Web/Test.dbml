@@ -184,6 +184,67 @@
       <Column Name="Foreigner" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="JapaneseName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="VietnameseName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="tblDepartment_tblSection" Member="tblSections" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="tblSection" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblDepartment" Member="tblDepartment1s">
+    <Type Name="tblDepartment1">
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DivisionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentCode" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Foreigner" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JapaneseName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="VietnameseName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="tblDepartment1_tblSection" Member="tblSections" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="tblSection" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblGroup" Member="tblGroups">
+    <Type Name="tblGroup">
+      <Column Name="GroupID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SectionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GroupCode" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="GroupName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="JapaneseName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="VietnameseName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Foreigner" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblSection_tblGroup" Member="tblSection" ThisKey="SectionID" OtherKey="SectionID" Type="tblSection" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSection" Member="tblSections">
+    <Type Name="tblSection">
+      <Column Name="SectionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SectionCode" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="SectionName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="JapaneseName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="VietnameseName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Foreigner" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblSection_tblGroup" Member="tblGroups" ThisKey="SectionID" OtherKey="SectionID" Type="tblGroup" />
+      <Association Name="tblDepartment_tblSection" Member="tblDepartment" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="tblDepartment" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblDepartment1_tblSection" Member="tblDepartment1" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="tblDepartment1" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tmpCheckTimeList" Member="tmpCheckTimeLists">
+    <Type Name="tmpCheckTimeList" Id="ID1">
+      <Column Name="EmployeeID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DepartmentCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="SectionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ContructionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShiftCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="AttDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="HolidayStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LeaveStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LeaveCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AttStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AttStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AttEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AttEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TimeStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Approve" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.SC_Login_CheckLogin" Method="SC_Login_CheckLogin">
@@ -205,5 +266,22 @@
       <Column Name="Email" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="FullName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.TA_CheckTime_List" Method="TA_CheckTime_List">
+    <Parameter Name="p_FromDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="p_ToDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="DepartmentID" Parameter="departmentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SectionID" Parameter="sectionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="groupID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Normal" Parameter="normal" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="NoIn" Parameter="noIn" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="NoOut" Parameter="noOut" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="NoInNoOut" Parameter="noInNoOut" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="WorkOnHoliday" Parameter="workOnHoliday" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Leave" Parameter="leave" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Holiday" Parameter="holiday" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="LoginID" Parameter="loginID" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID1" />
   </Function>
 </Database>
