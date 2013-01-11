@@ -28,5 +28,7 @@ namespace Paradise5.Web
         int GetID();
         [OperationContract]
         List<sp_EmployeeIDListResult> FindNV(int id);
+        [OperationContract]
+        List<tblDepartment> danhsachtheocagiolam();
     }
 }

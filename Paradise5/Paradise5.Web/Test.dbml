@@ -175,6 +175,17 @@
       <Column Name="TaxRegPlace" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.tblDepartment" Member="tblDepartments">
+    <Type Name="tblDepartment">
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DivisionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentCode" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Foreigner" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JapaneseName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="VietnameseName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.SC_Login_CheckLogin" Method="SC_Login_CheckLogin">
     <Parameter Name="LoginName" Parameter="loginName" Type="System.String" DbType="VarChar(20)" />
     <Parameter Name="PassWord" Parameter="passWord" Type="System.String" DbType="VarChar(20)" />

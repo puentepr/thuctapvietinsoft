@@ -1,9 +1,5 @@
-﻿<controls:ChildWindow
-           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
-           xmlns:local="clr-namespace:HPA.TimeAttendance" xmlns:ControlEXT="clr-namespace:Paradise5.ControlEXT;assembly=Paradise5" x:Class="HPA.TimeAttendance.GetTimeInTimeOut"
-           Width="400" Height="300" 
+<sdk:ChildWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" xmlns:local="clr-namespace:HPA.TimeAttendance" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" x:Class="HPA.TimeAttendance.GetTimeInTimeOut"
+           Width="1000" Height="550" 
            Title="GetTimeInTimeOut">
     <Grid x:Name="LayoutRoot" Margin="2">
         <Grid.RowDefinitions>
@@ -11,7 +7,24 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
-        <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+        <Button x:Name="btnFWClose" Content="Đóng" Click="btnFWClose_Click_1"  Width="75" Height="25" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="btnProcess" Content="Xử lý" Click="btnProcess_Click_1"  Width="75" Height="25" HorizontalAlignment="Left" Margin="0,10,903,2" Grid.Row="1" />
+        <sdk:Label HorizontalAlignment="Left" Height="28" Margin="28,36,0,0" VerticalAlignment="Top" Width="50">
+            <sdk:Label Height="25" Width="60" Content="Từ ngày:" FontSize="13"/>
+        </sdk:Label>
+        <sdk:DatePicker HorizontalAlignment="Left" Height="25" Margin="284,36,0,0" VerticalAlignment="Top" Width="120" DisplayDate="2013,1,9" DisplayDateStart="2013,1,9" Background="AliceBlue" FontSize="14" Text="10/1/2013"/>
+        <sdk:DatePicker HorizontalAlignment="Left" Height="25" Margin="90,36,0,0" VerticalAlignment="Top" Width="120" DisplayDate="2013,1,1" DisplayDateStart="2013,1,9" Background="AliceBlue" FontSize="14" Text="9/1/2013"/>
+        <sdk:Label HorizontalAlignment="Left" Height="35" Margin="26,89,0,0" VerticalAlignment="Top" Width="100" Content="Áp dụng cho&#xA;Phòng/TT/CN:" FontSize="13"/>
+        <sdk:Label HorizontalAlignment="Left" Height="25" Margin="28,143,0,0" VerticalAlignment="Top" Width="100" Content="P thuộc TT/BP:" FontSize="13"/>
+        <sdk:Label HorizontalAlignment="Left" Height="25" Margin="31,184,0,0" VerticalAlignment="Top" Width="100" Content="Tổ:" FontSize="13"/>
+        <sdk:Label HorizontalAlignment="Left" Height="25" Margin="30,225,0,0" VerticalAlignment="Top" Width="99" Content="Mã Nhân Viên:" FontSize="13"/>
+        <TextBox x:Name="txt1" HorizontalAlignment="Left" Height="25" Margin="134,224,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.396,-0.277"/>
+        <TextBox x:Name="txt2" HorizontalAlignment="Left" Height="25" Margin="222,224,0,0" VerticalAlignment="Top" Width="162" IsReadOnly="True"/>
+        <CheckBox x:Name="checked" HorizontalAlignment="Left" Margin="38,278,0,0" VerticalAlignment="Top" Checked="checked_Checked_1" RenderTransformOrigin="0.505,1.696"/>
+        <sdk:Label Height="25" Width="50" Content="Ghi đè" Margin="63,271,865,171" RenderTransformOrigin="0.475,0.757" FontSize="13"/>
+        <sdk:Label Content="Đến ngày:" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="65" Margin="215,38,0,0" FontSize="13"/>
+        <dxg:LookUpEdit HorizontalAlignment="Left" Margin="134,104,0,0" VerticalAlignment="Top" Width="150"/>
+        <dxg:LookUpEdit HorizontalAlignment="Left" Margin="136,170,0,0" VerticalAlignment="Top" Width="150"/>
+        <dxg:LookUpEdit HorizontalAlignment="Left" Height="10" Margin="134,143,0,0" VerticalAlignment="Top" Width="150"/>
     </Grid>
-</controls:ChildWindow>
+</sdk:ChildWindow>
