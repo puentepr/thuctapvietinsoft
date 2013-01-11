@@ -9,6 +9,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paradise5.Web", "Paradise5.Web\Paradise5.Web.csproj", "{85C2A511-113C-4B41-A223-234A2CB250BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPA.TimeAttendance", "HPA.TimeAttendance\HPA.TimeAttendance.csproj", "{66380216-5462-47B3-ABF2-400ED486AFB0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{85C2A511-113C-4B41-A223-234A2CB250BF} = {85C2A511-113C-4B41-A223-234A2CB250BF}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPA.Common", "HPA.Common\HPA.Common.csproj", "{1E1F7283-94C1-4B16-AA4E-02C616BDCB78}"
 EndProject
