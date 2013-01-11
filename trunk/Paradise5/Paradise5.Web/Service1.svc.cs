@@ -7,6 +7,7 @@ using System.Text;
 using System.ServiceModel.Activation;
 using System.Web;
 using System.Data;
+using DevExpress.Xpf.Grid;
 namespace Paradise5.Web
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
