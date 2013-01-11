@@ -8,6 +8,6 @@
 
 
     <Grid x:Name="LayoutRoot" Background="White">
-        <dxe:ButtonEdit x:Name="btnEmployeeID" VerticalAlignment="Top" Height="32" DefaultButtonClick="btnEmployeeID_DefaultButtonClick" Margin="0,0,-143,0"/>
+        <dxe:ButtonEdit x:Name="btnEmployeeID" VerticalAlignment="Top" Height="22" DefaultButtonClick="btnEmployeeID_DefaultButtonClick" Margin="0,0,-83,0"/>
     </Grid>
 </UserControl>
