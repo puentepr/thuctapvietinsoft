@@ -1,0 +1,11 @@
+C:\Users\Quang Thang\Desktop\Thuc Tap\Code\HPA.CommonForm\bin\Debug\HPA.CommonForm.dll
+C:\Users\Quang Thang\Desktop\Thuc Tap\Code\HPA.CommonForm\bin\Debug\HPA.CommonForm.pdb
+C:\Users\Quang Thang\Desktop\Thuc Tap\Code\HPA.CommonForm\bin\Debug\HPA.Common.dll
+C:\Users\Quang Thang\Desktop\Thuc Tap\Code\HPA.CommonForm\bin\Debug\HPA.SQL.dll
+C:\Users\Quang Thang\Desktop\Thuc Tap\Code\HPA.CommonForm\bin\Debug\HPA.Common.pdb
+C:\Users\Quang Thang\Desktop\Thuc Tap\Code\HPA.CommonForm\bin\Debug\HPA.SQL.pdb
+C:\Users\Quang Thang\Desktop\Thuc Tap\Code\HPA.CommonForm\obj\Debug\HPA.CommonForm.csprojResolveAssemblyReference.cache
+C:\Users\Quang Thang\Desktop\Thuc Tap\Code\HPA.CommonForm\obj\Debug\HPA.CommonForm.BaseForm.resources
+C:\Users\Quang Thang\Desktop\Thuc Tap\Code\HPA.CommonForm\obj\Debug\HPA.CommonForm.csproj.GenerateResource.Cache
+C:\Users\Quang Thang\Desktop\Thuc Tap\Code\HPA.CommonForm\obj\Debug\HPA.CommonForm.dll
+C:\Users\Quang Thang\Desktop\Thuc Tap\Code\HPA.CommonForm\obj\Debug\HPA.CommonForm.pdb
