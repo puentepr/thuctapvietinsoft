@@ -44,10 +44,10 @@
         <elementListCompartment Id="c2b47bbd-015b-4a8f-91a7-b32c7d9ef81b" absoluteBounds="3.7649999999999997, 6.96, 1.9700000000000002, 20.056437174479164" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="3d67a3fc-d330-43ba-9e78-5b577c609be2" absoluteBounds="7.75, 1.75, 2, 2.1554996744791666">
+    <classShape Id="3d67a3fc-d330-43ba-9e78-5b577c609be2" absoluteBounds="1, 9.75, 2, 2.1554996744791666">
       <DataClassMoniker Name="/TestDataContext/tblDepartment" />
       <nestedChildShapes>
-        <elementListCompartment Id="ad643c1d-9176-414e-bbff-bbcfdde43ed0" absoluteBounds="7.765, 2.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="ad643c1d-9176-414e-bbff-bbcfdde43ed0" absoluteBounds="1.0149999999999997, 10.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
