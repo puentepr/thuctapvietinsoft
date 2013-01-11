@@ -159,6 +159,9 @@
     <None Include="Service References\ServiceReference1\Paradise5.ServiceReference1.sp_EmployeeIDListResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ServiceReference1\Paradise5.ServiceReference1.tblDepartment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceReference1\Paradise5.ServiceReference1.tblSC_Login.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

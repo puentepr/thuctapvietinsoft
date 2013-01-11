@@ -64,4 +64,22 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="sp_EmployeeIDListResult" nillable="true" type="tns:sp_EmployeeIDListResult" />
+  <xs:complexType name="ArrayOftblDepartment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tblDepartment" nillable="true" type="tns:tblDepartment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftblDepartment" nillable="true" type="tns:ArrayOftblDepartment" />
+  <xs:complexType name="tblDepartment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DepartmentID" type="xs:int" />
+      <xs:element minOccurs="0" name="DivisionID" type="xs:int" />
+      <xs:element minOccurs="0" name="DepartmentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Foreigner" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="JapaneseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VietnameseName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tblDepartment" nillable="true" type="tns:tblDepartment" />
 </xs:schema>

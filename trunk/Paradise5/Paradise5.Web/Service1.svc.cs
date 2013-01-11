@@ -99,5 +99,11 @@ namespace Paradise5.Web
         {
             return dt.sp_EmployeeIDList("-1",id).ToList();
         }
+        public List<tblDepartment> danhsachtheocagiolam()
+        {
+            var dep = from p1 in dt.tblDepartments
+                      select p1;
+            return dep.ToList();
+        }
     }
 }
