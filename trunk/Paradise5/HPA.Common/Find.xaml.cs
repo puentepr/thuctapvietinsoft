@@ -49,10 +49,7 @@ namespace HPA.Common
 
         private void GridNV_RowDoubleClick(object sender, RowDoubleClickEventArgs e)
         {
-            Paradise5.ControlEXT.TextBoxEX.EMPID=dtgrNV.GetCellValue(GridNV.FocusedRowHandle, "EmployeeID").ToString();
-            Paradise5.ControlEXT.TextBoxEX.lname = dtgrNV.GetCellValue(GridNV.FocusedRowHandle, "LastName").ToString();
-            Paradise5.ControlEXT.TextBoxEX.fname = dtgrNV.GetCellValue(GridNV.FocusedRowHandle, "FirstName").ToString();
-            Paradise5.ControlEXT.TextBoxEX.fullname = dtgrNV.GetCellValue(GridNV.FocusedRowHandle, "FullName").ToString();
+            Paradise5.ControlEXT.TextBoxEX.emp=(sp_EmployeeIDListResult) dtgrNV.GetRow(GridNV.FocusedRowHandle);
             this.Close();
         }
     }
