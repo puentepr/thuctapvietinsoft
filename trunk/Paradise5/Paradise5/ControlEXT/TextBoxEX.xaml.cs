@@ -24,9 +24,9 @@ namespace Paradise5.ControlEXT
         }
         void GetEMPID(object sender, EventArgs e)
         {
-            txtMNV.Text = EMPID;
+            btnEmployeeID.EditValue = EMPID;
         }
-        private void btnBrowse_Click(object sender, RoutedEventArgs e)
+        private void btnEmployeeID_DefaultButtonClick(object sender, RoutedEventArgs e)
         {
             var WbClnt = new WebClient();//Tao WebClient
             WbClnt.OpenReadCompleted += (a, b) =>
