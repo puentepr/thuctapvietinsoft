@@ -80,6 +80,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HPA.TimeAttendance\HPA.TimeAttendance.csproj">
+      <Project>{66380216-5462-47b3-abf2-400ed486afb0}</Project>
+      <Name>HPA.TimeAttendance</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Paradise5\Paradise5.csproj">
       <Project>{977968f1-7615-423a-aaa0-0ae0c0eaf7b1}</Project>
       <Name>Paradise5</Name>
