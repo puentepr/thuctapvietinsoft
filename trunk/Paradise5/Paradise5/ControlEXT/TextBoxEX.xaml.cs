@@ -18,14 +18,17 @@ namespace Paradise5.ControlEXT
     public partial class TextBoxEX : UserControl
     {
         public static string EMPID="";
+        public static string fname = "";
+        public static string lname = "";
+        public static string fullname = "";
         public TextBoxEX()
         {
             InitializeComponent();
+            string id = EMPID;
         }
         void GetEMPID(object sender, EventArgs e)
         {
-            btnEmployeeID.EditValue = EMPID;
-            this.Tag = EMPID;
+            btnEmployeeID.EditValue = GetID();
         }
         private void btnEmployeeID_DefaultButtonClick(object sender, RoutedEventArgs e)
         {
@@ -52,6 +55,22 @@ namespace Paradise5.ControlEXT
                 else { MessageBox.Show("Page not exist"); }//Khong ton tai file dll thi bao loi
             };
             WbClnt.OpenReadAsync(new Uri("http://localhost:10511/Control/" + "HPA.Common" + ".dll", UriKind.Absolute));
+        }
+        public string GetID()
+        {
+            return EMPID;
+        }
+        public string GetFirstName()
+        {
+            return fname;
+        }
+        public string GetLastName()
+        {
+            return lname;
+        }
+        public string GetFullName()
+        {
+            return fullname;
         }
     }
 }
