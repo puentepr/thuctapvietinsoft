@@ -1,0 +1,7 @@
+C:\Users\Quang Thang\Desktop\Thuc Tap\Code\HPA.Common\bin\Debug\HPA.Common.dll
+C:\Users\Quang Thang\Desktop\Thuc Tap\Code\HPA.Common\bin\Debug\HPA.Common.pdb
+C:\Users\Quang Thang\Desktop\Thuc Tap\Code\HPA.Common\bin\Debug\HPA.SQL.dll
+C:\Users\Quang Thang\Desktop\Thuc Tap\Code\HPA.Common\bin\Debug\HPA.SQL.pdb
+C:\Users\Quang Thang\Desktop\Thuc Tap\Code\HPA.Common\obj\Debug\HPA.Common.csprojResolveAssemblyReference.cache
+C:\Users\Quang Thang\Desktop\Thuc Tap\Code\HPA.Common\obj\Debug\HPA.Common.dll
+C:\Users\Quang Thang\Desktop\Thuc Tap\Code\HPA.Common\obj\Debug\HPA.Common.pdb

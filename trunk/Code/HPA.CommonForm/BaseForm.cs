@@ -11,6 +11,7 @@ namespace HPA.CommonForm
 {
     public partial class BaseForm : DevExpress.XtraEditors.XtraForm
     {
+        
         bool kt = false;
         int Y, X;
         public EzSqlCollection.EzSql2 DBEngine = null;
