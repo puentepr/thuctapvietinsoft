@@ -17,18 +17,14 @@ namespace Paradise5.ControlEXT
 {
     public partial class TextBoxEX : UserControl
     {
-        public static string EMPID="";
-        public static string fname = "";
-        public static string lname = "";
-        public static string fullname = "";
+        public static sp_EmployeeIDListResult emp= new sp_EmployeeIDListResult();
         public TextBoxEX()
         {
             InitializeComponent();
-            string id = EMPID;
         }
         void GetEMPID(object sender, EventArgs e)
         {
-            btnEmployeeID.EditValue = GetID();
+            btnEmployeeID.EditValue = GetID().EmployeeID;
         }
         private void btnEmployeeID_DefaultButtonClick(object sender, RoutedEventArgs e)
         {
@@ -56,21 +52,10 @@ namespace Paradise5.ControlEXT
             };
             WbClnt.OpenReadAsync(new Uri("http://localhost:10511/Control/" + "HPA.Common" + ".dll", UriKind.Absolute));
         }
-        public string GetID()
+        public sp_EmployeeIDListResult GetID()
         {
-            return EMPID;
+             return emp; 
         }
-        public string GetFirstName()
-        {
-            return fname;
-        }
-        public string GetLastName()
-        {
-            return lname;
-        }
-        public string GetFullName()
-        {
-            return fullname;
-        }
+        
     }
 }
