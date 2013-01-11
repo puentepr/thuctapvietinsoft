@@ -45,6 +45,7 @@
             </dxdo:DockLayoutManager.AutoHideGroups>
         </dxdo:DockLayoutManager>
         <dxlc:TileLayoutControl x:Name="TLYC" Background="Transparent" Grid.ColumnSpan="3" Grid.Row="1" Margin="10,10,10,10" TileClick="TLYC_TileClick" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ControlEXT:TextBoxEX Name="TxtTest" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="0"/>
             <!--<dxlc:Tile x:Name="TileTest" Header="Tile" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Image Name="image1" Stretch="None" Source="Image\Back.png"/>-->
             <!--</dxlc:Tile>-->

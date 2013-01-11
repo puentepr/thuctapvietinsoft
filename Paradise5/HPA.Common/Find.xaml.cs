@@ -42,7 +42,6 @@ namespace HPA.Common
             });
             dtgrNV.ItemsSource = nv;
         }
-
         private void txtName_TextChanged(object sender, TextChangedEventArgs e)
         {
             dtgrNV.ItemsSource = from p in nv where p.LastNameEN.ToUpper().Contains(txtName.Text.ToUpper())|| p.FullName.ToUpper().Contains(txtName.Text.ToUpper()) ||p.EmployeeID.Contains(txtName.Text) select p;
@@ -51,6 +50,9 @@ namespace HPA.Common
         private void GridNV_RowDoubleClick(object sender, RowDoubleClickEventArgs e)
         {
             Paradise5.ControlEXT.TextBoxEX.EMPID=dtgrNV.GetCellValue(GridNV.FocusedRowHandle, "EmployeeID").ToString();
+            Paradise5.ControlEXT.TextBoxEX.lname = dtgrNV.GetCellValue(GridNV.FocusedRowHandle, "LastName").ToString();
+            Paradise5.ControlEXT.TextBoxEX.fname = dtgrNV.GetCellValue(GridNV.FocusedRowHandle, "FirstName").ToString();
+            Paradise5.ControlEXT.TextBoxEX.fullname = dtgrNV.GetCellValue(GridNV.FocusedRowHandle, "FullName").ToString();
             this.Close();
         }
     }
