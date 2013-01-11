@@ -544,6 +544,8 @@ namespace Paradise5.ServiceReference1 {
         
         private string VietnameseNameField;
         
+        private System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblSection> tblSectionsField;
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int DepartmentID {
             get {
@@ -635,6 +637,559 @@ namespace Paradise5.ServiceReference1 {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblSection> tblSections {
+            get {
+                return this.tblSectionsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tblSectionsField, value) != true)) {
+                    this.tblSectionsField = value;
+                    this.RaisePropertyChanged("tblSections");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tblSection", Namespace="http://schemas.datacontract.org/2004/07/Paradise5.Web")]
+    public partial class tblSection : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int SectionIDField;
+        
+        private int DepartmentIDField;
+        
+        private string SectionCodeField;
+        
+        private string SectionNameField;
+        
+        private string JapaneseNameField;
+        
+        private string VietnameseNameField;
+        
+        private System.Nullable<int> ForeignerField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblGroup> tblGroupsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SectionID {
+            get {
+                return this.SectionIDField;
+            }
+            set {
+                if ((this.SectionIDField.Equals(value) != true)) {
+                    this.SectionIDField = value;
+                    this.RaisePropertyChanged("SectionID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int DepartmentID {
+            get {
+                return this.DepartmentIDField;
+            }
+            set {
+                if ((this.DepartmentIDField.Equals(value) != true)) {
+                    this.DepartmentIDField = value;
+                    this.RaisePropertyChanged("DepartmentID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string SectionCode {
+            get {
+                return this.SectionCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SectionCodeField, value) != true)) {
+                    this.SectionCodeField = value;
+                    this.RaisePropertyChanged("SectionCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public string SectionName {
+            get {
+                return this.SectionNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SectionNameField, value) != true)) {
+                    this.SectionNameField = value;
+                    this.RaisePropertyChanged("SectionName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public string JapaneseName {
+            get {
+                return this.JapaneseNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.JapaneseNameField, value) != true)) {
+                    this.JapaneseNameField = value;
+                    this.RaisePropertyChanged("JapaneseName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public string VietnameseName {
+            get {
+                return this.VietnameseNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VietnameseNameField, value) != true)) {
+                    this.VietnameseNameField = value;
+                    this.RaisePropertyChanged("VietnameseName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public System.Nullable<int> Foreigner {
+            get {
+                return this.ForeignerField;
+            }
+            set {
+                if ((this.ForeignerField.Equals(value) != true)) {
+                    this.ForeignerField = value;
+                    this.RaisePropertyChanged("Foreigner");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblGroup> tblGroups {
+            get {
+                return this.tblGroupsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tblGroupsField, value) != true)) {
+                    this.tblGroupsField = value;
+                    this.RaisePropertyChanged("tblGroups");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tblGroup", Namespace="http://schemas.datacontract.org/2004/07/Paradise5.Web")]
+    public partial class tblGroup : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int GroupIDField;
+        
+        private System.Nullable<int> SectionIDField;
+        
+        private string GroupCodeField;
+        
+        private string GroupNameField;
+        
+        private string JapaneseNameField;
+        
+        private string VietnameseNameField;
+        
+        private System.Nullable<int> ForeignerField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int GroupID {
+            get {
+                return this.GroupIDField;
+            }
+            set {
+                if ((this.GroupIDField.Equals(value) != true)) {
+                    this.GroupIDField = value;
+                    this.RaisePropertyChanged("GroupID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> SectionID {
+            get {
+                return this.SectionIDField;
+            }
+            set {
+                if ((this.SectionIDField.Equals(value) != true)) {
+                    this.SectionIDField = value;
+                    this.RaisePropertyChanged("SectionID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string GroupCode {
+            get {
+                return this.GroupCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GroupCodeField, value) != true)) {
+                    this.GroupCodeField = value;
+                    this.RaisePropertyChanged("GroupCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public string GroupName {
+            get {
+                return this.GroupNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GroupNameField, value) != true)) {
+                    this.GroupNameField = value;
+                    this.RaisePropertyChanged("GroupName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public string JapaneseName {
+            get {
+                return this.JapaneseNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.JapaneseNameField, value) != true)) {
+                    this.JapaneseNameField = value;
+                    this.RaisePropertyChanged("JapaneseName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public string VietnameseName {
+            get {
+                return this.VietnameseNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VietnameseNameField, value) != true)) {
+                    this.VietnameseNameField = value;
+                    this.RaisePropertyChanged("VietnameseName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public System.Nullable<int> Foreigner {
+            get {
+                return this.ForeignerField;
+            }
+            set {
+                if ((this.ForeignerField.Equals(value) != true)) {
+                    this.ForeignerField = value;
+                    this.RaisePropertyChanged("Foreigner");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tmpCheckTimeList", Namespace="http://schemas.datacontract.org/2004/07/Paradise5.Web")]
+    public partial class tmpCheckTimeList : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string EmployeeIDField;
+        
+        private string FullNameField;
+        
+        private string DepartmentCodeField;
+        
+        private System.Nullable<int> SectionIDField;
+        
+        private System.Nullable<int> GroupIDField;
+        
+        private System.Nullable<int> ContructionIDField;
+        
+        private string ShiftCodeField;
+        
+        private System.DateTime AttDateField;
+        
+        private int HolidayStatusField;
+        
+        private System.Nullable<int> LeaveStatusField;
+        
+        private string LeaveCodeField;
+        
+        private string DescriptionField;
+        
+        private System.Nullable<System.DateTime> AttStartField;
+        
+        private System.Nullable<System.DateTime> AttStartDateField;
+        
+        private System.Nullable<System.DateTime> AttEndDateField;
+        
+        private System.Nullable<System.DateTime> AttEndField;
+        
+        private System.Nullable<int> TimeStatusField;
+        
+        private System.Nullable<bool> ApproveField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmployeeID {
+            get {
+                return this.EmployeeIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmployeeIDField, value) != true)) {
+                    this.EmployeeIDField = value;
+                    this.RaisePropertyChanged("EmployeeID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FullName {
+            get {
+                return this.FullNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FullNameField, value) != true)) {
+                    this.FullNameField = value;
+                    this.RaisePropertyChanged("FullName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string DepartmentCode {
+            get {
+                return this.DepartmentCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DepartmentCodeField, value) != true)) {
+                    this.DepartmentCodeField = value;
+                    this.RaisePropertyChanged("DepartmentCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<int> SectionID {
+            get {
+                return this.SectionIDField;
+            }
+            set {
+                if ((this.SectionIDField.Equals(value) != true)) {
+                    this.SectionIDField = value;
+                    this.RaisePropertyChanged("SectionID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public System.Nullable<int> GroupID {
+            get {
+                return this.GroupIDField;
+            }
+            set {
+                if ((this.GroupIDField.Equals(value) != true)) {
+                    this.GroupIDField = value;
+                    this.RaisePropertyChanged("GroupID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public System.Nullable<int> ContructionID {
+            get {
+                return this.ContructionIDField;
+            }
+            set {
+                if ((this.ContructionIDField.Equals(value) != true)) {
+                    this.ContructionIDField = value;
+                    this.RaisePropertyChanged("ContructionID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public string ShiftCode {
+            get {
+                return this.ShiftCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShiftCodeField, value) != true)) {
+                    this.ShiftCodeField = value;
+                    this.RaisePropertyChanged("ShiftCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        public System.DateTime AttDate {
+            get {
+                return this.AttDateField;
+            }
+            set {
+                if ((this.AttDateField.Equals(value) != true)) {
+                    this.AttDateField = value;
+                    this.RaisePropertyChanged("AttDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+        public int HolidayStatus {
+            get {
+                return this.HolidayStatusField;
+            }
+            set {
+                if ((this.HolidayStatusField.Equals(value) != true)) {
+                    this.HolidayStatusField = value;
+                    this.RaisePropertyChanged("HolidayStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+        public System.Nullable<int> LeaveStatus {
+            get {
+                return this.LeaveStatusField;
+            }
+            set {
+                if ((this.LeaveStatusField.Equals(value) != true)) {
+                    this.LeaveStatusField = value;
+                    this.RaisePropertyChanged("LeaveStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+        public string LeaveCode {
+            get {
+                return this.LeaveCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LeaveCodeField, value) != true)) {
+                    this.LeaveCodeField = value;
+                    this.RaisePropertyChanged("LeaveCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+        public System.Nullable<System.DateTime> AttStart {
+            get {
+                return this.AttStartField;
+            }
+            set {
+                if ((this.AttStartField.Equals(value) != true)) {
+                    this.AttStartField = value;
+                    this.RaisePropertyChanged("AttStart");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=13)]
+        public System.Nullable<System.DateTime> AttStartDate {
+            get {
+                return this.AttStartDateField;
+            }
+            set {
+                if ((this.AttStartDateField.Equals(value) != true)) {
+                    this.AttStartDateField = value;
+                    this.RaisePropertyChanged("AttStartDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
+        public System.Nullable<System.DateTime> AttEndDate {
+            get {
+                return this.AttEndDateField;
+            }
+            set {
+                if ((this.AttEndDateField.Equals(value) != true)) {
+                    this.AttEndDateField = value;
+                    this.RaisePropertyChanged("AttEndDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
+        public System.Nullable<System.DateTime> AttEnd {
+            get {
+                return this.AttEndField;
+            }
+            set {
+                if ((this.AttEndField.Equals(value) != true)) {
+                    this.AttEndField = value;
+                    this.RaisePropertyChanged("AttEnd");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=16)]
+        public System.Nullable<int> TimeStatus {
+            get {
+                return this.TimeStatusField;
+            }
+            set {
+                if ((this.TimeStatusField.Equals(value) != true)) {
+                    this.TimeStatusField = value;
+                    this.RaisePropertyChanged("TimeStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=17)]
+        public System.Nullable<bool> Approve {
+            get {
+                return this.ApproveField;
+            }
+            set {
+                if ((this.ApproveField.Equals(value) != true)) {
+                    this.ApproveField = value;
+                    this.RaisePropertyChanged("Approve");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -693,6 +1248,42 @@ namespace Paradise5.ServiceReference1 {
         System.IAsyncResult Begindanhsachtheocagiolam(System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblDepartment> Enddanhsachtheocagiolam(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService1/CheckTimeList", ReplyAction="http://tempuri.org/IService1/CheckTimeListResponse")]
+        System.IAsyncResult BeginCheckTimeList(
+                    System.DateTime from, 
+                    System.DateTime to, 
+                    int depID, 
+                    int secID, 
+                    int groupId, 
+                    string empID, 
+                    bool nomal, 
+                    bool noIn, 
+                    bool noOut, 
+                    bool noInNoOut, 
+                    bool wordOnHolyday, 
+                    bool leave, 
+                    bool holyday, 
+                    int logID, 
+                    System.AsyncCallback callback, 
+                    object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tmpCheckTimeList> EndCheckTimeList(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService1/ColDepartmentCodelist", ReplyAction="http://tempuri.org/IService1/ColDepartmentCodelistResponse")]
+        System.IAsyncResult BeginColDepartmentCodelist(System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblDepartment> EndColDepartmentCodelist(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService1/ColSectionCodelist", ReplyAction="http://tempuri.org/IService1/ColSectionCodelistResponse")]
+        System.IAsyncResult BeginColSectionCodelist(System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblSection> EndColSectionCodelist(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService1/ColGroupCodelist", ReplyAction="http://tempuri.org/IService1/ColGroupCodelistResponse")]
+        System.IAsyncResult BeginColGroupCodelist(System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblGroup> EndColGroupCodelist(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -834,6 +1425,82 @@ namespace Paradise5.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CheckTimeListCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CheckTimeListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tmpCheckTimeList> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tmpCheckTimeList>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ColDepartmentCodelistCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ColDepartmentCodelistCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblDepartment> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblDepartment>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ColSectionCodelistCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ColSectionCodelistCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblSection> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblSection>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ColGroupCodelistCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ColGroupCodelistCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblGroup> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblGroup>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class Service1Client : System.ServiceModel.ClientBase<Paradise5.ServiceReference1.IService1>, Paradise5.ServiceReference1.IService1 {
         
         private BeginOperationDelegate onBeginLoginDelegate;
@@ -889,6 +1556,30 @@ namespace Paradise5.ServiceReference1 {
         private EndOperationDelegate onEnddanhsachtheocagiolamDelegate;
         
         private System.Threading.SendOrPostCallback ondanhsachtheocagiolamCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCheckTimeListDelegate;
+        
+        private EndOperationDelegate onEndCheckTimeListDelegate;
+        
+        private System.Threading.SendOrPostCallback onCheckTimeListCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginColDepartmentCodelistDelegate;
+        
+        private EndOperationDelegate onEndColDepartmentCodelistDelegate;
+        
+        private System.Threading.SendOrPostCallback onColDepartmentCodelistCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginColSectionCodelistDelegate;
+        
+        private EndOperationDelegate onEndColSectionCodelistDelegate;
+        
+        private System.Threading.SendOrPostCallback onColSectionCodelistCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginColGroupCodelistDelegate;
+        
+        private EndOperationDelegate onEndColGroupCodelistDelegate;
+        
+        private System.Threading.SendOrPostCallback onColGroupCodelistCompletedDelegate;
         
         private BeginOperationDelegate onBeginOpenDelegate;
         
@@ -960,6 +1651,14 @@ namespace Paradise5.ServiceReference1 {
         public event System.EventHandler<FindNVCompletedEventArgs> FindNVCompleted;
         
         public event System.EventHandler<danhsachtheocagiolamCompletedEventArgs> danhsachtheocagiolamCompleted;
+        
+        public event System.EventHandler<CheckTimeListCompletedEventArgs> CheckTimeListCompleted;
+        
+        public event System.EventHandler<ColDepartmentCodelistCompletedEventArgs> ColDepartmentCodelistCompleted;
+        
+        public event System.EventHandler<ColSectionCodelistCompletedEventArgs> ColSectionCodelistCompleted;
+        
+        public event System.EventHandler<ColGroupCodelistCompletedEventArgs> ColGroupCodelistCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
@@ -1369,6 +2068,226 @@ namespace Paradise5.ServiceReference1 {
             base.InvokeAsync(this.onBegindanhsachtheocagiolamDelegate, null, this.onEnddanhsachtheocagiolamDelegate, this.ondanhsachtheocagiolamCompletedDelegate, userState);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult Paradise5.ServiceReference1.IService1.BeginCheckTimeList(
+                    System.DateTime from, 
+                    System.DateTime to, 
+                    int depID, 
+                    int secID, 
+                    int groupId, 
+                    string empID, 
+                    bool nomal, 
+                    bool noIn, 
+                    bool noOut, 
+                    bool noInNoOut, 
+                    bool wordOnHolyday, 
+                    bool leave, 
+                    bool holyday, 
+                    int logID, 
+                    System.AsyncCallback callback, 
+                    object asyncState) {
+            return base.Channel.BeginCheckTimeList(from, to, depID, secID, groupId, empID, nomal, noIn, noOut, noInNoOut, wordOnHolyday, leave, holyday, logID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tmpCheckTimeList> Paradise5.ServiceReference1.IService1.EndCheckTimeList(System.IAsyncResult result) {
+            return base.Channel.EndCheckTimeList(result);
+        }
+        
+        private System.IAsyncResult OnBeginCheckTimeList(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            System.DateTime from = ((System.DateTime)(inValues[0]));
+            System.DateTime to = ((System.DateTime)(inValues[1]));
+            int depID = ((int)(inValues[2]));
+            int secID = ((int)(inValues[3]));
+            int groupId = ((int)(inValues[4]));
+            string empID = ((string)(inValues[5]));
+            bool nomal = ((bool)(inValues[6]));
+            bool noIn = ((bool)(inValues[7]));
+            bool noOut = ((bool)(inValues[8]));
+            bool noInNoOut = ((bool)(inValues[9]));
+            bool wordOnHolyday = ((bool)(inValues[10]));
+            bool leave = ((bool)(inValues[11]));
+            bool holyday = ((bool)(inValues[12]));
+            int logID = ((int)(inValues[13]));
+            return ((Paradise5.ServiceReference1.IService1)(this)).BeginCheckTimeList(from, to, depID, secID, groupId, empID, nomal, noIn, noOut, noInNoOut, wordOnHolyday, leave, holyday, logID, callback, asyncState);
+        }
+        
+        private object[] OnEndCheckTimeList(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tmpCheckTimeList> retVal = ((Paradise5.ServiceReference1.IService1)(this)).EndCheckTimeList(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnCheckTimeListCompleted(object state) {
+            if ((this.CheckTimeListCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CheckTimeListCompleted(this, new CheckTimeListCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CheckTimeListAsync(System.DateTime from, System.DateTime to, int depID, int secID, int groupId, string empID, bool nomal, bool noIn, bool noOut, bool noInNoOut, bool wordOnHolyday, bool leave, bool holyday, int logID) {
+            this.CheckTimeListAsync(from, to, depID, secID, groupId, empID, nomal, noIn, noOut, noInNoOut, wordOnHolyday, leave, holyday, logID, null);
+        }
+        
+        public void CheckTimeListAsync(System.DateTime from, System.DateTime to, int depID, int secID, int groupId, string empID, bool nomal, bool noIn, bool noOut, bool noInNoOut, bool wordOnHolyday, bool leave, bool holyday, int logID, object userState) {
+            if ((this.onBeginCheckTimeListDelegate == null)) {
+                this.onBeginCheckTimeListDelegate = new BeginOperationDelegate(this.OnBeginCheckTimeList);
+            }
+            if ((this.onEndCheckTimeListDelegate == null)) {
+                this.onEndCheckTimeListDelegate = new EndOperationDelegate(this.OnEndCheckTimeList);
+            }
+            if ((this.onCheckTimeListCompletedDelegate == null)) {
+                this.onCheckTimeListCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCheckTimeListCompleted);
+            }
+            base.InvokeAsync(this.onBeginCheckTimeListDelegate, new object[] {
+                        from,
+                        to,
+                        depID,
+                        secID,
+                        groupId,
+                        empID,
+                        nomal,
+                        noIn,
+                        noOut,
+                        noInNoOut,
+                        wordOnHolyday,
+                        leave,
+                        holyday,
+                        logID}, this.onEndCheckTimeListDelegate, this.onCheckTimeListCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult Paradise5.ServiceReference1.IService1.BeginColDepartmentCodelist(System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginColDepartmentCodelist(callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblDepartment> Paradise5.ServiceReference1.IService1.EndColDepartmentCodelist(System.IAsyncResult result) {
+            return base.Channel.EndColDepartmentCodelist(result);
+        }
+        
+        private System.IAsyncResult OnBeginColDepartmentCodelist(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            return ((Paradise5.ServiceReference1.IService1)(this)).BeginColDepartmentCodelist(callback, asyncState);
+        }
+        
+        private object[] OnEndColDepartmentCodelist(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblDepartment> retVal = ((Paradise5.ServiceReference1.IService1)(this)).EndColDepartmentCodelist(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnColDepartmentCodelistCompleted(object state) {
+            if ((this.ColDepartmentCodelistCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ColDepartmentCodelistCompleted(this, new ColDepartmentCodelistCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ColDepartmentCodelistAsync() {
+            this.ColDepartmentCodelistAsync(null);
+        }
+        
+        public void ColDepartmentCodelistAsync(object userState) {
+            if ((this.onBeginColDepartmentCodelistDelegate == null)) {
+                this.onBeginColDepartmentCodelistDelegate = new BeginOperationDelegate(this.OnBeginColDepartmentCodelist);
+            }
+            if ((this.onEndColDepartmentCodelistDelegate == null)) {
+                this.onEndColDepartmentCodelistDelegate = new EndOperationDelegate(this.OnEndColDepartmentCodelist);
+            }
+            if ((this.onColDepartmentCodelistCompletedDelegate == null)) {
+                this.onColDepartmentCodelistCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnColDepartmentCodelistCompleted);
+            }
+            base.InvokeAsync(this.onBeginColDepartmentCodelistDelegate, null, this.onEndColDepartmentCodelistDelegate, this.onColDepartmentCodelistCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult Paradise5.ServiceReference1.IService1.BeginColSectionCodelist(System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginColSectionCodelist(callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblSection> Paradise5.ServiceReference1.IService1.EndColSectionCodelist(System.IAsyncResult result) {
+            return base.Channel.EndColSectionCodelist(result);
+        }
+        
+        private System.IAsyncResult OnBeginColSectionCodelist(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            return ((Paradise5.ServiceReference1.IService1)(this)).BeginColSectionCodelist(callback, asyncState);
+        }
+        
+        private object[] OnEndColSectionCodelist(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblSection> retVal = ((Paradise5.ServiceReference1.IService1)(this)).EndColSectionCodelist(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnColSectionCodelistCompleted(object state) {
+            if ((this.ColSectionCodelistCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ColSectionCodelistCompleted(this, new ColSectionCodelistCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ColSectionCodelistAsync() {
+            this.ColSectionCodelistAsync(null);
+        }
+        
+        public void ColSectionCodelistAsync(object userState) {
+            if ((this.onBeginColSectionCodelistDelegate == null)) {
+                this.onBeginColSectionCodelistDelegate = new BeginOperationDelegate(this.OnBeginColSectionCodelist);
+            }
+            if ((this.onEndColSectionCodelistDelegate == null)) {
+                this.onEndColSectionCodelistDelegate = new EndOperationDelegate(this.OnEndColSectionCodelist);
+            }
+            if ((this.onColSectionCodelistCompletedDelegate == null)) {
+                this.onColSectionCodelistCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnColSectionCodelistCompleted);
+            }
+            base.InvokeAsync(this.onBeginColSectionCodelistDelegate, null, this.onEndColSectionCodelistDelegate, this.onColSectionCodelistCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult Paradise5.ServiceReference1.IService1.BeginColGroupCodelist(System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginColGroupCodelist(callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblGroup> Paradise5.ServiceReference1.IService1.EndColGroupCodelist(System.IAsyncResult result) {
+            return base.Channel.EndColGroupCodelist(result);
+        }
+        
+        private System.IAsyncResult OnBeginColGroupCodelist(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            return ((Paradise5.ServiceReference1.IService1)(this)).BeginColGroupCodelist(callback, asyncState);
+        }
+        
+        private object[] OnEndColGroupCodelist(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblGroup> retVal = ((Paradise5.ServiceReference1.IService1)(this)).EndColGroupCodelist(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnColGroupCodelistCompleted(object state) {
+            if ((this.ColGroupCodelistCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ColGroupCodelistCompleted(this, new ColGroupCodelistCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ColGroupCodelistAsync() {
+            this.ColGroupCodelistAsync(null);
+        }
+        
+        public void ColGroupCodelistAsync(object userState) {
+            if ((this.onBeginColGroupCodelistDelegate == null)) {
+                this.onBeginColGroupCodelistDelegate = new BeginOperationDelegate(this.OnBeginColGroupCodelist);
+            }
+            if ((this.onEndColGroupCodelistDelegate == null)) {
+                this.onEndColGroupCodelistDelegate = new EndOperationDelegate(this.OnEndColGroupCodelist);
+            }
+            if ((this.onColGroupCodelistCompletedDelegate == null)) {
+                this.onColGroupCodelistCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnColGroupCodelistCompleted);
+            }
+            base.InvokeAsync(this.onBeginColGroupCodelistDelegate, null, this.onEndColGroupCodelistDelegate, this.onColGroupCodelistCompletedDelegate, userState);
+        }
+        
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
             return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
         }
@@ -1553,6 +2472,84 @@ namespace Paradise5.ServiceReference1 {
             public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblDepartment> Enddanhsachtheocagiolam(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblDepartment> _result = ((System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblDepartment>)(base.EndInvoke("danhsachtheocagiolam", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginCheckTimeList(
+                        System.DateTime from, 
+                        System.DateTime to, 
+                        int depID, 
+                        int secID, 
+                        int groupId, 
+                        string empID, 
+                        bool nomal, 
+                        bool noIn, 
+                        bool noOut, 
+                        bool noInNoOut, 
+                        bool wordOnHolyday, 
+                        bool leave, 
+                        bool holyday, 
+                        int logID, 
+                        System.AsyncCallback callback, 
+                        object asyncState) {
+                object[] _args = new object[14];
+                _args[0] = from;
+                _args[1] = to;
+                _args[2] = depID;
+                _args[3] = secID;
+                _args[4] = groupId;
+                _args[5] = empID;
+                _args[6] = nomal;
+                _args[7] = noIn;
+                _args[8] = noOut;
+                _args[9] = noInNoOut;
+                _args[10] = wordOnHolyday;
+                _args[11] = leave;
+                _args[12] = holyday;
+                _args[13] = logID;
+                System.IAsyncResult _result = base.BeginInvoke("CheckTimeList", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tmpCheckTimeList> EndCheckTimeList(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tmpCheckTimeList> _result = ((System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tmpCheckTimeList>)(base.EndInvoke("CheckTimeList", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginColDepartmentCodelist(System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[0];
+                System.IAsyncResult _result = base.BeginInvoke("ColDepartmentCodelist", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblDepartment> EndColDepartmentCodelist(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblDepartment> _result = ((System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblDepartment>)(base.EndInvoke("ColDepartmentCodelist", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginColSectionCodelist(System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[0];
+                System.IAsyncResult _result = base.BeginInvoke("ColSectionCodelist", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblSection> EndColSectionCodelist(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblSection> _result = ((System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblSection>)(base.EndInvoke("ColSectionCodelist", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginColGroupCodelist(System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[0];
+                System.IAsyncResult _result = base.BeginInvoke("ColGroupCodelist", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblGroup> EndColGroupCodelist(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblGroup> _result = ((System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblGroup>)(base.EndInvoke("ColGroupCodelist", _args, result)));
                 return _result;
             }
         }

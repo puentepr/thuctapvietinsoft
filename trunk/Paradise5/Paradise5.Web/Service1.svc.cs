@@ -105,5 +105,26 @@ namespace Paradise5.Web
                       select p1;
             return dep.ToList();
         }
+        public List<tmpCheckTimeList> CheckTimeList(DateTime from, DateTime to, int depID, int secID, int groupId, string empID, bool nomal, bool noIn, bool noOut, bool noInNoOut, bool wordOnHolyday, bool leave, bool holyday, int logID)
+        {
+            dt.TA_CheckTime_List(from, to, depID, secID, groupId, empID, nomal, noIn, noOut, noInNoOut, wordOnHolyday, leave, holyday, logID);
+            var i = from ct in dt.tmpCheckTimeLists select ct;
+            return i.ToList();
+        }
+        public List<tblDepartment> ColDepartmentCodelist()
+        {
+            var i = from dep in dt.tblDepartments select dep;
+            return i.ToList();
+        }
+        public List<tblSection> ColSectionCodelist()
+        {
+            var i = from sec in dt.tblSections select sec;
+            return i.ToList();
+        }
+        public List<tblGroup> ColGroupCodelist()
+        {
+            var i = from gro in dt.tblGroups select gro;
+            return i.ToList();
+        }
     }
 }

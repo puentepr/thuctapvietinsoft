@@ -162,7 +162,16 @@
     <None Include="Service References\ServiceReference1\Paradise5.ServiceReference1.tblDepartment.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ServiceReference1\Paradise5.ServiceReference1.tblGroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceReference1\Paradise5.ServiceReference1.tblSC_Login.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\Paradise5.ServiceReference1.tblSection.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\Paradise5.ServiceReference1.tmpCheckTimeList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference1\Paradise5.ServiceReference1.ViewMenu.datasource">
