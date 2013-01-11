@@ -126,5 +126,12 @@ namespace Paradise5.Web
             var i = from gro in dt.tblGroups select gro;
             return i.ToList();
         }
+        public List<tblSection> selectdanhsach(int depID)
+        {
+            var dep = from i in dt.tblSections
+                      where i.DepartmentID == depID
+                      select i;
+            return dep.ToList();
+        }
     }
 }

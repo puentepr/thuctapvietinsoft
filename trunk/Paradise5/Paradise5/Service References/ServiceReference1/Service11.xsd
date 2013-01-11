@@ -177,4 +177,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="selectdanhsach">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="depID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="selectdanhsachResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Paradise5.Web" minOccurs="0" name="selectdanhsachResult" nillable="true" type="q9:ArrayOftblSection" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
