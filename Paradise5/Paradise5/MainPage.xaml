@@ -15,6 +15,7 @@
 
     <Grid x:Name="LayoutRoot" Background="DarkMagenta">
         <!--Start AppBar-->
+        <!--Creat Property Hide-->
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="AppBarStates">
                 <VisualStateGroup.Transitions>
@@ -32,6 +33,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+        <!--End creat Property Hide-->
 
         <StackPanel x:Name="appBar" Background="Black" Orientation="Horizontal" VerticalAlignment="Top" Height="10" FlowDirection="RightToLeft" MouseLeave="appBar_MouseLeave" MouseEnter="appBar_MouseEnter">
             <Grid Name="GridStack">
@@ -46,6 +48,7 @@
                 <HyperlinkButton x:Name="HpLogout" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="14" Foreground="Blue" Content="Đăng xuất" Click="Logout_Click" Visibility="Collapsed"/>
                 <HyperlinkButton x:Name="HPL1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="14" Foreground="Blue" Content="Welcome" Visibility="Collapsed"/>
             </Grid>
+            <!--Catch event to hide end show-->
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseEnter">
                     <ei:GoToStateAction StateName="Show" />
@@ -54,6 +57,7 @@
                     <ei:GoToStateAction StateName="Hide" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
+            <!--End catch event to hide end show-->
         </StackPanel>
         <!--End AppBar-->
         <HyperlinkButton x:Name="btnBack" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Height="46" Click="btnBack_Click">

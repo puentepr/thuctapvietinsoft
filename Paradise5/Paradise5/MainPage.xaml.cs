@@ -36,6 +36,7 @@ namespace Paradise5
             if (txtName.Text == "")
             {
                 txtName.SetValidation("Tên đăng nhập không được để trống");
+                txtName.Focus();//neu bo dong nay thi khi focus vao textbox moi hien thi validation
                 txtName.RaiseValidationError();
             }
             else
@@ -52,11 +53,13 @@ namespace Paradise5
             if (loginid == -2 || loginid == -1)
             {
                 txtName.SetValidation("Tên đăng nhập hoặc mật khẩu không đúng");
+                txtName.Focus();
                 txtName.RaiseValidationError();
             }
             else if (loginid == -3)
             {
                 txtName.SetValidation("Mật khẩu của bạn đã lâu không thay đổi. Vui lòng đổi mật khẩu");
+                txtName.Focus();
                 txtName.RaiseValidationError();
             }
             else
