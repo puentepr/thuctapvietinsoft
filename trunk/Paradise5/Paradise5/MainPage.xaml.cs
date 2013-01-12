@@ -28,6 +28,7 @@ namespace Paradise5
         public MainPage()
         {
             InitializeComponent();
+            GridStack.Visibility = Visibility.Collapsed;
         }
         #region Login
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -62,7 +63,6 @@ namespace Paradise5
             {
                 txtName.ClearValidationError();
                 LoginID = loginid;
-                paneProperties.Caption = "Options";
                 HPL1.Content = "Chào mừng " + txtName.Text;
                 txtName.Visibility = Visibility.Collapsed;
                 txtPass.Visibility = Visibility.Collapsed;
@@ -205,7 +205,6 @@ namespace Paradise5
         void ws_RemoveSessionCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
             //this.Content = new Test();
-            paneProperties.Caption = "Login";
             txtName.Visibility = Visibility.Visible;
             txtPass.Visibility = Visibility.Visible;
             btnLogin.Visibility = Visibility.Visible;
@@ -224,5 +223,18 @@ namespace Paradise5
         {
             txtPass.Password = "";
         }
+
+        private void appBar_MouseLeave(object sender, MouseEventArgs e)
+        {
+            TLYC.Margin = new Thickness(0, 50, 0, 10);
+            GridStack.Visibility = Visibility.Collapsed;
+        }
+
+        private void appBar_MouseEnter(object sender, MouseEventArgs e)
+        {
+            TLYC.Margin = new Thickness(0, 70, 0, 10);
+            GridStack.Visibility = Visibility.Visible;
+        }
+
     }
 }
