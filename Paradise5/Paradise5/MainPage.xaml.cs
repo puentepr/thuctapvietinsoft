@@ -24,11 +24,10 @@ namespace Paradise5
         public static int LoginID=-1;
         List<ViewMenu> view;
         Service1Client ws = new Service1Client();
-        TimeSpan ts = new TimeSpan(0, 0, 5);
+        TimeSpan ts = new TimeSpan(0, 0, 1);
         public MainPage()
         {
             InitializeComponent();
-            GridStack.Visibility = Visibility.Collapsed;
         }
         #region Login
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -36,7 +35,6 @@ namespace Paradise5
             if (txtName.Text == "")
             {
                 txtName.SetValidation("Tên đăng nhập không được để trống");
-                txtName.Focus();//neu bo dong nay thi khi focus vao textbox moi hien thi validation
                 txtName.RaiseValidationError();
             }
             else
@@ -53,19 +51,18 @@ namespace Paradise5
             if (loginid == -2 || loginid == -1)
             {
                 txtName.SetValidation("Tên đăng nhập hoặc mật khẩu không đúng");
-                txtName.Focus();
                 txtName.RaiseValidationError();
             }
             else if (loginid == -3)
             {
                 txtName.SetValidation("Mật khẩu của bạn đã lâu không thay đổi. Vui lòng đổi mật khẩu");
-                txtName.Focus();
                 txtName.RaiseValidationError();
             }
             else
             {
                 txtName.ClearValidationError();
                 LoginID = loginid;
+                paneProperties.Caption = "Options";
                 HPL1.Content = "Chào mừng " + txtName.Text;
                 txtName.Visibility = Visibility.Collapsed;
                 txtPass.Visibility = Visibility.Collapsed;
@@ -96,13 +93,11 @@ namespace Paradise5
         #region LoadMenu
         private void LoadMenu(string ParentName)
         {
-            int count=0;
             TLYC.HorizontalAlignment = HorizontalAlignment.Center;
             if (ParentName == "Mnu")
             {
                 TLYC.Children.Clear();
                 var q = from p in view where p.ParentMenuID == "Mnu" select p;
-                count = q.Count();
                 foreach (var i in q)
                 {
                     CreatTile(i.MenuID, i.Name,"",q.Count());
@@ -113,7 +108,6 @@ namespace Paradise5
                 var q = from p in view where p.ParentMenuID == ParentName && p.LoginID == LoginID && p.ClassName != "OK" select p;
                 if (q.Count() > 0)
                 {
-                    count = q.Count();
                     TLYC.Children.Clear();
                     foreach (var i in q)
                     {
@@ -132,14 +126,6 @@ namespace Paradise5
                     cha.RemoveAt(cha.Count - 1);
                 }
             }
-            //Start Set so luong hien thi cac Tile cho phu hop
-            if (count < 7&&count!=0)
-            {
-                TLYC.Padding = new Thickness(120, 120, 110, 110);
-            }
-            else
-            { TLYC.Padding = new Thickness(20, 10, 20, 10); }
-            TLYCScroll.Focus();//Neu bo dong nay thi phai focus vao Tile Layout Control moi Scroll bang ban phim duoc
         }
         private void CreatTile(string MenuID, string MenuName, string Pagename,int dem)
         {
@@ -195,20 +181,9 @@ namespace Paradise5
         }
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            GBack();
-        }
-        private void Home_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Back)
-            {
-                GBack();
-            }
-        }
-        #region GOBACK
-        private void GBack()
-        {
             if (cha.Count > 0)
             {
+                TLYC.Children.Clear();
                 LoadMenu(cha.ElementAt(cha.Count - 1));
                 cha.RemoveAt(cha.Count - 1);
             }
@@ -219,7 +194,6 @@ namespace Paradise5
                 else { }
             }
         }
-        #endregion
         #region Logout
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
@@ -231,6 +205,7 @@ namespace Paradise5
         void ws_RemoveSessionCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
             //this.Content = new Test();
+            paneProperties.Caption = "Login";
             txtName.Visibility = Visibility.Visible;
             txtPass.Visibility = Visibility.Visible;
             btnLogin.Visibility = Visibility.Visible;
@@ -239,7 +214,7 @@ namespace Paradise5
             TLYC.Children.Clear();
         }
         #endregion
-        #region FocusTextBox
+
         private void txtName_GotFocus(object sender, RoutedEventArgs e)
         {
             txtName.Text="";
@@ -249,20 +224,5 @@ namespace Paradise5
         {
             txtPass.Password = "";
         }
-        #endregion
-        #region ChangeSize when Show-Hide AppBar
-        private void appBar_MouseLeave(object sender, MouseEventArgs e)
-        {
-            TLYC.Margin = new Thickness(0, 50, 0, 0);
-            GridStack.Visibility = Visibility.Collapsed;
-        }
-
-        private void appBar_MouseEnter(object sender, MouseEventArgs e)
-        {
-            TLYC.Margin = new Thickness(0, 70, 0, 0);
-            GridStack.Visibility = Visibility.Visible;
-        }
-        #endregion
-
     }
 }
