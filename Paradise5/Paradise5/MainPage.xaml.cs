@@ -216,7 +216,7 @@ namespace Paradise5
             TLYC.Children.Clear();
         }
         #endregion
-
+        #region FocusTextBox
         private void txtName_GotFocus(object sender, RoutedEventArgs e)
         {
             txtName.Text="";
@@ -226,18 +226,20 @@ namespace Paradise5
         {
             txtPass.Password = "";
         }
-
+        #endregion
+        #region ChangeSize when Show-Hide AppBar
         private void appBar_MouseLeave(object sender, MouseEventArgs e)
         {
-            TLYC.Margin = new Thickness(0, 50, 0, 10);
+            TLYC.Margin = new Thickness(0, 50, 0, 0);
             GridStack.Visibility = Visibility.Collapsed;
         }
 
         private void appBar_MouseEnter(object sender, MouseEventArgs e)
         {
-            TLYC.Margin = new Thickness(0, 70, 0, 10);
+            TLYC.Margin = new Thickness(0, 70, 0, 0);
             GridStack.Visibility = Visibility.Visible;
         }
+        #endregion
 
     }
 }
