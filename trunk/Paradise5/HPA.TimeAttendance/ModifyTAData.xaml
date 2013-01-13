@@ -10,8 +10,8 @@
 
         <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
         <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
-        <dxdo:DockLayoutManager>
-            <dxdo:LayoutGroup AllowExpand="False" Caption="LayoutRoot" ShowCaption="False" TabCaption="LayoutRoot">
+        <dxdo:DockLayoutManager ClosedPanelsBarVisibility="Auto" ClosedPanelsBarPosition="Top">
+            <dxdo:LayoutGroup AllowExpand="False" Caption="LayoutRoot" ShowCaption="False" TabCaption="LayoutRoot" ClosingBehavior="HideToClosedPanelsCollection">
                 <dxdo:LayoutGroup.Appearance>
                     <dxdo:Appearance>
                         <dxdo:Appearance.Active>
@@ -32,7 +32,7 @@
                         </dxdo:Appearance.Normal>
                     </dxdo:Appearance>
                 </dxdo:LayoutGroup.ItemsAppearance>
-                <dxdo:LayoutPanel x:Name="panelThietLap" AllowSelection="False" Caption="Thiết lập" TabCaption="Thiết lập">
+                <dxdo:LayoutPanel x:Name="panelThietLap" AllowSelection="False" Caption="Thiết lập" TabCaption="Thiết lập" ClosingBehavior="HideToClosedPanelsCollection">
                     <dxdo:LayoutPanel.Appearance>
                         <dxdo:Appearance>
                             <dxdo:Appearance.Active>
@@ -122,7 +122,7 @@
                         <Button x:Name="btnView" Content="Xem" HorizontalAlignment="Left" Margin="438,494,0,0" VerticalAlignment="Top" Width="102" Height="32" Click="btnView_Click"/>
                     </Grid>
                 </dxdo:LayoutPanel>
-                <dxdo:LayoutPanel AllowSelection="False" Caption="Dử Liệu Chấm Công" TabCaption="Dử Liệu Chấm Công">
+                <dxdo:LayoutPanel AllowSelection="False" Caption="Dử Liệu Chấm Công" TabCaption="Dử Liệu Chấm Công" ClosingBehavior="HideToClosedPanelsCollection">
                     <dxdo:LayoutPanel.Appearance>
                         <dxdo:Appearance>
                             <dxdo:Appearance.Active>
