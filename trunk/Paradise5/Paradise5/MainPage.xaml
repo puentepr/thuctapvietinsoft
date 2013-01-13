@@ -42,8 +42,8 @@
                     <ColumnDefinition Width="200"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBox x:Name="txtName" Grid.Column="2" VerticalAlignment="Center" Text="UserName" MinWidth="100"  HorizontalAlignment="Left" HorizontalContentAlignment="Right" MaxWidth="200" TabIndex="0" GotFocus="txtName_GotFocus"/>
-                <PasswordBox x:Name="txtPass" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Password="Viettinsoft" HorizontalContentAlignment="Right" TabIndex="1" MinWidth="100" MaxWidth="180" GotFocus="txtPass_GotFocus"/>
+                <TextBox x:Name="txtName" Grid.Column="2" VerticalAlignment="Center" Text="UserName" MinWidth="100"  HorizontalAlignment="Left" MaxWidth="200" TabIndex="0" GotFocus="txtName_GotFocus" FlowDirection="LeftToRight"/>
+                <PasswordBox x:Name="txtPass" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Password="Viettinsoft" TabIndex="1" MinWidth="100" MaxWidth="180" GotFocus="txtPass_GotFocus" FlowDirection="LeftToRight"/>
                 <Button x:Name="btnLogin" Grid.Column="0" Content="Đăng nhập" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnLogin_Click" TabIndex="2"/>
                 <HyperlinkButton x:Name="HpLogout" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="14" Foreground="Blue" Content="Đăng xuất" Click="Logout_Click" Visibility="Collapsed"/>
                 <HyperlinkButton x:Name="HPL1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="14" Foreground="Blue" Content="Welcome" Visibility="Collapsed"/>
@@ -68,12 +68,11 @@
                 <ImageBrush Stretch="None" ImageSource="Image/Back.png"/>
             </HyperlinkButton.Background>
         </HyperlinkButton>
-                        
-        <dxlc:TileLayoutControl x:Name="TLYC" Margin="0,50,0,10" TileClick="TLYC_TileClick" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <dxlc:TileLayoutControl x:Name="TLYC" Margin="0,50,0,0" TileClick="TLYC_TileClick">
             <ControlEXT:TextBoxEX Name="TxtTest" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="0"/>
             <!--<dxlc:Tile x:Name="TileTest" Header="Tile" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Image Name="image1" Stretch="None" Source="Image\Back.png"/>-->
-            <!--</dxlc:Tile>-->
+                <Image Name="image1" Stretch="None" Source="Image\Back.png"/>
+            </dxlc:Tile>-->
         </dxlc:TileLayoutControl>
     </Grid>
 </UserControl>
