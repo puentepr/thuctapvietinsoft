@@ -24,7 +24,7 @@ namespace Paradise5
         public static int LoginID=-1;
         List<ViewMenu> view;
         Service1Client ws = new Service1Client();
-        TimeSpan ts = new TimeSpan(0, 0, 1);
+        TimeSpan ts = new TimeSpan(0, 0, 5);
         public MainPage()
         {
             InitializeComponent();
@@ -96,11 +96,13 @@ namespace Paradise5
         #region LoadMenu
         private void LoadMenu(string ParentName)
         {
+            int count=0;
             TLYC.HorizontalAlignment = HorizontalAlignment.Center;
             if (ParentName == "Mnu")
             {
                 TLYC.Children.Clear();
                 var q = from p in view where p.ParentMenuID == "Mnu" select p;
+                count = q.Count();
                 foreach (var i in q)
                 {
                     CreatTile(i.MenuID, i.Name,"",q.Count());
@@ -111,6 +113,7 @@ namespace Paradise5
                 var q = from p in view where p.ParentMenuID == ParentName && p.LoginID == LoginID && p.ClassName != "OK" select p;
                 if (q.Count() > 0)
                 {
+                    count = q.Count();
                     TLYC.Children.Clear();
                     foreach (var i in q)
                     {
@@ -129,6 +132,14 @@ namespace Paradise5
                     cha.RemoveAt(cha.Count - 1);
                 }
             }
+            //Start Set so luong hien thi cac Tile cho phu hop
+            if (count < 7&&count!=0)
+            {
+                TLYC.Padding = new Thickness(120, 120, 110, 110);
+            }
+            else
+            { TLYC.Padding = new Thickness(20, 10, 20, 10); }
+            TLYCScroll.Focus();//Neu bo dong nay thi phai focus vao Tile Layout Control moi Scroll bang ban phim duoc
         }
         private void CreatTile(string MenuID, string MenuName, string Pagename,int dem)
         {
@@ -184,9 +195,20 @@ namespace Paradise5
         }
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
+            GBack();
+        }
+        private void Home_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Back)
+            {
+                GBack();
+            }
+        }
+        #region GOBACK
+        private void GBack()
+        {
             if (cha.Count > 0)
             {
-                TLYC.Children.Clear();
                 LoadMenu(cha.ElementAt(cha.Count - 1));
                 cha.RemoveAt(cha.Count - 1);
             }
@@ -197,6 +219,7 @@ namespace Paradise5
                 else { }
             }
         }
+        #endregion
         #region Logout
         private void Logout_Click(object sender, RoutedEventArgs e)
         {

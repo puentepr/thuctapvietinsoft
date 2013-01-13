@@ -11,7 +11,7 @@
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     x:Class="Paradise5.MainPage"
     d:DesignWidth="640" d:DesignHeight="480"
-    mc:Ignorable="d">
+    mc:Ignorable="d" KeyDown="Home_KeyDown">
 
     <Grid x:Name="LayoutRoot" Background="DarkMagenta">
         <!--Start AppBar-->
@@ -68,11 +68,13 @@
                 <ImageBrush Stretch="None" ImageSource="Image/Back.png"/>
             </HyperlinkButton.Background>
         </HyperlinkButton>
-        <dxlc:TileLayoutControl x:Name="TLYC" Margin="0,50,0,0" TileClick="TLYC_TileClick">
+        <ScrollViewer Name="TLYCScroll" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+        <dxlc:TileLayoutControl x:Name="TLYC" Margin="0,50,0,0" TileClick="TLYC_TileClick" AllowAddFlowBreaksDuringItemMoving="True" DragScrolling="False" ScrollBars="None" Padding="10,80,10,10"> <!--Chinh sua so luong Tile o phan padding-->
             <ControlEXT:TextBoxEX Name="TxtTest" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="0"/>
             <!--<dxlc:Tile x:Name="TileTest" Header="Tile" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Image Name="image1" Stretch="None" Source="Image\Back.png"/>
             </dxlc:Tile>-->
         </dxlc:TileLayoutControl>
+        </ScrollViewer>
     </Grid>
 </UserControl>
