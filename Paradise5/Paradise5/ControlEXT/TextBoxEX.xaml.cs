@@ -25,6 +25,7 @@ namespace Paradise5.ControlEXT
         void GetEMPID(object sender, EventArgs e)
         {
             btnEmployeeID.EditValue = GetID().EmployeeID;
+            this.Focus();
         }
         private void btnEmployeeID_DefaultButtonClick(object sender, RoutedEventArgs e)
         {
