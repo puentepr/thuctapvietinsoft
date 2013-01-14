@@ -60,7 +60,7 @@ namespace HPA.TimeAttendance
                 websv.CheckTimeListAsync(colFromDate.DateTime, colToDate.DateTime, depID, secID, groID, empID, ckbNormal.IsChecked.Value, ckbNoTimeInHasTimeOut.IsChecked.Value, ckbHasTimeInNoTimeOut.IsChecked.Value, ckbNoTimeInNoTimeOut.IsChecked.Value, ckbWorkOnHoliday.IsChecked.Value, ckbLeave.IsChecked.Value, ckbHoliday.IsChecked.Value, 3);
                 txtEmpName.Text = txtEmpId.GetID().FullName;
                 panelThietLap.Closed = true;
-                
+                //panelThietLap
             }
             catch (Exception)
             {
@@ -115,6 +115,10 @@ namespace HPA.TimeAttendance
             panelThietLap.Closed = false;
         }
 
+        private void gridCheckTimeList_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
 
