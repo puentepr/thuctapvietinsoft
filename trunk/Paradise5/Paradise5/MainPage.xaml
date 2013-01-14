@@ -71,7 +71,7 @@
         <ScrollViewer Name="TLYCScroll" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
         <dxlc:TileLayoutControl x:Name="TLYC" Margin="0,50,0,0" TileClick="TLYC_TileClick" AllowAddFlowBreaksDuringItemMoving="True" DragScrolling="False" ScrollBars="None" Padding="10,80,10,10"> <!--Chinh sua so luong Tile o phan padding-->
             <ControlEXT:TextBoxEX Name="TxtTest" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="0"/>
-            <!--<dxlc:Tile x:Name="TileTest" Header="Tile" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <!--<dxlc:Tile x:Name="TileTest" Header="Tile" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Image Name="image1" Stretch="None" Source="Image\Back.png"/>
             </dxlc:Tile>-->
         </dxlc:TileLayoutControl>
