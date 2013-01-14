@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Paradise5.Web" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Paradise5.Web" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOftblSC_Login">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tblSC_Login" nillable="true" type="tns:tblSC_Login" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftblSC_Login" nillable="true" type="tns:ArrayOftblSC_Login" />
+  <xs:complexType name="tblSC_Login">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LoginID" type="xs:int" />
+      <xs:element minOccurs="0" name="LoginName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassWord" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AdminRight" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="LastChangedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DivisionID" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tblSC_Login" nillable="true" type="tns:tblSC_Login" />
+  <xs:complexType name="ArrayOfViewMenu">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ViewMenu" nillable="true" type="tns:ViewMenu" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfViewMenu" nillable="true" type="tns:ArrayOfViewMenu" />
+  <xs:complexType name="ViewMenu">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MenuID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClassName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Priority" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ParentMenuID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AssemblyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsModal" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsCollapsed" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ShortcutKeys" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsVisible" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Access" type="xs:int" />
+      <xs:element minOccurs="0" name="SupperAdmin" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LoginID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ViewMenu" nillable="true" type="tns:ViewMenu" />
+  <xs:complexType name="ArrayOfsp_EmployeeIDListResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="sp_EmployeeIDListResult" nillable="true" type="tns:sp_EmployeeIDListResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfsp_EmployeeIDListResult" nillable="true" type="tns:ArrayOfsp_EmployeeIDListResult" />
+  <xs:complexType name="sp_EmployeeIDListResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmployeeID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeStatusID" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="LastNameEN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstNameEN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="sp_EmployeeIDListResult" nillable="true" type="tns:sp_EmployeeIDListResult" />
+  <xs:complexType name="ArrayOftblDepartment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tblDepartment" nillable="true" type="tns:tblDepartment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftblDepartment" nillable="true" type="tns:ArrayOftblDepartment" />
+  <xs:complexType name="tblDepartment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DepartmentID" type="xs:int" />
+      <xs:element minOccurs="0" name="DivisionID" type="xs:int" />
+      <xs:element minOccurs="0" name="DepartmentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Foreigner" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="JapaneseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VietnameseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tblSections" nillable="true" type="tns:ArrayOftblSection">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tblDepartment" nillable="true" type="tns:tblDepartment" />
+  <xs:complexType name="ArrayOftblSection">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tblSection" nillable="true" type="tns:tblSection" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftblSection" nillable="true" type="tns:ArrayOftblSection" />
+  <xs:complexType name="tblSection">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SectionID" type="xs:int" />
+      <xs:element minOccurs="0" name="DepartmentID" type="xs:int" />
+      <xs:element minOccurs="0" name="SectionCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SectionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JapaneseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VietnameseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Foreigner" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="tblGroups" nillable="true" type="tns:ArrayOftblGroup">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tblSection" nillable="true" type="tns:tblSection" />
+  <xs:complexType name="ArrayOftblGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tblGroup" nillable="true" type="tns:tblGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftblGroup" nillable="true" type="tns:ArrayOftblGroup" />
+  <xs:complexType name="tblGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GroupID" type="xs:int" />
+      <xs:element minOccurs="0" name="SectionID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="GroupCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JapaneseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VietnameseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Foreigner" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tblGroup" nillable="true" type="tns:tblGroup" />
+  <xs:complexType name="ArrayOftmpCheckTimeList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tmpCheckTimeList" nillable="true" type="tns:tmpCheckTimeList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftmpCheckTimeList" nillable="true" type="tns:ArrayOftmpCheckTimeList" />
+  <xs:complexType name="tmpCheckTimeList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmployeeID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SectionID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="GroupID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ContructionID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ShiftCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AttDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HolidayStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="LeaveStatus" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LeaveCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AttStart" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AttStartDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AttEndDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AttEnd" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeStatus" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Approve" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tmpCheckTimeList" nillable="true" type="tns:tmpCheckTimeList" />
+</xs:schema>
