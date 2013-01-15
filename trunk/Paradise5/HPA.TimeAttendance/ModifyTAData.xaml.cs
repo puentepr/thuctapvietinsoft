@@ -45,22 +45,23 @@ namespace HPA.TimeAttendance
                 tblSection iSec = (tblSection)rowSec;
                 object rowGro = lupeditGroup.SelectedItem;
                 tblGroup iGro = (tblGroup)rowGro;
-                int depID=-1;
-                if(iDep!=null)
-                    depID = iDep.DepartmentID;
-                int secID=-1;
-                if(iSec!=null)
-                    secID =  iSec.SectionID;
-                int groID=-1;
-                if(iGro!=null)
-                    groID = iGro.GroupID;
-                string empID="-1";
-                if (txtEmpId.GetID().EmployeeID!=null)
-                     empID = txtEmpId.GetID().EmployeeID;
-                websv.CheckTimeListAsync(colFromDate.DateTime, colToDate.DateTime, depID, secID, groID, empID, ckbNormal.IsChecked.Value, ckbNoTimeInHasTimeOut.IsChecked.Value, ckbHasTimeInNoTimeOut.IsChecked.Value, ckbNoTimeInNoTimeOut.IsChecked.Value, ckbWorkOnHoliday.IsChecked.Value, ckbLeave.IsChecked.Value, ckbHoliday.IsChecked.Value, 3);
-                txtEmpName.Text = txtEmpId.GetID().FullName;
-                panelThietLap.Closed = true;
-                //panelThietLap
+                if (colFromDate.DateTime != null && colToDate.DateTime != null)
+                {
+                    int depID = -1;
+                    if (iDep != null)
+                        depID = iDep.DepartmentID;
+                    int secID = -1;
+                    if (iSec != null)
+                        secID = iSec.SectionID;
+                    int groID = -1;
+                    if (iGro != null)
+                        groID = iGro.GroupID;
+                    string empID = "-1";
+                    if (txtEmpId.GetID().EmployeeID != null)
+                        empID = txtEmpId.GetID().EmployeeID;
+                    websv.CheckTimeListAsync(colFromDate.DateTime, colToDate.DateTime, depID, secID, groID, empID, ckbNormal.IsChecked.Value, ckbNoTimeInHasTimeOut.IsChecked.Value, ckbHasTimeInNoTimeOut.IsChecked.Value, ckbNoTimeInNoTimeOut.IsChecked.Value, ckbWorkOnHoliday.IsChecked.Value, ckbLeave.IsChecked.Value, ckbHoliday.IsChecked.Value, 3);       
+                    panelThietLap.Closed = true;
+                }
             }
             catch (Exception)
             {
@@ -112,13 +113,14 @@ namespace HPA.TimeAttendance
 
         private void btnrefresh_Click(object sender, RoutedEventArgs e)
         {
-            panelThietLap.Closed = false;
+           
         }
 
-        private void gridCheckTimeList_Loaded(object sender, RoutedEventArgs e)
+        private void txtEmpId_GotFocus(object sender, RoutedEventArgs e)
         {
-            
+            txtEmpName.Text = txtEmpId.GetID().FullName;
         }
+
     }
 }
 

@@ -56,7 +56,7 @@ namespace Paradise5
         public static void SetValidation(this FrameworkElement frameworkElement, string message)
         {
             CustomValidation customValidation = new CustomValidation(message);
-            
+
             Binding binding = new Binding("ValidationError")
             {
                 Mode = System.Windows.Data.BindingMode.TwoWay,

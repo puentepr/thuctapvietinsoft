@@ -7,7 +7,7 @@
             <RowDefinition />
             <RowDefinition Height="Auto" MinHeight="34" />
         </Grid.RowDefinitions>
-        <dxdo:DockLayoutManager ClosingBehavior="Default" ClosedPanelsBarVisibility="Auto" ClosedPanelsBarPosition="Top" Margin="0,24,0,10" Grid.RowSpan="2">
+        <dxdo:DockLayoutManager ClosingBehavior="Default" ClosedPanelsBarVisibility="Auto" ClosedPanelsBarPosition="Top" Grid.RowSpan="2">
             <dxdo:LayoutGroup AllowExpand="False" Caption="LayoutRoot" ShowCaption="False" TabCaption="LayoutRoot" ClosingBehavior="HideToClosedPanelsCollection">
                 <dxdo:LayoutGroup.Appearance>
                     <dxdo:Appearance>
@@ -29,7 +29,7 @@
                         </dxdo:Appearance.Normal>
                     </dxdo:Appearance>
                 </dxdo:LayoutGroup.ItemsAppearance>
-                <dxdo:LayoutPanel x:Name="panelThietLap" AllowSelection="False" Caption="Thiết lập" TabCaption="Thiết lập">
+                <dxdo:LayoutPanel x:Name="panelThietLap" AllowSelection="False" Caption="Thiết lập" TabCaption="Thiết lập" Margin="0,0,0,48">
                     <dxdo:LayoutPanel.Appearance>
                         <dxdo:Appearance>
                             <dxdo:Appearance.Active>
@@ -51,16 +51,23 @@
                         </dxlc:GroupBox>
                         <dxlc:GroupBox Header="" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="530" Height="147">
                             <Grid>
-                                <dxe:CheckEdit  x:Name="ckbHasTimeInNoTimeOut" Foreground="Red" IsChecked="True" Content="Có vào,Không Có Ra" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" Width="150" CausesValidation="False"/>
-                                <dxe:CheckEdit x:Name="ckbNoTimeInHasTimeOut" Foreground="Green" IsChecked="True" Content="Có Ra,Không Có Vào" HorizontalAlignment="Left" Margin="19,29,0,0" VerticalAlignment="Top" Width="150"/>
-                                <dxe:CheckEdit x:Name="ckbNoTimeInNoTimeOut" Foreground="Blue"  IsChecked="True" Content="Không Có Giờ Vào Ra" HorizontalAlignment="Left" Margin="19,48,0,0" VerticalAlignment="Top" Width="150"/>
-                                <dxe:CheckEdit x:Name="ckbLeave" Foreground="Cyan"  IsChecked="True" Content="Nghỉ" HorizontalAlignment="Left" Margin="202,10,0,0" VerticalAlignment="Top" Width="150"/>
-                                <dxe:CheckEdit x:Name="ckbHoliday" Foreground="DarkOrange" IsChecked="True" Content="Ngày Nghỉ" HorizontalAlignment="Left" Margin="202,29,0,0" VerticalAlignment="Top" Width="150"/>
-                                <dxe:CheckEdit x:Name="ckbWorkOnHoliday" Foreground="Gray" IsChecked="True" Content="Đi Làm Ngày Nghỉ" HorizontalAlignment="Left" Margin="202,48,0,0" VerticalAlignment="Top" Width="150"/>
-                                <dxe:CheckEdit x:Name="ckbNormal" IsChecked="True" Content="Bình Thường" HorizontalAlignment="Left" Margin="331,10,0,0" VerticalAlignment="Top" Width="150"/>
+                                <dxe:CheckEdit  x:Name="ckbHasTimeInNoTimeOut" Foreground="Red" IsChecked="True" Content="Có vào,Không Có Ra" HorizontalAlignment="Left" Margin="19,5,0,0" VerticalAlignment="Top" Width="150" />
+                                <dxe:CheckEdit x:Name="ckbNoTimeInHasTimeOut" Foreground="Green" IsChecked="True" Content="Có Ra,Không Có Vào" HorizontalAlignment="Left" Margin="19,29,0,0" VerticalAlignment="Top" Width="150" />
+                                <dxe:CheckEdit x:Name="ckbNoTimeInNoTimeOut" Foreground="Blue"  IsChecked="True" Content="Không Có Giờ Vào Ra" HorizontalAlignment="Left" Margin="19,51,0,0" VerticalAlignment="Top" Width="150"/>
+                                <dxe:CheckEdit x:Name="ckbLeave" Foreground="Cyan"  IsChecked="True" Content="Nghỉ" HorizontalAlignment="Left" Margin="19,75,0,0" VerticalAlignment="Top" Width="150"/>
+                                <dxe:CheckEdit x:Name="ckbHoliday" Foreground="DarkOrange" IsChecked="True" Content="Ngày Nghỉ" HorizontalAlignment="Left" Margin="245,4,0,0" VerticalAlignment="Top" Width="150"/>
+                                <dxe:CheckEdit x:Name="ckbWorkOnHoliday" Foreground="Gray" IsChecked="True" Content="Đi Làm Ngày Nghỉ" HorizontalAlignment="Left" Margin="245,27,0,0" VerticalAlignment="Top" Width="150"/>
+                                <dxe:CheckEdit x:Name="ckbNormal" IsChecked="True" Content="Bình Thường" HorizontalAlignment="Left" Margin="245,50,0,0" VerticalAlignment="Top" Width="150"/>
+                                <sdk:Label Background="Yellow"  HorizontalAlignment="Left" Height="18" Margin="37,5,0,0" VerticalAlignment="Top" Width="160" Content="Có vào,không có ra"/>
+                                <sdk:Label Background="Fuchsia"  HorizontalAlignment="Left" Height="19" Margin="37,29,0,0" VerticalAlignment="Top" Width="160" Content="Có ra,không có vào"/>
+                                <sdk:Label Background="DarkOliveGreen"  HorizontalAlignment="Left" Height="18" Margin="37,53,0,0" VerticalAlignment="Top" Width="160" Content="Không có giờ vào ra"/>
+                                <sdk:Label Background="LightPink"  HorizontalAlignment="Left" Height="18" Margin="37,75,0,0" VerticalAlignment="Top" Width="160" Content="Nghỉ"/>
+                                <sdk:Label Background="MediumSpringGreen"  HorizontalAlignment="Left" Height="18" Margin="264,4,0,0" VerticalAlignment="Top" Width="160" Content="Ngày nghỉ"/>
+                                <sdk:Label Background="DodgerBlue"  HorizontalAlignment="Left" Height="18" Margin="264,28,0,0" VerticalAlignment="Top" Width="160" Content="Đi làm ngày nghỉ"/>
+                                <sdk:Label Background="Snow"  HorizontalAlignment="Left" Height="17" Margin="264,51,0,0" VerticalAlignment="Top" Width="160" Content="Bình Thường"/>
                             </Grid>
                         </dxlc:GroupBox>
-                        <dxlc:GroupBox Header="Áp Dụng Cho" HorizontalAlignment="Left" Margin="10,252,0,0" VerticalAlignment="Top" Height="237" Width="530">
+                        <dxlc:GroupBox Header="Áp Dụng Cho" HorizontalAlignment="Left" Margin="10,252,0,0" VerticalAlignment="Top" Height="211" Width="530">
                             <Grid>
                                 <dxg:LookUpEdit x:Name="lupeditDep" Text="All"  AutoPopulateColumns="False" HorizontalAlignment="Left" Margin="129,22,0,0" VerticalAlignment="Top" Width="328" SelectedIndexChanged="lupeditDep_SelectedIndexChanged">
                                     <dxg:LookUpEdit.PopupContentTemplate>
@@ -108,8 +115,8 @@
                                         </ControlTemplate>
                                     </dxg:LookUpEdit.PopupContentTemplate>
                                 </dxg:LookUpEdit>
-                                <ControlEXT:TextBoxEX x:Name="txtEmpId" HorizontalAlignment="Left" Margin="129,99,0,0" VerticalAlignment="Top" Width="129" Height="23"/>
-                                <dxe:TextEdit x:Name="txtEmpName" IsReadOnly="True" HorizontalAlignment="Left" Margin="129,127,0,0" VerticalAlignment="Top" Width="328" Height="20"/>
+                                <ControlEXT:TextBoxEX x:Name="txtEmpId" HorizontalAlignment="Left" Margin="129,99,0,0" VerticalAlignment="Top" Width="129" Height="23" GotFocus="txtEmpId_GotFocus"/>
+                                <dxe:TextEdit x:Name="txtEmpName" Background="#CCFFCC" IsReadOnly="True" HorizontalAlignment="Left" Margin="129,127,0,0" VerticalAlignment="Top" Width="328" Height="20"/>
                                 <sdk:Label Content="Phòng TT/CN:" HorizontalAlignment="Left" Height="20" Margin="23,22,0,0" VerticalAlignment="Top" Width="101"/>
                                 <sdk:Label Content="P Thuộc TT/BP" HorizontalAlignment="Left" Height="20" Margin="23,47,0,0" VerticalAlignment="Top" Width="101"/>
                                 <sdk:Label Content="Tổ" HorizontalAlignment="Left" Height="20" Margin="23,72,0,0" VerticalAlignment="Top" Width="101"/>
@@ -117,10 +124,10 @@
                                 <sdk:Label Content="Họ Tên" HorizontalAlignment="Left" Height="20" Margin="23,127,0,0" VerticalAlignment="Top" Width="101"/>
                             </Grid>
                         </dxlc:GroupBox>
-                        <Button x:Name="btnView" Content="Xem" HorizontalAlignment="Left" Margin="465,494,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="btnView_Click"/>
+                        <Button x:Name="btnView" Content="Xem" HorizontalAlignment="Left" Margin="465,468,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="btnView_Click"/>
                     </Grid>
                 </dxdo:LayoutPanel>
-                <dxdo:LayoutPanel AllowSelection="False" Caption="Dử Liệu Chấm Công" TabCaption="Dử Liệu Chấm Công" ClosingBehavior="HideToClosedPanelsCollection">
+                <dxdo:LayoutPanel AllowSelection="False" Caption="Dử Liệu Chấm Công" TabCaption="Dử Liệu Chấm Công" ClosingBehavior="HideToClosedPanelsCollection" Margin="0,0,0,48">
                     <dxdo:LayoutPanel.Appearance>
                         <dxdo:Appearance>
                             <dxdo:Appearance.Active>
@@ -160,6 +167,6 @@
         <Button x:Name="btnSave" Content="Lưu" Width="75" HorizontalAlignment="Right" Margin="0,2,1030,10" Grid.Row="1" />
         <Button x:Name="btnrefresh" Content="Làm lại"  Width="75" HorizontalAlignment="Right" Margin="0,2,915,10" Grid.Row="1" Click="btnrefresh_Click" />
         <Button x:Name="btnXls" Content="Xuất Xls"  Width="75" HorizontalAlignment="Right" Margin="0,2,802,10" Grid.Row="1" />
-        <Button x:Name="btnClose" Content="Đóng" Click="btnClose_Click" Width="75" HorizontalAlignment="Right" Margin="0,2,0,10" Grid.Row="1" />
+        <Button x:Name="btnClose" Content="Đóng" Click="btnClose_Click" Width="75" HorizontalAlignment="Right" Margin="0,0,10,12" Grid.Row="1" />
     </Grid>
 </sdk:ChildWindow>
