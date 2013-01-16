@@ -1,0 +1,10 @@
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\DemoDev\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe.config
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\DemoDev\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.exe
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\DemoDev\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.pdb
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\DemoDev\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csprojResolveAssemblyReference.cache
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\DemoDev\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Form1.resources
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\DemoDev\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\DemoDev\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csproj.GenerateResource.Cache
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\DemoDev\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.exe.licenses
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\DemoDev\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.exe
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\DemoDev\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.pdb
