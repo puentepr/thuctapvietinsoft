@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 17.375, 21.375" name="DataDaigram">
+  <DataContextMoniker Name="/DataDaigramDataContext" />
+  <nestedChildShapes>
+    <classShape Id="570eda21-fcad-4245-9107-62df48dd62e3" absoluteBounds="5, 2.625, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/DataDaigramDataContext/tblSC_Login" />
+      <nestedChildShapes>
+        <elementListCompartment Id="af3ca6a0-e081-4b2c-8862-4636dbcd91c7" absoluteBounds="5.015, 3.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1962f6a7-3548-4154-8c20-e1fdade0a90f" absoluteBounds="0.75, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DataDaigramDataContext/tblSC_Object" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1e28b0a4-c8ee-43a6-96a1-7d05c481fa86" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="57cb19d2-fa91-489c-8790-3fefa8dc6fca" absoluteBounds="0.75, 3.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/DataDaigramDataContext/tblSC_Right" />
+      <nestedChildShapes>
+        <elementListCompartment Id="638b24d2-d47e-4ba6-bc1a-0a4912d5acbb" absoluteBounds="0.765, 4.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="943507df-3c6b-467f-85d6-6ae45cba00b8" absoluteBounds="2.875, 0.625, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/DataDaigramDataContext/MEN_Menu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0acd3793-66e8-43ad-ae65-af65b7c37320" absoluteBounds="2.89, 1.085, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8b4f742e-853d-4f43-b2be-8dfb857509d8" absoluteBounds="5.25, 0.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DataDaigramDataContext/tblMD_Message" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1523ccea-95df-41da-86a4-71aa10ca27b1" absoluteBounds="5.265, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="39bd4843-a1e8-4583-8bf8-e55727c46b85" absoluteBounds="4, 8, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/DataDaigramDataContext/tblCompany" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f6ea5a4e-08aa-45c5-bbc3-aa0da9247cd3" absoluteBounds="4.015, 8.46, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cf3566eb-b558-414e-8d5c-859c7070498c" absoluteBounds="9.75, 0.5, 2, 20.616437174479167">
+      <DataClassMoniker Name="/DataDaigramDataContext/tblEmployee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b7a7cf7a-bec9-474c-a8bc-5dbe7b855d35" absoluteBounds="9.765, 0.96, 1.9700000000000002, 20.056437174479164" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e1040e96-0f46-4e8f-b36e-d0b5d418ed22" absoluteBounds="7.5, 0.5, 2, 5.0400211588541657">
+      <DataClassMoniker Name="/DataDaigramDataContext/tblLabourContract" />
+      <nestedChildShapes>
+        <elementListCompartment Id="429340e8-e9f2-45fb-8fcb-deab9245119c" absoluteBounds="7.515, 0.96, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="714239c5-3825-46cb-8ea2-109a4dce256d" absoluteBounds="6.625, 7.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DataDaigramDataContext/tblSC_DepartmentView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="899c555d-fe5d-4fc5-be81-a943aa68ec7a" absoluteBounds="6.64, 7.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2583ba5a-82d0-43fc-9f27-9bad1f125a98" absoluteBounds="6.625, 8.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/DataDaigramDataContext/tblWSchedule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dffc35ba-a09b-43e3-ae08-df7a266e875c" absoluteBounds="6.64, 9.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e967a941-6c42-4d7d-b95d-5f2ee05d8786" absoluteBounds="12.375, 1.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataDaigramDataContext/tblDivision" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b0fc45d4-210b-4b5c-844b-c6f3c4af42f5" absoluteBounds="12.39, 1.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1a268078-5cc0-4852-b11b-d3a8430c8bd1" absoluteBounds="15.125, 0.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DataDaigramDataContext/tblDepartment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0200303c-2fce-4a4a-a9f5-a32948f10046" absoluteBounds="15.14, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(14.375 : 2.03929768880208); (15.125 : 2.03929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataDaigramDataContext/tblDivision/tblDivision_tblDepartment" />
+      <nodes>
+        <classShapeMoniker Id="e967a941-6c42-4d7d-b95d-5f2ee05d8786" />
+        <classShapeMoniker Id="1a268078-5cc0-4852-b11b-d3a8430c8bd1" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="997c6c11-47c5-4763-b9e8-8b4b27ece627" absoluteBounds="15.125, 4.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DataDaigramDataContext/tblSection" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22578bc5-fe3a-42dc-b5ea-0a943cfb2f96" absoluteBounds="15.14, 5.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(16.125 : 3.03049967447917); (16.125 : 4.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataDaigramDataContext/tblDepartment/tblDepartment_tblSection" />
+      <nodes>
+        <classShapeMoniker Id="1a268078-5cc0-4852-b11b-d3a8430c8bd1" />
+        <classShapeMoniker Id="997c6c11-47c5-4763-b9e8-8b4b27ece627" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1bfa264f-8415-4fa7-a8e6-5e3c9e70285a" absoluteBounds="12.25, 3.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DataDaigramDataContext/tblGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="42a547f0-0b71-4d58-9333-c4f4b3fd1e0e" absoluteBounds="12.265, 4.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(15.125 : 5.39024983723958); (14.25 : 5.39024983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataDaigramDataContext/tblSection/tblSection_tblGroup" />
+      <nodes>
+        <classShapeMoniker Id="997c6c11-47c5-4763-b9e8-8b4b27ece627" />
+        <classShapeMoniker Id="1bfa264f-8415-4fa7-a8e6-5e3c9e70285a" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
