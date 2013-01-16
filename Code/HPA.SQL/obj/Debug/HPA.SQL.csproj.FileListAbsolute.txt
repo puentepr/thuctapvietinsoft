@@ -1,6 +1,0 @@
-C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.SQL\bin\Debug\HPA.SQL.dll.config
-C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.SQL\bin\Debug\HPA.SQL.dll
-C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.SQL\bin\Debug\HPA.SQL.pdb
-C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.SQL\obj\Debug\HPA.SQL.dll
-C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.SQL\obj\Debug\HPA.SQL.pdb
-C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.SQL\obj\Debug\HPA.SQL.csprojResolveAssemblyReference.cache

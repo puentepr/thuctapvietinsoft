@@ -1,5 +1,0 @@
-C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.Update\bin\Debug\HPA.Update.dll
-C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.Update\bin\Debug\HPA.Update.pdb
-C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.Update\obj\Debug\HPA.Update.dll
-C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.Update\obj\Debug\HPA.Update.pdb
-C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.Update\obj\Debug\HPA.Update.csprojResolveAssemblyReference.cache
