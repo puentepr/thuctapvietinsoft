@@ -15,22 +15,27 @@ namespace HPA.TimeAttendance
 {
     public partial class GetTimeInTimeOut : ChildWindow
     {
+        List<tblDepartment> dp;
         Paradise5.ServiceReference1.Service1Client sv = new Paradise5.ServiceReference1.Service1Client();
         public GetTimeInTimeOut()
         {
-<<<<<<< .mine
-            InitializeComponent();         
-           
-=======
             InitializeComponent();   
             sv.danhsachtheocagiolamCompleted+=sv_danhsachtheocagiolamCompleted;
             sv.danhsachtheocagiolamAsync();
->>>>>>> .r269
         }
-        //void sv_nhandangcavagiolamviecCompleted(object sender, ServiceReference1.nhandangcavagiolamviecCompletedEventArgs e)
-        //{
-        //  //.ItemsSource = e.Result;
-        //}
+        void sv_danhsachtheocagiolamCompleted(object sender, Paradise5.ServiceReference1.danhsachtheocagiolamCompletedEventArgs e)
+        {
+            lookup1.ItemsSource = e.Result;
+            sv.selectdanhsachCompleted += sv_selectdanhsach;
+            object i = lookup1.SelectedItem;
+            var x = (tblDepartment)i;
+            sv.selectdanhsachAsync(x.DepartmentID);
+            
+        }
+        void sv_selectdanhsach(object sender, Paradise5.ServiceReference1.selectdanhsachCompletedEventArgs e)
+        {
+            lookup2.ItemsSource = e.Result;   
+        }
         private void btnProcess_Click_1(object sender, RoutedEventArgs e)
         {
             
@@ -69,6 +74,29 @@ namespace HPA.TimeAttendance
         private void cb1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void lookup1_SelectedIndexChanged_1(object sender, RoutedEventArgs e)
+        {
+            sv.selectdanhsachCompleted += sv_selectdanhsach;
+            object i = lookup1.SelectedItem;
+            var x = (tblDepartment)i;
+            sv.selectdanhsachAsync(x.DepartmentID);
+        }
+
+        private void lookup2_SelectedIndexChanged_1(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void txt1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txt1.Tag.ToString();
+        }
+
+        private void txt1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            txt1.Tag.ToString();
         }
 
         
