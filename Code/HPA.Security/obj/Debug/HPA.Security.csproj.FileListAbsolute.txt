@@ -1,0 +1,11 @@
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.Security\bin\Debug\HPA.Security.dll
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.Security\bin\Debug\HPA.Security.pdb
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.Security\bin\Debug\HPA.Common.dll
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.Security\bin\Debug\HPA.SQL.dll
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.Security\bin\Debug\HPA.Common.pdb
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.Security\bin\Debug\HPA.SQL.pdb
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.Security\obj\Debug\HPA.Security.csprojResolveAssemblyReference.cache
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.Security\obj\Debug\HPA.Security.ChangePass.resources
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.Security\obj\Debug\HPA.Security.csproj.GenerateResource.Cache
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.Security\obj\Debug\HPA.Security.dll
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\Code\HPA.Security\obj\Debug\HPA.Security.pdb
