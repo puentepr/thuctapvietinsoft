@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="CustomBinding_IService1_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:10511/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:10511/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:10511/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Paradise5.Web" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Checklogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:Checklogin" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Checklogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckloginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SetSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetSession" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SetSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSession" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RemoveSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveSession" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RemoveSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ViewMN_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewMN" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ViewMN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewMNResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetID" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindNV_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindNV" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FindNV_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindNVResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_danhsachtheocagiolam_InputMessage">
+    <wsdl:part name="parameters" element="tns:danhsachtheocagiolam" />
+  </wsdl:message>
+  <wsdl:message name="IService1_danhsachtheocagiolam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:danhsachtheocagiolamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CheckTimeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckTimeList" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CheckTimeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckTimeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ColDepartmentCodelist_InputMessage">
+    <wsdl:part name="parameters" element="tns:ColDepartmentCodelist" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ColDepartmentCodelist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ColDepartmentCodelistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ColSectionCodelist_InputMessage">
+    <wsdl:part name="parameters" element="tns:ColSectionCodelist" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ColSectionCodelist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ColSectionCodelistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ColGroupCodelist_InputMessage">
+    <wsdl:part name="parameters" element="tns:ColGroupCodelist" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ColGroupCodelist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ColGroupCodelistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_selectdanhsach_InputMessage">
+    <wsdl:part name="parameters" element="tns:selectdanhsach" />
+  </wsdl:message>
+  <wsdl:message name="IService1_selectdanhsach_OutputMessage">
+    <wsdl:part name="parameters" element="tns:selectdanhsachResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Login" message="tns:IService1_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/LoginResponse" message="tns:IService1_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Checklogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Checklogin" message="tns:IService1_Checklogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CheckloginResponse" message="tns:IService1_Checklogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SetSession" message="tns:IService1_SetSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SetSessionResponse" message="tns:IService1_SetSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetSession" message="tns:IService1_GetSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetSessionResponse" message="tns:IService1_GetSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RemoveSession" message="tns:IService1_RemoveSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RemoveSessionResponse" message="tns:IService1_RemoveSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewMN">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ViewMN" message="tns:IService1_ViewMN_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ViewMNResponse" message="tns:IService1_ViewMN_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetID" message="tns:IService1_GetID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetIDResponse" message="tns:IService1_GetID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindNV">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FindNV" message="tns:IService1_FindNV_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FindNVResponse" message="tns:IService1_FindNV_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="danhsachtheocagiolam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/danhsachtheocagiolam" message="tns:IService1_danhsachtheocagiolam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/danhsachtheocagiolamResponse" message="tns:IService1_danhsachtheocagiolam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckTimeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CheckTimeList" message="tns:IService1_CheckTimeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CheckTimeListResponse" message="tns:IService1_CheckTimeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ColDepartmentCodelist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ColDepartmentCodelist" message="tns:IService1_ColDepartmentCodelist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ColDepartmentCodelistResponse" message="tns:IService1_ColDepartmentCodelist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ColSectionCodelist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ColSectionCodelist" message="tns:IService1_ColSectionCodelist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ColSectionCodelistResponse" message="tns:IService1_ColSectionCodelist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ColGroupCodelist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ColGroupCodelist" message="tns:IService1_ColGroupCodelist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ColGroupCodelistResponse" message="tns:IService1_ColGroupCodelist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="selectdanhsach">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/selectdanhsach" message="tns:IService1_selectdanhsach_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/selectdanhsachResponse" message="tns:IService1_selectdanhsach_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomBinding_IService1" type="tns:IService1">
+    <wsp:PolicyReference URI="#CustomBinding_IService1_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/IService1/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Checklogin">
+      <soap12:operation soapAction="http://tempuri.org/IService1/Checklogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetSession">
+      <soap12:operation soapAction="http://tempuri.org/IService1/SetSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSession">
+      <soap12:operation soapAction="http://tempuri.org/IService1/GetSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSession">
+      <soap12:operation soapAction="http://tempuri.org/IService1/RemoveSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ViewMN">
+      <soap12:operation soapAction="http://tempuri.org/IService1/ViewMN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetID">
+      <soap12:operation soapAction="http://tempuri.org/IService1/GetID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindNV">
+      <soap12:operation soapAction="http://tempuri.org/IService1/FindNV" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="danhsachtheocagiolam">
+      <soap12:operation soapAction="http://tempuri.org/IService1/danhsachtheocagiolam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckTimeList">
+      <soap12:operation soapAction="http://tempuri.org/IService1/CheckTimeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ColDepartmentCodelist">
+      <soap12:operation soapAction="http://tempuri.org/IService1/ColDepartmentCodelist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ColSectionCodelist">
+      <soap12:operation soapAction="http://tempuri.org/IService1/ColSectionCodelist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ColGroupCodelist">
+      <soap12:operation soapAction="http://tempuri.org/IService1/ColGroupCodelist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectdanhsach">
+      <soap12:operation soapAction="http://tempuri.org/IService1/selectdanhsach" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="CustomBinding_IService1" binding="tns:CustomBinding_IService1">
+      <soap12:address location="http://localhost:10511/Service1.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:10511/Service1.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
