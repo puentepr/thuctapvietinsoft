@@ -29,6 +29,18 @@ namespace Paradise5
         {
             InitializeComponent();
             GridStack.Visibility = Visibility.Collapsed;
+            //LoadInfo();
+
+        }
+        void LoadInfo()
+        {
+            TLYC.Children.Clear();
+            Home hm = new Home();
+            hm.Width = (double)HtmlPage.Window.Eval("screen.availWidth");
+            hm.Height = (double)HtmlPage.Window.Eval("screen.availHeight");
+            TLYC.Children.Add(hm);
+            TLYC.Padding = new Thickness(0, 0, 0, 0);
+            
         }
         #region Login
         private void btnLogin_Click(object sender, RoutedEventArgs e)
