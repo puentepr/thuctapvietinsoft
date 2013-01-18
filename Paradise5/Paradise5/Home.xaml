@@ -9,32 +9,7 @@
            mc:Ignorable="d"
            d:DesignWidth="640" d:DesignHeight="480"
            Title="Home Page" Margin="0,9,0,-9">
-     <Grid x:Name="LayoutRoot" ShowGridLines="True">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-            <dxdo:DockLayoutManager Background="Transparent" Name="dockManager1" FlowDirection="RightToLeft" Grid.Row="0">
-            <dxdo:DockLayoutManager.AutoHideGroups>
-                <dxdo:AutoHideGroup DockType="Top">
-                    <dxdo:LayoutPanel x:Name="paneProperties" Caption="" FloatOnDoubleClick="False" ShowCaption="False" MaxHeight="40" AllowActivate="False" AllowClose="False" AllowContextMenu="False" AllowDock="False" AllowDockToDocumentGroup="False" AllowDrag="False" AllowFloat="False" AllowMaximize="False" AllowMinimize="False" AllowMove="False" AllowRename="False" AllowRestore="False" AllowSizing="False" ShowCloseButton="False" ShowControlBox="False" ShowPinButton="False">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <HyperlinkButton x:Name="Logout" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="14" Foreground="Blue" Content="Đăng xuất"/>
-                            <HyperlinkButton x:Name="HPL1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="14" Foreground="Blue" Content="Welcome"/>
-                        </Grid>
-                    </dxdo:LayoutPanel>
-                </dxdo:AutoHideGroup>
-                </dxdo:DockLayoutManager.AutoHideGroups>
-        </dxdo:DockLayoutManager>
-        <dxlc:TileLayoutControl x:Name="TLYC" Background="Black" Grid.ColumnSpan="3" Grid.Row="1" Margin="10,10,10,10">
-            <dxlc:Tile x:Name="TileTest" Header="Tile" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Image Name="image1" Stretch="None" Source="Image\Back.png"/>
-            </dxlc:Tile>
-        </dxlc:TileLayoutControl>
+     <Grid x:Name="LayoutRoot" ShowGridLines="True" Background="Blue">
+        
     </Grid>
 </navigation:Page>
