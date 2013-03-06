@@ -191,4 +191,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ChartData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChartDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Paradise5.Web" minOccurs="0" name="ChartDataResult" nillable="true" type="q10:ArrayOfChartView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

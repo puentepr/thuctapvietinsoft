@@ -161,4 +161,30 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="tmpCheckTimeList" nillable="true" type="tns:tmpCheckTimeList" />
+  <xs:complexType name="ArrayOfChartView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ChartView" nillable="true" type="tns:ChartView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfChartView" nillable="true" type="tns:ArrayOfChartView" />
+  <xs:complexType name="ChartView">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmployeeID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sex" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Marital" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Birthday" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="NativeCountry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HireDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TerminateDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PositionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContractName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeSchool" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Religion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DivisionID" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ChartView" nillable="true" type="tns:ChartView" />
 </xs:schema>
