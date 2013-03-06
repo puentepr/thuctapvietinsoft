@@ -20,6 +20,7 @@ namespace Paradise5
 {
     public partial class MainPage : UserControl
     {
+        int xacnhan=0;
         List<string> cha = new List<string>();
         public static int LoginID=-1;
         List<ViewMenu> view;
@@ -29,22 +30,22 @@ namespace Paradise5
         {
             InitializeComponent();
             GridStack.Visibility = Visibility.Collapsed;
-            //LoadInfo();
+            LoadInfo();
 
         }
         void LoadInfo()
         {
             TLYC.Children.Clear();
-            Home hm = new Home();
-            hm.Width = (double)HtmlPage.Window.Eval("screen.availWidth");
-            hm.Height = (double)HtmlPage.Window.Eval("screen.availHeight");
-            TLYC.Children.Add(hm);
             TLYC.Padding = new Thickness(0, 0, 0, 0);
+            Home hm = new Home();
+            TLYC.Children.Add(hm);
             
         }
         #region Login
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            if (xacnhan == 0)
+            { xacnhan = 1; }
             if (txtName.Text == "")
             {
                 txtName.SetValidation("Tên đăng nhập không được để trống");
@@ -58,6 +59,7 @@ namespace Paradise5
                 ws.CheckloginCompleted += ws_CheckloginCompleted;
                 ws.CheckloginAsync(txtName.Text, txtPass.Password);
             }
+            
         }
         void ws_CheckloginCompleted(object sender, CheckloginCompletedEventArgs e)
         {
@@ -100,6 +102,7 @@ namespace Paradise5
         void ws_ViewMNCompleted(object sender, ViewMNCompletedEventArgs e)
         {
             view = e.Result.ToList();
+            PageSmoothScroller.delaytime.Stop();
             LoadMenu("Mnu");
             
         }
@@ -244,6 +247,7 @@ namespace Paradise5
         {
             //this.Content = new Test();
             txtName.Visibility = Visibility.Visible;
+            txtPass.Password = "Viettinsoft";
             txtPass.Visibility = Visibility.Visible;
             btnLogin.Visibility = Visibility.Visible;
             HPL1.Visibility = Visibility.Collapsed;
@@ -254,7 +258,8 @@ namespace Paradise5
         #region FocusTextBox
         private void txtName_GotFocus(object sender, RoutedEventArgs e)
         {
-            txtName.Text="";
+            if (xacnhan == 0)
+            { txtName.Text = ""; }
         }
 
         private void txtPass_GotFocus(object sender, RoutedEventArgs e)
@@ -275,6 +280,20 @@ namespace Paradise5
             GridStack.Visibility = Visibility.Visible;
         }
         #endregion
+
+        private void Home_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            TLYC.Width = e.NewSize.Width;
+            TLYC.Height = e.NewSize.Height;
+            foreach (Control ctr in TLYC.Children)
+            {
+                if (ctr is Paradise5.Home)
+                {
+                    ctr.Width = TLYC.Width;
+                    ctr.Height = TLYC.Height-70;
+                }
+            }
+        }
 
     }
 }

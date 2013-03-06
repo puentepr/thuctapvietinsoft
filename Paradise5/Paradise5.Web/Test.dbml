@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="phanmemtinhluon_P4" Class="TestDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=112.78.2.166,1455;Initial Catalog=phanmemtinhluon_P4;User ID=phanmemtinhluon_saP4" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TestP4ConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TestP4" Class="TestDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=ANHTUAN\SQLEXPRESS;Initial Catalog=TestP4;Persist Security Info=True;User ID=saFree" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TestP4ConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tblSC_Object" Member="tblSC_Objects">
     <Type Name="tblSC_Object">
       <Column Name="ObjectID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -245,6 +245,25 @@
       <Column Name="AttEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="TimeStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Approve" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ChartView" Member="ChartViews">
+    <Type Name="ChartView">
+      <Column Name="EmployeeID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Sex" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Nationality" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Marital" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Birthday" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NativeCountry" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HireDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TerminateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PositionName" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="ContractName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TypeSchool" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmployeeTypeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Religion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmployeeStatus" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DivisionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.SC_Login_CheckLogin" Method="SC_Login_CheckLogin">

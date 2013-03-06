@@ -1,15 +1,1031 @@
-﻿<navigation:Page 
-           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-           xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" 
-           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
-           xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking" x:Class="Paradise5.Home"
-           mc:Ignorable="d"
-           d:DesignWidth="640" d:DesignHeight="480"
-           Title="Home Page" Margin="0,9,0,-9">
-     <Grid x:Name="LayoutRoot" ShowGridLines="True" Background="Blue">
-        
-    </Grid>
-</navigation:Page>
+﻿<local:NavBarDemoModule MinHeight="415" MinWidth="600" Background="Transparent"
+    xmlns:local="clr-namespace:Paradise5" 
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:dxdb="http://schemas.devexpress.com/winfx/2008/xaml/demobase" 
+    xmlns:dxn="http://schemas.devexpress.com/winfx/2008/xaml/navbar" 
+    xmlns:dxnt="http://schemas.devexpress.com/winfx/2008/xaml/navbar/themekeys" 
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+    xmlns:dxcn="clr-namespace:DevExpress.Xpf.Core.Native;assembly=DevExpress.Xpf.Core.v12.2" 
+    xmlns:xpf="clr-namespace:DevExpress.Xpf.NavBar.Platform;assembly=DevExpress.Xpf.NavBar.v12.2" 
+    xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" 
+    x:Class="Paradise5.Home" SizeChanged="NavBarDemoModule_SizeChanged_1">
+    <dxdb:DemoModuleControl Name="Parent1">
+        <dxdb:DemoModuleControl.Resources>
+            <Style x:Key="Group1RadioButtonStyle" TargetType="RadioButton">
+                <Setter Property="Height" Value="12" />
+                <Setter Property="Width" Value="12" />
+                <Setter Property="Margin" Value="2" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="RadioButton">
+                            <Grid x:Name="grid" Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CheckStates">
+                                        <VisualStateGroup.Transitions>
+                                            <VisualTransition GeneratedDuration="0:0:0.25" />
+                                        </VisualStateGroup.Transitions>
+                                        <VisualState x:Name="Checked">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Selected" />
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Unchecked">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Selected" />
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Indeterminate" />
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualStateGroup.Transitions>
+                                            <VisualTransition GeneratedDuration="0:0:0.1" />
+                                        </VisualStateGroup.Transitions>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Hover" />
+                                                <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Unselected" />
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed" />
+                                        <VisualState x:Name="Disabled" />
+                                        <VisualState x:Name="Normal" />
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Border x:Name="Unselected" Width="8" Height="8" CornerRadius="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                            <GradientStop Color="Transparent" Offset="0" />
+                                            <GradientStop Color="#59FFFFFF" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <Border x:Name="border" CornerRadius="3" Margin="1">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                <GradientStop Color="#FF7C7C7C" Offset="0" />
+                                                <GradientStop Color="#FF8E8E8E" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Border x:Name="border1" CornerRadius="2" Margin="1">
+                                            <Border.Background>
+                                                <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                    <GradientStop Color="#FF8D8D8D" Offset="0" />
+                                                    <GradientStop Color="#FFADADAD" Offset="1" />
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                        </Border>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="Hover" Width="10" Height="10" CornerRadius="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                            <GradientStop Color="Transparent" Offset="0" />
+                                            <GradientStop Color="#59FFFFFF" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <Border x:Name="border2" CornerRadius="4" Margin="1">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                <GradientStop Color="#FF7C7C7C" Offset="0" />
+                                                <GradientStop Color="#FF8E8E8E" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Border x:Name="border3" CornerRadius="3" Margin="1">
+                                            <Border.Background>
+                                                <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                    <GradientStop Color="#FF8D8D8D" Offset="0" />
+                                                    <GradientStop Color="#FFADADAD" Offset="1" />
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                        </Border>
+                                    </Border>
+                                </Border>
+                                <Grid x:Name="Selected" Opacity="0">
+                                    <Border CornerRadius="6" Margin="-1,0,-1,-1" Background="#19000000" />
+                                    <Border CornerRadius="6">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                <GradientStop Color="#FF987EC8" Offset="0" />
+                                                <GradientStop Color="#FF564185" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Border Margin="1" CornerRadius="5">
+                                            <Border.Background>
+                                                <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                    <GradientStop Color="#FF866BAF" Offset="0.5" />
+                                                    <GradientStop Color="#FFE1D6FF" />
+                                                    <GradientStop Color="#FFAB91CB" Offset="0.993" />
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                        </Border>
+                                    </Border>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="Group2RadioButtonStyle" TargetType="RadioButton">
+                <Setter Property="Height" Value="12" />
+                <Setter Property="Width" Value="12" />
+                <Setter Property="Margin" Value="2" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="RadioButton">
+                            <Grid x:Name="grid" Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CheckStates">
+                                        <VisualStateGroup.Transitions>
+                                            <VisualTransition GeneratedDuration="0:0:0.25" />
+                                        </VisualStateGroup.Transitions>
+                                        <VisualState x:Name="Checked">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Selected" />
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Unchecked">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Selected" />
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Indeterminate" />
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualStateGroup.Transitions>
+                                            <VisualTransition GeneratedDuration="0:0:0.1" />
+                                        </VisualStateGroup.Transitions>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Hover" />
+                                                <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Unselected" />
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed" />
+                                        <VisualState x:Name="Disabled" />
+                                        <VisualState x:Name="Normal" />
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Border x:Name="Unselected" Width="8" Height="8" CornerRadius="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                            <GradientStop Color="Transparent" Offset="0" />
+                                            <GradientStop Color="#59FFFFFF" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <Border x:Name="border" CornerRadius="3" Margin="1">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                <GradientStop Color="#FF7C7C7C" Offset="0" />
+                                                <GradientStop Color="#FF8E8E8E" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Border x:Name="border1" CornerRadius="2" Margin="1">
+                                            <Border.Background>
+                                                <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                    <GradientStop Color="#FF8D8D8D" Offset="0" />
+                                                    <GradientStop Color="#FFADADAD" Offset="1" />
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                        </Border>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="Hover" Width="10" Height="10" CornerRadius="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                            <GradientStop Color="Transparent" Offset="0" />
+                                            <GradientStop Color="#59FFFFFF" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <Border x:Name="border2" CornerRadius="4" Margin="1">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                <GradientStop Color="#FF7C7C7C" Offset="0" />
+                                                <GradientStop Color="#FF8E8E8E" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Border x:Name="border3" CornerRadius="3" Margin="1">
+                                            <Border.Background>
+                                                <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                    <GradientStop Color="#FF8D8D8D" Offset="0" />
+                                                    <GradientStop Color="#FFADADAD" Offset="1" />
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                        </Border>
+                                    </Border>
+                                </Border>
+                                <Grid x:Name="Selected" Opacity="0">
+                                    <Border CornerRadius="6" Margin="-1,0,-1,-1" Background="#19000000" />
+                                    <Border CornerRadius="6">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                <GradientStop Color="#FFC87E7E" Offset="0" />
+                                                <GradientStop Color="#FF854141" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Border Margin="1" CornerRadius="5">
+                                            <Border.Background>
+                                                <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                    <GradientStop Color="#FFAF6B6B" Offset="0.5" />
+                                                    <GradientStop Color="#FFFFD6D6" />
+                                                    <GradientStop Color="#FFCB9191" Offset="0.993" />
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                        </Border>
+                                    </Border>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="Group3RadioButtonStyle" TargetType="RadioButton">
+                <Setter Property="Height" Value="12" />
+                <Setter Property="Width" Value="12" />
+                <Setter Property="Margin" Value="2" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="RadioButton">
+                            <Grid x:Name="grid" Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CheckStates">
+                                        <VisualStateGroup.Transitions>
+                                            <VisualTransition GeneratedDuration="0:0:0.25" />
+                                        </VisualStateGroup.Transitions>
+                                        <VisualState x:Name="Checked">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Selected" />
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Unchecked">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Selected" />
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Indeterminate" />
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualStateGroup.Transitions>
+                                            <VisualTransition GeneratedDuration="0:0:0.1" />
+                                        </VisualStateGroup.Transitions>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Hover" />
+                                                <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Unselected" />
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed" />
+                                        <VisualState x:Name="Disabled" />
+                                        <VisualState x:Name="Normal" />
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Border x:Name="Unselected" Width="8" Height="8" CornerRadius="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                            <GradientStop Color="Transparent" Offset="0" />
+                                            <GradientStop Color="#59FFFFFF" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <Border x:Name="border" CornerRadius="3" Margin="1">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                <GradientStop Color="#FF7C7C7C" Offset="0" />
+                                                <GradientStop Color="#FF8E8E8E" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Border x:Name="border1" CornerRadius="2" Margin="1">
+                                            <Border.Background>
+                                                <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                    <GradientStop Color="#FF8D8D8D" Offset="0" />
+                                                    <GradientStop Color="#FFADADAD" Offset="1" />
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                        </Border>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="Hover" Width="10" Height="10" CornerRadius="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                            <GradientStop Color="Transparent" Offset="0" />
+                                            <GradientStop Color="#59FFFFFF" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <Border x:Name="border2" CornerRadius="4" Margin="1">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                <GradientStop Color="#FF7C7C7C" Offset="0" />
+                                                <GradientStop Color="#FF8E8E8E" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Border x:Name="border3" CornerRadius="3" Margin="1">
+                                            <Border.Background>
+                                                <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                    <GradientStop Color="#FF8D8D8D" Offset="0" />
+                                                    <GradientStop Color="#FFADADAD" Offset="1" />
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                        </Border>
+                                    </Border>
+                                </Border>
+                                <Grid x:Name="Selected" Opacity="0">
+                                    <Border CornerRadius="6" Margin="-1,0,-1,-1" Background="#19000000" />
+                                    <Border CornerRadius="6">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                <GradientStop Color="#FF7EA0C8" Offset="0" />
+                                                <GradientStop Color="#FF416085" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Border Margin="1" CornerRadius="5">
+                                            <Border.Background>
+                                                <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                    <GradientStop Color="#FF6B89AF" Offset="0.5" />
+                                                    <GradientStop Color="#FFD6E8FF" />
+                                                    <GradientStop Color="#FF91AACB" Offset="0.993" />
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                        </Border>
+                                    </Border>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="Group4RadioButtonStyle" TargetType="RadioButton">
+                <Setter Property="Height" Value="12" />
+                <Setter Property="Width" Value="12" />
+                <Setter Property="Margin" Value="2" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="RadioButton">
+                            <Grid x:Name="grid" Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CheckStates">
+                                        <VisualStateGroup.Transitions>
+                                            <VisualTransition GeneratedDuration="0:0:0.25" />
+                                        </VisualStateGroup.Transitions>
+                                        <VisualState x:Name="Checked">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Selected" />
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Unchecked">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Selected" />
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Indeterminate" />
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualStateGroup.Transitions>
+                                            <VisualTransition GeneratedDuration="0:0:0.1" />
+                                        </VisualStateGroup.Transitions>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Hover" />
+                                                <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Unselected" />
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed" />
+                                        <VisualState x:Name="Disabled" />
+                                        <VisualState x:Name="Normal" />
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Border x:Name="Unselected" Width="8" Height="8" CornerRadius="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                            <GradientStop Color="Transparent" Offset="0" />
+                                            <GradientStop Color="#59FFFFFF" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <Border x:Name="border" CornerRadius="3" Margin="1">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                <GradientStop Color="#FF7C7C7C" Offset="0" />
+                                                <GradientStop Color="#FF8E8E8E" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Border x:Name="border1" CornerRadius="2" Margin="1">
+                                            <Border.Background>
+                                                <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                    <GradientStop Color="#FF8D8D8D" Offset="0" />
+                                                    <GradientStop Color="#FFADADAD" Offset="1" />
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                        </Border>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="Hover" Width="10" Height="10" CornerRadius="5" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                            <GradientStop Color="Transparent" Offset="0" />
+                                            <GradientStop Color="#59FFFFFF" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <Border x:Name="border2" CornerRadius="4" Margin="1">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                <GradientStop Color="#FF7C7C7C" Offset="0" />
+                                                <GradientStop Color="#FF8E8E8E" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Border x:Name="border3" CornerRadius="3" Margin="1">
+                                            <Border.Background>
+                                                <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                    <GradientStop Color="#FF8D8D8D" Offset="0" />
+                                                    <GradientStop Color="#FFADADAD" Offset="1" />
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                        </Border>
+                                    </Border>
+                                </Border>
+                                <Grid x:Name="Selected" Opacity="0">
+                                    <Border CornerRadius="6" Margin="-1,0,-1,-1" Background="#19000000" />
+                                    <Border CornerRadius="6">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                <GradientStop Color="#FF7EB5C8" Offset="0" />
+                                                <GradientStop Color="#FF416E85" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Border Margin="1" CornerRadius="5">
+                                            <Border.Background>
+                                                <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                                    <GradientStop Color="#FF6BA1AF" Offset="0.5" />
+                                                    <GradientStop Color="#FFD6F1FF" />
+                                                    <GradientStop Color="#FF91B7CB" Offset="0.993" />
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                        </Border>
+                                    </Border>
+                                </Grid>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </dxdb:DemoModuleControl.Resources>
+        <dxn:NavBarControl x:Name="navBar" HorizontalAlignment="Center" VerticalAlignment="Center" Height="415" Width="800" MouseEnter="navBar_MouseEnter" MouseLeave="navBar_MouseLeave" SizeChanged="navBar_SizeChanged">
+            <dxn:NavBarControl.Resources>
+                <dxn:IsActiveToAnimationProgressConverter x:Key="IsActiveToAnimationProgressConverter" />
+                <dxn:SelectItemCommandProvider x:Key="SelectItemCommandProvider" />
+                <dx:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+                <DataTemplate x:Key="NavBarGroupControlThemeKey_ItemTemplate">
+                    <dxn:NavBarItemControl Style="{Binding ActualVisualStyle}" Content="{Binding Converter={dxn:FrameworkElementInfoSLCompatibilityConverter}}" DataContext="{Binding Converter={dxn:FrameworkElementInfoSLCompatibilityConverter ConvertToInfo=False}}" ContentTemplateSelector="{Binding Group.ActualItemTemplateSelector}" dxcn:RoutedCommandHelper.Command="{StaticResource SelectItemCommandProvider}" dxcn:RoutedCommandHelper.CommandParameter="{Binding}" Visibility="{Binding IsVisible, Converter={StaticResource BoolToVisibilityConverter}}" ContentTemplate="{Binding Template}" Template="{Binding Group.NavBar.View.ItemControlTemplate}" />
+                </DataTemplate>
+                <DataTemplate x:Key="NavBarGroupControlThemeKey_GroupItemsTemplate">
+                    <dxn:NavBarItemsControl x:Name="groupItemsPresenter" ItemTemplate="{StaticResource NavBarGroupControlThemeKey_ItemTemplate}" DataContext="{Binding Converter={dxn:FrameworkElementInfoSLCompatibilityConverter ConvertToInfo=False}}" ItemsSourceCore="{Binding SynchronizedItems}" ItemsPanel="{Binding NavBar.View.ItemsPanelTemplate}"/>
+                </DataTemplate>
+                <Style x:Key="CommonElementsThemeKey_DefaultGroupControlPresenterStyle" TargetType="dx:XPFContentPresenter">
+                    <Setter Property="ContentTemplate" Value="{StaticResource NavBarGroupControlThemeKey_GroupItemsTemplate}" />
+                </Style>
+                <Style x:Key="GroupItemsContainerStyle" TargetType="dxn:GroupItemsContainer">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="dxn:GroupItemsContainer">
+                                <Grid>
+                                    <dxn:GroupScrollableContentControl x:Name="scrollableContent" Orientation="{Binding NavBar.View.ItemsPanelOrientation}">
+                                        <dxn:GroupScrollableContentControl.AllowScrolling>
+                                            <Binding Path="NavBar.View.NavBarViewKind">
+                                                <Binding.Converter>
+                                                    <dxn:NavBarViewKindToBooleanConverter />
+                                                </Binding.Converter>
+                                            </Binding>
+                                        </dxn:GroupScrollableContentControl.AllowScrolling>
+                                        <ContentPresenter x:Name="content" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
+                                    </dxn:GroupScrollableContentControl>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+                <Style x:Key="SideBarThemeKey_GroupControlStyle" TargetType="dxn:NavBarGroupControl">
+
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="dxn:NavBarGroupControl">
+                                <xpf:XPFDockPanel dxn:NavBarAnimationOptions.AnimationProgress="{Binding AnimationProgress, ElementName=PART_DXExpander}">
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="OrientationStates">
+                                            <VisualState x:Name="Vertical" />
+                                            <VisualState x:Name="Horizontal">
+                                                <Storyboard>
+                                                    <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="panel" Storyboard.TargetProperty="xpf:XPFDockPanel.Dock">
+                                                        <DiscreteObjectKeyFrame KeyTime="0">
+                                                            <DiscreteObjectKeyFrame.Value>
+
+                                                                <dx:Dock>Left</dx:Dock>
+                                                            </DiscreteObjectKeyFrame.Value>
+                                                        </DiscreteObjectKeyFrame>
+                                                    </ObjectAnimationUsingKeyFrames>
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                        <VisualStateGroup x:Name="DisplaySourceStates">
+                                            <VisualState x:Name="Items" />
+                                            <VisualState x:Name="Content">
+                                                <Storyboard>
+                                                    <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="groupHeaderContentPresenter" Storyboard.TargetProperty="ContentTemplate">
+                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource CommonElementsThemeKey_GroupContainerTemplate}" />
+                                                    </ObjectAnimationUsingKeyFrames>
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <dx:LayoutTransformPanel x:Name="panel" dx:DockPanel.Dock="Top" Orientation="{Binding NavBar.View.Orientation}">
+                                        <dxn:SideBarHeader x:Name="groupHeader" Style="{Binding ActualVisualStyle}" Template="{Binding ActualGroupHeaderTemplate}" AnimationProgress="{Binding AnimationProgress, ElementName=PART_DXExpander}" dxcn:RoutedCommandHelper.CommandParameter="{Binding}">
+
+                                            <dxcn:RoutedCommandHelper.Command>
+                                                <dxn:SetActiveGroupCommandProvider />
+                                            </dxcn:RoutedCommandHelper.Command>
+                                        </dxn:SideBarHeader>
+                                    </dx:LayoutTransformPanel>
+                                    <dxn:GroupItemsContainer AnimationProgress="{Binding AnimationProgress, ElementName=PART_DXExpander}" Style="{StaticResource GroupItemsContainerStyle}">
+                                        <dx:DXExpander x:Name="PART_DXExpander" MaxHeight="{Binding NavBar.View.SideBarPanel.ResidualSize.Height}" MaxWidth="{Binding NavBar.View.SideBarPanel.ResidualSize.Width}" AnimationProgress="{Binding IsActive, Converter={StaticResource IsActiveToAnimationProgressConverter}, Mode=OneTime}" HorizontalExpand="{Binding NavBar.View.(dxn:NavBarAnimationOptions.HorizontalExpand)}" VerticalExpand="{Binding NavBar.View.(dxn:NavBarAnimationOptions.VerticalExpand)}" dxn:NavBarAnimationOptions.IsExpanded="{Binding IsActive}" dxn:NavBarAnimationOptions.ExpandStoryboard="{Binding NavBar.View.(dxn:NavBarAnimationOptions.ExpandStoryboard)}" dxn:NavBarAnimationOptions.CollapseStoryboard="{Binding NavBar.View.(dxn:NavBarAnimationOptions.CollapseStoryboard)}" Collapsing="{Binding IsCollapsing, Mode=TwoWay}" Expanding="{Binding IsExpanding, Mode=TwoWay}">
+                                            <dxn:GroupScrollableContentControl x:Name="scrollableContent" Orientation="{Binding NavBar.View.ItemsPanelOrientation}">
+                                                <dx:XPFContentPresenter x:Name="groupHeaderContentPresenter" Content="{Binding Converter={dxn:FrameworkElementInfoSLCompatibilityConverter}}" Style="{StaticResource CommonElementsThemeKey_DefaultGroupControlPresenterStyle}" Margin="2,1,2,0" />
+                                            </dxn:GroupScrollableContentControl>
+                                        </dx:DXExpander>
+                                    </dxn:GroupItemsContainer>
+                                </xpf:XPFDockPanel>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+                <ControlTemplate x:Key="CommonElementsThemeKey_GroupHeaderTemplate" TargetType="dxn:NavBarGroupHeader">
+                    <Grid Margin="0,4,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="IsActiveStates">
+                                <VisualState x:Name="IsActiveTrue">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.3" To="28" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="Cursor" />
+                                        <DoubleAnimation Duration="0:0:0.3" To="15" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Cursor" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="IsActiveFalse">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.3" To="0" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="Cursor" />
+                                        <DoubleAnimation Duration="0:0:0.3" To="0" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Cursor" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0" />
+                                    <VisualTransition GeneratedDuration="0:0:0.1" To="MouseOver">
+                                        <VisualTransition.GeneratedEasingFunction>
+                                            <CubicEase EasingMode="EaseIn" />
+                                        </VisualTransition.GeneratedEasingFunction>
+                                        <Storyboard>
+                                            <ColorAnimation Duration="0:0:0.2" To="#FFEEEEEB" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path" />
+                                            <DoubleAnimation Duration="0:0:0.2" To="0.5" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="border4">
+                                                <DoubleAnimation.EasingFunction>
+                                                    <CubicEase EasingMode="EaseIn" />
+                                                </DoubleAnimation.EasingFunction>
+                                            </DoubleAnimation>
+                                            <DoubleAnimation Duration="0:0:0.2" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerContent">
+                                                <DoubleAnimation.EasingFunction>
+                                                    <CubicEase EasingMode="EaseIn" />
+                                                </DoubleAnimation.EasingFunction>
+                                            </DoubleAnimation>
+                                            <ColorAnimation Duration="0:0:0.2" To="White" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="border">
+                                                <ColorAnimation.EasingFunction>
+                                                    <CubicEase EasingMode="EaseIn" />
+                                                </ColorAnimation.EasingFunction>
+                                            </ColorAnimation>
+                                            <ColorAnimation Duration="0:0:0.2" To="#FFE7E7E2" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="border">
+                                                <ColorAnimation.EasingFunction>
+                                                    <CubicEase EasingMode="EaseIn" />
+                                                </ColorAnimation.EasingFunction>
+                                            </ColorAnimation>
+                                            <DoubleAnimation Duration="0:0:0.2" To="0.5" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="border2">
+                                                <DoubleAnimation.EasingFunction>
+                                                    <CubicEase EasingMode="EaseIn" />
+                                                </DoubleAnimation.EasingFunction>
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                    <VisualTransition From="MouseOver" GeneratedDuration="0:0:0.2">
+                                        <VisualTransition.GeneratedEasingFunction>
+                                            <CubicEase EasingMode="EaseOut" />
+                                        </VisualTransition.GeneratedEasingFunction>
+                                    </VisualTransition>
+                                    <VisualTransition GeneratedDuration="0:0:0.2" To="Pressed">
+                                        <VisualTransition.GeneratedEasingFunction>
+                                            <CubicEase EasingMode="EaseIn" />
+                                        </VisualTransition.GeneratedEasingFunction>
+                                    </VisualTransition>
+                                    <VisualTransition From="Pressed" GeneratedDuration="0:0:0.2">
+                                        <VisualTransition.GeneratedEasingFunction>
+                                            <CubicEase EasingMode="EaseOut" />
+                                        </VisualTransition.GeneratedEasingFunction>
+                                    </VisualTransition>
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path">
+                                            <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FFE7F2F6" />
+                                            <EasingColorKeyFrame KeyTime="0:0:0.25" Value="#FFEEEEEB" />
+                                        </ColorAnimationUsingKeyFrames>
+                                        <DoubleAnimation Duration="0:0:0.25" To="0.5" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="border4" />
+                                        <DoubleAnimation Duration="0:0:0.25" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerContent" />
+                                        <ColorAnimation Duration="0:0:0.25" To="White" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="border" />
+                                        <ColorAnimation Duration="0:0:0.25" To="#FFE7E7E2" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="border" />
+                                        <DoubleAnimation Duration="0:0:0.25" To="0.5" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="border2" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.1" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerContent" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled" />
+                                <VisualState x:Name="Normal" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid>
+                            <Border x:Name="border2" Background="#26000000" Margin="-1,1,1,-1" />
+                            <Border x:Name="border1" Background="White">
+                                <Border x:Name="border" Margin="0,1,1,0">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#FFEFEDE8" Offset="0" />
+                                            <GradientStop Color="#FFE1DED6" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <Border x:Name="border4" Opacity="1">
+                                        <Border.Background>
+                                            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                                <GradientStop Color="#3FFFFFFF" Offset="0" />
+                                                <GradientStop Color="White" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                    </Border>
+                                </Border>
+                            </Border>
+                            <Grid x:Name="headerContent" Margin="0,0,-1,0" Opacity="0.85">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <dxn:ImageAndTextContentPresenter x:Name="contentPresenter" Content="{Binding Converter={dxn:FrameworkElementInfoSLCompatibilityConverter ConvertToInfo=True}}" ContentTemplateSelector="{Binding ActualHeaderTemplateSelector}" 
+                                    UseLayoutRounding="True" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,4" />
+                                <Border x:Name="border3" Margin="6,5,6,6" Background="#7FFFFFFF" Grid.Column="1" CornerRadius="9" VerticalAlignment="Center">
+                                    <Border CornerRadius="9" Margin="0,1,1,0">
+                                        <Border.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF8D8D8D" Offset="0" />
+                                                <GradientStop Color="#FFA4A4A4" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Border Margin="1" CornerRadius="8" Background="#FFB4B4B4">
+                                            <Border CornerRadius="7,8,8,7" Margin="0,1,1,0">
+                                                <Border.Background>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="#FFBFBFBF" Offset="0" />
+                                                        <GradientStop Color="#FFD1D1D1" Offset="1" />
+                                                    </LinearGradientBrush>
+                                                </Border.Background>
+                                                <local:RadioButtonsPanel Margin="-1,-1,0,0" Orientation="Horizontal" RadioButtonStyle="{Binding RadioButtonStyle}" />
+                                            </Border>
+                                        </Border>
+                                    </Border>
+                                </Border>
+                            </Grid>
+                        </Grid>
+                        <Grid x:Name="Cursor" Grid.Row="1" Height="0" VerticalAlignment="Top" Width="0" HorizontalAlignment="Center">
+                            <Path Stretch="Fill" Fill="#26000000" Data="F1 M 242,214L 236,214L 232,214L 226,214L 221,214L 214,214L 228,229L 242,214 Z " UseLayoutRounding="False" />
+                            <Path x:Name="path" Stretch="Fill" Fill="#FFF4F3F0" Data="F1 M 241,214L 236,214L 231,214L 226,214L 221,214L 215,214L 228,228L 241,214 Z " Margin="1,-1,1,1" UseLayoutRounding="False" />
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+
+                <ControlTemplate x:Key="CommonElementsThemeKey_ScrollUpGroupButtonTemplate" TargetType="dxn:NavBarRepeatButton">
+                    <Grid x:Name="grid" Opacity="0.5" Height="24" Width="24" Margin="0,9,0,0">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0:0:0.1" To="MouseOver" />
+                                    <VisualTransition From="MouseOver" GeneratedDuration="0:0:0.1" />
+                                    <VisualTransition GeneratedDuration="0:0:0.1" To="Pressed" />
+                                    <VisualTransition From="Pressed" GeneratedDuration="0:0:0.1" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="0.75" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Shadow" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid x:Name="Shadow" Opacity="0.5" Margin="-4">
+                            <Grid.Background>
+                                <ImageBrush Stretch="Fill" ImageSource="/NavBarDemo;component/Images/SideBarCustomTheme/Shadow.png" />
+                            </Grid.Background>
+                        </Grid>
+                        <Border x:Name="border" BorderThickness="0" CornerRadius="20" Padding="0" Margin="0">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                    <GradientStop Color="#FFE0E0E0" Offset="0" />
+                                    <GradientStop Color="Silver" Offset="1" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                        <Path x:Name="path" Stretch="Fill" Fill="#FF333333" Data="F1 M48,220 L53,220 L58,220 L53,215 L48,220 z" Height="5" UseLayoutRounding="False" Width="10" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,1" />
+                    </Grid>
+                </ControlTemplate>
+                <ControlTemplate x:Key="CommonElementsThemeKey_ScrollDownGroupButtonTemplate" TargetType="dxn:NavBarRepeatButton">
+                    <Grid x:Name="grid" Opacity="0.5" Height="24" Width="24" Margin="0,0,0,10">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0:0:0.1" To="MouseOver">
+                                        <VisualTransition.GeneratedEasingFunction>
+                                            <CircleEase EasingMode="EaseOut" />
+                                        </VisualTransition.GeneratedEasingFunction>
+                                    </VisualTransition>
+                                    <VisualTransition From="MouseOver" GeneratedDuration="0:0:0.1">
+                                        <VisualTransition.GeneratedEasingFunction>
+                                            <CircleEase EasingMode="EaseOut" />
+                                        </VisualTransition.GeneratedEasingFunction>
+                                    </VisualTransition>
+                                    <VisualTransition GeneratedDuration="0:0:0.1" To="Pressed">
+                                        <VisualTransition.GeneratedEasingFunction>
+                                            <CircleEase EasingMode="EaseOut" />
+                                        </VisualTransition.GeneratedEasingFunction>
+                                    </VisualTransition>
+                                    <VisualTransition From="Pressed" GeneratedDuration="0:0:0.1">
+                                        <VisualTransition.GeneratedEasingFunction>
+                                            <CircleEase EasingMode="EaseOut" />
+                                        </VisualTransition.GeneratedEasingFunction>
+                                    </VisualTransition>
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="0.75" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Shadow" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0" />
+                                </VisualStateGroup.Transitions>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid x:Name="Shadow" Opacity="0.5" Margin="-4">
+                            <Grid.Background>
+                                <ImageBrush Stretch="Fill" ImageSource="/NavBarDemo;component/Images/SideBarCustomTheme/Shadow.png" />
+                            </Grid.Background>
+                        </Grid>
+                        <Border x:Name="border" BorderThickness="0" CornerRadius="20" Padding="0" Margin="0">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                    <GradientStop Color="#FFE0E0E0" Offset="0" />
+                                    <GradientStop Color="Silver" Offset="1" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                        <Path x:Name="path" Stretch="Fill" Fill="#FF333333" Data="F1 M55,215 L60,215 L65,215 L60,220 L55,215 z" Height="5" UseLayoutRounding="False" Width="10" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,1,0,0" />
+                    </Grid>
+                </ControlTemplate>
+
+                <dxn:ScrollUpCommandProvider x:Key="ScrollUpCommandProvider" />
+                <dxn:ScrollDownCommandProvider x:Key="ScrollDownCommandProvider" />
+                <ControlTemplate x:Key="CommonElementsThemeKey_ScrollableContentControlTemplate" TargetType="dxn:ScrollableContentControl">
+                    <xpf:XPFDockPanel LastChildFill="True">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="OrientationStates">
+                                <VisualState x:Name="Vertical" />
+                                <VisualState x:Name="Horizontal">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="up" Storyboard.TargetProperty="(xpf:XPFDockPanel.Dock)">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+
+                                                    <dx:Dock>Left</dx:Dock>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="down" Storyboard.TargetProperty="(xpf:XPFDockPanel.Dock)">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+
+                                                    <dx:Dock>Right</dx:Dock>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="AllowScrollStates">
+                                <VisualState x:Name="AllowScrollFalse">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="up" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="down" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="AllowScrollTrue" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <dxn:NavBarRepeatButton Template="{StaticResource CommonElementsThemeKey_ScrollUpGroupButtonTemplate}" x:Name="up" Interval="100" dx:DockPanel.Dock="Top" Orientation="{Binding NavBar.View.Orientation}" ClickMode="{Binding NavBar.View.(dxn:ScrollingSettings.ClickMode)}" dxcn:RoutedCommandHelper.Command="{StaticResource ScrollUpCommandProvider}" dxcn:RoutedCommandHelper.CommandTarget="{Binding ElementName=scroller}" />
+                        <dxn:NavBarRepeatButton Template="{StaticResource CommonElementsThemeKey_ScrollDownGroupButtonTemplate}" x:Name="down" Interval="100" dx:DockPanel.Dock="Bottom" Orientation="{Binding NavBar.View.Orientation}" ClickMode="{Binding NavBar.View.(dxn:ScrollingSettings.ClickMode)}" dxcn:RoutedCommandHelper.Command="{StaticResource ScrollDownCommandProvider}" dxcn:RoutedCommandHelper.CommandTarget="{Binding ElementName=scroller}" />
+                        <Grid>
+                            <Grid.OpacityMask>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black" Offset="0.99" />
+                                    <GradientStop Offset="1" />
+                                    <GradientStop Color="Black" Offset="0.01" />
+                                    <GradientStop />
+                                </LinearGradientBrush>
+                            </Grid.OpacityMask>
+                            <local:PageSmoothScroller x:Name="scroller" Orientation="{Binding Orientation, RelativeSource={RelativeSource TemplatedParent}}" ScrollSpeed="{Binding NavBar.View.(dxn:ScrollingSettings.ScrollSpeed)}" dx:DockPanel.Dock="Top" ButtonDown="{Binding ElementName=down}" ButtonUp="{Binding ElementName=up}">
+
+                                <ContentPresenter x:Name="contentPresenter" />
+                            </local:PageSmoothScroller>
+                        </Grid>
+                    </xpf:XPFDockPanel>
+                </ControlTemplate>
+
+                <ControlTemplate x:Key="CommonElementsThemeKey_ScrollessContentControlTemplate" TargetType="dxn:ScrollableContentControl">
+                    <ContentPresenter />
+                </ControlTemplate>
+                <Style TargetType="dxn:GroupScrollableContentControl">
+                    <Setter Property="Template" Value="{StaticResource CommonElementsThemeKey_ScrollableContentControlTemplate}" />
+                    <Setter Property="NotAllowScrollingTemplate" Value="{StaticResource CommonElementsThemeKey_ScrollessContentControlTemplate}" />
+                </Style>
+
+                <ControlTemplate x:Key="CommonElementsThemeKey_ItemTemplate" TargetType="dxn:NavBarItemControl">
+                    <Grid x:Name="grid">
+                        <dxn:ImageAndTextContentPresenter ImageFallbackSize="16" HorizontalAlignment="Stretch" x:Name="item" VerticalAlignment="Stretch" 
+                            UseLayoutRounding="True" Content="{TemplateBinding Content}" ContentTemplate="{Binding Template}" ContentTemplateSelector="{Binding ContentTemplateSelector, RelativeSource={RelativeSource TemplatedParent}}" Foreground="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+                    </Grid>
+                </ControlTemplate>
+
+                <ControlTemplate x:Key="SideBarViewTemplate">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="OrientationStates">
+                                <VisualState x:Name="Vertical" />
+                                <VisualState x:Name="Horizontal">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="(dxn:NavBarAnimationOptions.HorizontalExpand)">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <dx:HorizontalExpandMode>FromRightToLeft</dx:HorizontalExpandMode>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="(dxn:NavBarAnimationOptions.VerticalExpand)">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <dx:VerticalExpandMode>None</dx:VerticalExpandMode>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid Margin="-4,-4,-4,-5">
+                            <Grid.Background>
+                                <ImageBrush Stretch="Fill" ImageSource="/NavBarDemo;component/Images/SideBarCustomTheme/MainShadow.png" />
+                            </Grid.Background>
+                        </Grid>
+                        <Border>
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                                    <GradientStop Color="#FFFEFEFD" Offset="0" />
+                                    <GradientStop Color="#FFF8F7F3" Offset="1" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Border Background="{Binding ActiveGroup.Background}" Margin="12">
+                                <Grid>
+                                    <Border Opacity="0.25">
+                                        <Border.Background>
+                                            <RadialGradientBrush>
+                                                <RadialGradientBrush.RelativeTransform>
+                                                    <TransformGroup>
+                                                        <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleY="0.962" ScaleX="0.684" />
+                                                        <SkewTransform AngleY="0" AngleX="0" CenterY="0.5" CenterX="0.5" />
+                                                        <RotateTransform Angle="0" CenterY="0.5" CenterX="0.5" />
+                                                        <TranslateTransform X="0.164" Y="0.266" />
+                                                    </TransformGroup>
+                                                </RadialGradientBrush.RelativeTransform>
+                                                <GradientStop Color="White" Offset="0" />
+                                                <GradientStop Offset="1" />
+                                            </RadialGradientBrush>
+                                        </Border.Background>
+                                    </Border>
+                                    <Border Opacity="0.25">
+                                        <Border.Background>
+                                            <RadialGradientBrush>
+                                                <RadialGradientBrush.RelativeTransform>
+                                                    <TransformGroup>
+                                                        <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleY="0.94" ScaleX="0.811" />
+                                                        <SkewTransform AngleY="0" AngleX="0" CenterY="0.5" CenterX="0.5" />
+                                                        <RotateTransform Angle="0" CenterY="0.5" CenterX="0.5" />
+                                                        <TranslateTransform X="-0.564" Y="-0.378" />
+                                                    </TransformGroup>
+                                                </RadialGradientBrush.RelativeTransform>
+                                                <GradientStop Color="White" Offset="0" />
+                                                <GradientStop Offset="1" />
+                                            </RadialGradientBrush>
+                                        </Border.Background>
+                                    </Border>
+                                    <Grid Opacity="0.25">
+                                        <Grid.Background>
+                                            <ImageBrush Stretch="Fill" ImageSource="/NavBarDemo;component/Images/SideBarCustomTheme/InnerShadow.png" />
+                                        </Grid.Background>
+                                    </Grid>
+                                    <dxn:NavBarGroupItemsControl x:Name="Groups" Margin="1,5,5,5" ItemContainerStyle="{StaticResource SideBarThemeKey_GroupControlStyle}">
+                                        <dxn:NavBarGroupItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <dxn:SideBarPanel ActiveGroupMinHeight="{Binding View.ActiveGroupMinHeight}" Orientation="{Binding View.Orientation}"/>
+                                            </ItemsPanelTemplate>
+                                        </dxn:NavBarGroupItemsControl.ItemsPanel>
+                                    </dxn:NavBarGroupItemsControl>
+                                </Grid>
+                            </Border>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+
+            </dxn:NavBarControl.Resources>
+            <dxn:NavBarControl.View>
+                <dxn:SideBarView Orientation="Horizontal" dxn:ScrollingSettings.ClickMode="Press" Template="{StaticResource SideBarViewTemplate}" GroupHeaderTemplate="{StaticResource CommonElementsThemeKey_GroupHeaderTemplate}" ItemControlTemplate="{StaticResource CommonElementsThemeKey_ItemTemplate}">
+                    <dxn:SideBarView.ItemTemplate>
+                        <DataTemplate>
+                            <ContentPresenter Content="{Binding Path=Content}" />
+                        </DataTemplate>
+                    </dxn:SideBarView.ItemTemplate>
+                    <dxn:NavBarAnimationOptions.ExpandStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="PART_DXExpander" Storyboard.TargetProperty="AnimationProgress" To="1" Duration="0:0:0.6">
+                                <DoubleAnimation.EasingFunction>
+                                    <CubicEase EasingMode="EaseOut" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </dxn:NavBarAnimationOptions.ExpandStoryboard>
+                    <dxn:NavBarAnimationOptions.CollapseStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="PART_DXExpander" Storyboard.TargetProperty="AnimationProgress" To="0" Duration="0:0:0.6">
+                                <DoubleAnimation.EasingFunction>
+                                    <CubicEase EasingMode="EaseOut" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </dxn:NavBarAnimationOptions.CollapseStoryboard>
+                </dxn:SideBarView>
+            </dxn:NavBarControl.View>
+            <dxn:NavBarControl.Groups>
+                <local:SlideNavBarGroup Name="nv1" Background="#FF554270" RadioButtonStyle="{StaticResource Group1RadioButtonStyle}" Header="Thống kê nhân sự">
+                    <dxc:ChartControl Background="White" Name="gioitinh"/>
+                    <dxc:ChartControl Background="White" Name="chinhanh"/>
+                </local:SlideNavBarGroup>
+                <local:SlideNavBarGroup Name="nv21" Background="#FF761C1C" RadioButtonStyle="{StaticResource Group2RadioButtonStyle}"/>
+                <local:SlideNavBarGroup Background="#FF1F4169" RadioButtonStyle="{StaticResource Group3RadioButtonStyle}"/>
+                <local:SlideNavBarGroup Background="#FF37699B" RadioButtonStyle="{StaticResource Group4RadioButtonStyle}"/>
+            </dxn:NavBarControl.Groups>
+        </dxn:NavBarControl>
+    </dxdb:DemoModuleControl>
+</local:NavBarDemoModule>

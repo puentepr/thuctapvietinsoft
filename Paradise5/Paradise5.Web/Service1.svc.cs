@@ -133,5 +133,10 @@ namespace Paradise5.Web
                       select i;
             return dep.ToList();
         }
+        public List<ChartView> ChartData()
+        {
+            var i = from p in dt.ChartViews select p;
+            return i.ToList();
+        }
     }
 }
