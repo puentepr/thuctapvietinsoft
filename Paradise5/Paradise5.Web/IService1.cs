@@ -42,5 +42,7 @@ namespace Paradise5.Web
         List<tblSection> selectdanhsach(int depID);
         [OperationContract]
         List<ChartView> ChartData();
+        [OperationContract]
+        List<tblAnnouncement> GetThongbao();
     }
 }

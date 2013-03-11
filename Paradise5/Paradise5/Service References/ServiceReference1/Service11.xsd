@@ -203,4 +203,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetThongbao">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetThongbaoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Paradise5.Web" minOccurs="0" name="GetThongbaoResult" nillable="true" type="q11:ArrayOftblAnnouncement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

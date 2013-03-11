@@ -36,6 +36,8 @@ namespace Paradise5.ServiceReference1 {
         
         private System.Nullable<int> DivisionIDField;
         
+        private System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblAnnouncement> tblAnnouncementsField;
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int LoginID {
             get {
@@ -136,6 +138,169 @@ namespace Paradise5.ServiceReference1 {
                 if ((this.DivisionIDField.Equals(value) != true)) {
                     this.DivisionIDField = value;
                     this.RaisePropertyChanged("DivisionID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblAnnouncement> tblAnnouncements {
+            get {
+                return this.tblAnnouncementsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tblAnnouncementsField, value) != true)) {
+                    this.tblAnnouncementsField = value;
+                    this.RaisePropertyChanged("tblAnnouncements");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tblAnnouncement", Namespace="http://schemas.datacontract.org/2004/07/Paradise5.Web")]
+    public partial class tblAnnouncement : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string TitleField;
+        
+        private string ContentField;
+        
+        private System.Nullable<int> LoginIDField;
+        
+        private System.Nullable<System.DateTime> TimeStartField;
+        
+        private System.Nullable<bool> VisibleField;
+        
+        private System.Nullable<int> PriorityField;
+        
+        private string DescriptionField;
+        
+        private int IDField;
+        
+        private System.Nullable<System.DateTime> LastchangedField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public string Content {
+            get {
+                return this.ContentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ContentField, value) != true)) {
+                    this.ContentField = value;
+                    this.RaisePropertyChanged("Content");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<int> LoginID {
+            get {
+                return this.LoginIDField;
+            }
+            set {
+                if ((this.LoginIDField.Equals(value) != true)) {
+                    this.LoginIDField = value;
+                    this.RaisePropertyChanged("LoginID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<System.DateTime> TimeStart {
+            get {
+                return this.TimeStartField;
+            }
+            set {
+                if ((this.TimeStartField.Equals(value) != true)) {
+                    this.TimeStartField = value;
+                    this.RaisePropertyChanged("TimeStart");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public System.Nullable<bool> Visible {
+            get {
+                return this.VisibleField;
+            }
+            set {
+                if ((this.VisibleField.Equals(value) != true)) {
+                    this.VisibleField = value;
+                    this.RaisePropertyChanged("Visible");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public System.Nullable<int> Priority {
+            get {
+                return this.PriorityField;
+            }
+            set {
+                if ((this.PriorityField.Equals(value) != true)) {
+                    this.PriorityField = value;
+                    this.RaisePropertyChanged("Priority");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+        public System.Nullable<System.DateTime> Lastchanged {
+            get {
+                return this.LastchangedField;
+            }
+            set {
+                if ((this.LastchangedField.Equals(value) != true)) {
+                    this.LastchangedField = value;
+                    this.RaisePropertyChanged("Lastchanged");
                 }
             }
         }
@@ -1534,6 +1699,11 @@ namespace Paradise5.ServiceReference1 {
         System.IAsyncResult BeginChartData(System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.ChartView> EndChartData(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService1/GetThongbao", ReplyAction="http://tempuri.org/IService1/GetThongbaoResponse")]
+        System.IAsyncResult BeginGetThongbao(System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblAnnouncement> EndGetThongbao(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1789,6 +1959,25 @@ namespace Paradise5.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetThongbaoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetThongbaoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblAnnouncement> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblAnnouncement>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class Service1Client : System.ServiceModel.ClientBase<Paradise5.ServiceReference1.IService1>, Paradise5.ServiceReference1.IService1 {
         
         private BeginOperationDelegate onBeginLoginDelegate;
@@ -1881,6 +2070,12 @@ namespace Paradise5.ServiceReference1 {
         
         private System.Threading.SendOrPostCallback onChartDataCompletedDelegate;
         
+        private BeginOperationDelegate onBeginGetThongbaoDelegate;
+        
+        private EndOperationDelegate onEndGetThongbaoDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetThongbaoCompletedDelegate;
+        
         private BeginOperationDelegate onBeginOpenDelegate;
         
         private EndOperationDelegate onEndOpenDelegate;
@@ -1963,6 +2158,8 @@ namespace Paradise5.ServiceReference1 {
         public event System.EventHandler<selectdanhsachCompletedEventArgs> selectdanhsachCompleted;
         
         public event System.EventHandler<ChartDataCompletedEventArgs> ChartDataCompleted;
+        
+        public event System.EventHandler<GetThongbaoCompletedEventArgs> GetThongbaoCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
@@ -2682,6 +2879,50 @@ namespace Paradise5.ServiceReference1 {
             base.InvokeAsync(this.onBeginChartDataDelegate, null, this.onEndChartDataDelegate, this.onChartDataCompletedDelegate, userState);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult Paradise5.ServiceReference1.IService1.BeginGetThongbao(System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetThongbao(callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblAnnouncement> Paradise5.ServiceReference1.IService1.EndGetThongbao(System.IAsyncResult result) {
+            return base.Channel.EndGetThongbao(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetThongbao(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            return ((Paradise5.ServiceReference1.IService1)(this)).BeginGetThongbao(callback, asyncState);
+        }
+        
+        private object[] OnEndGetThongbao(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblAnnouncement> retVal = ((Paradise5.ServiceReference1.IService1)(this)).EndGetThongbao(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetThongbaoCompleted(object state) {
+            if ((this.GetThongbaoCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetThongbaoCompleted(this, new GetThongbaoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetThongbaoAsync() {
+            this.GetThongbaoAsync(null);
+        }
+        
+        public void GetThongbaoAsync(object userState) {
+            if ((this.onBeginGetThongbaoDelegate == null)) {
+                this.onBeginGetThongbaoDelegate = new BeginOperationDelegate(this.OnBeginGetThongbao);
+            }
+            if ((this.onEndGetThongbaoDelegate == null)) {
+                this.onEndGetThongbaoDelegate = new EndOperationDelegate(this.OnEndGetThongbao);
+            }
+            if ((this.onGetThongbaoCompletedDelegate == null)) {
+                this.onGetThongbaoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetThongbaoCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetThongbaoDelegate, null, this.onEndGetThongbaoDelegate, this.onGetThongbaoCompletedDelegate, userState);
+        }
+        
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
             return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
         }
@@ -2969,6 +3210,18 @@ namespace Paradise5.ServiceReference1 {
             public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.ChartView> EndChartData(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.ChartView> _result = ((System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.ChartView>)(base.EndInvoke("ChartData", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetThongbao(System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[0];
+                System.IAsyncResult _result = base.BeginInvoke("GetThongbao", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblAnnouncement> EndGetThongbao(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblAnnouncement> _result = ((System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblAnnouncement>)(base.EndInvoke("GetThongbao", _args, result)));
                 return _result;
             }
         }

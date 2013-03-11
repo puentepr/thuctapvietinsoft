@@ -23,7 +23,7 @@ namespace Paradise5.Web
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="TestP4")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="phanmemtinhluon_P4")]
 	public partial class TestDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -61,6 +61,9 @@ namespace Paradise5.Web
     partial void InserttblSection(tblSection instance);
     partial void UpdatetblSection(tblSection instance);
     partial void DeletetblSection(tblSection instance);
+    partial void InserttblAnnouncement(tblAnnouncement instance);
+    partial void UpdatetblAnnouncement(tblAnnouncement instance);
+    partial void DeletetblAnnouncement(tblAnnouncement instance);
     #endregion
 		
 		public TestDataContext() : 
@@ -194,6 +197,14 @@ namespace Paradise5.Web
 			get
 			{
 				return this.GetTable<ChartView>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblAnnouncement> tblAnnouncements
+		{
+			get
+			{
+				return this.GetTable<tblAnnouncement>();
 			}
 		}
 		
@@ -418,6 +429,10 @@ namespace Paradise5.Web
 		
 		private System.Nullable<int> _DivisionID;
 		
+		private EntitySet<tblAnnouncement> _tblAnnouncements;
+		
+		private bool serializing;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -613,6 +628,25 @@ namespace Paradise5.Web
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblSC_Login_tblAnnouncement", Storage="_tblAnnouncements", ThisKey="LoginID", OtherKey="LoginID")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9, EmitDefaultValue=false)]
+		public EntitySet<tblAnnouncement> tblAnnouncements
+		{
+			get
+			{
+				if ((this.serializing 
+							&& (this._tblAnnouncements.HasLoadedOrAssignedValues == false)))
+				{
+					return null;
+				}
+				return this._tblAnnouncements;
+			}
+			set
+			{
+				this._tblAnnouncements.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -633,8 +667,21 @@ namespace Paradise5.Web
 			}
 		}
 		
+		private void attach_tblAnnouncements(tblAnnouncement entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblSC_Login = this;
+		}
+		
+		private void detach_tblAnnouncements(tblAnnouncement entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblSC_Login = null;
+		}
+		
 		private void Initialize()
 		{
+			this._tblAnnouncements = new EntitySet<tblAnnouncement>(new Action<tblAnnouncement>(this.attach_tblAnnouncements), new Action<tblAnnouncement>(this.detach_tblAnnouncements));
 			OnCreated();
 		}
 		
@@ -643,6 +690,20 @@ namespace Paradise5.Web
 		public void OnDeserializing(StreamingContext context)
 		{
 			this.Initialize();
+		}
+		
+		[global::System.Runtime.Serialization.OnSerializingAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnSerializing(StreamingContext context)
+		{
+			this.serializing = true;
+		}
+		
+		[global::System.Runtime.Serialization.OnSerializedAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnSerialized(StreamingContext context)
+		{
+			this.serializing = false;
 		}
 	}
 	
@@ -5943,6 +6004,323 @@ namespace Paradise5.Web
 					this._DivisionID = value;
 				}
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblAnnouncement")]
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class tblAnnouncement : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Title;
+		
+		private string _Content;
+		
+		private System.Nullable<int> _LoginID;
+		
+		private System.Nullable<System.DateTime> _TimeStart;
+		
+		private System.Nullable<bool> _Visible;
+		
+		private System.Nullable<int> _Priority;
+		
+		private string _Description;
+		
+		private int _ID;
+		
+		private System.Nullable<System.DateTime> _Lastchanged;
+		
+		private EntityRef<tblSC_Login> _tblSC_Login;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnContentChanging(string value);
+    partial void OnContentChanged();
+    partial void OnLoginIDChanging(System.Nullable<int> value);
+    partial void OnLoginIDChanged();
+    partial void OnTimeStartChanging(System.Nullable<System.DateTime> value);
+    partial void OnTimeStartChanged();
+    partial void OnVisibleChanging(System.Nullable<bool> value);
+    partial void OnVisibleChanged();
+    partial void OnPriorityChanging(System.Nullable<int> value);
+    partial void OnPriorityChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnLastchangedChanging(System.Nullable<System.DateTime> value);
+    partial void OnLastchangedChanged();
+    #endregion
+		
+		public tblAnnouncement()
+		{
+			this.Initialize();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string Content
+		{
+			get
+			{
+				return this._Content;
+			}
+			set
+			{
+				if ((this._Content != value))
+				{
+					this.OnContentChanging(value);
+					this.SendPropertyChanging();
+					this._Content = value;
+					this.SendPropertyChanged("Content");
+					this.OnContentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoginID", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public System.Nullable<int> LoginID
+		{
+			get
+			{
+				return this._LoginID;
+			}
+			set
+			{
+				if ((this._LoginID != value))
+				{
+					if (this._tblSC_Login.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnLoginIDChanging(value);
+					this.SendPropertyChanging();
+					this._LoginID = value;
+					this.SendPropertyChanged("LoginID");
+					this.OnLoginIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeStart", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public System.Nullable<System.DateTime> TimeStart
+		{
+			get
+			{
+				return this._TimeStart;
+			}
+			set
+			{
+				if ((this._TimeStart != value))
+				{
+					this.OnTimeStartChanging(value);
+					this.SendPropertyChanging();
+					this._TimeStart = value;
+					this.SendPropertyChanged("TimeStart");
+					this.OnTimeStartChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Visible", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public System.Nullable<bool> Visible
+		{
+			get
+			{
+				return this._Visible;
+			}
+			set
+			{
+				if ((this._Visible != value))
+				{
+					this.OnVisibleChanging(value);
+					this.SendPropertyChanging();
+					this._Visible = value;
+					this.SendPropertyChanged("Visible");
+					this.OnVisibleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Priority", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public System.Nullable<int> Priority
+		{
+			get
+			{
+				return this._Priority;
+			}
+			set
+			{
+				if ((this._Priority != value))
+				{
+					this.OnPriorityChanging(value);
+					this.SendPropertyChanging();
+					this._Priority = value;
+					this.SendPropertyChanged("Priority");
+					this.OnPriorityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lastchanged", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		public System.Nullable<System.DateTime> Lastchanged
+		{
+			get
+			{
+				return this._Lastchanged;
+			}
+			set
+			{
+				if ((this._Lastchanged != value))
+				{
+					this.OnLastchangedChanging(value);
+					this.SendPropertyChanging();
+					this._Lastchanged = value;
+					this.SendPropertyChanged("Lastchanged");
+					this.OnLastchangedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblSC_Login_tblAnnouncement", Storage="_tblSC_Login", ThisKey="LoginID", OtherKey="LoginID", IsForeignKey=true, DeleteRule="CASCADE")]
+		public tblSC_Login tblSC_Login
+		{
+			get
+			{
+				return this._tblSC_Login.Entity;
+			}
+			set
+			{
+				tblSC_Login previousValue = this._tblSC_Login.Entity;
+				if (((previousValue != value) 
+							|| (this._tblSC_Login.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblSC_Login.Entity = null;
+						previousValue.tblAnnouncements.Remove(this);
+					}
+					this._tblSC_Login.Entity = value;
+					if ((value != null))
+					{
+						value.tblAnnouncements.Add(this);
+						this._LoginID = value.LoginID;
+					}
+					else
+					{
+						this._LoginID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tblSC_Login");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void Initialize()
+		{
+			this._tblSC_Login = default(EntityRef<tblSC_Login>);
+			OnCreated();
+		}
+		
+		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnDeserializing(StreamingContext context)
+		{
+			this.Initialize();
 		}
 	}
 	

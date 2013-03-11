@@ -16,9 +16,36 @@
       <xs:element minOccurs="0" name="AdminRight" nillable="true" type="xs:unsignedByte" />
       <xs:element minOccurs="0" name="LastChangedDate" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="DivisionID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="tblAnnouncements" nillable="true" type="tns:ArrayOftblAnnouncement">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:element name="tblSC_Login" nillable="true" type="tns:tblSC_Login" />
+  <xs:complexType name="ArrayOftblAnnouncement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tblAnnouncement" nillable="true" type="tns:tblAnnouncement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftblAnnouncement" nillable="true" type="tns:ArrayOftblAnnouncement" />
+  <xs:complexType name="tblAnnouncement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoginID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TimeStart" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Visible" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Priority" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Lastchanged" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tblAnnouncement" nillable="true" type="tns:tblAnnouncement" />
   <xs:complexType name="ArrayOfViewMenu">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="ViewMenu" nillable="true" type="tns:ViewMenu" />

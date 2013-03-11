@@ -60,6 +60,33 @@ namespace Paradise5
             return abc;
         }
 
+        public static ChartControl CreatXYChar(ChartControl abc, XYDiagram2D dg1, BarSideBySideSeries2D dgs1, SolidColorBrush forecolor, string ChartTitle, List<string> Agrument, List<double> value)
+        {
+            abc.Titles.Clear();
+            //Tao Tile cho Chart
+            Title nt = new Title();
+            nt.Content = ChartTitle;
+            nt.Foreground = forecolor;
+            abc.Titles.Add(nt);
+            //Creat Diagram
+            abc.Diagram = dg1;
+            for (int i = 0; i < Agrument.Count; i++)
+            {
+                SeriesPoint sr1 = new SeriesPoint();
+                sr1.Argument = Agrument[i];
+                sr1.Value = value[i];
+                dgs1.Points.Add(sr1);
+            }
+            SeriesLabel lbl1 = new SeriesLabel();
+            dgs1.LabelsVisibility = true;//Hien thi Lablel cho tung vung
+            lbl1.Indent = 10;
+            lbl1.ConnectorThickness = 1;
+            lbl1.ResolveOverlappingMode = ResolveOverlappingMode.Default;
+            dgs1.Label = lbl1;
+            dg1.Series.Add(dgs1);
+            return abc;
+        }
+
         static void abc_CustomDrawSeriesPoint(object sender, CustomDrawSeriesPointEventArgs e)
         {
             string tagsr = e.SeriesPoint.Tag.ToString();
