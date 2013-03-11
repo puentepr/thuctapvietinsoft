@@ -138,5 +138,10 @@ namespace Paradise5.Web
             var i = from p in dt.ChartViews select p;
             return i.ToList();
         }
+        public List<tblAnnouncement> GetThongbao()
+        {
+            var i = from p in dt.tblAnnouncements orderby p.Priority ascending select p;
+            return i.ToList();
+        }
     }
 }

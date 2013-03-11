@@ -24,9 +24,10 @@ namespace Paradise5
 {
     public partial class Home
     {
-        public static int countchart = 10;
+        public static int countchart = 11;
         double sonhanvien;
         List<ChartView> dsnv;
+        List<tblAnnouncement> dsthongbao;
         Service1Client ws = new Service1Client();
         ChartControl dotuoi = new ChartControl();
         ChartControl thamnien = new ChartControl();
@@ -37,11 +38,13 @@ namespace Paradise5
         ChartControl tongiao = new ChartControl();
         ChartControl quocgia = new ChartControl();
         ChartControl trangthai = new ChartControl();
+        ChartControl soluongnhansu = new ChartControl();
         public Home()
         {
             InitializeComponent();
             ws.ChartDataCompleted += ws_ChartDataCompleted;
             ws.ChartDataAsync();
+
             //Start add Charts
             nv1.Items.Add(dotuoi);
             nv1.Items.Add(thamnien);
@@ -52,6 +55,7 @@ namespace Paradise5
             nv1.Items.Add(tongiao);
             nv1.Items.Add(quocgia);
             nv1.Items.Add(trangthai);
+            nv1.Items.Add(soluongnhansu);
             //End add Charts
 
             //Tao Tile cho Chart
@@ -203,7 +207,7 @@ namespace Paradise5
             Agrument.Add("Chưa kết hôn : " + chuakh.ToString());
             CommonChart.CreatPieChar(honnhan, dg8, dgs8, new SolidColorBrush(Colors.Red), "Thống kê nhân viên theo tình trạng hôn nhân", Agrument, Value);
             //End tao bieu do hon nhan
-
+            
             //Tao bieu do Tongiao
             SimpleDiagram2D dg9 = new SimpleDiagram2D();
             PieSeries2D dgs9 = new PieSeries2D();
@@ -248,16 +252,104 @@ namespace Paradise5
             }
             CommonChart.CreatPieChar(trangthai, dg11, dgs11, new SolidColorBrush(Colors.Red), "Thống kê nhân viên theo trạng thái", Agrument, Value);
             //End tao bieu do Trangthai
+
+            #region Tao bieu do so luong nhan su
+
+            XYDiagram2D dg12 = new XYDiagram2D();
+            ////Set tieu de
+            //AxisTitle tieudex = new AxisTitle();
+            //tieudex.Content="Số nhân viên";
+            //dg12.AxisX.Title.Content = tieudex;
+
+            ////End set tieu de
+            int startyear = int.Parse(dsnv.Min(u => u.HireDate.Value.Year).ToString());
+            double slnv = 0;
+            //Tao bieu do so luong nhan vien tuyen dung
+            BarSideBySideSeries2D dgs13 = new BarSideBySideSeries2D();
+            dgs13.DisplayName = "Số nhân viên tuyển dụng";
+            Agrument.Clear();
+            Value.Clear();
+            for (int i = startyear; i < int.Parse((DateTime.Now.Year).ToString()); i++)
+            {
+                slnv = (double)(from p in dsnv where p.HireDate.Value.Year.ToString() == i.ToString() && p.TerminateDate == null select p).Count();
+                Agrument.Add(i.ToString());
+                Value.Add(slnv);
+            }
+            CommonChart.CreatXYChar(soluongnhansu, dg12, dgs13, new SolidColorBrush(Colors.Red), "Thống kê số lượng nhân sự", Agrument, Value);
+            //End tao bieu do so luong tong nhan vien tuyen dung
+
+            //Tao bieu do so luong nhan vien nghi viec
+            BarSideBySideSeries2D dgs14 = new BarSideBySideSeries2D();
+            slnv = 0;
+            dgs14.DisplayName = "Số nhân viên nghỉ việc";
+            Agrument.Clear();
+            Value.Clear();
+            for (int i = startyear; i < int.Parse((DateTime.Now.Year).ToString()); i++)
+            {
+                slnv = (double)(from p in dsnv where p.TerminateDate != null && p.TerminateDate.Value.Year.ToString() == i.ToString() select p).Count();
+                Agrument.Add(i.ToString());
+                Value.Add(slnv);
+            }
+            CommonChart.CreatXYChar(soluongnhansu, dg12, dgs14, new SolidColorBrush(Colors.Red), "Thống kê số lượng nhân sự", Agrument, Value);
+            //End tao bieu do so luong tong nhan vien nghi viec
+
+            //Tao bieu do so luong tong nhan vien
+            BarSideBySideSeries2D dgs12 = new BarSideBySideSeries2D();
+            dgs12.DisplayName = "Tổng nhân viên";
+            Agrument.Clear();
+            Value.Clear();
+            slnv = 0;
+            for (int i = startyear; i < int.Parse((DateTime.Now.Year).ToString()); i++)
+            {
+                slnv += (double)(from p in dsnv where p.HireDate.Value.Year.ToString() == i.ToString() && p.TerminateDate == null select p).Count();
+                Agrument.Add(i.ToString());
+                Value.Add(slnv);
+            }
+            CommonChart.CreatXYChar(soluongnhansu, dg12, dgs12, new SolidColorBrush(Colors.Red), "Thống kê số lượng nhân sự", Agrument, Value);
+            //End tao bieu do so luong tong nhan vien
+            //Tao chu thich
+            soluongnhansu.Legend = new Legend();
+            soluongnhansu.Legend.Visibility = Visibility.Visible;
+            soluongnhansu.Legend.HorizontalPosition = HorizontalPosition.Center;
+            soluongnhansu.Legend.VerticalPosition = VerticalPosition.BottomOutside;
+            soluongnhansu.Legend.Orientation = Orientation.Horizontal;
+            #endregion
         }
         #endregion
+
+        #region LoadThongBao
+        void LoadThongBao()
+        {
+            TLYC.Children.Clear();  
+        }
+        //void CreatTile()
+        //{
+        //    Tile til = new Tile();
+        //    til.Header = MenuName;
+        //    til.AnimateContentChange = true;
+        //    var k = from p in view where p.ParentMenuID == MenuID && p.LoginID == LoginID && p.ClassName != "OK" select p.Name;
+        //    til.ContentSource = k.ToList();
+        //    til.ContentChangeInterval = ts;
+        //    TLYC.Children.Add(til);
+        //}
+        #endregion
+
         void ws_ChartDataCompleted(object sender, ChartDataCompletedEventArgs e)
         {
             dsnv = e.Result.ToList();
             sonhanvien = dsnv.Count();
             Load1();
-            PageSmoothScroller.delaytime.Interval = new TimeSpan(0, 0, 2);
+            PageSmoothScroller.delaytime.Interval = new TimeSpan(0, 0, 3);//Set thoi gian delay cac bieu do
             PageSmoothScroller.delaytime.Start();
+            ws.GetThongbaoCompleted += ws_GetThongbaoCompleted;
+            ws.GetThongbaoAsync();
         }
+        #region LoadThongBao
+        void ws_GetThongbaoCompleted(object sender, GetThongbaoCompletedEventArgs e)
+        {
+            dsthongbao = e.Result.ToList();
+        }
+        #endregion
         #region AutoRun and CustomRunChart
         private void navBar_MouseEnter(object sender, MouseEventArgs e)
         {
