@@ -56,9 +56,14 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -221,18 +226,18 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Location = new System.Drawing.Point(335, 214);
+            this.panel1.Location = new System.Drawing.Point(17, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(352, 186);
+            this.panel1.Size = new System.Drawing.Size(352, 182);
             this.panel1.TabIndex = 13;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.radioButton2);
-            this.panel2.Location = new System.Drawing.Point(126, 96);
+            this.panel2.Location = new System.Drawing.Point(18, 96);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(178, 71);
+            this.panel2.Size = new System.Drawing.Size(298, 71);
             this.panel2.TabIndex = 15;
             // 
             // label11
@@ -303,13 +308,30 @@
             this.label12.TabIndex = 3;
             this.label12.Text = "label1";
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.panel1);
+            this.panel3.Location = new System.Drawing.Point(6, 25);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(382, 220);
+            this.panel3.TabIndex = 15;
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.panel3);
+            this.groupControl1.Location = new System.Drawing.Point(310, 224);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(385, 236);
+            this.groupControl1.TabIndex = 16;
+            this.groupControl1.Text = "groupControl1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 472);
+            this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.monthCalendar1);
@@ -336,6 +358,9 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,6 +395,8 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panel3;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
     }
 }
 

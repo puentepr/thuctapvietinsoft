@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 
 namespace HoverTest
 {
     public class BUS
     {
+        // Muon chay cach bat label gan nhat : xoa chu thich o cac dau (*)
         public struct OldControl 
         {
             public Color oldcolor;
@@ -22,37 +24,58 @@ namespace HoverTest
         }
         public Timer tm = new Timer();
         public Control temp;
-        int max = 200;//Khoang cach tu control den label gan nhat;
-        int min = 10;//Khoang cach tu control den label xa nhat;
-        int duoi = -5;//Khoang cach tinh tu tren xuong cua control den label;
-
-        List<OldControl> odcontrol = new List<OldControl>();
+        public Control temp1;
+        public Control lbltemp;
+        public Label lbltemp1= new Label();
+        string lbltext = "Focus";
+        Color lblcolor = Color.Black;
+        Font lblfont = new Font(FontFamily.GenericSerif, 15.0f);
+        int khoangcach = 5;
+        int max = 200;//Khoang cach tu control den label gan nhat(*)
+        int min = 30;//Khoang cach tu control den label xa nhat(*)
+        int duoi = -5;//Khoang cach tinh tu tren xuong cua control den label(*)                
+        List<OldControl> odcontrol = new List<OldControl>();//(*)
 
         public void LoadAddGotFocus(Control ctrl)
         {
             if (temp == null)
-            { temp = ctrl; }
-            SaveData(temp);
-            tm.Interval = 500;
-            tm.Tick += tm_Tick;
-            tm.Start();
+            { 
+                temp = ctrl;
+                lbltemp1.Text = lbltext;
+                lbltemp1.ForeColor = lblcolor;
+                lbltemp1.Font = lblfont;
+                tm.Interval = 500;
+                tm.Tick += tm_Tick;
+            }
+            //SaveData(temp);//Dung luu lai thiet ke ban dau cua cac control(*)
             //Neu khong dung timer
-            //foreach (Control ctrChid in ctrl.Controls)
-            //{
-            //    ctrChid.GotFocus += ctrChid_GotFocus;
-            //    if (ctrChid.Controls.Count > 0)
-            //    {
-            //        LoadAddGotFocus(ctrChid);
-            //    }
+            foreach (Control ctrChid in ctrl.Controls)
+            {
+                if (!(ctrChid is Label || ctrChid is LabelControl))
+                {
+                    ctrChid.GotFocus += ctrChid_GotFocus;
+                    //ctrChid.LostFocus += ctrChid_LostFocus;//Khoi phuc lai control theo thiet ke ban dau(*)
+                }
+                if (ctrChid.Controls.Count > 0)
+                {
+                    LoadAddGotFocus(ctrChid);
+                }
 
-            //}
+            }
+            tm.Start();
+            
+        }
+
+        void ctrChid_LostFocus(object sender, EventArgs e)
+        {
+            LostFocusCommon();
         }
 
         void SaveData(Control ctrl)
         {
             foreach (Control ctrChid in ctrl.Controls)
             {
-                odcontrol.Add(new OldControl(ctrChid.ForeColor, ctrChid.Font, ctrChid.Name));
+                //odcontrol.Add(new OldControl(ctrChid.ForeColor, ctrChid.Font, ctrChid.Name));(*)
                 if (ctrChid.Controls.Count > 0)
                 {
                     SaveData(ctrChid);
@@ -62,76 +85,103 @@ namespace HoverTest
         }
         void tm_Tick(object sender, EventArgs e)
         {
-            ProcessControls(temp);
-                    
+            //Ham thay doi mau label theo cach bat label(*)
+            //if (lbltemp != null)
+            //{
+            //    ChangeColor(lbltemp);
+
+            //}
+            ChangeColor(lbltemp1);//Ham thay doi mau label theo cach add label
+        }
+        void ChangeColor(Control c)
+        {
+            if (c.ForeColor == Color.Gray)
+            {
+                c.ForeColor = Color.Black;
+            }
+            else if (c.ForeColor == Color.Black)
+            {
+                c.ForeColor = Color.Gray;
+            }
         }
         public void ctrChid_GotFocus(object sender, EventArgs e)
         {
-            ProcessControls(temp);   
+            temp1 = (Control)sender;
+            //GotFocusCommon(temp1);//Bat label gan nhat(*)
+            GotFocusCommon1(temp1);// Add label   
         }
-        public void ProcessControls(Control ctrl)
+        //Test
+        public void GotFocusCommon(Control ctrlChild)
         {
-            foreach (Control ctrlChild in ctrl.Controls)
+             
+            if (ctrlChild.Name=="")
             {
-                if (ctrlChild.Focused == true)
+                Point p = ctrlChild.Parent.Location;
+                for (int i = min; i < max; i++)// Tim label trong khoang cach chi dinh
                 {
-                    Point p = ctrlChild.Location;
-                    for (int i = min; i < max; i++)// Tim label trong khoang cach chi dinh
-                    {
-                        Point plbl = p - new Size(i, duoi);  //    tuy 
-                        Control c = ctrlChild.Parent.GetChildAtPoint(plbl);
+                    Point plbl = p - new Size(i, duoi);  //    tuy 
+                    Control c = (ctrlChild.Parent).Parent.GetChildAtPoint(plbl);
 
-                        if (c is Label &&c.Visible==true)
-                        {
-                            Color[] clr = new Color[] 
-                            { 
-                             Color.Gray
-                            ,Color.Black
-                            };
-                            for (Int32 k = 0; k < clr.Length; k++)
-                            {
-                                if (c.ForeColor == clr[k])
-                                {
-                                    c.ForeColor = (k == clr.Length - 1 ? clr[0] : clr[k + 1]);
-                                    break;
-                                }
-                                else c.ForeColor = Color.Black;
-                            }
-                            c.Font = new Font(FontFamily.GenericSerif, 15.0f);
-                            break;//Neu tim thay cai dau tien thi thoat khoi vong lap
-                        }
-                    }
-                }
-                else //Set lai font cho label khi mat focus;
-                {
-                    Point p = ctrlChild.Location;
-                    for (int i = min; i < max; i++)
+                    if ((c is Label || c is DevExpress.XtraEditors.LabelControl) && c.Visible == true)
                     {
-                        Point plbl = p - new Size(i, duoi);  //    tuy 
-                        Control c = ctrlChild.Parent.GetChildAtPoint(plbl);
-                        if (c is Label&&c.Visible==true)
-                        {
-                            for (int q = 0; q < odcontrol.Count; q++)
-                            {
-                                if (odcontrol[q].controlname == c.Name)
-                                {
-                                    c.ForeColor = odcontrol[q].oldcolor;
-                                    c.Font = odcontrol[q].oldfont;
-                                    break;
-                                }
-                            }
-                            //c.ForeColor = Color.Black;
-                            //c.Font = new Font(FontFamily.GenericSerif, 8.25f);
-                            break;
-                            
-                        }
+                        lbltemp = c;
+                        c.ForeColor = Color.Gray;
+                        c.Font = new Font(FontFamily.GenericSerif, 15.0f);
+                        break;//Neu tim thay cai dau tien thi thoat khoi vong lap
                     }
                 }
-                if (ctrlChild.Controls.Count > 0)
-                    ProcessControls(ctrlChild);
+
+            }
+            else
+            {
+                Point p = ctrlChild.Location;
+                for (int i = min; i < max; i++)// Tim label trong khoang cach chi dinh
+                {
+                    Point plbl = p - new Size(i, duoi);  //    tuy 
+                    Control c = ctrlChild.Parent.GetChildAtPoint(plbl);
+
+                    if ((c is Label || c is DevExpress.XtraEditors.LabelControl) && c.Visible == true)
+                    {
+                        lbltemp = c;
+                        c.ForeColor = Color.Gray;
+                        c.Font = new Font(FontFamily.GenericSerif, 15.0f);
+                        break;//Neu tim thay cai dau tien thi thoat khoi vong lap
+                    }
+                }
             }
         }
 
+        public void LostFocusCommon()//Dung de bat label gan nhat
+        { 
+            if (lbltemp != null)
+            {
+                for (int q = 0; q < odcontrol.Count; q++)
+                {
+                    if (odcontrol[q].controlname == lbltemp.Name)
+                    {
+                        lbltemp.ForeColor = odcontrol[q].oldcolor;
+                        lbltemp.Font = odcontrol[q].oldfont;
+                        break;
+                    }
+                }
+            }       
+        }
+
+        public void GotFocusCommon1(Control ctrlChild)// Dung bo sung label  canh control
+        {
+            if (ctrlChild.Name == "")
+            {
+                Point p = ctrlChild.Parent.Location;
+                lbltemp1.Location = new Point((int)p.X + ctrlChild.Parent.Size.Width + khoangcach, (int)p.Y);
+                (ctrlChild.Parent.Parent).Controls.Add(lbltemp1);
+            }
+            else
+            {
+                Point p = ctrlChild.Location;
+                lbltemp1.Location = new Point((int)p.X + ctrlChild.Size.Width + khoangcach, (int)p.Y);
+                (ctrlChild.Parent).Controls.Add(lbltemp1);
+            }
+        }
     }
 }
  
