@@ -46,6 +46,7 @@ namespace HoverTest
                 lbltemp1.Font = lblfont;
                 tm.Interval = 500;
                 tm.Tick += tm_Tick;
+                tm.Start();
             }
             //SaveData(temp);//Dung luu lai thiet ke ban dau cua cac control(*)
             //Neu khong dung timer
@@ -62,7 +63,6 @@ namespace HoverTest
                 }
 
             }
-            tm.Start();
             
         }
 
