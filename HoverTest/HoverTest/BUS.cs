@@ -27,9 +27,9 @@ namespace HoverTest
         public Control temp1;
         public Control lbltemp;
         public Label lbltemp1= new Label();
-        string lbltext = "Focus";
+        string lbltext = "<<|";
         Color lblcolor = Color.Black;
-        Font lblfont = new Font(FontFamily.GenericSerif, 15.0f);
+        Font lblfont = new Font(FontFamily.GenericSerif, 10.0f);
         int khoangcach = 5;
         int max = 200;//Khoang cach tu control den label gan nhat(*)
         int min = 30;//Khoang cach tu control den label xa nhat(*)
@@ -95,13 +95,13 @@ namespace HoverTest
         }
         void ChangeColor(Control c)
         {
-            if (c.ForeColor == Color.Gray)
+            if (c.ForeColor == Color.Black)
+            {
+                c.ForeColor = Color.Orange;
+            }
+            else if (c.ForeColor == Color.Orange)
             {
                 c.ForeColor = Color.Black;
-            }
-            else if (c.ForeColor == Color.Black)
-            {
-                c.ForeColor = Color.Gray;
             }
         }
         public void ctrChid_GotFocus(object sender, EventArgs e)
