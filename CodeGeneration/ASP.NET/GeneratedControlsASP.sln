@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneratedControlsASP", "http://localhost/GeneratedControlsASP/GeneratedControlsASP.csproj", "{DD04864E-9AF2-4A8C-A3F8-32EB9C678CF1}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{DD04864E-9AF2-4A8C-A3F8-32EB9C678CF1}.Debug.ActiveCfg = Debug|.NET
+		{DD04864E-9AF2-4A8C-A3F8-32EB9C678CF1}.Debug.Build.0 = Debug|.NET
+		{DD04864E-9AF2-4A8C-A3F8-32EB9C678CF1}.Release.ActiveCfg = Release|.NET
+		{DD04864E-9AF2-4A8C-A3F8-32EB9C678CF1}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
