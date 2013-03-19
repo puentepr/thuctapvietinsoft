@@ -306,13 +306,13 @@ namespace Paradise5
                 Value.Add(slnv);
             }
             CommonChart.CreatXYChar(soluongnhansu, dg12, dgs12, new SolidColorBrush(Colors.Red), "Thống kê số lượng nhân sự", Agrument, Value);
-            //End tao bieu do so luong tong nhan vien
             //Tao chu thich
             soluongnhansu.Legend = new Legend();
             soluongnhansu.Legend.Visibility = Visibility.Visible;
             soluongnhansu.Legend.HorizontalPosition = HorizontalPosition.Center;
             soluongnhansu.Legend.VerticalPosition = VerticalPosition.BottomOutside;
             soluongnhansu.Legend.Orientation = Orientation.Horizontal;
+            //End tao bieu do so luong tong nhan vien
             #endregion
         }
         #endregion
@@ -341,8 +341,8 @@ namespace Paradise5
             Load1();
             PageSmoothScroller.delaytime.Interval = new TimeSpan(0, 0, 3);//Set thoi gian delay cac bieu do
             PageSmoothScroller.delaytime.Start();
-            ws.GetThongbaoCompleted += ws_GetThongbaoCompleted;
-            ws.GetThongbaoAsync();
+            //ws.GetThongbaoCompleted += ws_GetThongbaoCompleted;
+            //ws.GetThongbaoAsync();
         }
         #region LoadThongBao
         void ws_GetThongbaoCompleted(object sender, GetThongbaoCompletedEventArgs e)
