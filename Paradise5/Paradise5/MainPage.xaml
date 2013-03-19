@@ -68,9 +68,9 @@
                 <ImageBrush Stretch="None" ImageSource="Image/Back.png"/>
             </HyperlinkButton.Background>
         </HyperlinkButton>
-        <ScrollViewer Name="TLYCScroll" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
-        <dxlc:TileLayoutControl x:Name="TLYC" Margin="0,50,0,0" TileClick="TLYC_TileClick" AllowAddFlowBreaksDuringItemMoving="True" DragScrolling="False" ScrollBars="None" MinHeight="140" MinWidth="300" Padding="10,80,10,10"> <!--Chinh sua so luong Tile o phan padding-->
-                <!--<dxlc:Tile x:Name="TileTest" Header="Tile" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <ScrollViewer Name="TLYCScroll" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden">
+        <dxlc:TileLayoutControl x:Name="TLYC" Margin="0,50,0,0" TileClick="TLYC_TileClick" AllowAddFlowBreaksDuringItemMoving="True" DragScrolling="False" ScrollBars="None" MinHeight="140" MinWidth="300" Padding="10,80,10,10" Orientation="Horizontal"> <!--Chinh sua so luong Tile o phan padding-->
+                <!--<dxlc:Tile x:Name="TileTest" Header="Tile">
                 <Image Name="image1" Stretch="None" Source="Image\Back.png"/>
             </dxlc:Tile>-->
         </dxlc:TileLayoutControl>

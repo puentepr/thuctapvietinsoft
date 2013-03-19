@@ -19,6 +19,7 @@ namespace Paradise5
         #region TaoBieuDo
         public static ChartControl CreatPieChar(ChartControl abc, Diagram dg1, PieSeries2D dgs1, SolidColorBrush forecolor, string ChartTitle, List<string> Agrument, List<double> value)
         {
+            abc.Titles.Clear();
             mausac = 0;
             //Tao Tile cho Chart
             Title nt = new Title();
@@ -62,6 +63,15 @@ namespace Paradise5
 
         public static ChartControl CreatXYChar(ChartControl abc, XYDiagram2D dg1, BarSideBySideSeries2D dgs1, SolidColorBrush forecolor, string ChartTitle, List<string> Agrument, List<double> value)
         {
+            //Begin tao guong
+            Pane pane1 = new Pane();
+            pane1.MirrorHeight = 100;//Do cao guong
+            dg1.DefaultPane=pane1;
+            //End tao guong
+            //Begin set kieu bieu do
+            Quasi3DBar2DModel an1 = new Quasi3DBar2DModel();
+            dgs1.Model = an1;
+            //End set kieu bieu do
             abc.Titles.Clear();
             //Tao Tile cho Chart
             Title nt = new Title();
