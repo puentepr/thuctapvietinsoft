@@ -65,6 +65,7 @@
   <ItemGroup>
     <Content Include="ClientBin\Paradise5.xap" />
     <Content Include="Control\HPA.TimeAttendance.dll" />
+    <Content Include="Images\Save.png" />
     <Content Include="Service1.svc" />
     <Content Include="Silverlight.js" />
     <Content Include="Paradise5TestPage.aspx" />

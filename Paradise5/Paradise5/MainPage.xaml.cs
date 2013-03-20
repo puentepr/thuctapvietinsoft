@@ -153,7 +153,7 @@ namespace Paradise5
                 TLYC.Padding = new Thickness(200, 80, 110, 10);
             }
             else
-            { TLYC.Padding = new Thickness(20, 70, 20, 10); }
+            { TLYC.Padding = new Thickness(50, 0, 20, 10); }
             TLYCScroll.Focus();//Neu bo dong nay thi phai focus vao Tile Layout Control moi Scroll bang ban phim duoc
         }
         private void CreatTile(string MenuID, string MenuName, string Pagename,int dem)
