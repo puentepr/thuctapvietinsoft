@@ -1,4 +1,5 @@
-﻿<local:RichEditDemoModule
+﻿<local:RichEditDemoModule 
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
     x:Class="Paradise5.CreatAnnouncement" HorizontalAlignment="Center" VerticalAlignment="Stretch"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -16,15 +17,25 @@
             <dxre:RichEditStringIdConverter x:Key="stringIdConverter" />
         </ResourceDictionary>
     </local:RichEditDemoModule.Resources>
-
     <dxdb:DemoModuleControl>
-        <Grid>
-            <dxb:BarManager Name="barManager1" ToolbarGlyphSize="Small">
+        <Grid Background="#bfdbff">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <sdk:Label Name="lblTitle" Grid.Row="0" Grid.Column="0" Content="Tiêu đề" HorizontalAlignment="Center" FontWeight="ExtraBold" FontSize="16"/>
+            <TextBox Name="txtTitle" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontWeight="ExtraBold" Grid.Column="1" />
+            <dxb:BarManager Name="barManager1" ToolbarGlyphSize="Small" Grid.Row="1" Grid.ColumnSpan="2">
                 <dxb:BarManager.Items>
                     <dxb:BarButtonItem Command="{Binding Path=FileNew, Mode=OneTime, Source={StaticResource commands}}" Name="biFileNew" />
                     <dxb:BarButtonItem Command="{Binding Path=FileOpen, Mode=OneTime, Source={StaticResource commands}}" Name="biFileOpen" />
                     <dxb:BarButtonItem Command="{Binding Path=FileSave, Mode=OneTime, Source={StaticResource commands}}" Name="biFileSave" />
-                    <dxb:BarButtonItem Command="{Binding Path=FileSaveAs, Mode=OneTime, Source={StaticResource commands}}" Name="biFileSaveAs" />
+                    <dxb:BarButtonItem Command="{Binding Path=FileSaveAs, Mode=OneTime, Source={StaticResource commands}}" Name="biFileSaveAs"  />
+                    <dxb:BarButtonItem Name="biDatabaseSave" />
                     <dxb:BarButtonItem Command="{Binding Path=FileQuickPrint, Mode=OneTime, Source={StaticResource commands}}" Name="biFileQuickPrint" />
                     <dxb:BarButtonItem Command="{Binding Path=FilePrint, Mode=OneTime, Source={StaticResource commands}}" Name="biFilePrint" />
                     <dxb:BarButtonItem Command="{Binding Path=FilePrintPreview, Mode=OneTime, Source={StaticResource commands}}" Name="biFilePrintPreview" />
@@ -33,7 +44,7 @@
                     <dxb:BarButtonItem Command="{Binding Path=EditPaste, Mode=OneTime, Source={StaticResource commands}}" Name="biEditPaste" />
                     <dxb:BarButtonItem Command="{Binding Path=EditCut, Mode=OneTime, Source={StaticResource commands}}" Name="biEditCut" />
                     <dxb:BarButtonItem Command="{Binding Path=EditCopy, Mode=OneTime, Source={StaticResource commands}}" Name="biEditCopy" />
-                    <dxb:BarButtonItem Command="{Binding Path=EditPasteSpecial, Mode=OneTime, Source={StaticResource commands}}" Name="biEditPasteSpecial" />
+                    <dxb:BarButtonItem Command="{Binding Path=EditPasteSpecial, Mode=OneTime, Source={StaticResource commands}}" Name="biEditPasteSpecial" BarItemDisplayMode="ContentAndGlyph" />
                     <dxr:BarButtonGroup Name="biFont">
                         <dxb:BarEditItemLink BarItemName="biFormatFontName" />
                         <dxb:BarEditItemLink BarItemName="biFormatFontSize" />
@@ -269,6 +280,7 @@
                                     <dxb:BarButtonItemLink BarItemName="biFileNew" />
                                     <dxb:BarButtonItemLink BarItemName="biFileOpen" />
                                     <dxb:BarButtonItemLink BarItemName="biFileSaveAs" />
+                                    <dxb:BarButtonItemLink BarItemName="biDatabaseSave" />
                                     <dxb:BarButtonItemLink BarItemName="biFilePrint" />
                                     <dxb:BarButtonItemLink BarItemName="biFilePrintPreview" />
                                     <dxb:BarButtonItemLink BarItemName="biEditUndo" />
@@ -354,7 +366,7 @@
                             <dxb:BarButtonItemLink BarItemName="biEditRedo" />
                         </dxr:RibbonControl.ToolbarItemLinks>
                     </dxr:RibbonControl>
-                    <dxre:RichEditControl x:Name="richEdit" SelectionChanged="richEdit_SelectionChanged" ShowBorder="False" BarManager="{Binding ElementName=barManager1, Mode=OneTime}" Ribbon="{Binding ElementName=ribbonControl, Mode=OneTime}"></dxre:RichEditControl>
+                    <dxre:RichEditControl x:Name="richEdit" SelectionChanged="richEdit_SelectionChanged" ShowBorder="False" BarManager="{Binding ElementName=barManager1, Mode=OneTime}" Ribbon="{Binding ElementName=ribbonControl, Mode=OneTime}"/>
                 </dx:DXDockPanel>
             </dxb:BarManager>
         </Grid>
