@@ -101,17 +101,17 @@
         <elementListCompartment Id="0af699ca-1069-43e1-9e1a-516682b8dbde" absoluteBounds="0.76499999999999968, 5.085, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="cc74aedd-63b1-4f5c-9bd3-e43e34ffdcb5" isExpanded="false" absoluteBounds="3.125, 4.75, 2, 0.45">
+    <classShape Id="c67ad5fd-77f1-4345-bc4f-fa6cd7b27817" isExpanded="false" absoluteBounds="3.125, 4.75, 2, 0.45">
       <DataClassMoniker Name="/TestDataContext/tblAnnouncement" />
       <nestedChildShapes>
-        <elementListCompartment Id="27035d35-6209-484a-820f-8963f9d9c48f" absoluteBounds="3.1399999999999997, 5.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="0dd31dce-0963-4983-b4c1-db9f4808f3aa" absoluteBounds="3.1399999999999997, 5.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(4 : 1.2); (4 : 1.3125); (2.9375 : 1.3125); (2.9375 : 4.975); (3.125 : 4.975)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TestDataContext/tblSC_Login/tblSC_Login_tblAnnouncement" />
       <nodes>
         <classShapeMoniker Id="8ded6286-b0cf-4d8c-aa05-af632bbc062b" />
-        <classShapeMoniker Id="cc74aedd-63b1-4f5c-9bd3-e43e34ffdcb5" />
+        <classShapeMoniker Id="c67ad5fd-77f1-4345-bc4f-fa6cd7b27817" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

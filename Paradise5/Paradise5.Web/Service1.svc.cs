@@ -7,7 +7,7 @@ using System.Text;
 using System.ServiceModel.Activation;
 using System.Web;
 using System.Data;
-using DevExpress.Xpf.Grid;
+
 namespace Paradise5.Web
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
@@ -142,6 +142,50 @@ namespace Paradise5.Web
         {
             var i = from p in dt.tblAnnouncements orderby p.Priority ascending select p;
             return i.ToList();
+        }
+
+        public bool LuuThongBao(string tieude, string noidungtam, bool update)
+        {
+            bool kq = false;
+            byte[] noidung = null;
+            //Kiem tra su ton tai cua thong bao
+            var i = from p in dt.tblAnnouncements where p.Title == tieude select p;
+            if (i.Count() > 0)//Nếu có tiêu đề trùng khớp
+            {
+                if (update == false)//Neu la them moi
+                {
+                    kq = false;
+                }
+                else if (update == true)//Neu la cap nhat
+                {
+                    noidung = Convert.FromBase64String(noidungtam);//Giai ma ra dang binary
+                    var capnhat = dt.tblAnnouncements.Single(u => u.Title == tieude);
+                    capnhat.Content = noidung;
+                    capnhat.Lastchanged = DateTime.Now;
+                    dt.SubmitChanges();
+                    kq = true;
+                }
+            }
+            else//Neu khong co tieu de trung khop
+            {
+                noidung = Convert.FromBase64String(noidungtam);//Giai ma ra dang binary
+                tblAnnouncement tb = new tblAnnouncement();
+                tb.Title = tieude;
+                tb.Content = noidung;
+                tb.Priority = 0;
+                tb.TimeStart = DateTime.Now;
+                dt.tblAnnouncements.InsertOnSubmit(tb);
+                dt.SubmitChanges();
+                kq = true;
+            }
+            return kq;
+        }
+        public string GetThongBaoDon(string tieude)
+        {
+            string noidung = "";
+            var tb = dt.tblAnnouncements.Single(u => u.Title == tieude);
+            noidung = Convert.ToBase64String(tb.Content.ToArray());
+            return noidung;
         }
     }
 }

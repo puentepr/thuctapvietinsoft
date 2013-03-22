@@ -44,5 +44,9 @@ namespace Paradise5.Web
         List<ChartView> ChartData();
         [OperationContract]
         List<tblAnnouncement> GetThongbao();
+        [OperationContract]
+        bool LuuThongBao(string tieude, string noidungtam, bool capnhat);
+        [OperationContract]
+        string GetThongBaoDon(string tieude);
     }
 }

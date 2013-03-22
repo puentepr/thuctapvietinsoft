@@ -6016,8 +6016,6 @@ namespace Paradise5.Web
 		
 		private string _Title;
 		
-		private string _Content;
-		
 		private System.Nullable<int> _LoginID;
 		
 		private System.Nullable<System.DateTime> _TimeStart;
@@ -6032,6 +6030,8 @@ namespace Paradise5.Web
 		
 		private System.Nullable<System.DateTime> _Lastchanged;
 		
+		private System.Data.Linq.Binary _Content;
+		
 		private EntityRef<tblSC_Login> _tblSC_Login;
 		
     #region Extensibility Method Definitions
@@ -6040,8 +6040,6 @@ namespace Paradise5.Web
     partial void OnCreated();
     partial void OnTitleChanging(string value);
     partial void OnTitleChanged();
-    partial void OnContentChanging(string value);
-    partial void OnContentChanged();
     partial void OnLoginIDChanging(System.Nullable<int> value);
     partial void OnLoginIDChanged();
     partial void OnTimeStartChanging(System.Nullable<System.DateTime> value);
@@ -6056,6 +6054,8 @@ namespace Paradise5.Web
     partial void OnIDChanged();
     partial void OnLastchangedChanging(System.Nullable<System.DateTime> value);
     partial void OnLastchangedChanged();
+    partial void OnContentChanging(System.Data.Linq.Binary value);
+    partial void OnContentChanged();
     #endregion
 		
 		public tblAnnouncement()
@@ -6063,7 +6063,7 @@ namespace Paradise5.Web
 			this.Initialize();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(250)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
 		public string Title
 		{
@@ -6084,29 +6084,8 @@ namespace Paradise5.Web
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string Content
-		{
-			get
-			{
-				return this._Content;
-			}
-			set
-			{
-				if ((this._Content != value))
-				{
-					this.OnContentChanging(value);
-					this.SendPropertyChanging();
-					this._Content = value;
-					this.SendPropertyChanged("Content");
-					this.OnContentChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoginID", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
 		public System.Nullable<int> LoginID
 		{
 			get
@@ -6131,7 +6110,7 @@ namespace Paradise5.Web
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeStart", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
 		public System.Nullable<System.DateTime> TimeStart
 		{
 			get
@@ -6152,7 +6131,7 @@ namespace Paradise5.Web
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Visible", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
 		public System.Nullable<bool> Visible
 		{
 			get
@@ -6173,7 +6152,7 @@ namespace Paradise5.Web
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Priority", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
 		public System.Nullable<int> Priority
 		{
 			get
@@ -6194,7 +6173,7 @@ namespace Paradise5.Web
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
 		public string Description
 		{
 			get
@@ -6215,7 +6194,7 @@ namespace Paradise5.Web
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
 		public int ID
 		{
 			get
@@ -6236,7 +6215,7 @@ namespace Paradise5.Web
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lastchanged", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
 		public System.Nullable<System.DateTime> Lastchanged
 		{
 			get
@@ -6252,6 +6231,27 @@ namespace Paradise5.Web
 					this._Lastchanged = value;
 					this.SendPropertyChanged("Lastchanged");
 					this.OnLastchangedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		public System.Data.Linq.Binary Content
+		{
+			get
+			{
+				return this._Content;
+			}
+			set
+			{
+				if ((this._Content != value))
+				{
+					this.OnContentChanging(value);
+					this.SendPropertyChanging();
+					this._Content = value;
+					this.SendPropertyChanged("Content");
+					this.OnContentChanged();
 				}
 			}
 		}

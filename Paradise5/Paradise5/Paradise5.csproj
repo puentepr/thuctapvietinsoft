@@ -113,6 +113,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="CommonChart.cs" />
+    <Compile Include="ControlEXT\DialogResultCommon.xaml.cs">
+      <DependentUpon>DialogResultCommon.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ControlEXT\TextBoxEX.xaml.cs">
       <DependentUpon>TextBoxEX.xaml</DependentUpon>
     </Compile>
@@ -151,6 +154,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="ControlEXT\DialogResultCommon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ControlEXT\TextBoxEX.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -234,7 +241,11 @@
     <None Include="Service References\ServiceReference1\Paradis5.ServiceReference1.SetSessionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ServiceReference1\Service13.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <Resource Include="Image\Back.png" />
+    <None Include="Properties\OutOfBrowserSettings.xml" />
     <Content Include="ServiceReferences.ClientConfig" />
     <None Include="Service References\ServiceReference1\Paradis5.ServiceReference1.ViewMNResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
