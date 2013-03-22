@@ -140,6 +140,9 @@
     </Compile>
     <Compile Include="Utils.cs" />
     <Compile Include="Validation.cs" />
+    <Compile Include="ViewAnnouncement.xaml.cs">
+      <DependentUpon>ViewAnnouncement.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\MenuViewModel.cs" />
     <Compile Include="ViewModel\Navigation.cs" />
     <Compile Include="View\ChildWindow1.xaml.cs">
@@ -175,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewAnnouncement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

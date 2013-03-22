@@ -84,8 +84,8 @@ namespace GeneratedControls
             // 
             // messageText
             // 
-            this.messageText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.messageText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.messageText.Location = new System.Drawing.Point(8, 8);
             this.messageText.Name = "messageText";
             this.messageText.Size = new System.Drawing.Size(488, 20);
@@ -94,9 +94,9 @@ namespace GeneratedControls
             // 
             // controlPanel
             // 
-            this.controlPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.controlPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.controlPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.controlPanel.Location = new System.Drawing.Point(8, 64);
             this.controlPanel.Name = "controlPanel";
@@ -132,6 +132,7 @@ namespace GeneratedControls
             this.Controls.Add(this.generateButton);
             this.Name = "Form1";
             this.Text = "Generated Controls";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -481,5 +482,10 @@ namespace GeneratedControls
 
 			MessageBox.Show ( assemblies.ToString ( ) , "LoadedAssemblies" ) ;
 		}
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
 	}
 }
