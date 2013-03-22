@@ -10,8 +10,6 @@ using System.Windows.Media.Imaging;
 using DevExpress.Xpf.Bars;
 using Paradise5.ServiceReference1;
 using System.IO.IsolatedStorage;
-using System.Reflection;
-using System.Windows.Controls;
 
 namespace Paradise5
 {
@@ -19,8 +17,8 @@ namespace Paradise5
     {
         IsolatedStorageFile str = IsolatedStorageFile.GetUserStoreForApplication();//Thiet dat thu muc chua file tam neu la WPF thi sua thanh IsolatedStorageFile.GetUserStoreForAssembly();
         Service1Client ws = new Service1Client();
-        public bool chidoc = false;
-        public static string tieude = "Thông báo 1";
+        //public bool chidoc = false;
+        public string tieude = "";
         byte[] filesave;
         string noidungtam;
         public CreatAnnouncement()
@@ -30,7 +28,7 @@ namespace Paradise5
             ThemeManager.ApplicationThemeName = "Office2007Blue";
             ws.GetThongBaoDonCompleted += ws_GetThongBaoDonCompleted;
             ws.LuuThongBaoCompleted += ws_LuuThongBaoCompleted;
-            richEdit.ReadOnly = chidoc;
+            //richEdit.ReadOnly = chidoc;
             biDatabaseSave.Content = "Save to Database";
             biDatabaseSave.ItemClick += biDatabaseSave_ItemClick;
             //Set bieu tuong cho button Save to Database

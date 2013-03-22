@@ -6,3 +6,11 @@ F:\Source code\Samples project\CodeGeneration\Windows Forms\obj\Debug\GeneratedC
 F:\Source code\Samples project\CodeGeneration\Windows Forms\obj\Debug\GeneratedControls.csproj.GenerateResource.Cache
 F:\Source code\Samples project\CodeGeneration\Windows Forms\obj\Debug\GeneratedControls.exe
 F:\Source code\Samples project\CodeGeneration\Windows Forms\obj\Debug\GeneratedControls.pdb
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\CodeGeneration\Windows Forms\obj\Debug\GeneratedControls.exe
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\CodeGeneration\Windows Forms\obj\Debug\GeneratedControls.pdb
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\CodeGeneration\Windows Forms\bin\Debug\GeneratedControls.exe
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\CodeGeneration\Windows Forms\bin\Debug\GeneratedControls.pdb
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\CodeGeneration\Windows Forms\obj\Debug\GeneratedControls.csprojResolveAssemblyReference.cache
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\CodeGeneration\Windows Forms\obj\Debug\GeneratedControls.Form1.resources
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\CodeGeneration\Windows Forms\obj\Debug\GeneratedControls.TestControl.resources
+C:\Users\Dumspiro Spero\Desktop\Thuc tap\CodeGeneration\Windows Forms\obj\Debug\GeneratedControls.csproj.GenerateResource.Cache
