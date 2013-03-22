@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Paradise5.Web" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Paradise5.Web" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:10511/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Linq" />
   <xs:complexType name="ArrayOftblSC_Login">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="tblSC_Login" nillable="true" type="tns:tblSC_Login" />
@@ -35,7 +36,6 @@
   <xs:complexType name="tblAnnouncement">
     <xs:sequence>
       <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="LoginID" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="TimeStart" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Visible" nillable="true" type="xs:boolean" />
@@ -43,6 +43,7 @@
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ID" type="xs:int" />
       <xs:element minOccurs="0" name="Lastchanged" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Linq" minOccurs="0" name="Content" nillable="true" type="q1:Binary" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="tblAnnouncement" nillable="true" type="tns:tblAnnouncement" />

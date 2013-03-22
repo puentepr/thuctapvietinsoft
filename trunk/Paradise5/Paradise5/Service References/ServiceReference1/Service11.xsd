@@ -215,4 +215,34 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="LuuThongBao">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tieude" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="noidungtam" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="capnhat" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LuuThongBaoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LuuThongBaoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetThongBaoDon">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tieude" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetThongBaoDonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetThongBaoDonResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
