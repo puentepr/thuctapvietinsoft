@@ -1023,14 +1023,11 @@
                     <dxc:ChartControl Background="White" Name="gioitinh"/>
                     <dxc:ChartControl Background="White" Name="chinhanh"/>
                  </local:SlideNavBarGroup>
-                <local:SlideNavBarGroup Name="nvtest" Background="#FF761C1C" RadioButtonStyle="{StaticResource Group2RadioButtonStyle}" Header="Thông báo mới nhất">
+                <!--<local:SlideNavBarGroup Name="nvtest" Background="#FF761C1C" RadioButtonStyle="{StaticResource Group2RadioButtonStyle}" Header="Thông báo mới nhất">
                     <ScrollViewer Name="TLYCScroll" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
-                        <dxlc:TileLayoutControl x:Name="TLYC" AllowAddFlowBreaksDuringItemMoving="True" DragScrolling="False" ScrollBars="None" MinHeight="140" MinWidth="300">
-                        </dxlc:TileLayoutControl>
+                        <dxlc:TileLayoutControl Name="TLYC1" Background="Blue" ScrollBars="None" MinHeight="140" MinWidth="300"  TileClick="TLYC1_TileClick"/>
                     </ScrollViewer>
-                </local:SlideNavBarGroup>
-                <local:SlideNavBarGroup Name="nv3" Background="#FF1F4169" RadioButtonStyle="{StaticResource Group3RadioButtonStyle}"/>
-                <local:SlideNavBarGroup Name="nv4" Background="#FF37699B" RadioButtonStyle="{StaticResource Group4RadioButtonStyle}"/>
+                </local:SlideNavBarGroup>-->
             </dxn:NavBarControl.Groups>
         </dxn:NavBarControl>
     </dxdb:DemoModuleControl>

@@ -165,7 +165,7 @@ namespace Paradise5
             var k = from p in view where p.ParentMenuID == MenuID && p.LoginID == LoginID && p.ClassName != "OK" select p.Name;
             til.ContentSource = k.ToList();
             til.ContentChangeInterval = ts;
-            til.Name = MenuID;
+            //til.Name = MenuID;
             til.Tag = Pagename;
             //TLYC.Width = ((double)HtmlPage.Window.Eval("screen.availWidth"));
             //TLYC.Height = ((double)HtmlPage.Window.Eval("screen.availHeight"))-100;
