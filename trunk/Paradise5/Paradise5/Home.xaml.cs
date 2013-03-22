@@ -19,11 +19,14 @@ using DevExpress.Xpf.Core.WPFCompatibility;
 using DevExpress.Xpf.Charts;
 using Paradise5.ServiceReference1;
 using System.Windows.Threading;
+using DevExpress.Xpf.LayoutControl;
+using System.Windows.Browser;
 
 namespace Paradise5
 {
     public partial class Home
     {
+        public static string tentile = "";//Bien nay se truyen cho Page ViewAnnouncement 
         public static int countchart = 11;
         double sonhanvien;
         List<ChartView> dsnv;
@@ -39,9 +42,11 @@ namespace Paradise5
         ChartControl quocgia = new ChartControl();
         ChartControl trangthai = new ChartControl();
         ChartControl soluongnhansu = new ChartControl();
+        TileLayoutControl temp = new TileLayoutControl();
         public Home()
         {
             InitializeComponent();
+            TaoKenhThongBao(); 
             ws.ChartDataCompleted += ws_ChartDataCompleted;
             ws.ChartDataAsync();
 
@@ -57,7 +62,7 @@ namespace Paradise5
             nv1.Items.Add(trangthai);
             nv1.Items.Add(soluongnhansu);
             //End add Charts
-
+            
             //Tao Tile cho Chart
             //Title nt = new Title();
             //nt.Content = "Giới tính";
@@ -83,8 +88,22 @@ namespace Paradise5
             xyz.Height = 500;*/
 
         }
-        #region Load1
-        void Load1()
+        void TaoKenhThongBao()
+        {
+            SlideNavBarGroup nv2 = new SlideNavBarGroup() { Header="Thông báo mới nhất"};
+            nv2.SetValue(SlideNavBarGroup.RadioButtonStyleProperty, DemoModuleControl.Resources["Group2RadioButtonStyle"]);
+            nv2.Background = new SolidColorBrush(Colors.Brown);
+            temp.TileClick += TLYC1_TileClick;
+            temp.ScrollBars = ScrollBars.Auto;
+            temp.Orientation = Orientation.Horizontal;
+            temp.HorizontalAlignment = HorizontalAlignment.Center;
+            temp.VerticalAlignment = VerticalAlignment.Center;
+            nv2.Items.Add(temp);
+            navBar.Groups.Add(nv2);
+            
+        }
+        #region LoadBieudo
+        void LoadBieudo()
         {
             //Tao bieu do Gioi tinh
             SimpleDiagram2D dg1 = new SimpleDiagram2D();
@@ -317,37 +336,37 @@ namespace Paradise5
         }
         #endregion
 
-        #region LoadThongBao
-        void LoadThongBao()
-        {
-            TLYC.Children.Clear();  
-        }
-        //void CreatTile()
-        //{
-        //    Tile til = new Tile();
-        //    til.Header = MenuName;
-        //    til.AnimateContentChange = true;
-        //    var k = from p in view where p.ParentMenuID == MenuID && p.LoginID == LoginID && p.ClassName != "OK" select p.Name;
-        //    til.ContentSource = k.ToList();
-        //    til.ContentChangeInterval = ts;
-        //    TLYC.Children.Add(til);
-        //}
-        #endregion
-
         void ws_ChartDataCompleted(object sender, ChartDataCompletedEventArgs e)
         {
             dsnv = e.Result.ToList();
             sonhanvien = dsnv.Count();
-            Load1();
+            LoadBieudo();
             PageSmoothScroller.delaytime.Interval = new TimeSpan(0, 0, 3);//Set thoi gian delay cac bieu do
             PageSmoothScroller.delaytime.Start();
-            //ws.GetThongbaoCompleted += ws_GetThongbaoCompleted;
-            //ws.GetThongbaoAsync();
+            ws.GetThongbaoCompleted += ws_GetThongbaoCompleted;
+            ws.GetThongbaoAsync();
         }
         #region LoadThongBao
         void ws_GetThongbaoCompleted(object sender, GetThongbaoCompletedEventArgs e)
         {
             dsthongbao = e.Result.ToList();
+            LoadThongBao();
+        }
+
+        void LoadThongBao()
+        {
+            for (int i = 0; i < dsthongbao.Count; i++)
+            {
+                string ten = dsthongbao.ElementAt(i).Title;
+                CreateTile(ten);
+            }
+        }
+        void CreateTile(string s)
+        {
+            Tile til = new Tile();
+            til.Name = s;
+            til.Header = s;
+            temp.Children.Add(til);
         }
         #endregion
         #region AutoRun and CustomRunChart
@@ -380,6 +399,15 @@ namespace Paradise5
         {
             navBar.Width = e.NewSize.Width - 20;
             navBar.Height = e.NewSize.Height - 20;
+        }
+
+        void TLYC1_TileClick(object sender, TileClickEventArgs e)
+        {
+            tentile = e.Tile.Header.ToString();
+            ViewAnnouncement viewa = new ViewAnnouncement();
+            viewa.Width = (double)HtmlPage.Window.Eval("screen.availWidth") - 100;
+            viewa.Height = (double)HtmlPage.Window.Eval("screen.availHeight") - 100;
+            viewa.Show();
         }
 
     }
