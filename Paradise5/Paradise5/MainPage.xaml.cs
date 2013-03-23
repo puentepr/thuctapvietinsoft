@@ -160,6 +160,7 @@ namespace Paradise5
         private void CreatTile(string MenuID, string MenuName, string Pagename,int dem)
         {
             Tile til = new Tile();
+            til.Name = MenuID;
             til.Header = MenuName;
             til.AnimateContentChange = true;
             var k = from p in view where p.ParentMenuID == MenuID && p.LoginID == LoginID && p.ClassName != "OK" select p.Name;

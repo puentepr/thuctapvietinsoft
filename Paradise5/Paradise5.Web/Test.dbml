@@ -51,24 +51,6 @@
       <Column Name="Content" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.ViewMenu" Member="ViewMenus">
-    <Type Name="ViewMenu">
-      <Column Name="MenuID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="ClassName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ParentMenuID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="AssemblyName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="IsModal" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="IsCollapsed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="ShortcutKeys" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Language" Type="System.String" DbType="Char(2)" CanBeNull="true" />
-      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Access" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SupperAdmin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="LoginID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.tblEmployee" Member="tblEmployees">
     <Type Name="tblEmployee">
       <Column Name="EmployeeID" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -279,6 +261,24 @@
       <Column Name="Lastchanged" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Content" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="tblSC_Login_tblAnnouncement" Member="tblSC_Login" ThisKey="LoginID" OtherKey="LoginID" Type="tblSC_Login" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ViewMenu" Member="ViewMenus">
+    <Type Name="ViewMenu">
+      <Column Name="MenuID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClassName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ParentMenuID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="AssemblyName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsModal" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsCollapsed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ShortcutKeys" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Language" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Access" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SupperAdmin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LoginID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.SC_Login_CheckLogin" Method="SC_Login_CheckLogin">
