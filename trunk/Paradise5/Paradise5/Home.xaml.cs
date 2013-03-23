@@ -358,10 +358,10 @@ namespace Paradise5
             for (int i = 0; i < dsthongbao.Count; i++)
             {
                 string ten = dsthongbao.ElementAt(i).Title;
-                CreateTile(ten);
+                CreateTile1(ten);
             }
         }
-        void CreateTile(string s)
+        void CreateTile1(string s)
         {
             Tile til = new Tile();
             til.Name = s;

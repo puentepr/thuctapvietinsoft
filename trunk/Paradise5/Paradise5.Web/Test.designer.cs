@@ -136,14 +136,6 @@ namespace Paradise5.Web
 			}
 		}
 		
-		public System.Data.Linq.Table<ViewMenu> ViewMenus
-		{
-			get
-			{
-				return this.GetTable<ViewMenu>();
-			}
-		}
-		
 		public System.Data.Linq.Table<tblEmployee> tblEmployees
 		{
 			get
@@ -205,6 +197,14 @@ namespace Paradise5.Web
 			get
 			{
 				return this.GetTable<tblAnnouncement>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ViewMenu> ViewMenus
+		{
+			get
+			{
+				return this.GetTable<ViewMenu>();
 			}
 		}
 		
@@ -1282,282 +1282,6 @@ namespace Paradise5.Web
 		public void OnDeserializing(StreamingContext context)
 		{
 			this.Initialize();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ViewMenu")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class ViewMenu
-	{
-		
-		private string _MenuID;
-		
-		private string _Name;
-		
-		private string _ClassName;
-		
-		private System.Nullable<int> _Priority;
-		
-		private string _ParentMenuID;
-		
-		private string _AssemblyName;
-		
-		private System.Nullable<bool> _IsModal;
-		
-		private System.Nullable<bool> _IsCollapsed;
-		
-		private string _ShortcutKeys;
-		
-		private string _Language;
-		
-		private System.Nullable<bool> _IsVisible;
-		
-		private int _Access;
-		
-		private System.Nullable<bool> _SupperAdmin;
-		
-		private int _LoginID;
-		
-		public ViewMenu()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MenuID", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public string MenuID
-		{
-			get
-			{
-				return this._MenuID;
-			}
-			set
-			{
-				if ((this._MenuID != value))
-				{
-					this._MenuID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this._Name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClassName", DbType="NVarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public string ClassName
-		{
-			get
-			{
-				return this._ClassName;
-			}
-			set
-			{
-				if ((this._ClassName != value))
-				{
-					this._ClassName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Priority", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.Nullable<int> Priority
-		{
-			get
-			{
-				return this._Priority;
-			}
-			set
-			{
-				if ((this._Priority != value))
-				{
-					this._Priority = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentMenuID", DbType="VarChar(20)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public string ParentMenuID
-		{
-			get
-			{
-				return this._ParentMenuID;
-			}
-			set
-			{
-				if ((this._ParentMenuID != value))
-				{
-					this._ParentMenuID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssemblyName", DbType="NVarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-		public string AssemblyName
-		{
-			get
-			{
-				return this._AssemblyName;
-			}
-			set
-			{
-				if ((this._AssemblyName != value))
-				{
-					this._AssemblyName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsModal", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-		public System.Nullable<bool> IsModal
-		{
-			get
-			{
-				return this._IsModal;
-			}
-			set
-			{
-				if ((this._IsModal != value))
-				{
-					this._IsModal = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsCollapsed", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
-		public System.Nullable<bool> IsCollapsed
-		{
-			get
-			{
-				return this._IsCollapsed;
-			}
-			set
-			{
-				if ((this._IsCollapsed != value))
-				{
-					this._IsCollapsed = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShortcutKeys", DbType="VarChar(20)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
-		public string ShortcutKeys
-		{
-			get
-			{
-				return this._ShortcutKeys;
-			}
-			set
-			{
-				if ((this._ShortcutKeys != value))
-				{
-					this._ShortcutKeys = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Language", DbType="Char(2)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
-		public string Language
-		{
-			get
-			{
-				return this._Language;
-			}
-			set
-			{
-				if ((this._Language != value))
-				{
-					this._Language = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsVisible", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
-		public System.Nullable<bool> IsVisible
-		{
-			get
-			{
-				return this._IsVisible;
-			}
-			set
-			{
-				if ((this._IsVisible != value))
-				{
-					this._IsVisible = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Access", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
-		public int Access
-		{
-			get
-			{
-				return this._Access;
-			}
-			set
-			{
-				if ((this._Access != value))
-				{
-					this._Access = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupperAdmin", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
-		public System.Nullable<bool> SupperAdmin
-		{
-			get
-			{
-				return this._SupperAdmin;
-			}
-			set
-			{
-				if ((this._SupperAdmin != value))
-				{
-					this._SupperAdmin = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoginID", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
-		public int LoginID
-		{
-			get
-			{
-				return this._LoginID;
-			}
-			set
-			{
-				if ((this._LoginID != value))
-				{
-					this._LoginID = value;
-				}
-			}
 		}
 	}
 	
@@ -3419,7 +3143,7 @@ namespace Paradise5.Web
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhotoImage", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhotoImage", DbType="Image", UpdateCheck=UpdateCheck.Never)]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=69)]
 		public System.Data.Linq.Binary PhotoImage
 		{
@@ -6235,7 +5959,7 @@ namespace Paradise5.Web
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
 		public System.Data.Linq.Binary Content
 		{
@@ -6321,6 +6045,282 @@ namespace Paradise5.Web
 		public void OnDeserializing(StreamingContext context)
 		{
 			this.Initialize();
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ViewMenu")]
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class ViewMenu
+	{
+		
+		private string _MenuID;
+		
+		private string _Name;
+		
+		private string _ClassName;
+		
+		private System.Nullable<int> _Priority;
+		
+		private string _ParentMenuID;
+		
+		private string _AssemblyName;
+		
+		private System.Nullable<bool> _IsModal;
+		
+		private System.Nullable<bool> _IsCollapsed;
+		
+		private string _ShortcutKeys;
+		
+		private string _Language;
+		
+		private System.Nullable<bool> _IsVisible;
+		
+		private int _Access;
+		
+		private System.Nullable<bool> _SupperAdmin;
+		
+		private int _LoginID;
+		
+		public ViewMenu()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MenuID", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public string MenuID
+		{
+			get
+			{
+				return this._MenuID;
+			}
+			set
+			{
+				if ((this._MenuID != value))
+				{
+					this._MenuID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(MAX)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClassName", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public string ClassName
+		{
+			get
+			{
+				return this._ClassName;
+			}
+			set
+			{
+				if ((this._ClassName != value))
+				{
+					this._ClassName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Priority", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public System.Nullable<int> Priority
+		{
+			get
+			{
+				return this._Priority;
+			}
+			set
+			{
+				if ((this._Priority != value))
+				{
+					this._Priority = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentMenuID", DbType="VarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public string ParentMenuID
+		{
+			get
+			{
+				return this._ParentMenuID;
+			}
+			set
+			{
+				if ((this._ParentMenuID != value))
+				{
+					this._ParentMenuID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssemblyName", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public string AssemblyName
+		{
+			get
+			{
+				return this._AssemblyName;
+			}
+			set
+			{
+				if ((this._AssemblyName != value))
+				{
+					this._AssemblyName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsModal", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		public System.Nullable<bool> IsModal
+		{
+			get
+			{
+				return this._IsModal;
+			}
+			set
+			{
+				if ((this._IsModal != value))
+				{
+					this._IsModal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsCollapsed", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		public System.Nullable<bool> IsCollapsed
+		{
+			get
+			{
+				return this._IsCollapsed;
+			}
+			set
+			{
+				if ((this._IsCollapsed != value))
+				{
+					this._IsCollapsed = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShortcutKeys", DbType="VarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		public string ShortcutKeys
+		{
+			get
+			{
+				return this._ShortcutKeys;
+			}
+			set
+			{
+				if ((this._ShortcutKeys != value))
+				{
+					this._ShortcutKeys = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Language", DbType="Char(2)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+		public string Language
+		{
+			get
+			{
+				return this._Language;
+			}
+			set
+			{
+				if ((this._Language != value))
+				{
+					this._Language = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsVisible", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+		public System.Nullable<bool> IsVisible
+		{
+			get
+			{
+				return this._IsVisible;
+			}
+			set
+			{
+				if ((this._IsVisible != value))
+				{
+					this._IsVisible = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Access", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+		public int Access
+		{
+			get
+			{
+				return this._Access;
+			}
+			set
+			{
+				if ((this._Access != value))
+				{
+					this._Access = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupperAdmin", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
+		public System.Nullable<bool> SupperAdmin
+		{
+			get
+			{
+				return this._SupperAdmin;
+			}
+			set
+			{
+				if ((this._SupperAdmin != value))
+				{
+					this._SupperAdmin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoginID", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
+		public int LoginID
+		{
+			get
+			{
+				return this._LoginID;
+			}
+			set
+			{
+				if ((this._LoginID != value))
+				{
+					this._LoginID = value;
+				}
+			}
 		}
 	}
 	
