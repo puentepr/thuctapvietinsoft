@@ -11,7 +11,7 @@ using DevExpress.XtraGrid.Columns;
 
 namespace HPA.Setting
 {
-    public partial class DynamicUserControl : HPA.CommonForm.BaseUserControl
+    public partial class DynamicUserControl : HPA.CommonForm.UserControlHasButton
     {
         DataTable tblInfo = null;
         private DataTable m_dtTableData;
@@ -94,6 +94,18 @@ namespace HPA.Setting
             {
                 HPA.Common.Methods.ShowError(e);
             }
+        }
+        protected override bool Save()
+        {
+            SaveData save = new SaveData(this.Caption, DBEngine);
+            save.SaveDataTable(m_dtTableData.GetChanges(),tableName.Split('|'));
+            return true;
+        }
+        protected override bool Add()
+        {
+            SaveData save = new SaveData(this.Caption, DBEngine);
+            save.SaveDataTable(m_dtTableData.GetChanges(), tableName.Split('|'));
+            return true;
         }
         private void LoadDataAndShow()
         {
@@ -471,9 +483,12 @@ namespace HPA.Setting
             grvDynamic.BestFitColumns();
             return dtRet;
         }
-        protected override void Save()
+
+
+        private void grvDynamic_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            MessageBox.Show("Test");
+            DirtyData = true;
         }
+
     }
 }

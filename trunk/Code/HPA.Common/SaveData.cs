@@ -12,16 +12,19 @@ namespace HPA.Common
     public class SaveData
     {
           bool isNoUpdate = false;
-            public SaveData(System.Windows.Forms.Form frm, EzSqlCollection.EzSql2 DBE)
+            public SaveData(string scrName, EzSqlCollection.EzSql2 DBE)
             {
                 DBEngine = DBE;
-                form = frm;
+                screenName = scrName;
             }
             private EzSqlCollection.EzSql2 DBEngine = null;
-            System.Windows.Forms.Form form;
+            string screenName;
             public bool SaveDataTable(DataTable dtTable, string[] tableName)
             {
-
+                if (dtTable == null)
+                    return false;
+                if (dtTable.Rows.Count <= 0)
+                    return false;
                 bool isDuplicate = false;
                 DataRow drOld = null;
                 DataRow dr = null;
@@ -234,8 +237,8 @@ namespace HPA.Common
                        "@EmployeeID", strEmpID,
                        "@OldValue", oldValue,
                        "@NewValue", newValue,
-                       "@FunctionClassName", string.Format("{0}.{1}", form.AccessibleName, TableName),
-                       "@ScreenName", form.Text,
+                       "@FunctionClassName", string.Format("{0}.{1}", StaticVars.FullClassName, TableName),
+                       "@ScreenName", screenName,
                        "@LoginID", HPA.Common.StaticVars.LoginID);
                     else
                         DBEngine.exec("sp_EZLogMasterData",
@@ -243,8 +246,8 @@ namespace HPA.Common
                             "@KeyName", keyName,
                             "@OldValue", oldValue,
                             "@NewValue", newValue,
-                            "@FunctionClassName", string.Format("{0}.{1}", form.AccessibleName, TableName),
-                            "@ScreenName", form.Text,
+                            "@FunctionClassName", string.Format("{0}.{1}", StaticVars.FullClassName, TableName),
+                            "@ScreenName", screenName,
                             "@LoginID", HPA.Common.StaticVars.LoginID);
 
                 }

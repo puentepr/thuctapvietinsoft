@@ -18,7 +18,10 @@ namespace HPA.Common
         public static string DataSetting_ProcName;
         public static string App_path=string.Empty;
         public static string LanguageID=string.Empty;
+        public static string FullClassName = string.Empty;
         public static bool ENTER_TO_TAB = false;
+        public static EzSqlCollection.EzSql2 DBEngine = null;
+
        
     }
 }

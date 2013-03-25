@@ -36,12 +36,15 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.MinimumSize = new System.Drawing.Size(700, 600);
             this.Name = "BaseUserControl";
-            this.Load += new System.EventHandler(this.BaseUserControl_Load);
+
+            this.Size = new System.Drawing.Size(700, 600);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
     }
 }
