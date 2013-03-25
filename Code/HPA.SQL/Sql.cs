@@ -83,7 +83,7 @@ namespace EzSqlCollection
 		/// connection or the internal connection is already openned.
 		public void open()
 		{
-			if (!isConnectionClosed()) throwDenyConnection("open()");
+			if (!isConnectionClosed()) _connection.Close();
             _strConnection = String.Format("Data Source={0};Initial Catalog={1};User Id={2};Password={3}", _server, _db, _user, _pwd);
             //_strConnection = @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\WINDOWS\Paradise_Free.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
 
@@ -526,7 +526,7 @@ namespace EzSqlCollection
 				// Get the type from database.
 				// Use sp_help SP to fetch information.
                 SqlCommand cmd = new SqlCommand("sp_help", Connection, Transaction) { CommandType = CommandType.StoredProcedure };
-				cmd.Parameters.Add("@objname", typeName);
+				cmd.Parameters.AddWithValue("@objname", typeName);
 				DataSet ds = new DataSet();
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
 				da.Fill(ds);

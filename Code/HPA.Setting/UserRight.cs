@@ -95,21 +95,6 @@ namespace HPA.Setting
                 // Enable các control
                 btnFWSave.Enabled = true;
                 btnFWReset.Enabled = true;
-
-                //if (string.IsNullOrEmpty(txtLoginName.Text))
-                //{
-                //    btnFWAdd.Enabled = true;
-                //    btnFWDelete.Enabled = false;
-                //    btnFWSave.Enabled = true;
-                //    btnFWReset.Enabled = true;
-                //}
-                //else
-                //{
-                //    btnFWAdd.Enabled = false;
-                //    btnFWDelete.Enabled = true;
-                //    btnFWSave.Enabled = true;
-                //    btnFWReset.Enabled = true;
-                //}
             }
             return true;
         }
@@ -164,35 +149,6 @@ namespace HPA.Setting
                 }
             }
             grdDepartment.RefreshDataSource();
-        }
-
-        public void CreateNode(TreeList tl, DataTable dt)
-        {
-            tl.BeginUnboundLoad();
-            // Create root
-            TreeListNode parentNode = null;
-            foreach (DataRow dtRowParent in dt.Rows)
-            {
-                TreeListNode rootNode = null;
-                if (dtRowParent["ParentObjectID"].ToString() == "0")
-                {
-                    rootNode = tl.AppendNode(new object[] { dtRowParent["Description"], dtRowParent["Right"] }, parentNode);
-                    CreateNodeChild(tl, rootNode, dt, dtRowParent);
-                }
-            }
-            tl.EndUnboundLoad();
-        }
-
-        public void CreateNodeChild(TreeList tl, TreeListNode tlParentNode, DataTable dt, DataRow dtRow)
-        {
-            foreach (DataRow dtRowChild in dt.Rows)
-            {
-                if (String.Compare(dtRowChild["ParentObjectID"].ToString(), dtRow["ObjectID"].ToString()) == 0)
-                {
-                    TreeListNode childNode = tl.AppendNode(new object[] { dtRowChild["Description"], dtRowChild["Right"] }, tlParentNode);
-                    CreateNodeChild(tl, childNode, dt, dtRowChild);
-                }
-            }
         }
 
         private void ckbSectionAll_CheckedChanged(object sender, EventArgs e)

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using DevExpress.XtraBars.Docking2010.Views.MetroUI;
+using DevExpress.XtraBars.Docking2010.Views.WindowsUI;
 using DevExpress.XtraBars.Docking2010;
 using HPA.Common;
 
@@ -81,7 +81,7 @@ namespace HPA
             _MetroUI.Documents.Add(_Doc);
             _MetroUI.Tiles.Add(_Tile);
             _MetroUI.Documents.Add(_Doc);
-
+                
             
 
             _Doc.ControlName = Menu["ClassName"].ToString();
@@ -114,10 +114,24 @@ namespace HPA
 
             if (e.Document.ControlTypeName == "DataSetting")
             {
-                StaticVars.DataSetting_ProcName = e.Document.ControlName;
-                System.Runtime.Remoting.ObjectHandle handle = System.Activator.CreateInstance("HPA.Setting", "HPA.Setting.DynamicUserControl");
-                HPA.CommonForm.BaseUserControl frm = (HPA.CommonForm.BaseUserControl)(handle.Unwrap());
-                e.Control = frm;
+                try
+                {
+                    StaticVars.DataSetting_ProcName = e.Document.ControlName;
+                    StaticVars.FullClassName = string.Format("{0}.{1}", e.Document.ControlTypeName, e.Document.ControlName);
+                    System.Runtime.Remoting.ObjectHandle handle = System.Activator.CreateInstance("HPA.Setting", "HPA.Setting.DynamicUserControl");
+                    HPA.CommonForm.UserControlHasButton frm = (HPA.CommonForm.UserControlHasButton)(handle.Unwrap());
+                    frm.Caption = e.Document.Caption;
+                    e.Control = frm;
+                }
+                catch (Exception ex)
+                {
+                    //if (MessageBox.Show("Ket noi lai ko?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
+                    //{
+                    //    DBEngine = new EzSqlCollection.EzSql2(HPA.Common.StaticVars.ServerName, HPA.Common.StaticVars.DatabaseName, HPA.Common.StaticVars.UserID_sql, HPA.Common.StaticVars.Password);
+                    //    DBEngine.open();
+                    //    MessageBox.Show("ket noi thanh cong");
+                    //}
+                }
             }
             else
             e.Control = new Control();

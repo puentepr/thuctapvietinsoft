@@ -71,9 +71,5 @@ namespace HPA.MAINFRAME
         {
 
         }
-        protected override void Save()
-        {
-            MessageBox.Show("Test");
-        }
     }
 }
