@@ -186,37 +186,28 @@ namespace Paradise5
         }
         private void CreateChildPage(string asb, string cls)
         {
-            if (cls != "CreatAnnouncement")//Nếu khác form tạo thông báo
+            
+            var WbClnt = new WebClient();//Tao WebClient
+            WbClnt.OpenReadCompleted += (a, b) =>
             {
-                var WbClnt = new WebClient();//Tao WebClient
-                WbClnt.OpenReadCompleted += (a, b) =>
+                if (b.Error == null)
                 {
-                    if (b.Error == null)
+                    AssemblyPart assmbpart = new AssemblyPart();
+                    Assembly assembly = assmbpart.Load(b.Result);
+                    Object Obj = assembly.CreateInstance(asb + "." + cls);//Truy xuat file dll
+                    if (Obj != null)//Neu co file dll thi tao ChildWindow
                     {
-                        AssemblyPart assmbpart = new AssemblyPart();
-                        Assembly assembly = assmbpart.Load(b.Result);
-                        Object Obj = assembly.CreateInstance(asb + "." + cls);//Truy xuat file dll
-                        if (Obj != null)//Neu co file dll thi tao ChildWindow
-                        {
-                            ChildWindow child = (ChildWindow)assembly.CreateInstance(asb + "." + cls);
-                            child.Width = (double)HtmlPage.Window.Eval("screen.availWidth") - 100;
-                            child.Height = (double)HtmlPage.Window.Eval("screen.availHeight") - 100;
-                            child.Show();
-                        }
-                        else { MessageBox.Show("Page not exist"); }//Khong ton tai page thi bao loi
+                        ChildWindow child = (ChildWindow)assembly.CreateInstance(asb + "." + cls);
+                        child.Width = (double)HtmlPage.Window.Eval("screen.availWidth") - 100;
+                        child.Height = (double)HtmlPage.Window.Eval("screen.availHeight") - 100;
+                        child.Show();
                     }
-                    else { MessageBox.Show("Page not exist"); }//Khong ton tai file dll thi bao loi
-                };
-                WbClnt.OpenReadAsync(new Uri("http://localhost:10511/Control/" + asb + ".dll", UriKind.Absolute));
-            }
-            else if (cls == "CreatAnnouncement")
-            {
-                CreatAnnouncement tb = new CreatAnnouncement();
-                tb.Width = (double)HtmlPage.Window.Eval("screen.availWidth") - 100;
-                tb.Height = (double)HtmlPage.Window.Eval("screen.availHeight")-100;
-                TLYC.Children.Clear();
-                TLYC.Children.Add(tb);
-            }
+                    else { MessageBox.Show("Page not exist"); }//Khong ton tai page thi bao loi
+                }
+                else { MessageBox.Show("Page not exist"); }//Khong ton tai file dll thi bao loi
+            };
+            WbClnt.OpenReadAsync(new Uri("http://localhost:10511/Control/" + asb + ".dll", UriKind.Absolute));
+
        }
         #endregion
         private void TLYC_TileClick(object sender, TileClickEventArgs e)

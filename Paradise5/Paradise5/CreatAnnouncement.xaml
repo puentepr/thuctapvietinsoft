@@ -1,5 +1,6 @@
-﻿<local:RichEditDemoModule 
+﻿<controls:ChildWindow 
     xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
     x:Class="Paradise5.CreatAnnouncement" HorizontalAlignment="Center" VerticalAlignment="Stretch"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -10,14 +11,15 @@
     xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
     xmlns:dxdb="http://schemas.devexpress.com/winfx/2008/xaml/demobase" 
     xmlns:local="clr-namespace:Paradise5">
-    <local:RichEditDemoModule.Resources>
+
+    <controls:ChildWindow.Resources>
         <ResourceDictionary>
             <dxre:RichEditUICommand x:Key="commands" />
             <dxre:DefaultBarItemDataTemplates x:Key="defaultBarItemTemplates" />
             <dxre:RichEditStringIdConverter x:Key="stringIdConverter" />
         </ResourceDictionary>
-    </local:RichEditDemoModule.Resources>
-    <dxdb:DemoModuleControl>
+    </controls:ChildWindow.Resources>
+
         <Grid Background="#bfdbff">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
@@ -370,5 +372,4 @@
                 </dx:DXDockPanel>
             </dxb:BarManager>
         </Grid>
-    </dxdb:DemoModuleControl>
-</local:RichEditDemoModule>
+</controls:ChildWindow>
