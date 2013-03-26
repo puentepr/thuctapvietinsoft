@@ -366,6 +366,8 @@ namespace Paradise5
             Tile til = new Tile();
             til.Name = s;
             til.Header = s;
+            til.HorizontalHeaderAlignment = HorizontalAlignment.Center;
+            til.VerticalHeaderAlignment = VerticalAlignment.Center;
             temp.Children.Add(til);
         }
         #endregion

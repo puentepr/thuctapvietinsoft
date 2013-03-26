@@ -31,14 +31,17 @@ namespace Paradise5
         {
             InitializeComponent();
             GridStack.Visibility = Visibility.Collapsed;
-            LoadInfo();
+            LoadInfo();//Load cac bieu do va thong bao
 
         }
         void LoadInfo()
         {
             TLYC.Children.Clear();
+            TLYC.Margin = new Thickness(0, 50, 0, 0);
             TLYC.Padding = new Thickness(0, 0, 0, 0);
             Home hm = new Home();
+            hm.Width = TLYC.Width;
+            hm.Height = TLYC.Height-70;
             TLYC.Children.Add(hm);
             
         }
@@ -266,6 +269,7 @@ namespace Paradise5
             HPL1.Visibility = Visibility.Collapsed;
             HpLogout.Visibility = Visibility.Collapsed;
             TLYC.Children.Clear();
+            LoadInfo();
         }
         #endregion
         #region FocusTextBox
