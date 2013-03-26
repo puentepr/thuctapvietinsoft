@@ -42,11 +42,11 @@ namespace Paradise5
         ChartControl quocgia = new ChartControl();
         ChartControl trangthai = new ChartControl();
         ChartControl soluongnhansu = new ChartControl();
-        TileLayoutControl temp = new TileLayoutControl();
+        TileLayoutControl temp;// Biến tạm dùng phân trang thông báo
         public Home()
         {
             InitializeComponent();
-            TaoKenhThongBao(); 
+            //TaoKenhThongBao(); 
             ws.ChartDataCompleted += ws_ChartDataCompleted;
             ws.ChartDataAsync();
 
@@ -88,20 +88,7 @@ namespace Paradise5
             xyz.Height = 500;*/
 
         }
-        void TaoKenhThongBao()
-        {
-            SlideNavBarGroup nv2 = new SlideNavBarGroup() { Header="Thông báo mới nhất"};
-            nv2.SetValue(SlideNavBarGroup.RadioButtonStyleProperty, DemoModuleControl.Resources["Group2RadioButtonStyle"]);
-            nv2.Background = new SolidColorBrush(Colors.Brown);
-            temp.TileClick += TLYC1_TileClick;
-            temp.ScrollBars = ScrollBars.Auto;
-            temp.Orientation = Orientation.Horizontal;
-            temp.HorizontalAlignment = HorizontalAlignment.Center;
-            temp.VerticalAlignment = VerticalAlignment.Center;
-            nv2.Items.Add(temp);
-            navBar.Groups.Add(nv2);
-            
-        }
+        
         #region LoadBieudo
         void LoadBieudo()
         {
@@ -349,19 +336,41 @@ namespace Paradise5
         #region LoadThongBao
         void ws_GetThongbaoCompleted(object sender, GetThongbaoCompletedEventArgs e)
         {
-            dsthongbao = e.Result.ToList();
-            LoadThongBao();
+            if(e.Result!=null)
+            {
+                dsthongbao = e.Result.ToList();
+                LoadThongBao();//Tạo kênh thông báo
+            }
         }
 
         void LoadThongBao()
         {
+            SlideNavBarGroup nv2 = new SlideNavBarGroup() { Header = "Thông báo mới nhất" };
+            nv2.SetValue(SlideNavBarGroup.RadioButtonStyleProperty, DemoModuleControl.Resources["Group3RadioButtonStyle"]);
+            nv2.Background = new SolidColorBrush(Colors.Brown);
+            navBar.Groups.Add(nv2);
             for (int i = 0; i < dsthongbao.Count; i++)
             {
                 string ten = dsthongbao.ElementAt(i).Title;
-                CreateTile1(ten);
+                if (i % 6 == 0)//Phân trang thông báo bằng cách cứ 6 thông báo thì tạo một TileLayoutControl mới
+                {
+                    TileLayoutControl temp1 = new TileLayoutControl();
+                    temp = temp1;
+                    temp1.TileClick += TLYC1_TileClick;
+                    temp1.ScrollBars = ScrollBars.Auto;
+                    temp1.Orientation = Orientation.Horizontal;
+                    temp1.HorizontalAlignment = HorizontalAlignment.Center;
+                    temp1.VerticalAlignment = VerticalAlignment.Center;
+                    nv2.Items.Add(temp1);
+                    CreateTile1(ten);
+                }
+                else
+                {
+                    CreateTile1(ten); 
+                }
             }
         }
-        void CreateTile1(string s)
+        void CreateTile1(string s)//Tao tile
         {
             Tile til = new Tile();
             til.Name = s;
