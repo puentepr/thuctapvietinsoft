@@ -10,10 +10,11 @@ using System.Windows.Media.Imaging;
 using DevExpress.Xpf.Bars;
 using Paradise5.ServiceReference1;
 using System.IO.IsolatedStorage;
+using System.Windows.Controls;
 
 namespace Paradise5
 {
-    public partial class CreatAnnouncement : RichEditDemoModule
+    public partial class CreatAnnouncement : ChildWindow
     {
         IsolatedStorageFile str = IsolatedStorageFile.GetUserStoreForApplication();//Thiet dat thu muc chua file tam neu la WPF thi sua thanh IsolatedStorageFile.GetUserStoreForAssembly();
         Service1Client ws = new Service1Client();
