@@ -173,6 +173,7 @@ namespace Paradise5.Web
                 tb.Title = tieude;
                 tb.Content = noidung;
                 tb.Priority = 0;
+                tb.Visible = true;
                 tb.TimeStart = DateTime.Now;
                 dt.tblAnnouncements.InsertOnSubmit(tb);
                 dt.SubmitChanges();
@@ -184,7 +185,8 @@ namespace Paradise5.Web
         {
             string noidung = "";
             var tb = dt.tblAnnouncements.Single(u => u.Title == tieude);
-            noidung = Convert.ToBase64String(tb.Content.ToArray());
+            if (tb.Content != null)
+            { noidung = Convert.ToBase64String(tb.Content.ToArray()); }
             return noidung;
         }
     }
