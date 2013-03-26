@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="HPA.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="LanguageID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">VN</Value>
+    </Setting>
+    <Setting Name="LockProgramInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">600</Value>
+    </Setting>
+    <Setting Name="LoginWallpaper" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Login.png</Value>
+    </Setting>
+    <Setting Name="EnterToTab" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="WallpaperPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">adv.jpg</Value>
+    </Setting>
+    <Setting Name="UsedModenMenu" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
