@@ -119,9 +119,6 @@
     <Compile Include="ControlEXT\TextBoxEX.xaml.cs">
       <DependentUpon>TextBoxEX.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CreatAnnouncement.xaml.cs">
-      <DependentUpon>CreatAnnouncement.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -162,10 +159,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ControlEXT\TextBoxEX.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CreatAnnouncement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -7,7 +7,7 @@
            Title="Vietinsoft">
     <Grid x:Name="LayoutRoot" Margin="2">
         <Grid.RowDefinitions>
-            <RowDefinition MinHeight="50" />
+            <RowDefinition MinHeight="50" Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <sdk:Label Name="lblthongbao" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Center" Width="Auto"/>
