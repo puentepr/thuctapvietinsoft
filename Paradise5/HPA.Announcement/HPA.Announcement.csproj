@@ -88,6 +88,9 @@
       <DependentUpon>CreatAnnouncement.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewAnnouncement.xaml.cs">
+      <DependentUpon>ViewAnnouncement.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Paradise5\Paradise5.csproj">
@@ -97,6 +100,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="CreatAnnouncement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewAnnouncement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
