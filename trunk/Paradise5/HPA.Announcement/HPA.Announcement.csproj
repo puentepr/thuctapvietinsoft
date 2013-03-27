@@ -84,6 +84,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="ConfigAnnouncement.xaml.cs">
+      <DependentUpon>ConfigAnnouncement.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CreatAnnouncement.xaml.cs">
       <DependentUpon>CreatAnnouncement.xaml</DependentUpon>
     </Compile>
@@ -99,6 +102,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="ConfigAnnouncement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CreatAnnouncement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
