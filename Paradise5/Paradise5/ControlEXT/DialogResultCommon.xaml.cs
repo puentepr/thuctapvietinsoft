@@ -28,6 +28,10 @@ namespace Paradise5.ControlEXT
         {
             this.DialogResult = false;
         }
+        public void setthongdiep(string s)
+        {
+            lblthongbao.Content = s;
+        }
     }
 }
 
