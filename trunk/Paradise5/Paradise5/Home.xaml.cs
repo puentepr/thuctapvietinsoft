@@ -21,6 +21,7 @@ using Paradise5.ServiceReference1;
 using System.Windows.Threading;
 using DevExpress.Xpf.LayoutControl;
 using System.Windows.Browser;
+using System.Reflection;
 
 namespace Paradise5
 {
@@ -415,10 +416,26 @@ namespace Paradise5
         void TLYC1_TileClick(object sender, TileClickEventArgs e)
         {
             tentile = e.Tile.Header.ToString();
-            ViewAnnouncement viewa = new ViewAnnouncement();
-            viewa.Width = (double)HtmlPage.Window.Eval("screen.availWidth") - 100;
-            viewa.Height = (double)HtmlPage.Window.Eval("screen.availHeight") - 100;
-            viewa.Show();
+            var WbClnt = new WebClient();//Tao WebClient
+            WbClnt.OpenReadCompleted += (a, b) =>
+            {
+                if (b.Error == null)
+                {
+                    AssemblyPart assmbpart = new AssemblyPart();
+                    Assembly assembly = assmbpart.Load(b.Result);
+                    Object Obj = assembly.CreateInstance("HPA.Announcement" + "." + "ViewAnnouncement");//Truy xuat file dll
+                    if (Obj != null)//Neu co file dll thi tao ChildWindow
+                    {
+                        ChildWindow child = (ChildWindow)assembly.CreateInstance("HPA.Announcement" + "." + "ViewAnnouncement");
+                        child.Width = (double)HtmlPage.Window.Eval("screen.availWidth") - 100;
+                        child.Height = (double)HtmlPage.Window.Eval("screen.availHeight") - 100;
+                        child.Show();
+                    }
+                    else { MessageBox.Show("Page not exist"); }//Khong ton tai page thi bao loi
+                }
+                else { MessageBox.Show("Page not exist"); }//Khong ton tai file dll thi bao loi
+            };
+            WbClnt.OpenReadAsync(new Uri("http://localhost:10511/Control/" + "HPA.Announcement" + ".dll", UriKind.Absolute));
         }
 
     }
