@@ -17,10 +17,9 @@ namespace HPA.Announcement
 {
     public partial class CreatAnnouncement : ChildWindow
     {
+        int mathongbao = -1;//Quy dinh them moi hay cap nhat
         IsolatedStorageFile str = IsolatedStorageFile.GetUserStoreForApplication();//Thiet dat thu muc chua file tam neu la WPF thi sua thanh IsolatedStorageFile.GetUserStoreForAssembly();
         Service1Client ws = new Service1Client();
-        //public bool chidoc = false;
-        public string tieude = "";
         byte[] filesave;
         string noidungtam;
         public CreatAnnouncement()
@@ -33,20 +32,17 @@ namespace HPA.Announcement
             //richEdit.ReadOnly = chidoc;
             biDatabaseSave.Content = "Save to Database";
             biDatabaseSave.ItemClick += biDatabaseSave_ItemClick;
+            biFileNew.ItemClick += biFileNew_ItemClick;
             //Set bieu tuong cho button Save to Database
             biDatabaseSave.Glyph = new BitmapImage(new Uri(@"http://localhost:10511/Images/" + "Save.png", UriKind.RelativeOrAbsolute));
             biDatabaseSave.RibbonStyle = RibbonItemStyles.Large;
-            //Load thong bao neu tieu de khac null
-            if (tieude != "")
-            {
-                LoadThongBao();
-            }
-
         }
 
-        void LoadThongBao()
+        void biFileNew_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ws.GetThongBaoDonAsync(tieude);
+            //Set trạng thái thành thêm mới
+            mathongbao = -1;
+            txtTitle.Text = "";
         }
 
         void ws_GetThongBaoDonCompleted(object sender, GetThongBaoDonCompletedEventArgs e)
@@ -55,13 +51,12 @@ namespace HPA.Announcement
             BinaryWriter br = new BinaryWriter(fs);
             br.Write(Convert.FromBase64String(e.Result));
             richEdit.LoadDocument(fs, DocumentFormat.Doc);
-            txtTitle.Text = tieude;
             fs.Close();
             fs.Dispose();
         }
         void biDatabaseSave_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-            if (txtTitle.Text != "" && richEdit.Text != "")//Neu noi dung va tieu do khong trong
+            if (txtTitle.Text != "" && richEdit.Text != "")//Neu noi dung va tieu de khong trong
             {
                 //Tao file stream
                 IsolatedStorageFileStream fs = new IsolatedStorageFileStream("Temp.doc", FileMode.OpenOrCreate, FileAccess.ReadWrite, str);
@@ -74,8 +69,17 @@ namespace HPA.Announcement
                 //Dua dang binary ve dang base64string
                 noidungtam = Convert.ToBase64String(filesave);
                 //Gui lenh luu xuong CSDL
-                ws.LuuThongBaoAsync(txtTitle.Text, noidungtam, false);
-
+                if (mathongbao == -1)//Nếu là thêm mới
+                {
+                    ws.LuuThongBaoAsync(txtTitle.Text, noidungtam, Paradise5.MainPage.LoginID,mathongbao);
+                }
+                else//Nếu là cập nhật
+                {
+                    Paradise5.ControlEXT.DialogResultCommon dialog = new Paradise5.ControlEXT.DialogResultCommon();
+                    dialog.setthongdiep("Thông báo bạn muốn tạo đã có. Bạn có muốn cập nhật");
+                    dialog.Closed += dialog_Closed;//Lay dialogresult khi dong form
+                    dialog.Show();
+                }
             }
             else
             {
@@ -87,18 +91,17 @@ namespace HPA.Announcement
 
         void ws_LuuThongBaoCompleted(object sender, LuuThongBaoCompletedEventArgs e)
         {
-            if (e.Result == true)//Neu luu thanh cong
+            if (e.Result != -1)//Neu luu thanh cong
             {
+                mathongbao = e.Result;
                 Paradise5.ControlEXT.DialogResultCommon dialog = new Paradise5.ControlEXT.DialogResultCommon();
                 dialog.setthongdiep("Lưu thông báo thành công");
                 dialog.Show();
             }
-            else//Neu thong bao bi trung
+            else//Neu luu khong thanh cong
             {
                 Paradise5.ControlEXT.DialogResultCommon dialog = new Paradise5.ControlEXT.DialogResultCommon();
-                dialog.setthongdiep("Thông báo bạn muốn tạo đã có. Bạn có muốn cập nhật");
-                //dialog.thongdiep = "Thông báo bạn muốn tạo đã có. Bạn có muốn cập nhật";
-                dialog.Closed += dialog_Closed;//Lay dialogresult khi dong form
+                dialog.setthongdiep("Có lỗi xảy ra khi lưu thông báo");
                 dialog.Show();
             }
         }
@@ -108,7 +111,7 @@ namespace HPA.Announcement
             Paradise5.ControlEXT.DialogResultCommon dialog = (Paradise5.ControlEXT.DialogResultCommon)sender;
             if (dialog.DialogResult == true)
             {
-                ws.LuuThongBaoAsync(txtTitle.Text, noidungtam, true);
+                ws.LuuThongBaoAsync(txtTitle.Text, noidungtam, Paradise5.MainPage.LoginID,mathongbao);
             }
         }
 
@@ -145,6 +148,14 @@ namespace HPA.Announcement
                 if (isSelectionInFloatingObject)
                     ribbonControl.SelectedPage = pagePictureToolsFormat;
             }
+        }
+        //Ham Load thong bao voi tieu de tu form khac truyen vao
+        public void SetTieuDeThongBao(string s,int matb)
+        {
+            txtTitle.Text = s;
+            mathongbao = matb;
+            ws.GetThongBaoDonAsync(mathongbao.ToString());
+            
         }
     }
 }

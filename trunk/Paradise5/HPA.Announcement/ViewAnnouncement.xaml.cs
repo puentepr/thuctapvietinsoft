@@ -23,24 +23,27 @@ namespace HPA.Announcement
         IsolatedStorageFile str = IsolatedStorageFile.GetUserStoreForApplication();//Thiet dat thu muc chua file tam neu la WPF thi sua thanh IsolatedStorageFile.GetUserStoreForAssembly();
         Service1Client ws = new Service1Client();
         public string tieude = "Thông báo 16";
+        public string ma = "";
         public ViewAnnouncement()
         {
             InitializeComponent();
-            tieude = Home.tentile;
-            ThemeManager.ApplicationThemeName = "Office2007Blue";
+            tieude = Home.tentitle;//lay tieu de thong bao tu page Home
+            ma = Home.ma;
+            ThemeManager.ApplicationThemeName = "Office2007Blue";//Thiet lap theme
             ws.GetThongBaoDonCompleted += ws_GetThongBaoDonCompleted;
             LoadThongBao();
         }
 
         void LoadThongBao()
         {
-            ws.GetThongBaoDonAsync(tieude);
+            ws.GetThongBaoDonAsync(ma);
         }
 
         void ws_GetThongBaoDonCompleted(object sender, GetThongBaoDonCompletedEventArgs e)
         {
             if (e.Result != "")
             {
+                //Load thong bao len RichEidit
                 IsolatedStorageFileStream fs = new IsolatedStorageFileStream("Temp.doc", FileMode.OpenOrCreate, FileAccess.ReadWrite, str);
                 BinaryWriter br = new BinaryWriter(fs);
                 br.Write(Convert.FromBase64String(e.Result));

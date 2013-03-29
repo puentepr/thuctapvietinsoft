@@ -281,6 +281,17 @@
       <Column Name="LoginID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.ViewThongBao" Member="ViewThongBaos">
+    <Type Name="ViewThongBao">
+      <Column Name="Title" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TimeStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Visible" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Lastchanged" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LoginName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Function Name="dbo.SC_Login_CheckLogin" Method="SC_Login_CheckLogin">
     <Parameter Name="LoginName" Parameter="loginName" Type="System.String" DbType="VarChar(20)" />
     <Parameter Name="PassWord" Parameter="passWord" Type="System.String" DbType="VarChar(20)" />
