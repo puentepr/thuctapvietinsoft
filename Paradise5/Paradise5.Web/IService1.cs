@@ -45,8 +45,14 @@ namespace Paradise5.Web
         [OperationContract]
         List<tblAnnouncement> GetThongbao();
         [OperationContract]
-        bool LuuThongBao(string tieude, string noidungtam, bool capnhat);
+        int LuuThongBao(string tieude, string noidungtam, int loginid, int mathongbao);
         [OperationContract]
-        string GetThongBaoDon(string tieude);
+        string GetThongBaoDon(string ma);
+        [OperationContract]
+        List<ViewThongBao> GetAllThongbao(int id);
+        [OperationContract]
+        bool LuuThietLapThongBao(int mathongbao, bool hienthi, int douutien,string tieude);
+        [OperationContract]
+        bool XoaThongbao(int mathongbao);
     }
 }

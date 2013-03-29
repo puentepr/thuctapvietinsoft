@@ -215,4 +215,22 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ChartView" nillable="true" type="tns:ChartView" />
+  <xs:complexType name="ArrayOfViewThongBao">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ViewThongBao" nillable="true" type="tns:ViewThongBao" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfViewThongBao" nillable="true" type="tns:ArrayOfViewThongBao" />
+  <xs:complexType name="ViewThongBao">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeStart" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Visible" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Priority" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Lastchanged" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LoginName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ViewThongBao" nillable="true" type="tns:ViewThongBao" />
 </xs:schema>

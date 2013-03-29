@@ -1635,6 +1635,126 @@ namespace Paradise5.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ViewThongBao", Namespace="http://schemas.datacontract.org/2004/07/Paradise5.Web")]
+    public partial class ViewThongBao : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string TitleField;
+        
+        private System.Nullable<System.DateTime> TimeStartField;
+        
+        private System.Nullable<bool> VisibleField;
+        
+        private System.Nullable<int> PriorityField;
+        
+        private int IDField;
+        
+        private System.Nullable<System.DateTime> LastchangedField;
+        
+        private string LoginNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public System.Nullable<System.DateTime> TimeStart {
+            get {
+                return this.TimeStartField;
+            }
+            set {
+                if ((this.TimeStartField.Equals(value) != true)) {
+                    this.TimeStartField = value;
+                    this.RaisePropertyChanged("TimeStart");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<bool> Visible {
+            get {
+                return this.VisibleField;
+            }
+            set {
+                if ((this.VisibleField.Equals(value) != true)) {
+                    this.VisibleField = value;
+                    this.RaisePropertyChanged("Visible");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<int> Priority {
+            get {
+                return this.PriorityField;
+            }
+            set {
+                if ((this.PriorityField.Equals(value) != true)) {
+                    this.PriorityField = value;
+                    this.RaisePropertyChanged("Priority");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public System.Nullable<System.DateTime> Lastchanged {
+            get {
+                return this.LastchangedField;
+            }
+            set {
+                if ((this.LastchangedField.Equals(value) != true)) {
+                    this.LastchangedField = value;
+                    this.RaisePropertyChanged("Lastchanged");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public string LoginName {
+            get {
+                return this.LoginNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LoginNameField, value) != true)) {
+                    this.LoginNameField = value;
+                    this.RaisePropertyChanged("LoginName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -1736,14 +1856,29 @@ namespace Paradise5.ServiceReference1 {
         System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.tblAnnouncement> EndGetThongbao(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService1/LuuThongBao", ReplyAction="http://tempuri.org/IService1/LuuThongBaoResponse")]
-        System.IAsyncResult BeginLuuThongBao(string tieude, string noidungtam, bool capnhat, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginLuuThongBao(string tieude, string noidungtam, int loginid, int mathongbao, System.AsyncCallback callback, object asyncState);
         
-        bool EndLuuThongBao(System.IAsyncResult result);
+        int EndLuuThongBao(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService1/GetThongBaoDon", ReplyAction="http://tempuri.org/IService1/GetThongBaoDonResponse")]
-        System.IAsyncResult BeginGetThongBaoDon(string tieude, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginGetThongBaoDon(string ma, System.AsyncCallback callback, object asyncState);
         
         string EndGetThongBaoDon(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService1/GetAllThongbao", ReplyAction="http://tempuri.org/IService1/GetAllThongbaoResponse")]
+        System.IAsyncResult BeginGetAllThongbao(int id, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.ViewThongBao> EndGetAllThongbao(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService1/LuuThietLapThongBao", ReplyAction="http://tempuri.org/IService1/LuuThietLapThongBaoResponse")]
+        System.IAsyncResult BeginLuuThietLapThongBao(int mathongbao, bool hienthi, int douutien, string tieude, System.AsyncCallback callback, object asyncState);
+        
+        bool EndLuuThietLapThongBao(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService1/XoaThongbao", ReplyAction="http://tempuri.org/IService1/XoaThongbaoResponse")]
+        System.IAsyncResult BeginXoaThongbao(int mathongbao, System.AsyncCallback callback, object asyncState);
+        
+        bool EndXoaThongbao(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2027,10 +2162,10 @@ namespace Paradise5.ServiceReference1 {
             this.results = results;
         }
         
-        public bool Result {
+        public int Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
+                return ((int)(this.results[0]));
             }
         }
     }
@@ -2050,6 +2185,63 @@ namespace Paradise5.ServiceReference1 {
             get {
                 base.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetAllThongbaoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetAllThongbaoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.ViewThongBao> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.ViewThongBao>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class LuuThietLapThongBaoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public LuuThietLapThongBaoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class XoaThongbaoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public XoaThongbaoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
             }
         }
     }
@@ -2166,6 +2358,24 @@ namespace Paradise5.ServiceReference1 {
         
         private System.Threading.SendOrPostCallback onGetThongBaoDonCompletedDelegate;
         
+        private BeginOperationDelegate onBeginGetAllThongbaoDelegate;
+        
+        private EndOperationDelegate onEndGetAllThongbaoDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetAllThongbaoCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginLuuThietLapThongBaoDelegate;
+        
+        private EndOperationDelegate onEndLuuThietLapThongBaoDelegate;
+        
+        private System.Threading.SendOrPostCallback onLuuThietLapThongBaoCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginXoaThongbaoDelegate;
+        
+        private EndOperationDelegate onEndXoaThongbaoDelegate;
+        
+        private System.Threading.SendOrPostCallback onXoaThongbaoCompletedDelegate;
+        
         private BeginOperationDelegate onBeginOpenDelegate;
         
         private EndOperationDelegate onEndOpenDelegate;
@@ -2254,6 +2464,12 @@ namespace Paradise5.ServiceReference1 {
         public event System.EventHandler<LuuThongBaoCompletedEventArgs> LuuThongBaoCompleted;
         
         public event System.EventHandler<GetThongBaoDonCompletedEventArgs> GetThongBaoDonCompleted;
+        
+        public event System.EventHandler<GetAllThongbaoCompletedEventArgs> GetAllThongbaoCompleted;
+        
+        public event System.EventHandler<LuuThietLapThongBaoCompletedEventArgs> LuuThietLapThongBaoCompleted;
+        
+        public event System.EventHandler<XoaThongbaoCompletedEventArgs> XoaThongbaoCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
@@ -3018,24 +3234,25 @@ namespace Paradise5.ServiceReference1 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult Paradise5.ServiceReference1.IService1.BeginLuuThongBao(string tieude, string noidungtam, bool capnhat, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginLuuThongBao(tieude, noidungtam, capnhat, callback, asyncState);
+        System.IAsyncResult Paradise5.ServiceReference1.IService1.BeginLuuThongBao(string tieude, string noidungtam, int loginid, int mathongbao, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginLuuThongBao(tieude, noidungtam, loginid, mathongbao, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        bool Paradise5.ServiceReference1.IService1.EndLuuThongBao(System.IAsyncResult result) {
+        int Paradise5.ServiceReference1.IService1.EndLuuThongBao(System.IAsyncResult result) {
             return base.Channel.EndLuuThongBao(result);
         }
         
         private System.IAsyncResult OnBeginLuuThongBao(object[] inValues, System.AsyncCallback callback, object asyncState) {
             string tieude = ((string)(inValues[0]));
             string noidungtam = ((string)(inValues[1]));
-            bool capnhat = ((bool)(inValues[2]));
-            return ((Paradise5.ServiceReference1.IService1)(this)).BeginLuuThongBao(tieude, noidungtam, capnhat, callback, asyncState);
+            int loginid = ((int)(inValues[2]));
+            int mathongbao = ((int)(inValues[3]));
+            return ((Paradise5.ServiceReference1.IService1)(this)).BeginLuuThongBao(tieude, noidungtam, loginid, mathongbao, callback, asyncState);
         }
         
         private object[] OnEndLuuThongBao(System.IAsyncResult result) {
-            bool retVal = ((Paradise5.ServiceReference1.IService1)(this)).EndLuuThongBao(result);
+            int retVal = ((Paradise5.ServiceReference1.IService1)(this)).EndLuuThongBao(result);
             return new object[] {
                     retVal};
         }
@@ -3047,11 +3264,11 @@ namespace Paradise5.ServiceReference1 {
             }
         }
         
-        public void LuuThongBaoAsync(string tieude, string noidungtam, bool capnhat) {
-            this.LuuThongBaoAsync(tieude, noidungtam, capnhat, null);
+        public void LuuThongBaoAsync(string tieude, string noidungtam, int loginid, int mathongbao) {
+            this.LuuThongBaoAsync(tieude, noidungtam, loginid, mathongbao, null);
         }
         
-        public void LuuThongBaoAsync(string tieude, string noidungtam, bool capnhat, object userState) {
+        public void LuuThongBaoAsync(string tieude, string noidungtam, int loginid, int mathongbao, object userState) {
             if ((this.onBeginLuuThongBaoDelegate == null)) {
                 this.onBeginLuuThongBaoDelegate = new BeginOperationDelegate(this.OnBeginLuuThongBao);
             }
@@ -3064,12 +3281,13 @@ namespace Paradise5.ServiceReference1 {
             base.InvokeAsync(this.onBeginLuuThongBaoDelegate, new object[] {
                         tieude,
                         noidungtam,
-                        capnhat}, this.onEndLuuThongBaoDelegate, this.onLuuThongBaoCompletedDelegate, userState);
+                        loginid,
+                        mathongbao}, this.onEndLuuThongBaoDelegate, this.onLuuThongBaoCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult Paradise5.ServiceReference1.IService1.BeginGetThongBaoDon(string tieude, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetThongBaoDon(tieude, callback, asyncState);
+        System.IAsyncResult Paradise5.ServiceReference1.IService1.BeginGetThongBaoDon(string ma, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetThongBaoDon(ma, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3078,8 +3296,8 @@ namespace Paradise5.ServiceReference1 {
         }
         
         private System.IAsyncResult OnBeginGetThongBaoDon(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string tieude = ((string)(inValues[0]));
-            return ((Paradise5.ServiceReference1.IService1)(this)).BeginGetThongBaoDon(tieude, callback, asyncState);
+            string ma = ((string)(inValues[0]));
+            return ((Paradise5.ServiceReference1.IService1)(this)).BeginGetThongBaoDon(ma, callback, asyncState);
         }
         
         private object[] OnEndGetThongBaoDon(System.IAsyncResult result) {
@@ -3095,11 +3313,11 @@ namespace Paradise5.ServiceReference1 {
             }
         }
         
-        public void GetThongBaoDonAsync(string tieude) {
-            this.GetThongBaoDonAsync(tieude, null);
+        public void GetThongBaoDonAsync(string ma) {
+            this.GetThongBaoDonAsync(ma, null);
         }
         
-        public void GetThongBaoDonAsync(string tieude, object userState) {
+        public void GetThongBaoDonAsync(string ma, object userState) {
             if ((this.onBeginGetThongBaoDonDelegate == null)) {
                 this.onBeginGetThongBaoDonDelegate = new BeginOperationDelegate(this.OnBeginGetThongBaoDon);
             }
@@ -3110,7 +3328,151 @@ namespace Paradise5.ServiceReference1 {
                 this.onGetThongBaoDonCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetThongBaoDonCompleted);
             }
             base.InvokeAsync(this.onBeginGetThongBaoDonDelegate, new object[] {
-                        tieude}, this.onEndGetThongBaoDonDelegate, this.onGetThongBaoDonCompletedDelegate, userState);
+                        ma}, this.onEndGetThongBaoDonDelegate, this.onGetThongBaoDonCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult Paradise5.ServiceReference1.IService1.BeginGetAllThongbao(int id, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetAllThongbao(id, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.ViewThongBao> Paradise5.ServiceReference1.IService1.EndGetAllThongbao(System.IAsyncResult result) {
+            return base.Channel.EndGetAllThongbao(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetAllThongbao(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int id = ((int)(inValues[0]));
+            return ((Paradise5.ServiceReference1.IService1)(this)).BeginGetAllThongbao(id, callback, asyncState);
+        }
+        
+        private object[] OnEndGetAllThongbao(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.ViewThongBao> retVal = ((Paradise5.ServiceReference1.IService1)(this)).EndGetAllThongbao(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetAllThongbaoCompleted(object state) {
+            if ((this.GetAllThongbaoCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetAllThongbaoCompleted(this, new GetAllThongbaoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetAllThongbaoAsync(int id) {
+            this.GetAllThongbaoAsync(id, null);
+        }
+        
+        public void GetAllThongbaoAsync(int id, object userState) {
+            if ((this.onBeginGetAllThongbaoDelegate == null)) {
+                this.onBeginGetAllThongbaoDelegate = new BeginOperationDelegate(this.OnBeginGetAllThongbao);
+            }
+            if ((this.onEndGetAllThongbaoDelegate == null)) {
+                this.onEndGetAllThongbaoDelegate = new EndOperationDelegate(this.OnEndGetAllThongbao);
+            }
+            if ((this.onGetAllThongbaoCompletedDelegate == null)) {
+                this.onGetAllThongbaoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetAllThongbaoCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetAllThongbaoDelegate, new object[] {
+                        id}, this.onEndGetAllThongbaoDelegate, this.onGetAllThongbaoCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult Paradise5.ServiceReference1.IService1.BeginLuuThietLapThongBao(int mathongbao, bool hienthi, int douutien, string tieude, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginLuuThietLapThongBao(mathongbao, hienthi, douutien, tieude, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool Paradise5.ServiceReference1.IService1.EndLuuThietLapThongBao(System.IAsyncResult result) {
+            return base.Channel.EndLuuThietLapThongBao(result);
+        }
+        
+        private System.IAsyncResult OnBeginLuuThietLapThongBao(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int mathongbao = ((int)(inValues[0]));
+            bool hienthi = ((bool)(inValues[1]));
+            int douutien = ((int)(inValues[2]));
+            string tieude = ((string)(inValues[3]));
+            return ((Paradise5.ServiceReference1.IService1)(this)).BeginLuuThietLapThongBao(mathongbao, hienthi, douutien, tieude, callback, asyncState);
+        }
+        
+        private object[] OnEndLuuThietLapThongBao(System.IAsyncResult result) {
+            bool retVal = ((Paradise5.ServiceReference1.IService1)(this)).EndLuuThietLapThongBao(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnLuuThietLapThongBaoCompleted(object state) {
+            if ((this.LuuThietLapThongBaoCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.LuuThietLapThongBaoCompleted(this, new LuuThietLapThongBaoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void LuuThietLapThongBaoAsync(int mathongbao, bool hienthi, int douutien, string tieude) {
+            this.LuuThietLapThongBaoAsync(mathongbao, hienthi, douutien, tieude, null);
+        }
+        
+        public void LuuThietLapThongBaoAsync(int mathongbao, bool hienthi, int douutien, string tieude, object userState) {
+            if ((this.onBeginLuuThietLapThongBaoDelegate == null)) {
+                this.onBeginLuuThietLapThongBaoDelegate = new BeginOperationDelegate(this.OnBeginLuuThietLapThongBao);
+            }
+            if ((this.onEndLuuThietLapThongBaoDelegate == null)) {
+                this.onEndLuuThietLapThongBaoDelegate = new EndOperationDelegate(this.OnEndLuuThietLapThongBao);
+            }
+            if ((this.onLuuThietLapThongBaoCompletedDelegate == null)) {
+                this.onLuuThietLapThongBaoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnLuuThietLapThongBaoCompleted);
+            }
+            base.InvokeAsync(this.onBeginLuuThietLapThongBaoDelegate, new object[] {
+                        mathongbao,
+                        hienthi,
+                        douutien,
+                        tieude}, this.onEndLuuThietLapThongBaoDelegate, this.onLuuThietLapThongBaoCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult Paradise5.ServiceReference1.IService1.BeginXoaThongbao(int mathongbao, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginXoaThongbao(mathongbao, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool Paradise5.ServiceReference1.IService1.EndXoaThongbao(System.IAsyncResult result) {
+            return base.Channel.EndXoaThongbao(result);
+        }
+        
+        private System.IAsyncResult OnBeginXoaThongbao(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int mathongbao = ((int)(inValues[0]));
+            return ((Paradise5.ServiceReference1.IService1)(this)).BeginXoaThongbao(mathongbao, callback, asyncState);
+        }
+        
+        private object[] OnEndXoaThongbao(System.IAsyncResult result) {
+            bool retVal = ((Paradise5.ServiceReference1.IService1)(this)).EndXoaThongbao(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnXoaThongbaoCompleted(object state) {
+            if ((this.XoaThongbaoCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.XoaThongbaoCompleted(this, new XoaThongbaoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void XoaThongbaoAsync(int mathongbao) {
+            this.XoaThongbaoAsync(mathongbao, null);
+        }
+        
+        public void XoaThongbaoAsync(int mathongbao, object userState) {
+            if ((this.onBeginXoaThongbaoDelegate == null)) {
+                this.onBeginXoaThongbaoDelegate = new BeginOperationDelegate(this.OnBeginXoaThongbao);
+            }
+            if ((this.onEndXoaThongbaoDelegate == null)) {
+                this.onEndXoaThongbaoDelegate = new EndOperationDelegate(this.OnEndXoaThongbao);
+            }
+            if ((this.onXoaThongbaoCompletedDelegate == null)) {
+                this.onXoaThongbaoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnXoaThongbaoCompleted);
+            }
+            base.InvokeAsync(this.onBeginXoaThongbaoDelegate, new object[] {
+                        mathongbao}, this.onEndXoaThongbaoDelegate, this.onXoaThongbaoCompletedDelegate, userState);
         }
         
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
@@ -3415,24 +3777,25 @@ namespace Paradise5.ServiceReference1 {
                 return _result;
             }
             
-            public System.IAsyncResult BeginLuuThongBao(string tieude, string noidungtam, bool capnhat, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[3];
+            public System.IAsyncResult BeginLuuThongBao(string tieude, string noidungtam, int loginid, int mathongbao, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[4];
                 _args[0] = tieude;
                 _args[1] = noidungtam;
-                _args[2] = capnhat;
+                _args[2] = loginid;
+                _args[3] = mathongbao;
                 System.IAsyncResult _result = base.BeginInvoke("LuuThongBao", _args, callback, asyncState);
                 return _result;
             }
             
-            public bool EndLuuThongBao(System.IAsyncResult result) {
+            public int EndLuuThongBao(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                bool _result = ((bool)(base.EndInvoke("LuuThongBao", _args, result)));
+                int _result = ((int)(base.EndInvoke("LuuThongBao", _args, result)));
                 return _result;
             }
             
-            public System.IAsyncResult BeginGetThongBaoDon(string tieude, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginGetThongBaoDon(string ma, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
-                _args[0] = tieude;
+                _args[0] = ma;
                 System.IAsyncResult _result = base.BeginInvoke("GetThongBaoDon", _args, callback, asyncState);
                 return _result;
             }
@@ -3440,6 +3803,48 @@ namespace Paradise5.ServiceReference1 {
             public string EndGetThongBaoDon(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 string _result = ((string)(base.EndInvoke("GetThongBaoDon", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetAllThongbao(int id, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = id;
+                System.IAsyncResult _result = base.BeginInvoke("GetAllThongbao", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.ViewThongBao> EndGetAllThongbao(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.ViewThongBao> _result = ((System.Collections.ObjectModel.ObservableCollection<Paradise5.ServiceReference1.ViewThongBao>)(base.EndInvoke("GetAllThongbao", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginLuuThietLapThongBao(int mathongbao, bool hienthi, int douutien, string tieude, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[4];
+                _args[0] = mathongbao;
+                _args[1] = hienthi;
+                _args[2] = douutien;
+                _args[3] = tieude;
+                System.IAsyncResult _result = base.BeginInvoke("LuuThietLapThongBao", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public bool EndLuuThietLapThongBao(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                bool _result = ((bool)(base.EndInvoke("LuuThietLapThongBao", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginXoaThongbao(int mathongbao, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = mathongbao;
+                System.IAsyncResult _result = base.BeginInvoke("XoaThongbao", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public bool EndXoaThongbao(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                bool _result = ((bool)(base.EndInvoke("XoaThongbao", _args, result)));
                 return _result;
             }
         }

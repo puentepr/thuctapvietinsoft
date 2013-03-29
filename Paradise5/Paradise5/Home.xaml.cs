@@ -27,7 +27,8 @@ namespace Paradise5
 {
     public partial class Home
     {
-        public static string tentile = "";//Bien nay se truyen cho Page ViewAnnouncement 
+        public static string ma = "";//2 Bien nay se truyen cho Page ViewAnnouncement 
+        public static string tentitle="";
         public static int countchart = 11;
         double sonhanvien;
         List<ChartView> dsnv;
@@ -347,12 +348,13 @@ namespace Paradise5
         void LoadThongBao()
         {
             SlideNavBarGroup nv2 = new SlideNavBarGroup() { Header = "Thông báo mới nhất" };
-            nv2.SetValue(SlideNavBarGroup.RadioButtonStyleProperty, DemoModuleControl.Resources["Group3RadioButtonStyle"]);
+            nv2.SetValue(SlideNavBarGroup.RadioButtonStyleProperty, DemoModuleControl.Resources["Group2RadioButtonStyle"]);
             nv2.Background = new SolidColorBrush(Colors.Brown);
             navBar.Groups.Add(nv2);
             for (int i = 0; i < dsthongbao.Count; i++)
             {
                 string ten = dsthongbao.ElementAt(i).Title;
+                string ma = dsthongbao.ElementAt(i).ID.ToString();
                 if (i % 6 == 0)//Phân trang thông báo bằng cách cứ 6 thông báo thì tạo một TileLayoutControl mới
                 {
                     TileLayoutControl temp1 = new TileLayoutControl();
@@ -363,19 +365,19 @@ namespace Paradise5
                     temp1.HorizontalAlignment = HorizontalAlignment.Center;
                     temp1.VerticalAlignment = VerticalAlignment.Center;
                     nv2.Items.Add(temp1);
-                    CreateTile1(ten);
+                    CreateTile1(ma,ten);
                 }
                 else
                 {
-                    CreateTile1(ten); 
+                    CreateTile1(ma,ten); 
                 }
             }
         }
-        void CreateTile1(string s)//Tao tile
+        void CreateTile1(string ma,string ten)//Tao tile
         {
             Tile til = new Tile();
-            til.Name = s;
-            til.Header = s;
+            til.Name = ma;
+            til.Header = ten;
             til.HorizontalHeaderAlignment = HorizontalAlignment.Center;
             til.VerticalHeaderAlignment = VerticalAlignment.Center;
             temp.Children.Add(til);
@@ -415,7 +417,8 @@ namespace Paradise5
 
         void TLYC1_TileClick(object sender, TileClickEventArgs e)
         {
-            tentile = e.Tile.Header.ToString();
+            ma = e.Tile.Name.ToString();
+            tentitle = e.Tile.Header.ToString();
             var WbClnt = new WebClient();//Tao WebClient
             WbClnt.OpenReadCompleted += (a, b) =>
             {

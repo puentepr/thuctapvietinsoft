@@ -220,21 +220,22 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="tieude" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="noidungtam" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="capnhat" type="xs:boolean" />
+        <xs:element minOccurs="0" name="loginid" type="xs:int" />
+        <xs:element minOccurs="0" name="mathongbao" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="LuuThongBaoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="LuuThongBaoResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="LuuThongBaoResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetThongBaoDon">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="tieude" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ma" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -242,6 +243,51 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetThongBaoDonResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllThongbao">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllThongbaoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Paradise5.Web" minOccurs="0" name="GetAllThongbaoResult" nillable="true" type="q12:ArrayOfViewThongBao" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LuuThietLapThongBao">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mathongbao" type="xs:int" />
+        <xs:element minOccurs="0" name="hienthi" type="xs:boolean" />
+        <xs:element minOccurs="0" name="douutien" type="xs:int" />
+        <xs:element minOccurs="0" name="tieude" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LuuThietLapThongBaoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LuuThietLapThongBaoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="XoaThongbao">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mathongbao" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="XoaThongbaoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="XoaThongbaoResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

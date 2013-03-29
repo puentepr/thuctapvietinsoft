@@ -140,54 +140,94 @@ namespace Paradise5.Web
         }
         public List<tblAnnouncement> GetThongbao()
         {
-            var i = from p in dt.tblAnnouncements orderby p.Priority ascending select p;
+            var i = from p in dt.tblAnnouncements where p.Visible==true orderby p.Priority ascending select p;
             return i.ToList();
         }
 
-        public bool LuuThongBao(string tieude, string noidungtam, bool update)
+        public List<ViewThongBao> GetAllThongbao(int id)
         {
-            bool kq = false;
-            byte[] noidung = null;
-            //Kiem tra su ton tai cua thong bao
-            var i = from p in dt.tblAnnouncements where p.Title == tieude select p;
-            if (i.Count() > 0)//Nếu có tiêu đề trùng khớp
+            if (id == 3)
             {
-                if (update == false)//Neu la them moi
-                {
-                    kq = false;
-                }
-                else if (update == true)//Neu la cap nhat
+                var i = from p in dt.ViewThongBaos orderby p.Priority ascending select p;
+                return i.ToList();
+            }
+            else
+            {
+                string ten = dt.tblSC_Logins.Single(u => u.LoginID == id).LoginName.ToString();
+                var i = from p in dt.ViewThongBaos where p.LoginName==ten orderby p.Priority ascending select p;
+                return i.ToList();
+            }
+        }
+
+        public int LuuThongBao(string tieude, string noidungtam, int loginid, int mathongbao)
+        {
+            int kq = -1;
+            try
+            {
+                byte[] noidung = null;
+                if (mathongbao == -1)//Nếu là thêm mới
                 {
                     noidung = Convert.FromBase64String(noidungtam);//Giai ma ra dang binary
-                    var capnhat = dt.tblAnnouncements.Single(u => u.Title == tieude);
+                    tblAnnouncement tb = new tblAnnouncement();
+                    tb.Title = tieude;
+                    tb.Content = noidung;
+                    tb.Priority = 0;
+                    tb.Visible = true;
+                    tb.TimeStart = DateTime.Now;
+                    tb.LoginID = loginid;
+                    dt.tblAnnouncements.InsertOnSubmit(tb);
+                    dt.SubmitChanges();
+                    kq = dt.tblAnnouncements.Max(u=>u.ID);
+                }
+                else//Nếu là cập nhật
+                {
+                    noidung = Convert.FromBase64String(noidungtam);//Giai ma ra dang binary
+                    var capnhat = dt.tblAnnouncements.Single(u=>u.ID==mathongbao);
+                    capnhat.Title = tieude;
                     capnhat.Content = noidung;
                     capnhat.Lastchanged = DateTime.Now;
                     dt.SubmitChanges();
-                    kq = true;
+                    kq = capnhat.ID;
                 }
             }
-            else//Neu khong co tieu de trung khop
-            {
-                noidung = Convert.FromBase64String(noidungtam);//Giai ma ra dang binary
-                tblAnnouncement tb = new tblAnnouncement();
-                tb.Title = tieude;
-                tb.Content = noidung;
-                tb.Priority = 0;
-                tb.Visible = true;
-                tb.TimeStart = DateTime.Now;
-                dt.tblAnnouncements.InsertOnSubmit(tb);
-                dt.SubmitChanges();
-                kq = true;
-            }
+            catch { kq = -1; }
             return kq;
         }
-        public string GetThongBaoDon(string tieude)
+        public string GetThongBaoDon(string ma)
         {
             string noidung = "";
-            var tb = dt.tblAnnouncements.Single(u => u.Title == tieude);
+            var tb = dt.tblAnnouncements.Single(u => u.ID == Convert.ToInt32(ma));
             if (tb.Content != null)
             { noidung = Convert.ToBase64String(tb.Content.ToArray()); }
             return noidung;
+        }
+
+        public bool LuuThietLapThongBao(int mathongbao, bool hienthi, int douutien, string tieude)
+        {
+            try
+            {
+                var tb = dt.tblAnnouncements.Single(u => u.ID == mathongbao);
+                tb.Title = tieude;
+                tb.Visible = hienthi;
+                tb.Priority = douutien;
+                tb.Lastchanged = DateTime.Now;
+                dt.SubmitChanges();
+                return true;
+            }
+            catch
+            { return false; }
+        }
+        public bool XoaThongbao(int mathongbao)
+        {
+            try
+            {
+                var tb = dt.tblAnnouncements.Single(u => u.ID == mathongbao);
+                dt.tblAnnouncements.DeleteOnSubmit(tb);
+                dt.SubmitChanges();
+                return true;
+            }
+            catch
+            { return false; }
         }
     }
 }
