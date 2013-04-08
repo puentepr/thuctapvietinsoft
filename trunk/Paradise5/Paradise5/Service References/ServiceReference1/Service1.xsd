@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Paradise5.Web" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Paradise5.Web" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:10511/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Linq" />
+  <xs:import schemaLocation="http://localhost:10511/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="ArrayOftblSC_Login">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="tblSC_Login" nillable="true" type="tns:tblSC_Login" />
@@ -233,4 +234,42 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ViewThongBao" nillable="true" type="tns:ViewThongBao" />
+  <xs:complexType name="ArrayOfChartData.ChartCommon">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ChartData.ChartCommon" type="tns:ChartData.ChartCommon" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfChartData.ChartCommon" nillable="true" type="tns:ArrayOfChartData.ChartCommon" />
+  <xs:complexType name="ChartData.ChartCommon">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChartData" nillable="true" type="tns:ArrayOfChartData.ChartCommonData" />
+      <xs:element minOccurs="0" name="ChartTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChartType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ChartData.ChartCommon" nillable="true" type="tns:ChartData.ChartCommon" />
+  <xs:complexType name="ArrayOfChartData.ChartCommonData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ChartData.ChartCommonData" type="tns:ChartData.ChartCommonData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfChartData.ChartCommonData" nillable="true" type="tns:ArrayOfChartData.ChartCommonData" />
+  <xs:complexType name="ChartData.ChartCommonData">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Agrument" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Series" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ChartData.ChartCommonData" nillable="true" type="tns:ChartData.ChartCommonData" />
 </xs:schema>

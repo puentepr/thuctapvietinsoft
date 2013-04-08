@@ -54,5 +54,7 @@ namespace Paradise5.Web
         bool LuuThietLapThongBao(int mathongbao, bool hienthi, int douutien,string tieude);
         [OperationContract]
         bool XoaThongbao(int mathongbao);
+        [OperationContract]
+        List<ChartData.ChartCommon> LoadChart();
     }
 }

@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <dxg:GridControl x:Name="Grid1" AutoPopulateColumns="True" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" UseLayoutRounding="True">
             <dxg:GridControl.View>
-                <dxg:TableView x:Name="grViewTB" ShowTotalSummary="True" CellValueChanged="grViewTB_CellValueChanged">
+                <dxg:TableView x:Name="grViewTB" ShowTotalSummary="True" CellValueChanged="grViewTB_CellValueChanged" AutoWidth="True">
                 </dxg:TableView>
             </dxg:GridControl.View>
         </dxg:GridControl>

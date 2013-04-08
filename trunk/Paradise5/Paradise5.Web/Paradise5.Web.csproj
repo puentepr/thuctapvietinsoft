@@ -40,6 +40,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HPA.Component.Framework.Base">
+      <HintPath>Control\HPA.Component.Framework.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="HPA.SQL">
+      <HintPath>Control\HPA.SQL.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Linq" />
@@ -74,6 +80,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChartData.cs" />
     <Compile Include="Encryption.cs" />
     <Compile Include="IService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
