@@ -7,6 +7,7 @@ using System.Text;
 using System.ServiceModel.Activation;
 using System.Web;
 using System.Data;
+using HPA.SQL;
 
 namespace Paradise5.Web
 {
@@ -16,9 +17,12 @@ namespace Paradise5.Web
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)] 
     public class Service1 : IService1
     {
+        HPA.SQL.EzSql2 DBEngine = new EzSql2();
+       
         TestDataContext dt = new TestDataContext();
         public List<tblSC_Login> Login()
         {
+            
             var i = dt.tblSC_Logins.Select(n => n);
             return i.ToList();
         }
@@ -138,6 +142,7 @@ namespace Paradise5.Web
             var i = from p in dt.ChartViews select p;
             return i.ToList();
         }
+        #region Thongbao
         public List<tblAnnouncement> GetThongbao()
         {
             var i = from p in dt.tblAnnouncements where p.Visible==true orderby p.Priority ascending select p;
@@ -228,6 +233,32 @@ namespace Paradise5.Web
             }
             catch
             { return false; }
+        }
+        #endregion
+        public List<ChartData.ChartCommon> LoadChart()
+        {
+            List<ChartData.ChartCommon> dschart= new List<ChartData.ChartCommon>();
+            DBEngine.Server = "ANHTUAN";
+            DBEngine.User = "sa";
+            DBEngine.Password = "LuaThiengFree";
+            DBEngine.Database = "TestP4";
+            DBEngine.open();
+            DataTable dtChartGroupList = DBEngine.execReturnDataTable("GetChartSettingList", "@LoginID", 3, "@LanguageID", "VN");
+            if (dtChartGroupList != null && dtChartGroupList.Rows.Count > 0)
+            {
+                foreach(DataRow dr in dtChartGroupList.Rows)
+                {
+                    List<ChartData.ChartCommonData> datachart = new List<ChartData.ChartCommonData>();
+                    string procName = dr["ProcedureName"].ToString();
+                    DataTable dtChartData = DBEngine.execReturnDataTable(procName, "@LoginID", 3, "@LanguageID", "VN");
+                    foreach (DataRow dr1 in dtChartData.Rows)
+                    {
+                        datachart.Add(new ChartData.ChartCommonData(Convert.ToString(dr1["Agrument"]), Convert.ToString(dr1["Series"]), Convert.ToDouble(dr1["value"])));
+                    }
+                    dschart.Add(new ChartData.ChartCommon(Convert.ToString(dr["Name"]),Convert.ToString(dr["CharType"]),datachart));
+                }
+            }
+            return dschart;
         }
     }
 }

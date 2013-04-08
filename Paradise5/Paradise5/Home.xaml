@@ -1019,10 +1019,10 @@
                 </dxn:SideBarView>
             </dxn:NavBarControl.View>
             <dxn:NavBarControl.Groups>
-                <local:SlideNavBarGroup Name="nv1" Background="#FF554270" RadioButtonStyle="{StaticResource Group1RadioButtonStyle}" Header="Thống kê nhân sự">
-                    <dxc:ChartControl Background="White" Name="gioitinh"/>
-                    <dxc:ChartControl Background="White" Name="chinhanh"/>
-                 </local:SlideNavBarGroup>
+                <!--<local:SlideNavBarGroup Name="nv1" Background="#FF554270" RadioButtonStyle="{StaticResource Group1RadioButtonStyle}" Header="Thống kê nhân sự" Visibility="Collapsed">
+                    <dxc:ChartControl Background="White" Name="gioitinh" Visibility="Collapsed" />
+                    <dxc:ChartControl Background="White" Name="chinhanh" Visibility="Collapsed" />
+                 </local:SlideNavBarGroup>-->
                 <!--<local:SlideNavBarGroup Name="nvtest" Background="#FF761C1C" RadioButtonStyle="{StaticResource Group2RadioButtonStyle}" Header="Thông báo mới nhất">
                     <ScrollViewer Name="TLYCScroll" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
                         <dxlc:TileLayoutControl Name="TLYC1" Background="Blue" ScrollBars="None" MinHeight="140" MinWidth="300"  TileClick="TLYC1_TileClick"/>

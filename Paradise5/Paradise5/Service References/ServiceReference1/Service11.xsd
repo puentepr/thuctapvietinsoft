@@ -291,4 +291,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="LoadChart">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadChartResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Paradise5.Web" minOccurs="0" name="LoadChartResult" nillable="true" type="q13:ArrayOfChartData.ChartCommon" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

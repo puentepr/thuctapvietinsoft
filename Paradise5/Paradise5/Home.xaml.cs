@@ -22,6 +22,7 @@ using System.Windows.Threading;
 using DevExpress.Xpf.LayoutControl;
 using System.Windows.Browser;
 using System.Reflection;
+using Paradise5.ServiceReference1;
 
 namespace Paradise5
 {
@@ -30,311 +31,63 @@ namespace Paradise5
         public static string ma = "";//2 Bien nay se truyen cho Page ViewAnnouncement 
         public static string tentitle="";
         public static int countchart = 11;
-        double sonhanvien;
-        List<ChartView> dsnv;
         List<tblAnnouncement> dsthongbao;
         Service1Client ws = new Service1Client();
-        ChartControl dotuoi = new ChartControl();
-        ChartControl thamnien = new ChartControl();
-        ChartControl trinhdo = new ChartControl();
-        ChartControl chucdanh = new ChartControl();
-        ChartControl hopdong = new ChartControl();
-        ChartControl honnhan = new ChartControl();
-        ChartControl tongiao = new ChartControl();
-        ChartControl quocgia = new ChartControl();
-        ChartControl trangthai = new ChartControl();
-        ChartControl soluongnhansu = new ChartControl();
         TileLayoutControl temp;// Biến tạm dùng phân trang thông báo
+        List<ChartDataChartCommon> dsbieudo= new List<ServiceReference1.ChartDataChartCommon>();
+        SlideNavBarGroup nv3 = new SlideNavBarGroup() { Header = "Thống kê nhân sự" };
         public Home()
         {
             InitializeComponent();
-            //TaoKenhThongBao(); 
-            ws.ChartDataCompleted += ws_ChartDataCompleted;
-            ws.ChartDataAsync();
-
-            //Start add Charts
-            nv1.Items.Add(dotuoi);
-            nv1.Items.Add(thamnien);
-            nv1.Items.Add(chucdanh);
-            nv1.Items.Add(trinhdo);
-            nv1.Items.Add(hopdong);
-            nv1.Items.Add(honnhan);
-            nv1.Items.Add(tongiao);
-            nv1.Items.Add(quocgia);
-            nv1.Items.Add(trangthai);
-            nv1.Items.Add(soluongnhansu);
-            //End add Charts
-            
-            //Tao Tile cho Chart
-            //Title nt = new Title();
-            //nt.Content = "Giới tính";
-            //nt.Foreground = new SolidColorBrush(Colors.Red);
-            //abc.Titles.Add(nt);
-            //End Tao Tile
-            //Load1();
-            /*SlideNavBarGroup snb1 = new SlideNavBarGroup();
-            ChartControl c2 = new ChartControl();
-            //c2.Height = 500;
-            c2.Background = new SolidColorBrush(Colors.Brown);
-            //Chen item vao Group
-            nv1.Items.Add(c2);
-            //Bat dau chen Item vao navbarControl
-            snb1.Name = "snb1";
-            snb1.Header = "Test3";
-            snb1.Background = new SolidColorBrush(Colors.Cyan);
-            //Ket thuc chen Group vao NavBarControl
-            navBar.Groups.Add(snb1);
-            navBar.Width = 1366;
-            navBar.Height = 500;
-            abc.Height = 500;
-            xyz.Height = 500;*/
-
+            ws.LoadChartCompleted += ws_LoadChartCompleted;
+            ws.LoadChartAsync();
         }
-        
-        #region LoadBieudo
-        void LoadBieudo()
+
+        public void ws_LoadChartCompleted(object sender, ServiceReference1.LoadChartCompletedEventArgs e)
         {
-            //Tao bieu do Gioi tinh
-            SimpleDiagram2D dg1 = new SimpleDiagram2D();
-            PieSeries2D dgs1 = new PieSeries2D();
-            List<string> Agrument = new List<string>();
-            List<double> Value = new List<double>();
-            double nam = (double)(from p in dsnv where p.Sex == true select p).Count();
-            double nu = (double)(from p in dsnv where p.Sex == false select p).Count();
-            Value.Add(nam / sonhanvien);//Phai ep kieu double neu ko he thong se hieu la kieu int
-            Value.Add(nu / sonhanvien);
-            Agrument.Add("Nam : " + nam.ToString());
-            Agrument.Add("Nữ : " + nu.ToString());
-            CommonChart.CreatPieChar(gioitinh, dg1, dgs1, new SolidColorBrush(Colors.Red), "Thống kê nhân viên theo giới tính", Agrument, Value);
-            //End tao bieu do Gioi tinh
-
-            //Tao bieu do Phan bo cac chi nhanh
-            SimpleDiagram2D dg2 = new SimpleDiagram2D();
-            PieSeries2D dgs2 = new PieSeries2D();
-            List<string> dvid = (from p in dsnv select p.DivisionID.ToString()).Distinct().ToList();
-            Agrument.Clear();
-            Value.Clear();
-            foreach (var i in dvid)
+            if (e.Result != null)
             {
-                double temp = (double)(from p in dsnv where p.DivisionID.ToString() == i select p).Count();
-                Agrument.Add(i + " : " + temp.ToString());
-                Value.Add(temp / sonhanvien);
+                dsbieudo = e.Result.ToList();
+                LoadChartView();
+                
             }
-            CommonChart.CreatPieChar(chinhanh, dg2, dgs2, new SolidColorBrush(Colors.Red), "Thống kê nhân viên theo chi nhánh", Agrument, Value);
-            //End tao bieu do Phan bo cac chi nhanh
-
-            //Tao bieu do tuoi
-            SimpleDiagram2D dg3 = new SimpleDiagram2D();
-            PieSeries2D dgs3 = new PieSeries2D();
-            Agrument.Clear();
-            Value.Clear();
-            double duoi30 = (double)(from p in dsnv where DateTime.Now.Year - p.Birthday.Value.Year < 30 select p).Count();
-            double from30to50 = (double)(from p in dsnv where DateTime.Now.Year - p.Birthday.Value.Year >= 30 && DateTime.Now.Year - p.Birthday.Value.Year <= 50 select p).Count();
-            double tren50 = (double)(sonhanvien - duoi30 - from30to50);
-            Value.Add(duoi30 / sonhanvien);
-            Value.Add(from30to50 / sonhanvien);
-            Value.Add(tren50 / sonhanvien);
-            Agrument.Add("Dưới 30 : " + duoi30.ToString());
-            Agrument.Add("Từ 30-50 : " + from30to50.ToString());
-            Agrument.Add("Trên 50 : " + tren50.ToString());
-            CommonChart.CreatPieChar(dotuoi, dg3, dgs3, new SolidColorBrush(Colors.Red), "Thống kê nhân viên theo độ tuổi", Agrument, Value);
-            //End tao bieu do tuoi
-
-            //Tao bieu do tham nien
-            SimpleDiagram2D dg4 = new SimpleDiagram2D();
-            PieSeries2D dgs4 = new PieSeries2D();
-            Agrument.Clear();
-            Value.Clear();
-            double from1to3 = ((double)(from p in dsnv where DateTime.Now.Year - p.HireDate.Value.Year >= 1 && DateTime.Now.Year - p.HireDate.Value.Year <= 3 select p).Count());
-            double from3to5 = ((double)(from p in dsnv where DateTime.Now.Year - p.HireDate.Value.Year >= 3 && DateTime.Now.Year - p.HireDate.Value.Year <= 5 select p).Count());
-            double tren5 = (double)(sonhanvien - from1to3 - from3to5);
-            Agrument.Add("Từ 1 đến 3 năm : " + from1to3.ToString());
-            Agrument.Add("Từ 3 đến 5 năm : " + from3to5.ToString());
-            Agrument.Add("Từ 5 năm trở lên : " + tren5.ToString());
-            Value.Add(from1to3 / sonhanvien);
-            Value.Add(from3to5 / sonhanvien);
-            Value.Add(tren5 / sonhanvien);
-            CommonChart.CreatPieChar(thamnien, dg4, dgs4, new SolidColorBrush(Colors.Red), "Thống kê nhân viên theo thâm niên công tác", Agrument, Value);
-            //End tao bieu do tham nien
-
-            //Tao bieu do Chucdanh
-            SimpleDiagram2D dg5 = new SimpleDiagram2D();
-            PieSeries2D dgs5 = new PieSeries2D();
-            List<string> chucdanhid = (from p in dsnv select p.PositionName).Distinct().ToList();
-            Agrument.Clear();
-            Value.Clear();
-            foreach (var i in chucdanhid)
-            {
-                double temp = (double)(from p in dsnv where p.PositionName == i select p).Count();
-                Agrument.Add(i + " : " + temp.ToString());
-                Value.Add(temp / sonhanvien);
-            }
-            CommonChart.CreatPieChar(chucdanh, dg5, dgs5, new SolidColorBrush(Colors.Red), "Thống kê nhân viên theo chức danh", Agrument, Value);
-            //End tao bieu do Chucdanh
-
-            //Tao bieu do Trinhdo
-            SimpleDiagram2D dg6 = new SimpleDiagram2D();
-            PieSeries2D dgs6 = new PieSeries2D();
-            List<string> trinhdoid = (from p in dsnv select p.TypeSchool).Distinct().ToList();
-            Agrument.Clear();
-            Value.Clear();
-            foreach (var i in trinhdoid)
-            {
-                double temp = (double)(from p in dsnv where p.TypeSchool == i select p).Count();
-                Agrument.Add(i + " : " + temp.ToString());
-                Value.Add(temp / sonhanvien);
-            }
-            CommonChart.CreatPieChar(trinhdo, dg6, dgs6, new SolidColorBrush(Colors.Red), "Thống kê nhân viên theo trình độ", Agrument, Value);
-            //End tao bieu do Trinhdo
-
-            //Tao bieu do Hopdong
-            SimpleDiagram2D dg7 = new SimpleDiagram2D();
-            PieSeries2D dgs7 = new PieSeries2D();
-            List<string> hopdongid = (from p in dsnv select p.ContractName).Distinct().ToList();
-            Agrument.Clear();
-            Value.Clear();
-            foreach (var i in hopdongid)
-            {
-                double temp = (double)(from p in dsnv where p.ContractName == i select p).Count();
-                Agrument.Add(i + " : " + temp.ToString());
-                Value.Add(temp / sonhanvien);
-            }
-            CommonChart.CreatPieChar(hopdong, dg7, dgs7, new SolidColorBrush(Colors.Red), "Thống kê nhân viên theo hợp đồng", Agrument, Value);
-            //End tao bieu do Hopdong
-
-            //Tao bieu do honnhan
-            SimpleDiagram2D dg8 = new SimpleDiagram2D();
-            PieSeries2D dgs8 = new PieSeries2D();
-            Agrument.Clear();
-            Value.Clear();
-            double dakh = ((double)(from p in dsnv where p.Marital == true select p).Count());
-            double chuakh = (double)(sonhanvien - dakh);
-            Value.Add(dakh / sonhanvien);
-            Value.Add(chuakh / sonhanvien);
-            Agrument.Add("Đã kết hôn : " + dakh.ToString());
-            Agrument.Add("Chưa kết hôn : " + chuakh.ToString());
-            CommonChart.CreatPieChar(honnhan, dg8, dgs8, new SolidColorBrush(Colors.Red), "Thống kê nhân viên theo tình trạng hôn nhân", Agrument, Value);
-            //End tao bieu do hon nhan
-            
-            //Tao bieu do Tongiao
-            SimpleDiagram2D dg9 = new SimpleDiagram2D();
-            PieSeries2D dgs9 = new PieSeries2D();
-            List<string> tongiaoid = (from p in dsnv select p.Religion).Distinct().ToList();
-            Agrument.Clear();
-            Value.Clear();
-            foreach (var i in tongiaoid)
-            {
-                double temp = (double)(from p in dsnv where p.Religion == i select p).Count();
-                Agrument.Add(i + " : " + temp.ToString());
-                Value.Add(temp / sonhanvien);
-            }
-            CommonChart.CreatPieChar(tongiao, dg9, dgs9, new SolidColorBrush(Colors.Red), "Thống kê nhân viên theo tôn giáo", Agrument, Value);
-            //End tao bieu do Tongiao
-
-            //Tao bieu do Quoctich
-            SimpleDiagram2D dg10 = new SimpleDiagram2D();
-            PieSeries2D dgs10 = new PieSeries2D();
-            List<string> quoctichid = (from p in dsnv select p.Nationality).Distinct().ToList();
-            Agrument.Clear();
-            Value.Clear();
-            foreach (var i in quoctichid)
-            {
-                double temp = (double)(from p in dsnv where p.Nationality == i select p).Count();
-                Agrument.Add(i + " : " + temp.ToString());
-                Value.Add(temp / sonhanvien);
-            }
-            CommonChart.CreatPieChar(quocgia, dg10, dgs10, new SolidColorBrush(Colors.Red), "Thống kê nhân viên theo quốc tịch", Agrument, Value);
-            //End tao bieu do Quoctich
-
-            //Tao bieu do Trangthai
-            SimpleDiagram2D dg11 = new SimpleDiagram2D();
-            PieSeries2D dgs11 = new PieSeries2D();
-            List<string> trangthaiid = (from p in dsnv select p.EmployeeStatus).Distinct().ToList();
-            Agrument.Clear();
-            Value.Clear();
-            foreach (var i in trangthaiid)
-            {
-                double temp = (double)(from p in dsnv where p.EmployeeStatus == i select p).Count();
-                Agrument.Add(i + " : " + temp.ToString());
-                Value.Add(temp / sonhanvien);
-            }
-            CommonChart.CreatPieChar(trangthai, dg11, dgs11, new SolidColorBrush(Colors.Red), "Thống kê nhân viên theo trạng thái", Agrument, Value);
-            //End tao bieu do Trangthai
-
-            #region Tao bieu do so luong nhan su
-
-            XYDiagram2D dg12 = new XYDiagram2D();
-            ////Set tieu de
-            //AxisTitle tieudex = new AxisTitle();
-            //tieudex.Content="Số nhân viên";
-            //dg12.AxisX.Title.Content = tieudex;
-
-            ////End set tieu de
-            int startyear = int.Parse(dsnv.Min(u => u.HireDate.Value.Year).ToString());
-            double slnv = 0;
-            //Tao bieu do so luong nhan vien tuyen dung
-            BarSideBySideSeries2D dgs13 = new BarSideBySideSeries2D();
-            dgs13.DisplayName = "Số nhân viên tuyển dụng";
-            Agrument.Clear();
-            Value.Clear();
-            for (int i = startyear; i < int.Parse((DateTime.Now.Year).ToString()); i++)
-            {
-                slnv = (double)(from p in dsnv where p.HireDate.Value.Year.ToString() == i.ToString() && p.TerminateDate == null select p).Count();
-                Agrument.Add(i.ToString());
-                Value.Add(slnv);
-            }
-            CommonChart.CreatXYChar(soluongnhansu, dg12, dgs13, new SolidColorBrush(Colors.Red), "Thống kê số lượng nhân sự", Agrument, Value);
-            //End tao bieu do so luong tong nhan vien tuyen dung
-
-            //Tao bieu do so luong nhan vien nghi viec
-            BarSideBySideSeries2D dgs14 = new BarSideBySideSeries2D();
-            slnv = 0;
-            dgs14.DisplayName = "Số nhân viên nghỉ việc";
-            Agrument.Clear();
-            Value.Clear();
-            for (int i = startyear; i < int.Parse((DateTime.Now.Year).ToString()); i++)
-            {
-                slnv = (double)(from p in dsnv where p.TerminateDate != null && p.TerminateDate.Value.Year.ToString() == i.ToString() select p).Count();
-                Agrument.Add(i.ToString());
-                Value.Add(slnv);
-            }
-            CommonChart.CreatXYChar(soluongnhansu, dg12, dgs14, new SolidColorBrush(Colors.Red), "Thống kê số lượng nhân sự", Agrument, Value);
-            //End tao bieu do so luong tong nhan vien nghi viec
-
-            //Tao bieu do so luong tong nhan vien
-            BarSideBySideSeries2D dgs12 = new BarSideBySideSeries2D();
-            dgs12.DisplayName = "Tổng nhân viên";
-            Agrument.Clear();
-            Value.Clear();
-            slnv = 0;
-            for (int i = startyear; i < int.Parse((DateTime.Now.Year).ToString()); i++)
-            {
-                slnv += (double)(from p in dsnv where p.HireDate.Value.Year.ToString() == i.ToString() && p.TerminateDate == null select p).Count();
-                Agrument.Add(i.ToString());
-                Value.Add(slnv);
-            }
-            CommonChart.CreatXYChar(soluongnhansu, dg12, dgs12, new SolidColorBrush(Colors.Red), "Thống kê số lượng nhân sự", Agrument, Value);
-            //Tao chu thich
-            soluongnhansu.Legend = new Legend();
-            soluongnhansu.Legend.Visibility = Visibility.Visible;
-            soluongnhansu.Legend.HorizontalPosition = HorizontalPosition.Center;
-            soluongnhansu.Legend.VerticalPosition = VerticalPosition.BottomOutside;
-            soluongnhansu.Legend.Orientation = Orientation.Horizontal;
-            //End tao bieu do so luong tong nhan vien
-            #endregion
-        }
-        #endregion
-
-        void ws_ChartDataCompleted(object sender, ChartDataCompletedEventArgs e)
-        {
-            dsnv = e.Result.ToList();
-            sonhanvien = dsnv.Count();
-            LoadBieudo();
             PageSmoothScroller.delaytime.Interval = new TimeSpan(0, 0, 3);//Set thoi gian delay cac bieu do
             PageSmoothScroller.delaytime.Start();
             ws.GetThongbaoCompleted += ws_GetThongbaoCompleted;
             ws.GetThongbaoAsync();
         }
+        #region LoadBieuDo
+        public void LoadChartView()
+        {
+            
+            nv3.SetValue(SlideNavBarGroup.RadioButtonStyleProperty, DemoModuleControl.Resources["Group1RadioButtonStyle"]);
+            nv3.Background = new SolidColorBrush(Color.FromArgb(255,025,025,112));
+            navBar.Groups.Add(nv3);
+            countchart = 0;
+            foreach (ChartDataChartCommon dr in dsbieudo)
+            {
+
+                if (dr.ChartType == "Pie")
+                {
+                   ChartControl abc = CommonChart.CreatPieChart(new SolidColorBrush(Colors.Red), dr.ChartTitle, dr.ChartData.ToList());
+                   nv3.Items.Add(abc);
+                   abc.Width = navBar.Width - 200;
+                   abc.Height = navBar.Height - 100;
+                   countchart++;
+                }
+                else if (dr.ChartType == "Bar")
+                {
+                    ChartControl abc = CommonChart.CreatXYChart(new SolidColorBrush(Colors.Red), dr.ChartTitle, dr.ChartData.ToList());
+                    nv3.Items.Add(abc);
+                    abc.Width = navBar.Width - 200;
+                    abc.Height = navBar.Height - 100;
+                    countchart++;
+                }
+                
+            }
+        }
+        #endregion
+
         #region LoadThongBao
         void ws_GetThongbaoCompleted(object sender, GetThongbaoCompletedEventArgs e)
         {
@@ -402,10 +155,10 @@ namespace Paradise5
                 element.Width = e.NewSize.Width;
                 element.Height = e.NewSize.Height;
             }
-            foreach (ChartControl bieudo in nv1.Items)
+            foreach (ChartControl bieudo in nv3.Items)
             {
-                bieudo.Width = nv1.Width - 200;
-                bieudo.Height = nv1.Height - 100;
+                bieudo.Width = nv3.Width - 200;
+                bieudo.Height = nv3.Height - 100;
             }
         }
 
@@ -529,22 +282,23 @@ namespace Paradise5
             Loaded += new RoutedEventHandler(OnLoaded);
             delaytime.Tick += delaytime_Tick;
         }
-        //Su kien AutoChart
+        #region AutoChart
         void delaytime_Tick(object sender, EventArgs e)
         {
             if (delaytime.IsEnabled == true)
             {
-                if (ItemVisibleIndex == Home.countchart)
+                //updown la bien trang thai 1 la len 0 la xuong
+                if (ItemVisibleIndex == Home.countchart - 1)//Neu la bieu do cuoi cung
                 { updown = 1; }
-                if (ItemVisibleIndex == 0)
+                if (ItemVisibleIndex == 0)//Neu la bieu do dau tien
                 { updown = 0; }
-                if (updown == 0)
+                if (updown == 0)//Neu trang thai la cuon xuong
                 { PerformScrollDownCommand(); }
-                if (updown == 1)
+                if (updown == 1)//Neu trang thai la cuon len
                 { PerformScrollUpCommand(); }
             }
         }
-        //End su kien AutoChart
+        #endregion
 
         void OnLoaded(object sender, RoutedEventArgs e)
         {

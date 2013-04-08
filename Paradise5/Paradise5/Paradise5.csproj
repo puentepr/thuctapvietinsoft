@@ -157,6 +157,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
+    <None Include="Service References\ServiceReference1\Paradise5.ServiceReference1.ChartDataChartCommon.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceReference1\Paradise5.ServiceReference1.ChartView.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
