@@ -26,10 +26,13 @@ namespace TestDesigner
         List<CompanyControl> dstemp= new List<CompanyControl>();//List luu danh sach cau truc cong ty dang CompanyControl
         List<CompanyControl> chacon = new List<CompanyControl>();//List luu danh sach chacon luc to mau khi click
         List<CompanyControl> dstimkiem = new List<CompanyControl>();//List luu danh sach cac CompanyControl khi tim kiem
+        //CompanyControl temp =
         int caotong;//Luu gia tri do cao 1 level
         int khoangcach = 10;//Khoang cach giua cac CompanyControl cung 1 Level neu no khong co con
         int LevelMax;
         int[] a = new int[10];
+        Point vitri;
+        Point vitritam;
         public Form1()
         {
             InitializeComponent();
@@ -43,7 +46,82 @@ namespace TestDesigner
             gmh.TheMouseMoved += new MouseMovedEvent(gmh_TheMouseMoved);
             Application.AddMessageFilter(gmh);
             //End set su kien Mousemove
+            ControlMover.Init(companyControl1);
+            vitri = companyControl1.Location;
         }
+
+        void companyControl1_MouseDown(object sender, MouseEventArgs e)
+        {
+            panel1.Cursor = Cursors.NoMove2D;
+            CompanyControl nv = (CompanyControl)sender;
+            nv.BackColor = cl1;
+            nv.txtCode.Text="Code";
+            nv.txtName.Text = "Name";
+            panel1.Controls.Add(nv);
+            nv.BringToFront();
+        }
+
+        void companyControl1_MouseUp(object sender, MouseEventArgs e)
+        {
+            panel1.Cursor = Cursors.Default;
+            CompanyControl nv = new CompanyControl();
+            nv.Location = vitri;
+            panelControl1.Controls.Add(nv);
+            ControlMover.Init(nv);
+            nv.MouseUp += companyControl1_MouseUp;
+            nv.MouseDown += companyControl1_MouseDown;
+            TimChaConMoi((CompanyControl)sender);
+        }
+
+        void TimChaConMoi(CompanyControl tempchacon)
+        {
+            if (tempchacon.Location.Y < caotong * LevelMax)
+            {
+                CompanyControl cha = new CompanyControl();
+                CompanyControl cungcap = new CompanyControl();
+                int kcchacony = 10000;
+                int kchaconx = 10000;
+                //Tim cha
+                foreach (CompanyControl controlcu in dstemp)
+                {
+                    if (controlcu.Location.Y < tempchacon.Location.Y)
+                    {
+                        int khoangcachchacony = Math.Abs(controlcu.Location.Y - tempchacon.Location.Y);
+                        int khoangcachchaconx = Math.Abs(controlcu.Location.X - tempchacon.Location.X);
+                        if (khoangcachchacony <= kcchacony && khoangcachchaconx <= kchaconx)
+                        {
+                            cha = controlcu;
+                            kcchacony = khoangcachchacony;
+                            kchaconx = khoangcachchaconx;
+                        }
+                    }
+                }
+                //Tim cung cap
+                foreach (CompanyControl controlcu in dstemp)
+                {
+                    if (controlcu.Tag.ToString() == cha.Name.ToString())
+                    {
+                        cungcap = controlcu;
+                        break;
+                    }
+                }
+                DialogResult r;
+                r = MessageBox.Show(String.Format("'{0}' sẽ thuộc '{1}'.Bạn có muốn cập nhật?", tempchacon.txtName.Text, cha.txtName.Text), "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                if (r == DialogResult.Yes)
+                {
+                    string tentable = cungcap.tentable;
+                    string matable = tentable.Substring(3);
+                    string matablecha = cha.tentable.Substring(3);
+                    if (matablecha != "Company")
+                    { DBEngine.exec(String.Format("Insert into {0} ({1}ID,{2}Code,{3}Name) values({4},'{5}','{6}')", tentable, matablecha, matable, matable, cha.ID, tempchacon.txtCode.Text, tempchacon.txtName.Text)); }
+                    else
+                    { DBEngine.exec(String.Format("Insert into {0} ({1}Code,{2}Name) values('{3}','{4}')", tentable,matable, matable, tempchacon.txtCode.Text, tempchacon.txtName.Text)); }
+                    LoadTree();
+                }
+                
+            }
+        }
+
         int canhTrai = 0;
         void gmh_TheMouseMoved()
         {
@@ -66,6 +144,7 @@ namespace TestDesigner
             p.Width = 2;//Do rong cua duong ve ket noi
             LoadTree();
         }
+
         void GetData()
         {
             dstree = DBEngine.execReturnDataTable("LoadCompanyTree", "@LoginID", 3);
@@ -78,8 +157,7 @@ namespace TestDesigner
             //Name CompanyControl cha = Name+ID=tag CompanyControlcon
             //caotong*level ra vi tri y cua CompanyControl
             List<DataRow> dscon = (from DataRow dr in dstree.Rows where Convert.ToInt32(dr["ParentID"]) == ID && Convert.ToInt32(dr["ControlLevel"]) == Level + 1 select dr).ToList();
-            //int Level = Convert.ToInt32(((from DataRow dr in dstree.Rows where Convert.ToInt32(dr["ID"]) == ID && Convert.ToInt32(dr["ControlLevel"]) == Level select dr).ToList())[0]["ControlLevel"]);
-            if (dscon.Count == 0)
+            if (dscon.Count == 0)//Neu khong co con
             {
                 DataRow dr1= ((from DataRow dr in dstree.Rows where Convert.ToInt32(dr["ID"]) == ID && Convert.ToInt32(dr["ControlLevel"]) == Level select dr).ToList())[0];
                 string tenhienthi = Convert.ToString(dr1["Name"]);
@@ -104,11 +182,11 @@ namespace TestDesigner
                     a[Level+1] += rong + khoangcach;//Tang vi tri cuoi cung cap sau no
                 }
             }
-            else
+            else//Neu co con
             {
                 foreach (DataRow dr in dscon)
                 {
-                    LoadData(Convert.ToInt32(dr["ID"]), Convert.ToInt32(dr["ControlLevel"]));
+                    LoadData(Convert.ToInt32(dr["ID"]), Convert.ToInt32(dr["ControlLevel"]));//Load danh sach con
                 }
                 DataRow dr1 = ((from DataRow dr in dstree.Rows where Convert.ToInt32(dr["ID"]) == ID && Convert.ToInt32(dr["ControlLevel"]) == Level select dr).ToList())[0];
                 string tenhienthi = Convert.ToString(dr1["Name"]);
@@ -166,19 +244,20 @@ namespace TestDesigner
             lbltemp.txtName.GotFocus += lbltemp_Click;
             lbltemp.EnabledChanged += lbltemp_EnabledChanged;
             lbltemp.MouseUp += lbltemp_MouseUp;
+            lbltemp.MouseDown += lbltemp_MouseDown;
+            lbltemp.MouseMove += lbltemp_MouseMove;
             ControlMover.Init(lbltemp,ControlMover.Direction.Horizontal);
             return lbltemp;
         }
 
-        void lbltemp_MouseUp(object sender, MouseEventArgs e)
+        void lbltemp_MouseMove(object sender, MouseEventArgs e)
         {
-            panel1.Refresh();
             CompanyControl tempchacon = (CompanyControl)sender;
             CompanyControl trai = new CompanyControl();
             CompanyControl phai = new CompanyControl();
             CompanyControl kq = new CompanyControl();
             //Tim cha gan nhat ben phai
-            for (int i = tempchacon.Location.X+rong; i < tempchacon.Location.X + rong*2; i++)
+            for (int i = tempchacon.Location.X + rong; i < tempchacon.Location.X + rong * 2; i++)//khoang cach tim kiem tinh theo ben phai
             {
                 Control tk = panel1.GetChildAtPoint(new Point(i, tempchacon.Location.Y - caotong));
                 if (tk is CompanyControl)
@@ -188,7 +267,7 @@ namespace TestDesigner
                 }
             }
             //Tim cha gan nhat ben trai
-            for (int i = tempchacon.Location.X; i > tempchacon.Location.X - rong; i--)
+            for (int i = tempchacon.Location.X; i > tempchacon.Location.X - rong; i--)//Khoang cach tim kiem theo ben trai
             {
                 Control tk = panel1.GetChildAtPoint(new Point(i, tempchacon.Location.Y - caotong));
                 if (tk is CompanyControl)
@@ -198,7 +277,7 @@ namespace TestDesigner
                 }
             }
             //So sanh 2 cha xem cha nao gan hon
-            if (Math.Abs(tempchacon.Location.X-trai.Location.X) < Math.Abs(tempchacon.Location.X-phai.Location.X))
+            if (Math.Abs(tempchacon.Location.X - trai.Location.X) < Math.Abs(tempchacon.Location.X - phai.Location.X))//Neu cha trai gan hon cha phai
             {
                 kq = trai;
             }
@@ -206,11 +285,66 @@ namespace TestDesigner
             {
                 kq = phai;
             }
-            if (kq.txtName.Text!= "")
+            if (kq.txtName.Text != "" && tempchacon.Tag.ToString() != kq.Name)
+            {
+                panel1.Cursor = Cursors.Cross;
+            }
+            else
+            {
+                panel1.Cursor = Cursors.NoMove2D;
+            }
+        }
+
+        void lbltemp_MouseDown(object sender, MouseEventArgs e)
+        {
+            panel1.Cursor = Cursors.NoMove2D;
+            panel1.Paint -= panel1_Paint;//Tam ngung su kien Paint
+            
+        }
+
+        void lbltemp_MouseUp(object sender, MouseEventArgs e)
+        {
+            panel1.Cursor = Cursors.Default;   
+            panel1.Paint += panel1_Paint;//Kich hoat lai su kien paint
+            panel1.Refresh();
+            CompanyControl tempchacon = (CompanyControl)sender;
+            CompanyControl trai = new CompanyControl();
+            CompanyControl phai = new CompanyControl();
+            CompanyControl kq = new CompanyControl();
+            //Tim cha gan nhat ben phai
+            for (int i = tempchacon.Location.X+rong; i < tempchacon.Location.X + rong*2; i++)//khoang cach tim kiem tinh theo ben phai
+            {
+                Control tk = panel1.GetChildAtPoint(new Point(i, tempchacon.Location.Y - caotong));
+                if (tk is CompanyControl)
+                {
+                    phai = (CompanyControl)tk;
+                    break;
+                }
+            }
+            //Tim cha gan nhat ben trai
+            for (int i = tempchacon.Location.X; i > tempchacon.Location.X - rong; i--)//Khoang cach tim kiem theo ben trai
+            {
+                Control tk = panel1.GetChildAtPoint(new Point(i, tempchacon.Location.Y - caotong));
+                if (tk is CompanyControl)
+                {
+                    trai = (CompanyControl)tk;
+                    break;
+                }
+            }
+            //So sanh 2 cha xem cha nao gan hon
+            if (Math.Abs(tempchacon.Location.X-trai.Location.X) < Math.Abs(tempchacon.Location.X-phai.Location.X))//Neu cha trai gan hon cha phai
+            {
+                kq = trai;
+            }
+            else
+            {
+                kq = phai;
+            }
+            if (kq.txtName.Text!= ""&&tempchacon.Tag.ToString()!=kq.Name)
             {
                 DialogResult r;
                 r = MessageBox.Show(String.Format("'{0}' sẽ thuộc '{1}'.Bạn có muốn thay đổi?", tempchacon.txtName.Text, kq.txtName.Text), "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-                if (r == DialogResult.Yes)
+                if (r == DialogResult.Yes)//Neu dong y thi luu xuong CSDL
                 {
                     string tentablecon = tempchacon.tentable;
                     string macha = kq.tentable.Substring(3);
@@ -218,7 +352,9 @@ namespace TestDesigner
                     DBEngine.exec(String.Format("Update {0} set {1}ID ={2} where {3}ID= {4}", tentablecon, macha, kq.ID, macon, tempchacon.ID));
                     LoadTree();
                 }
+            
             }
+            
         }
 
         void lbltemp_EnabledChanged(object sender, EventArgs e)
@@ -228,7 +364,7 @@ namespace TestDesigner
 
         void LoadTree()
         { 
-             //Load lai tree
+            //Clear cac gia tri cua lan load truoc do
             panel1.Controls.Clear();
             dstemp.Clear();
             a = new int[10];
@@ -273,7 +409,6 @@ namespace TestDesigner
         void veketnoi()
         {
             int a=20;
-            //g.DrawLine
             foreach (CompanyControl cha in dstemp)
             {
                 //Toa do trung diem cua cha theo Ox
@@ -341,12 +476,6 @@ namespace TestDesigner
                 { ((CompanyControl)dstimkiem[0]).Focus(); }
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            LoadTree();
-        }
-
     }
     public delegate void MouseMovedEvent();
     public class GlobalMouseHandler : IMessageFilter
