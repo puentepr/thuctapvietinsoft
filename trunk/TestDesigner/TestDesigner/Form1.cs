@@ -12,7 +12,6 @@ namespace TestDesigner
 {
     public partial class Form1 : Form
     {
-        bool vitridathaydoi = false;
         int rong = 120;//Chieu rong cua 1 CompanyControl
         int cao = 72;//Chieu cao cua 1 CompanyControl
         HPA.SQL.EzSql2 DBEngine = new HPA.SQL.EzSql2();
@@ -65,15 +64,12 @@ namespace TestDesigner
             g = panel1.CreateGraphics();
             p = new Pen(Color.Black);//Mau cua duong ve ket noi
             p.Width = 2;//Do rong cua duong ve ket noi
-            GetData();
-            LoadData(1, 0);
-            dstemp.Last().Focus();//Set focus ve vi tri cua cong ty
+            LoadTree();
         }
         void GetData()
         {
             dstree = DBEngine.execReturnDataTable("LoadCompanyTree", "@LoginID", 3);
-            dstemp.Clear();
-            a = new int[10];
+            
             caotong = panel1.Size.Height / ((from DataRow dr in dstree.Rows select Convert.ToInt32(dr["ControlLevel"])).Distinct().ToList()).Count();
             LevelMax = ((from DataRow dr in dstree.Rows select Convert.ToInt32(dr["ControlLevel"])).Distinct().ToList()).Last();
         }
@@ -170,7 +166,6 @@ namespace TestDesigner
             lbltemp.txtName.GotFocus += lbltemp_Click;
             lbltemp.EnabledChanged += lbltemp_EnabledChanged;
             lbltemp.MouseUp += lbltemp_MouseUp;
-            lbltemp.LocationChanged+=lbltemp_LocationChanged;
             ControlMover.Init(lbltemp,ControlMover.Direction.Horizontal);
             return lbltemp;
         }
@@ -178,22 +173,65 @@ namespace TestDesigner
         void lbltemp_MouseUp(object sender, MouseEventArgs e)
         {
             panel1.Refresh();
-            if (vitridathaydoi == true)
+            CompanyControl tempchacon = (CompanyControl)sender;
+            CompanyControl trai = new CompanyControl();
+            CompanyControl phai = new CompanyControl();
+            CompanyControl kq = new CompanyControl();
+            //Tim cha gan nhat ben phai
+            for (int i = tempchacon.Location.X+rong; i < tempchacon.Location.X + rong*2; i++)
             {
-                
-                vitridathaydoi = false;
+                Control tk = panel1.GetChildAtPoint(new Point(i, tempchacon.Location.Y - caotong));
+                if (tk is CompanyControl)
+                {
+                    phai = (CompanyControl)tk;
+                    break;
+                }
             }
-        }
-
-        void lbltemp_LocationChanged(object sender, EventArgs e)
-        {
-            vitridathaydoi = true;
+            //Tim cha gan nhat ben trai
+            for (int i = tempchacon.Location.X; i > tempchacon.Location.X - rong; i--)
+            {
+                Control tk = panel1.GetChildAtPoint(new Point(i, tempchacon.Location.Y - caotong));
+                if (tk is CompanyControl)
+                {
+                    trai = (CompanyControl)tk;
+                    break;
+                }
+            }
+            //So sanh 2 cha xem cha nao gan hon
+            if (Math.Abs(tempchacon.Location.X-trai.Location.X) < Math.Abs(tempchacon.Location.X-phai.Location.X))
+            {
+                kq = trai;
+            }
+            else
+            {
+                kq = phai;
+            }
+            if (kq.txtName.Text!= "")
+            {
+                DialogResult r;
+                r = MessageBox.Show(String.Format("'{0}' sẽ thuộc '{1}'.Bạn có muốn thay đổi?", tempchacon.txtName.Text, kq.txtName.Text), "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                if (r == DialogResult.Yes)
+                {
+                    string tentablecon = tempchacon.tentable;
+                    string macha = kq.tentable.Substring(3);
+                    string macon = tempchacon.tentable.Substring(3);
+                    DBEngine.exec(String.Format("Update {0} set {1}ID ={2} where {3}ID= {4}", tentablecon, macha, kq.ID, macon, tempchacon.ID));
+                    LoadTree();
+                }
+            }
         }
 
         void lbltemp_EnabledChanged(object sender, EventArgs e)
         {
-            //Load lai tree
+            LoadTree();
+        }
+
+        void LoadTree()
+        { 
+             //Load lai tree
             panel1.Controls.Clear();
+            dstemp.Clear();
+            a = new int[10];
             GetData();
             LoadData(1, 0);
             dstemp.Last().Focus();//Set focus ve vi tri cua cong ty
@@ -302,6 +340,11 @@ namespace TestDesigner
                 if (dstimkiem.Count > 0)
                 { ((CompanyControl)dstimkiem[0]).Focus(); }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadTree();
         }
 
     }

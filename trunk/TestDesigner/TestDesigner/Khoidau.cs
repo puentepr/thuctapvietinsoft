@@ -8,7 +8,7 @@ namespace TestDesigner
 {
     class Khoidau
     {
-        public static string Dtname = "Paradise_Res";
+        public static string Dtname = "TestP4";
         public static string Servername = "ANHTUAN";
         public static string User = "sa";
         public static string Password = "LuaThiengFree";

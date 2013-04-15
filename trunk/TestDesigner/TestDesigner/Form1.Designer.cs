@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.companyControl1 = new TestDesigner.CompanyControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
@@ -47,10 +48,13 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelControl1.Controls.Add(this.companyControl1);
             this.panelControl1.Controls.Add(this.txtSearch);
             this.panelControl1.Location = new System.Drawing.Point(0, 9);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(200, 41);
+            this.panelControl1.Size = new System.Drawing.Size(200, 412);
             this.panelControl1.TabIndex = 1;
             // 
             // txtSearch
@@ -60,6 +64,14 @@
             this.txtSearch.Size = new System.Drawing.Size(186, 20);
             this.txtSearch.TabIndex = 0;
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
+            // 
+            // companyControl1
+            // 
+            this.companyControl1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.companyControl1.Location = new System.Drawing.Point(12, 35);
+            this.companyControl1.Name = "companyControl1";
+            this.companyControl1.Size = new System.Drawing.Size(120, 72);
+            this.companyControl1.TabIndex = 1;
             // 
             // Form1
             // 
@@ -84,6 +96,7 @@
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private System.Windows.Forms.TextBox txtSearch;
+        private CompanyControl companyControl1;
 
     }
 }
