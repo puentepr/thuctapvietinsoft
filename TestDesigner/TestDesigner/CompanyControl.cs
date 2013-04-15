@@ -18,7 +18,7 @@ namespace TestDesigner
         public int ID;
         public int ParentID;
         bool edit=false;
-        bool hienthi=false;
+        bool hienthi=false;//Quy dinh cac chuc nang sua va xoa co hien thi hay ko
         HPA.SQL.EzSql2 DBEngine = new HPA.SQL.EzSql2();
         public CompanyControl()
         {
@@ -29,17 +29,19 @@ namespace TestDesigner
             DBEngine.User = Khoidau.User;
             DBEngine.Password = Khoidau.Password;
             DBEngine.Database = Khoidau.Dtname;
-            DBEngine.open();
+            
         }
 
         void txtCode_GotFocus(object sender, EventArgs e)
         {
             panelControl1.Visible = false;
+            hienthi = false;
         }
 
         void txtName_GotFocus(object sender, EventArgs e)
         {
             panelControl1.Visible = false;
+            hienthi = false;
         }
 
         private void CompanyControl_Load(object sender, EventArgs e)
@@ -58,6 +60,7 @@ namespace TestDesigner
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            DBEngine.open();
             if (edit == false)
             {
                 txtCode.ReadOnly = false;
@@ -88,10 +91,12 @@ namespace TestDesigner
                 //................
                 
             }
+            DBEngine.close();
         }
 
         public void btnDel_Click(object sender, EventArgs e)
         {
+            DBEngine.open();
             string ma = tentable.Substring(3);
             DataTable dttemp = DBEngine.execReturnDataTable(String.Format("Select * from {0} where {1}Code ='{2}'", tentable, ma, txtCode.Text));
             if (dttemp.Rows.Count > 0)
@@ -104,6 +109,7 @@ namespace TestDesigner
                     this.Enabled = false;//Tin hieu cho FormLoadCompanyTree load lai tree
                 }
             }
+            DBEngine.close();
             
         }
 
