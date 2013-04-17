@@ -172,27 +172,27 @@ namespace TestDesigner
             List<DataRow> dscon = (from DataRow dr in dstree.Rows where Convert.ToInt32(dr["ParentID"]) == ID && Convert.ToInt32(dr["ControlLevel"]) == Level + 1 select dr).ToList();
             if (dscon.Count == 0)//Neu khong co con
             {
-                DataRow dr1= ((from DataRow dr in dstree.Rows where Convert.ToInt32(dr["ID"]) == ID && Convert.ToInt32(dr["ControlLevel"]) == Level select dr).ToList())[0];
+                DataRow dr1 = ((from DataRow dr in dstree.Rows where Convert.ToInt32(dr["ID"]) == ID && Convert.ToInt32(dr["ControlLevel"]) == Level select dr).ToList())[0];
                 string tenhienthi = Convert.ToString(dr1["Name"]);
-                string ten = tenhienthi+ID.ToString();
+                string ten = tenhienthi + ID.ToString();
                 string tagname = Convert.ToString(dr1["ParentName"]) + Convert.ToString(dr1["ParentID"]);
                 string tablename = Convert.ToString(dr1["tablename"]);
                 string codename = Convert.ToString(dr1["Code"]);
                 int id = Convert.ToInt32(dr1["ID"]);
                 int parentID = Convert.ToInt32(dr1["ParentID"]);
-                CompanyControl lbltemp = CreateControl(ten, tagname, tenhienthi,tablename,codename,id,parentID);
+                CompanyControl lbltemp = CreateControl(ten, tagname, tenhienthi, tablename, codename, id, parentID);
                 dstemp.Add(lbltemp);
                 if (Level == LevelMax)//Neu la cap cao nhat 
                 {
-                    lbltemp.Location = new Point(a[Level], caomotcap * Level);
+                    lbltemp.Location = new Point(a.Max(), caomotcap * Level);
                     panel1.Controls.Add(lbltemp);
                     a[Level] += rong + khoangcach;
                 }
                 else
                 {
-                    lbltemp.Location = new Point(a[Level+1], caomotcap * Level);//vi tri x se bang vi tri cua CompanyControl cuoi cung cap sau no
+                    lbltemp.Location = new Point(a.Max(), caomotcap * Level);//vi tri x se bang vi tri cua CompanyControl cuoi cung cap sau no
                     panel1.Controls.Add(lbltemp);
-                    a[Level+1] += rong + khoangcach;//Tang vi tri cuoi cung cap sau no
+                    a[Level] += rong + khoangcach;
                 }
             }
             else//Neu co con
@@ -213,28 +213,22 @@ namespace TestDesigner
                 string targname;
                 if (Level > 0)
                 {
-                    targname=Convert.ToString(dr1["ParentName"]) + Convert.ToString(dr1["ParentID"]);
+                    targname = Convert.ToString(dr1["ParentName"]) + Convert.ToString(dr1["ParentID"]);
                 }
                 else
                 { targname = ""; }
-                lbltemp = CreateControl(ten, targname, tenhienthi,tablename,codename,id,parentID);
+                lbltemp = CreateControl(ten, targname, tenhienthi, tablename, codename, id, parentID);
                 List<CompanyControl> lbltemp1 = (from p in dstemp where p.Tag.ToString() == lbltemp.Name.ToString() select p).ToList();
                 if (lbltemp1.Count > 0)
                 {
                     int x = (lbltemp1[0].Location.X + lbltemp1.Last().Location.X) / 2;
                     lbltemp.Location = new Point(x, caomotcap * Level);
-                    //if (lbltemp1.Count % 2 == 0)
-                    //{
-                    //    lbltemp.Location = new Point(lbltemp1[(lbltemp1.Count / 2 - 1)].Location.X + rong / 2, caomotcap * Level);
-                    //}
-                    //else
-                    //{
-                    //    lbltemp.Location = new Point(lbltemp1[(lbltemp1.Count / 2)].Location.X, caomotcap * Level);
-                    //}
                 }
                 panel1.Controls.Add(lbltemp);
                 dstemp.Add(lbltemp);//Add CompanyControl vao list
-                a[Level+1] = lbltemp.Location.X+rong+khoangcach;//Dua chieu ngang cua cap len 1 doan bang chieu rong 1 CompanyControl + khoang cach
+                if (lbltemp.Location.X <= lbltemp1.Last().Location.X)
+                { a[Level] = lbltemp1.Last().Location.X + rong + khoangcach; }
+
             }
 
         }
