@@ -186,13 +186,13 @@ namespace TestDesigner
                 {
                     lbltemp.Location = new Point(a.Max(), caomotcap * Level);
                     panel1.Controls.Add(lbltemp);
-                    a[Level] += rong + khoangcach;
+                    a[Level] = lbltemp.Location.X + rong + khoangcach;
                 }
                 else
                 {
                     lbltemp.Location = new Point(a.Max(), caomotcap * Level);//vi tri x se bang vi tri cua CompanyControl cuoi cung cap sau no
                     panel1.Controls.Add(lbltemp);
-                    a[Level] += rong + khoangcach;
+                    a[Level] = lbltemp.Location.X + rong + khoangcach;
                 }
             }
             else//Neu co con
@@ -223,11 +223,12 @@ namespace TestDesigner
                 {
                     int x = (lbltemp1[0].Location.X + lbltemp1.Last().Location.X) / 2;
                     lbltemp.Location = new Point(x, caomotcap * Level);
+                    if (lbltemp.Location.X <= lbltemp1.Last().Location.X)
+                    { a[Level] = lbltemp1.Last().Location.X + rong + khoangcach; }
                 }
                 panel1.Controls.Add(lbltemp);
                 dstemp.Add(lbltemp);//Add CompanyControl vao list
-                if (lbltemp.Location.X <= lbltemp1.Last().Location.X)
-                { a[Level] = lbltemp1.Last().Location.X + rong + khoangcach; }
+
 
             }
 
