@@ -27,9 +27,10 @@ namespace TestDesigner
         List<CompanyControl> chacon = new List<CompanyControl>();//List luu danh sach chacon luc to mau khi click
         List<CompanyControl> dstimkiem = new List<CompanyControl>();//List luu danh sach cac CompanyControl khi tim kiem
         //CompanyControl temp =
-        int caotong;//Luu gia tri do cao 1 level
+        int caomotcap;//Luu gia tri do cao 1 level
         int khoangcach = 10;//Khoang cach giua cac CompanyControl cung 1 Level neu no khong co con
         int LevelMax;
+        int caopanel;
         int[] a = new int[10];
         Point vitri;
         Point vitritam;
@@ -75,7 +76,7 @@ namespace TestDesigner
 
         void TimChaConMoi(CompanyControl tempchacon)
         {
-            if (tempchacon.Location.Y < caotong * LevelMax)
+            if (tempchacon.Location.Y < caomotcap * LevelMax)
             {
                 CompanyControl cha = new CompanyControl();
                 CompanyControl cungcap = new CompanyControl();
@@ -147,15 +148,24 @@ namespace TestDesigner
 
         void GetData()
         {
+            caopanel = Screen.PrimaryScreen.Bounds.Height - 80;//Caopanel = chieu cao cua man hinh-80
             dstree = DBEngine.execReturnDataTable("LoadCompanyTree", "@LoginID", 3);
-            
-            caotong = panel1.Size.Height / ((from DataRow dr in dstree.Rows select Convert.ToInt32(dr["ControlLevel"])).Distinct().ToList()).Count();
+            //Dem so cap cong ty
+            int levelcount = ((from DataRow dr in dstree.Rows select Convert.ToInt32(dr["ControlLevel"])).Distinct().ToList()).Count();
+            if (120 * levelcount > caopanel)//Neu do phan giai man hinh qua thap se lay chieu cao 1 cap bang 120
+            {
+                caomotcap = 120;
+            }
+            else//nguoc lai lay chieu cao mot cap bang caopanel/so cap
+            {
+                caomotcap = caopanel / levelcount;
+            }
             LevelMax = ((from DataRow dr in dstree.Rows select Convert.ToInt32(dr["ControlLevel"])).Distinct().ToList()).Last();
         }
         void LoadData(int ID, int Level)
         {
             //Name CompanyControl cha = Name+ID=tag CompanyControlcon
-            //caotong*level ra vi tri y cua CompanyControl
+            //caomotcap*level ra vi tri y cua CompanyControl
             List<DataRow> dscon = (from DataRow dr in dstree.Rows where Convert.ToInt32(dr["ParentID"]) == ID && Convert.ToInt32(dr["ControlLevel"]) == Level + 1 select dr).ToList();
             if (dscon.Count == 0)//Neu khong co con
             {
@@ -171,13 +181,13 @@ namespace TestDesigner
                 dstemp.Add(lbltemp);
                 if (Level == LevelMax)//Neu la cap cao nhat 
                 {
-                    lbltemp.Location = new Point(a[Level], caotong * Level);
+                    lbltemp.Location = new Point(a[Level], caomotcap * Level);
                     panel1.Controls.Add(lbltemp);
                     a[Level] += rong + khoangcach;
                 }
                 else
                 {
-                    lbltemp.Location = new Point(a[Level+1], caotong * Level);//vi tri x se bang vi tri cua CompanyControl cuoi cung cap sau no
+                    lbltemp.Location = new Point(a[Level+1], caomotcap * Level);//vi tri x se bang vi tri cua CompanyControl cuoi cung cap sau no
                     panel1.Controls.Add(lbltemp);
                     a[Level+1] += rong + khoangcach;//Tang vi tri cuoi cung cap sau no
                 }
@@ -209,14 +219,14 @@ namespace TestDesigner
                 if (lbltemp1.Count > 0)
                 {
                     int x = (lbltemp1[0].Location.X + lbltemp1.Last().Location.X) / 2;
-                    lbltemp.Location = new Point(x, caotong * Level);
+                    lbltemp.Location = new Point(x, caomotcap * Level);
                     //if (lbltemp1.Count % 2 == 0)
                     //{
-                    //    lbltemp.Location = new Point(lbltemp1[(lbltemp1.Count / 2 - 1)].Location.X + rong / 2, caotong * Level);
+                    //    lbltemp.Location = new Point(lbltemp1[(lbltemp1.Count / 2 - 1)].Location.X + rong / 2, caomotcap * Level);
                     //}
                     //else
                     //{
-                    //    lbltemp.Location = new Point(lbltemp1[(lbltemp1.Count / 2)].Location.X, caotong * Level);
+                    //    lbltemp.Location = new Point(lbltemp1[(lbltemp1.Count / 2)].Location.X, caomotcap * Level);
                     //}
                 }
                 panel1.Controls.Add(lbltemp);
@@ -259,7 +269,7 @@ namespace TestDesigner
             //Tim cha gan nhat ben phai
             for (int i = tempchacon.Location.X + rong; i < tempchacon.Location.X + rong * 2; i++)//khoang cach tim kiem tinh theo ben phai
             {
-                Control tk = panel1.GetChildAtPoint(new Point(i, tempchacon.Location.Y - caotong));
+                Control tk = panel1.GetChildAtPoint(new Point(i, tempchacon.Location.Y - caomotcap));
                 if (tk is CompanyControl)
                 {
                     phai = (CompanyControl)tk;
@@ -269,7 +279,7 @@ namespace TestDesigner
             //Tim cha gan nhat ben trai
             for (int i = tempchacon.Location.X; i > tempchacon.Location.X - rong; i--)//Khoang cach tim kiem theo ben trai
             {
-                Control tk = panel1.GetChildAtPoint(new Point(i, tempchacon.Location.Y - caotong));
+                Control tk = panel1.GetChildAtPoint(new Point(i, tempchacon.Location.Y - caomotcap));
                 if (tk is CompanyControl)
                 {
                     trai = (CompanyControl)tk;
@@ -288,10 +298,6 @@ namespace TestDesigner
             if (kq.txtName.Text != "" && tempchacon.Tag.ToString() != kq.Name)
             {
                 panel1.Cursor = Cursors.Cross;
-            }
-            else
-            {
-                panel1.Cursor = Cursors.NoMove2D;
             }
         }
 
@@ -314,7 +320,7 @@ namespace TestDesigner
             //Tim cha gan nhat ben phai
             for (int i = tempchacon.Location.X+rong; i < tempchacon.Location.X + rong*2; i++)//khoang cach tim kiem tinh theo ben phai
             {
-                Control tk = panel1.GetChildAtPoint(new Point(i, tempchacon.Location.Y - caotong));
+                Control tk = panel1.GetChildAtPoint(new Point(i, tempchacon.Location.Y - caomotcap));
                 if (tk is CompanyControl)
                 {
                     phai = (CompanyControl)tk;
@@ -324,7 +330,7 @@ namespace TestDesigner
             //Tim cha gan nhat ben trai
             for (int i = tempchacon.Location.X; i > tempchacon.Location.X - rong; i--)//Khoang cach tim kiem theo ben trai
             {
-                Control tk = panel1.GetChildAtPoint(new Point(i, tempchacon.Location.Y - caotong));
+                Control tk = panel1.GetChildAtPoint(new Point(i, tempchacon.Location.Y - caomotcap));
                 if (tk is CompanyControl)
                 {
                     trai = (CompanyControl)tk;
