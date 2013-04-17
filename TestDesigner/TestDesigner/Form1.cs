@@ -234,7 +234,7 @@ namespace TestDesigner
                 }
                 panel1.Controls.Add(lbltemp);
                 dstemp.Add(lbltemp);//Add CompanyControl vao list
-                a[Level] = lbltemp.Location.X+rong+khoangcach;//Dua chieu ngang cua cap len 1 doan bang chieu rong 1 CompanyControl + khoang cach
+                a[Level+1] = lbltemp.Location.X+rong+khoangcach;//Dua chieu ngang cua cap len 1 doan bang chieu rong 1 CompanyControl + khoang cach
             }
 
         }
