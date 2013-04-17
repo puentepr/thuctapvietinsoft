@@ -17,7 +17,6 @@ namespace TestDesigner
         public string tentable;
         public int ID;
         public int ParentID;
-        bool edit=false;
         bool hienthi=false;//Quy dinh cac chuc nang sua va xoa co hien thi hay ko
         HPA.SQL.EzSql2 DBEngine = new HPA.SQL.EzSql2();
         public CompanyControl()
@@ -30,6 +29,12 @@ namespace TestDesigner
             DBEngine.Password = Khoidau.Password;
             DBEngine.Database = Khoidau.Dtname;
             
+        }
+
+        void CompanyControl_MouseLeave(object sender, EventArgs e)
+        {
+            if (txtName.ReadOnly == false)
+            { UpdateCompany(); }
         }
 
         void txtCode_GotFocus(object sender, EventArgs e)
@@ -49,7 +54,7 @@ namespace TestDesigner
             txtCode.Text = txtcode;
             txtName.Text = txtname;
             txtCode.ReadOnly = true;
-            txtName.ReadOnly=true;
+            txtName.ReadOnly = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -60,57 +65,61 @@ namespace TestDesigner
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            DBEngine.open();
-            if (edit == false)
+            if (txtCode.ReadOnly == true)
             {
                 txtCode.ReadOnly = false;
                 txtName.ReadOnly = false;
-                edit = true;
+                txtCode.Focus();
             }
             else
             {
-                if (txtName.Text != "" && txtCode.Text != "")
+                UpdateCompany();
+
+            }
+
+        }
+        void UpdateCompany()
+        {
+            if (txtName.Text != "" && txtCode.Text != "" && (txtName.Text != txtname || txtCode.Text != txtcode))
+            {
+
+                string ma = tentable.Substring(3);
+                DataTable dttemp =DBEngine.execReturnDataTable(String.Format("Select * from {0} where {1}Code ='{2}' and {1}ID<>{3}", tentable, ma, txtCode.Text, ID));
+                if (dttemp.Rows.Count <= 0)
                 {
-                    
-                    string ma = tentable.Substring(3);
-                    DataTable dttemp=DBEngine.execReturnDataTable(String.Format("Select * from {0} where {1}Code ='{2}' and {1}ID<>{3}", tentable, ma, txtCode.Text,ID));
-                    if (dttemp.Rows.Count<=0)
+                    DialogResult r;
+                    r = MessageBox.Show("Dữ liệu đã thay đổi. Bạn có muốn cập nhật?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                    if (r == DialogResult.Yes)
                     {
-                        DBEngine.exec(String.Format("Update {0} set {1}Code ='{2}',{1}Name=N'{3}' where {1}ID= {4}", tentable, ma, txtCode.Text, txtName.Text, ID));
+                       DBEngine.exec(String.Format("Update {0} set {1}Code ='{2}',{1}Name=N'{3}' where {1}ID= {4}", tentable, ma, txtCode.Text, txtName.Text, ID));
                         MessageBox.Show("Lưu thành công");
                         panelControl1.Visible = false;
-                        txtCode.ReadOnly =true;
+                        txtCode.ReadOnly = true;
                         txtName.ReadOnly = true;
-                        edit = false;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Code đã tồn tại");
                     }
                 }
-                //................
-                
+                else
+                {
+                    MessageBox.Show("Code đã tồn tại");
+                    txtCode.Focus();
+                }
             }
-            DBEngine.close();
         }
-
         public void btnDel_Click(object sender, EventArgs e)
         {
-            DBEngine.open();
             string ma = tentable.Substring(3);
-            DataTable dttemp = DBEngine.execReturnDataTable(String.Format("Select * from {0} where {1}Code ='{2}'", tentable, ma, txtCode.Text));
+            DataTable dttemp =DBEngine.execReturnDataTable(String.Format("Select * from {0} where {1}Code ='{2}'", tentable, ma, txtCode.Text));
             if (dttemp.Rows.Count > 0)
             {
                 DialogResult r;
-                r = MessageBox.Show("Bạn chắc chắn muốn xóa","Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                r = MessageBox.Show("Bạn chắc chắn muốn xóa", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                 if (r == DialogResult.Yes)
                 {
-                    DBEngine.exec(String.Format("Delete from {0} where {1}Code= '{2}'", tentable, ma, txtCode.Text));
+                   DBEngine.exec(String.Format("Delete from {0} where {1}ID= {2}", tentable, ma, this.ID));
                     this.Enabled = false;//Tin hieu cho FormLoadCompanyTree load lai tree
                 }
             }
-            DBEngine.close();
-            
+
         }
 
         private void button1_MouseHover(object sender, EventArgs e)
