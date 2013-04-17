@@ -302,11 +302,14 @@ namespace TestDesigner
             {
                 panel1.Cursor = Cursors.Cross;
             }
+            else
+            {
+                panel1.Cursor = Cursors.NoMove2D;
+            }
         }
 
         void lbltemp_MouseDown(object sender, MouseEventArgs e)
         {
-            panel1.Cursor = Cursors.NoMove2D;
             panel1.Paint -= panel1_Paint;//Tam ngung su kien Paint
             
         }
