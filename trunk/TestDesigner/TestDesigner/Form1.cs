@@ -49,6 +49,9 @@ namespace TestDesigner
             //End set su kien Mousemove
             ControlMover.Init(companyControl1);
             vitri = companyControl1.Location;
+            //Set kich thuoc Form(Neu ko co 2 dong nay bieu do se mat net)
+            this.Width = Screen.PrimaryScreen.Bounds.Width;
+            this.Height = Screen.PrimaryScreen.Bounds.Height-50;
         }
 
         void companyControl1_MouseDown(object sender, MouseEventArgs e)
