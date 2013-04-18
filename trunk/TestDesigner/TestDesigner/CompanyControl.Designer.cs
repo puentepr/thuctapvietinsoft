@@ -122,8 +122,8 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDel;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private System.Windows.Forms.Button button1;
         public System.Windows.Forms.TextBox txtCode;
         public System.Windows.Forms.TextBox txtName;
+        public System.Windows.Forms.Button button1;
     }
 }

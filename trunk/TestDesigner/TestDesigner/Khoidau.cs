@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HPA.SQL;
 
 namespace TestDesigner
 {
     class Khoidau
     {
-        public static string Dtname = "TestP4";
-        public static string Servername = ".";
-        public static string User = "sa";
-        public static string Password = "LuaThiengFree";
+        public static HPA.SQL.EzSql2 DBEngine = new EzSql2(".", "TestP4", "sa", "LuaThiengFree");
         //void LoadData2()
         //{
         //    int ngang = 0;

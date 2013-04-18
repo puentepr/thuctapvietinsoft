@@ -17,18 +17,13 @@ namespace TestDesigner
         public string tentable;
         public int ID;
         public int ParentID;
-        bool hienthi=false;//Quy dinh cac chuc nang sua va xoa co hien thi hay ko
-        HPA.SQL.EzSql2 DBEngine = new HPA.SQL.EzSql2();
+        bool hienthi = false;//Quy dinh cac chuc nang sua va xoa co hien thi hay ko
         public CompanyControl()
         {
             InitializeComponent();
             txtName.GotFocus += txtName_GotFocus;
             txtCode.GotFocus += txtCode_GotFocus;
-            DBEngine.Server = Khoidau.Servername;
-            DBEngine.User = Khoidau.User;
-            DBEngine.Password = Khoidau.Password;
-            DBEngine.Database = Khoidau.Dtname;
-            
+            this.Leave += CompanyControl_MouseLeave;
         }
 
         void CompanyControl_MouseLeave(object sender, EventArgs e)
@@ -84,14 +79,14 @@ namespace TestDesigner
             {
 
                 string ma = tentable.Substring(3);
-                DataTable dttemp =DBEngine.execReturnDataTable(String.Format("Select * from {0} where {1}Code ='{2}' and {1}ID<>{3}", tentable, ma, txtCode.Text, ID));
+                DataTable dttemp = Khoidau.DBEngine.execReturnDataTable(String.Format("Select * from {0} where {1}Code ='{2}' and {1}ID<>{3}", tentable, ma, txtCode.Text, ID));
                 if (dttemp.Rows.Count <= 0)
                 {
                     DialogResult r;
                     r = MessageBox.Show("Dữ liệu đã thay đổi. Bạn có muốn cập nhật?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                     if (r == DialogResult.Yes)
                     {
-                       DBEngine.exec(String.Format("Update {0} set {1}Code ='{2}',{1}Name=N'{3}' where {1}ID= {4}", tentable, ma, txtCode.Text, txtName.Text, ID));
+                        Khoidau.DBEngine.exec(String.Format("Update {0} set {1}Code ='{2}',{1}Name=N'{3}' where {1}ID= {4}", tentable, ma, txtCode.Text, txtName.Text, ID));
                         MessageBox.Show("Lưu thành công");
                         panelControl1.Visible = false;
                         txtCode.ReadOnly = true;
@@ -108,14 +103,14 @@ namespace TestDesigner
         public void btnDel_Click(object sender, EventArgs e)
         {
             string ma = tentable.Substring(3);
-            DataTable dttemp =DBEngine.execReturnDataTable(String.Format("Select * from {0} where {1}Code ='{2}'", tentable, ma, txtCode.Text));
+            DataTable dttemp = Khoidau.DBEngine.execReturnDataTable(String.Format("Select * from {0} where {1}Code ='{2}'", tentable, ma, txtCode.Text));
             if (dttemp.Rows.Count > 0)
             {
                 DialogResult r;
                 r = MessageBox.Show("Bạn chắc chắn muốn xóa", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                 if (r == DialogResult.Yes)
                 {
-                   DBEngine.exec(String.Format("Delete from {0} where {1}ID= {2}", tentable, ma, this.ID));
+                    Khoidau.DBEngine.exec(String.Format("Delete from {0} where {1}ID= {2}", tentable, ma, this.ID));
                     this.Enabled = false;//Tin hieu cho FormLoadCompanyTree load lai tree
                 }
             }
