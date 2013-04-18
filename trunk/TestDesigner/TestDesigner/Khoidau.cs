@@ -9,8 +9,8 @@ namespace TestDesigner
 {
     class Khoidau
     {
-        //public static HPA.SQL.EzSql2 DBEngine = new EzSql2(".", "TestP4", "sa", "LuaThiengFree");
-        public static HPA.SQL.EzSql2 DBEngine = new EzSql2("svrvts", "Paradise_Res", "sa", "LuaThieng1@3");
+        public static HPA.SQL.EzSql2 DBEngine = new EzSql2(".", "TestP4", "sa", "LuaThiengFree");
+        //public static HPA.SQL.EzSql2 DBEngine = new EzSql2("svrvts", "Paradise_Res", "sa", "LuaThieng1@3");
         //void LoadData2()
         //{
         //    int ngang = 0;
